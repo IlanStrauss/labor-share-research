@@ -63,7 +63,7 @@
 | Corporate Profits | 10.2% | ~9% | 11.5% | +1.3 pp |
 | Rental Income | 5.8% | ~2% | 3.7% | -2.1 pp |
 | Net Interest | 3.9% | ~4% | 2.1% | -1.8 pp |
-| **Depreciation (CFC)** | **10.0%** | **~11%** | **16.5%** | **+6.5 pp** |
+| **Depreciation (CFC)** | **10.0%** | **~13%** | **16.5%** | **+6.5 pp** |
 | Taxes on Production | 6.6% | ~7% | 6.7% | +0.1 pp |
 
 *Source: BEA NIPA Table 1.11, accessed via FRED (January 2026)*
