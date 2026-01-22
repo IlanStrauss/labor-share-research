@@ -29,6 +29,35 @@
 - **Red (Net, depreciation-adjusted):** Shows labor share has *increased*
 - **Purple (with proprietors' income):** Shows modest decline
 
+### Key Concepts: What Are We Actually Measuring?
+
+Before diving into the findings, it's important to understand what these income categories mean:
+
+**Employee Compensation** is the total cost to employers of employing workers. It includes:
+- **Wages and salaries** — cash payments to workers (42.8% of GDI in 2024)
+- **Supplements** — employer contributions to health insurance, pensions, payroll taxes (9.1% of GDI in 2024)
+
+This is the cleanest measure of "labor income" because it's unambiguously payment for work. When economists say "labor share," they typically mean employee compensation as a share of total income.
+
+**Proprietors' Income** is the earnings of self-employed individuals — small business owners, farmers, freelancers, gig workers, doctors in private practice, lawyers, etc. (7.0% of GDI in 2024).
+
+*The problem:* Proprietors' income is a **mix of labor and capital**. A self-employed plumber earns money partly from their labor (doing the work) and partly from their capital (the van, tools, business reputation). National accounts cannot separate these, so proprietors' income sits awkwardly between labor and capital.
+
+This matters because:
+- In 1929, proprietors' income was 13.5% of GDI (farmers, shopkeepers, craftsmen)
+- By 2024, it's just 7.0% (shift to wage employment)
+- If you count all proprietors' income as labor, the "labor share" looks higher
+- If you exclude it, you miss a large chunk of actual labor income
+
+**Capital Income** includes:
+- **Corporate profits** — earnings of corporations after paying workers (11.5% of GDI)
+- **Net interest** — interest payments minus interest receipts (2.1% of GDI)
+- **Rental income** — income from property ownership (3.7% of GDI)
+
+**Depreciation (Consumption of Fixed Capital)** is *not* income to anyone — it's an accounting allowance for the wearing out of capital equipment. A factory's machines lose value over time; depreciation captures this. It's included in GDP/GDI but cannot be consumed. (16.5% of GDI in 2024, up from 10% in 1929)
+
+---
+
 ### Understanding the Key Findings
 
 **1. Gross labor share increased from 1929 to 2024 (+2.4 pp)**
