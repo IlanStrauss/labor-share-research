@@ -4,16 +4,19 @@
 
 **The "declining labor share" narrative is highly measurement-sensitive.** Different measurement approaches yield dramatically different conclusions about whether labor's share of national income has declined.
 
-> ⚠️ **GDP vs GDI: Why This Note Uses GDI**
->
-> This analysis uses **Gross Domestic Income (GDI)** shares, not GDP. Why?
->
-> - **GDI = GDP by definition** (income approach = expenditure approach), but in practice they differ by a "statistical discrepancy" (typically <1% of GDP)
-> - The BEA series we cite (compensation, depreciation, profits, etc.) are explicitly **"shares of GDI"** — that's how the income-side accounts are constructed
-> - For labor share analysis, GDI is more natural because it decomposes *income by type* (wages, profits, rent, depreciation)
-> - GDP-based labor shares require dividing a GDI component (compensation) by a potentially different total (GDP), introducing measurement noise
->
-> **Bottom line:** When the statistical discrepancy is positive (GDI > GDP), our GDI-based labor share is *slightly lower* than a GDP-based measure would be, and vice versa. The difference is typically small (<0.5 pp) and doesn't change the qualitative conclusions.
+### Why This Note Uses GDI, Not GDP
+
+When measuring labor's share of national income, we must choose a denominator: **GDP** (Gross Domestic Product) or **GDI** (Gross Domestic Income). This note uses GDI. Here's why.
+
+**GDP measures production; GDI measures income.** In theory, they should be identical—every dollar of output generates a dollar of income. In practice, they differ by a "statistical discrepancy" arising from measurement error (typically <1% of GDP, occasionally larger).
+
+**Labor share data comes from the income side.** The BEA series we use—compensation of employees, corporate profits, proprietors' income, depreciation—are all components of GDI. When FRED reports "Shares of gross domestic income: Compensation of employees," it is literally computing `Compensation / GDI`. The data is *constructed* as GDI shares.
+
+**Using GDP as denominator introduces noise.** If you compute `Compensation / GDP` instead of `Compensation / GDI`, you're dividing an income-side numerator by an expenditure-side denominator. When GDP > GDI (negative statistical discrepancy), you'll get a *lower* labor share than the true income-based measure. When GDP < GDI (positive discrepancy), you'll get a *higher* one. Neither reflects the actual income distribution—it just reflects measurement error in the accounts.
+
+**The practical impact is small but real.** For most years, the difference is <0.5 percentage points. But for transparency, we use the measure that matches how the data is actually constructed: GDI.
+
+> **Summary:** Labor share = Compensation / GDI. Both numerator and denominator come from the income-side accounts. Using GDP instead would introduce measurement noise from the statistical discrepancy without adding information.
 
 > 📊 **Sector Scope: Whole Economy vs Business Sector**
 >
