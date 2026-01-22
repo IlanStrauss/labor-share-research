@@ -1,8 +1,33 @@
-# U.S. Labor Share of GDP: A Methodological Research Note (Claude Code)
+# U.S. Labor Share of GDI (Whole Economy): A Methodological Research Note
 
-## Executive Summary (To be filled)
+## Executive Summary
 
-**The "declining labor share" narrative is methodologically sensitive.** Different measurement approaches yield dramatically different conclusions about whether labor's share of national income has declined.
+**The "declining labor share" narrative is highly measurement-sensitive.** Different measurement approaches yield dramatically different conclusions about whether labor's share of national income has declined.
+
+> ⚠️ **GDP vs GDI: Why This Note Uses GDI**
+>
+> This analysis uses **Gross Domestic Income (GDI)** shares, not GDP. Why?
+>
+> - **GDI = GDP by definition** (income approach = expenditure approach), but in practice they differ by a "statistical discrepancy" (typically <1% of GDP)
+> - The BEA series we cite (compensation, depreciation, profits, etc.) are explicitly **"shares of GDI"** — that's how the income-side accounts are constructed
+> - For labor share analysis, GDI is more natural because it decomposes *income by type* (wages, profits, rent, depreciation)
+> - GDP-based labor shares require dividing a GDI component (compensation) by a potentially different total (GDP), introducing measurement noise
+>
+> **Bottom line:** When the statistical discrepancy is positive (GDI > GDP), our GDI-based labor share is *slightly lower* than a GDP-based measure would be, and vice versa. The difference is typically small (<0.5 pp) and doesn't change the qualitative conclusions.
+
+> 📊 **Sector Scope: Whole Economy vs Business Sector**
+>
+> This analysis uses **whole-economy GDI shares**, which include:
+> - Government sector (employees paid by government)
+> - Housing sector (imputed rent from owner-occupied housing)
+> - All industries and legal forms
+>
+> Much of the academic literature focuses on the **nonfinancial corporate sector** or **nonfarm business sector** only, which:
+> - Shows a *clearer decline* in labor share (~5 pp since 1975 per Karabarbounis & Neiman)
+> - Avoids proprietors' income imputation issues
+> - Excludes government and housing
+>
+> **Our whole-economy approach is intentional:** it captures total income distribution including self-employment, but readers should note that corporate-sector-only measures tell a more negative story for labor.
 
 ---
 
@@ -13,9 +38,9 @@
 | **Gross labor share (compensation/GDI) increased** from 49.5% (1929) to 51.9% (2024) | The long-run trend is *up*, not down |
 | **Decline is real from 1970 peak** (58.4%) to 2024 (51.9%) | ~6.5 pp decline over 54 years |
 | **Net labor share has *increased*** when accounting for rising depreciation | Depreciation rose from 10% to 16.5% of GDI |
-| **Wages fell but benefits rose more** | Wages: 48.6% → 42.8%; Benefits: 0.9% → 9.1% |
+| **Wages fell but benefits rose** | Wages: 48.6% → 42.8%; Benefits: 0.9% → 9.1% (reflects cost inflation, not necessarily higher real compensation) |
 | **Proprietors' income collapsed** from 13.5% to 7.0% | Confounds labor share measurement |
-| **Corporate profits rose modestly** from 10.2% to 11.5% | +1.3 pp over 95 years |
+| **Corporate profits (with IVA+CCAdj) rose modestly** from 10.2% to 11.5% | +1.3 pp over 95 years; other profit concepts may differ |
 
 ---
 
@@ -70,11 +95,13 @@ Labor share peaked at 58.4% in 1970 and has declined since. This coincides with 
 
 #### 3. Net labor share has *increased* when adjusting for depreciation
 
-This is the most important and counterintuitive finding. When you subtract depreciation (which cannot be consumed) from the denominator, labor's share of *distributable* income has actually risen. See calculation below.
+This is a counterintuitive finding. When you subtract depreciation from the denominator, labor's share of *net* income has risen. This matters because depreciation represents the cost of maintaining the capital stock—though note that depreciation is an accounting concept and the economy *can* consume by running down capital in the short run. See calculation below.
 
-#### 4. Wages fell but benefits rose more
+#### 4. Wages fell but benefits rose
 
-Wages alone fell from 48.6% to 42.8% of GDI (-5.8 pp), but employer-provided benefits (health insurance, retirement contributions) rose from 0.9% to 9.1% (+8.2 pp). Total compensation rose. The shift reflects rising healthcare costs being absorbed by employers rather than a loss to workers.
+Wages alone fell from 48.6% to 42.8% of GDI (-5.8 pp), but employer-provided benefits (health insurance, retirement contributions) rose from 0.9% to 9.1% (+8.2 pp). Measured total compensation rose.
+
+**Important caveat:** This shift partly reflects **cost inflation** (especially healthcare) rather than increased real compensation to workers. A larger share going to health insurance premiums doesn't necessarily mean workers are better off—it may mean healthcare became more expensive.
 
 #### 5. Proprietors' income collapsed (13.5% → 7.0%)
 
@@ -114,7 +141,7 @@ Net Labor Share   = Compensation / (GDI − Depreciation)
 - Rise of intellectual property products (IPP) — R&D, software, entertainment
 - More capital-intensive economy overall
 
-**The implication:** If you care about what workers can actually consume (welfare), use net. If you care about production function parameters, use gross.
+**The implication:** If you care about *sustainable* income (without running down the capital stock), net measures are informative—though depreciation is an accounting construct, not a literal cash flow. If you care about production function parameters, use gross.
 
 ---
 
@@ -124,21 +151,25 @@ Net Labor Share   = Compensation / (GDI − Depreciation)
 
 | If You're Studying... | Recommended Measure | Why |
 |-----------------------|---------------------|-----|
-| **Aggregate welfare / living standards** | **Net Labor Share** (red line) | Depreciation can't be consumed; net income is what's available for households |
+| **Sustainable income distribution** | **Net Labor Share** (red line) | Closer to income available without decumulating capital (but depreciation is an accounting concept) |
 | **Corporate bargaining power / markups** | **Corporate sector only** | Avoids proprietors' income imputation; cleanest labor vs capital split |
 | **Long-run structural change** | **BEA Gross with proprietors' adjustment** (purple) | Accounts for shift from self-employment to wage employment |
 | **International comparisons** | **Penn World Table** (green) | Standardized methodology across countries |
 | **Short-run cyclical dynamics** | **BLS Nonfarm Business** | Quarterly frequency, timely release |
 | **Globalization / profit shifting** | **GNI-based measure** | Attributes income to residents, not production location |
 
-### Our Recommended Default: Net Labor Share
+### A Case for Net Labor Share (With Caveats)
 
-For most policy discussions about "whether workers are getting their fair share," we recommend the **Net Labor Share** (red line) because:
+For policy discussions about "whether workers are getting their fair share," the **Net Labor Share** (red line) offers a useful perspective:
 
-1. **Depreciation is not income** — it's the cost of maintaining the capital stock
-2. **Rising depreciation explains most of the "decline"** — from 10% (1929) to 16.5% (2024) of GDI
-3. **Net measures show stability or increase** — contradicting the declinist narrative
-4. **Better welfare interpretation** — reflects income actually available for consumption
+1. **Rising depreciation explains much of the gross "decline"** — from 10% (1929) to 16.5% (2024) of GDI
+2. **Net measures show stability or increase** — a different story than the declinist narrative
+3. **Closer to sustainable income** — net measures approximate income available *without running down the capital stock*
+
+**Important caveats:**
+- Depreciation is an *imputed accounting concept*, not a literal cash outflow — in the short run, an economy *can* consume by running down capital
+- IPP/intangibles depreciation is especially measurement-sensitive and subject to revision
+- The net framing is *one* valid lens, not the definitively "correct" measure
 
 However, if your focus is specifically on **corporate power and markups**, the corporate sector gross measure is more appropriate since it directly measures the labor-capital split without imputation issues.
 
@@ -228,7 +259,7 @@ The standard **Gross Labor Share** (blue line) is appropriate when:
 | 1990 | 57.0% | |
 | 2000 | 56.6% | |
 | 2010 | 53.0% | Post-GFC |
-| 2020 | 54.6% | COVID (transfer payments) |
+| 2020 | 54.6% | COVID (profits fell, raising compensation's relative share) |
 | 2024 | 51.9% | Latest |
 
 *Source: BEA via FRED (A4002E1A156NBEA)*
@@ -506,6 +537,14 @@ This explains why **depreciation rose from 10% to 16.5% of GDI**—the economy s
 ### Data Access
 
 All data used in this analysis is publicly available through FRED (Federal Reserve Economic Data). Key series:
+
+> ⚠️ **Reproducibility Warning: FRED Endpoint Lag**
+>
+> The FRED **series pages** (e.g., `/series/A262RE1A156NBEA`) may show the most recent year (2024), while the **table download endpoints** (e.g., `/data/A262RE1A156NBEA.txt`) sometimes lag by one year. This means:
+> - Our 2024 figures were verified against the FRED series pages (January 2026)
+> - Scripts that pull from the `.txt` table endpoints may silently return 2023 as "latest"
+>
+> **Recommendation:** For reproducibility, either (1) use the FRED API with explicit date ranges, or (2) download directly from [BEA NIPA Table 1.11](https://apps.bea.gov/iTable/?reqid=19&step=2&isuri=1&categories=survey&_gl=1*nkh4b9*_ga*MTgxMDA2MDU3OC4xNzM0NTY0Mzc5*_ga_J4698JNNFT*MTczNzU3MDQyOS4xNC4wLjE3Mzc1NzA0MjkuNjAuMC4w#eyJhcHBpZCI6MTksInN0ZXBzIjpbMSwyLDMsM10sImRhdGEiOltbImNhdGVnb3JpZXMiLCJTdXJ2ZXkiXSxbIk5JUEFfVGFibGVfTGlzdCIsIjExIl0sWyJGaXJzdF9ZZWFyIiwiMTkyOSJdLFsiTGFzdF9ZZWFyIiwiMjAyNCJdLFsiU2NhbGUiLCIwIl0sWyJTZXJpZXMiLCJBIl1dfQ==), which provides the authoritative source.
 
 ```
 # BEA Compensation Share

@@ -73,7 +73,7 @@ ax.annotate('Post-2008\nDecline', xy=(2010, 53), xytext=(2015, 48),
 # Formatting
 ax.set_xlabel('Year', fontsize=12, fontweight='bold')
 ax.set_ylabel('Labor Share (%)', fontsize=12, fontweight='bold')
-ax.set_title('U.S. Labor Share of GDP: Multiple Measurement Approaches (1929-2024)',
+ax.set_title('U.S. Labor Share of GDI (Whole Economy): Multiple Measurement Approaches (1929-2024)',
              fontsize=14, fontweight='bold', pad=20)
 
 ax.set_xlim(1925, 2028)
