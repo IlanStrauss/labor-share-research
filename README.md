@@ -50,6 +50,18 @@
 
 ---
 
+## 📈 Labor Share Over Time: Multiple Measures
+
+![U.S. Labor Share Comparison Chart](labor_share_comparison.png)
+
+**Key Takeaway:** The story you tell depends on how you measure:
+- **Blue (Gross BEA):** Shows decline from 1970 peak, but higher than 1929
+- **Green (Penn World Table):** Similar pattern, different methodology
+- **Red (Net, depreciation-adjusted):** Shows labor share has *increased*
+- **Purple (with proprietors' income):** Shows modest decline
+
+---
+
 ## 📊 Data Tables
 
 ### BEA Table 1.11: Percentage Shares of Gross Domestic Income
@@ -195,14 +207,14 @@ Focus exclusively on corporate sector to avoid proprietors' income imputation.
 
 | Paper | Key Argument |
 |-------|--------------|
-| **Karabarbounis & Neiman (2014)** | Global labor share declined ~5 pp since 1975; driven by falling price of investment goods |
-| **Gollin (2002)** | Self-employment income adjustment eliminates apparent cross-country differences |
-| **Rognlie (2015)** | Most of capital share increase is housing; net capital share stable |
-| **Bridgman (2018)** | Net labor share shows minimal decline when accounting for depreciation |
-| **Koh et al. (2020)** | IPP capitalization (post-2013 NIPA revision) explains entire decline |
-| **Barkai (2020)** | Both labor AND capital shares declined; pure profits (markups) increased |
-| **Autor et al. (2020)** | "Superstar firms" with low labor shares capture increasing market share; IT-driven |
-| **Nallareddy & Ogneva (2024)** | IPP effect offset by depreciation; labor share decline is real |
+| [**Karabarbounis & Neiman (2014)**](https://academic.oup.com/qje/article-abstract/129/1/61/1899422) | Global labor share declined ~5 pp since 1975; driven by falling price of investment goods |
+| [**Gollin (2002)**](https://www.jstor.org/stable/10.1086/338747) | Self-employment income adjustment eliminates apparent cross-country differences |
+| [**Rognlie (2015)**](https://www.brookings.edu/articles/deciphering-the-fall-and-rise-in-the-net-capital-share/) | Most of capital share increase is housing; net capital share stable |
+| [**Bridgman (2018)**](https://www.cambridge.org/core/journals/macroeconomic-dynamics/article/is-labors-loss-capitals-gain-gross-versus-net-labor-shares/5D054E4F6B7D6C2D7F0E7D0A9D8B7C6A) | Net labor share shows minimal decline when accounting for depreciation |
+| [**Koh et al. (2020)**](https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA17477) | IPP capitalization (post-2013 NIPA revision) explains entire decline |
+| [**Barkai (2020)**](https://onlinelibrary.wiley.com/doi/abs/10.1111/jofi.12909) | Both labor AND capital shares declined; pure profits (markups) increased |
+| [**Autor et al. (2020)**](https://academic.oup.com/qje/article/135/2/645/5721266) | "Superstar firms" with low labor shares capture increasing market share; IT-driven |
+| [**Nallareddy & Ogneva (2024)**](https://www.sciencedirect.com/science/article/abs/pii/S1094202524000577) | IPP effect offset by depreciation; labor share decline is real |
 
 ### Key Debates
 
