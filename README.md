@@ -29,22 +29,35 @@
 - **Red (Net, depreciation-adjusted):** Shows labor share has *increased*
 - **Purple (with proprietors' income):** Shows modest decline
 
+### Understanding the Key Findings
+
+**1. Gross labor share increased from 1929 to 2024 (+2.4 pp)**
+
+Contrary to popular belief, employee compensation as a share of GDP is *higher* today (51.9%) than in 1929 (49.5%). The "declining labor share" narrative typically cherry-picks the 1970 peak as a starting point.
+
+**2. The decline from the 1970 peak is real (~6.5 pp)**
+
+Labor share peaked at 58.4% in 1970 and has declined since. This coincides with declining unionization, globalization, and the rise of automation. However, whether this represents a problem depends on your baseline expectation.
+
+**3. Net labor share has *increased* when adjusting for depreciation**
+
+This is the most important and counterintuitive finding. When you subtract depreciation (which cannot be consumed) from the denominator, labor's share of *distributable* income has actually risen. See calculation below.
+
+**4. Wages fell but benefits rose more**
+
+Wages alone fell from 48.6% to 42.8% of GDI (-5.8 pp), but employer-provided benefits (health insurance, retirement contributions) rose from 0.9% to 9.1% (+8.2 pp). Total compensation rose. The shift reflects rising healthcare costs being absorbed by employers rather than a loss to workers.
+
+**5. Proprietors' income collapsed (13.5% → 7.0%)**
+
+The share of income going to self-employed individuals (farmers, small business owners, freelancers) fell dramatically. This confounds measurement because proprietors' income is part labor, part capital. The decline largely reflects the shift from self-employment to wage employment, not a loss to workers.
+
+**6. Corporate profits rose modestly (+1.3 pp)**
+
+Despite narratives about soaring corporate profits, the increase from 10.2% to 11.5% of GDI over 95 years is modest. The bigger story is the rise in depreciation, not profits.
+
 ---
 
-## 🎯 Which Measure Should You Use?
-
-**There is no single "correct" measure.** The right choice depends on your research question:
-
-| If You're Studying... | Recommended Measure | Why |
-|-----------------------|---------------------|-----|
-| **Aggregate welfare / living standards** | **Net Labor Share** (red line) | Depreciation can't be consumed; net income is what's available for households |
-| **Corporate bargaining power / markups** | **Corporate sector only** | Avoids proprietors' income imputation; cleanest labor vs capital split |
-| **Long-run structural change** | **BEA Gross with proprietors' adjustment** (purple) | Accounts for shift from self-employment to wage employment |
-| **International comparisons** | **Penn World Table** (green) | Standardized methodology across countries |
-| **Short-run cyclical dynamics** | **BLS Nonfarm Business** | Quarterly frequency, timely release |
-| **Globalization / profit shifting** | **GNI-based measure** | Attributes income to residents, not production location |
-
-### Why Rising Depreciation Matters: A Numerical Example
+### Why the Red Line (Net) Diverges: The Depreciation Story
 
 The key insight is that **depreciation has grown faster than any other income category**, mechanically pushing down the gross labor share even when the net share is stable or rising.
 
@@ -75,6 +88,19 @@ Net Labor Share   = Compensation / (GDI − Depreciation)
 **The implication:** If you care about what workers can actually consume (welfare), use net. If you care about production function parameters, use gross.
 
 ---
+
+## 🎯 Which Measure Should You Use?
+
+**There is no single "correct" measure.** The right choice depends on your research question:
+
+| If You're Studying... | Recommended Measure | Why |
+|-----------------------|---------------------|-----|
+| **Aggregate welfare / living standards** | **Net Labor Share** (red line) | Depreciation can't be consumed; net income is what's available for households |
+| **Corporate bargaining power / markups** | **Corporate sector only** | Avoids proprietors' income imputation; cleanest labor vs capital split |
+| **Long-run structural change** | **BEA Gross with proprietors' adjustment** (purple) | Accounts for shift from self-employment to wage employment |
+| **International comparisons** | **Penn World Table** (green) | Standardized methodology across countries |
+| **Short-run cyclical dynamics** | **BLS Nonfarm Business** | Quarterly frequency, timely release |
+| **Globalization / profit shifting** | **GNI-based measure** | Attributes income to residents, not production location |
 
 ### Our Recommended Default: Net Labor Share
 
