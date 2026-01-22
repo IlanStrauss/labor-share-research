@@ -201,6 +201,8 @@ Focus exclusively on corporate sector to avoid proprietors' income imputation.
 | **Bridgman (2018)** | Net labor share shows minimal decline when accounting for depreciation |
 | **Koh et al. (2020)** | IPP capitalization (post-2013 NIPA revision) explains entire decline |
 | **Barkai (2020)** | Both labor AND capital shares declined; pure profits (markups) increased |
+| **Autor et al. (2020)** | "Superstar firms" with low labor shares capture increasing market share; IT-driven |
+| **Nallareddy & Ogneva (2024)** | IPP effect offset by depreciation; labor share decline is real |
 
 ### Key Debates
 
@@ -220,6 +222,108 @@ Focus exclusively on corporate sector to avoid proprietors' income imputation.
    - Gross vs net distinction crucial
    - Benefits vs wages distinction matters
    - Distribution within labor income may matter more
+
+---
+
+## 💻 The Role of IT, Software, and Digital Business Models
+
+### The Superstar Firms Hypothesis
+
+[Autor, Dorn, Katz, Patterson & Van Reenen (2020)](https://academic.oup.com/qje/article-abstract/135/2/645/5721266) propose that the labor share decline is driven by the **rise of "superstar firms"**—highly productive companies that capture increasing market share while employing relatively few workers.
+
+**Key Findings:**
+- Labor's share of U.S. output fell from ~67% to ~61% during 1982-2012
+- In retail, the top 4 firms went from <15% of sales (1982) to ~30% (2012)
+- The decline is **between-firm reallocation**, not within-firm decline
+- "Superstar firms with low labor shares are capturing an ever greater share of the market"
+
+**The IT Connection:**
+> "The documented fact pattern is consistent with scale-biased technological changes in which larger firms benefit disproportionately from information technology advances, such as falling computer software or hardware prices, and are thus able to increase their market shares."
+
+### Software as a Labor Substitute
+
+Research using Korean firm-level data ([CEPR VoxEU](https://cepr.org/voxeu/columns/softwares-impact-labours-income-share-new-evidence)) shows:
+
+| Capital Type | Relationship to Labor |
+|--------------|----------------------|
+| Equipment capital | **Complement** (more equipment → more workers) |
+| Software capital | **Substitute** (more software → fewer workers) |
+
+**Impact:** Software accounts for **~2/3 of the 4.4 pp decline** in Korea's labor share (1990-2018).
+
+### Intellectual Property Products (IPP) Capital
+
+The post-2013 NIPA revision capitalized intellectual property products (software, R&D, entertainment originals), which changes how we measure the economy:
+
+| Measure | 1998 | 2016 | Change |
+|---------|------|------|--------|
+| IPP share of net capital stock | 5.7% | 7.3% | +33% |
+
+**The Debate:**
+- [Koh et al. (2020)](https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA17477): IPP capitalization "entirely explains" the labor share decline
+- [Nallareddy & Ogneva (2024)](https://www.sciencedirect.com/science/article/abs/pii/S1094202524000577): IPP investment is offset by depreciation; decline is real
+
+### Tech Giants: Extreme Labor Efficiency
+
+Modern tech companies generate extraordinary revenue with minimal labor, contributing to aggregate labor share decline when they grow:
+
+| Company | Gross Margin | Revenue/Employee | Profit/Employee |
+|---------|--------------|------------------|-----------------|
+| **Meta** | 82% | ~$1.5M | $842K |
+| **Apple** | 46% | $2.38M | High |
+| **Google** | 58% | ~$1.5M | High |
+| **Nvidia** | ~65% | $3.6M | $2M |
+| **Amazon** | ~45% | Lower | $20K |
+| **Walmart** | ~25% | Lowest | $7K |
+
+*Sources: [MacroTrends](https://www.macrotrends.net/stocks/charts/META/meta-platforms/profit-margins), [TrueUp](https://www.trueup.io/revenue-per-employee), [Digital Information World](https://www.digitalinformationworld.com/2025/06/which-tech-giants-generate-the-most-revenue-per-employee.html)*
+
+### The Digital Advertising Model
+
+Digital advertising (Google, Meta) represents an extreme case of low labor intensity:
+- **High margins**: 80%+ gross margins
+- **Scale without labor**: Software serves billions with thousands of employees
+- **Network effects**: Winner-take-most dynamics
+- **Intangible assets**: Value is in algorithms, data, brand—not physical capital or workers
+
+### Depreciation and IT
+
+IT/software capital depreciates much faster than traditional capital:
+
+| Asset Type | Typical Depreciation Rate |
+|------------|--------------------------|
+| Structures (buildings) | 2-3% per year |
+| Equipment (machines) | 5-15% per year |
+| Software | 25-33% per year |
+| R&D | 15-25% per year |
+
+This explains why **depreciation rose from 10% to 16.5% of GDI**—the economy shifted toward faster-depreciating assets.
+
+### Quantifying IT's Contribution
+
+| Study | IT/Technology Contribution to Labor Share Decline |
+|-------|--------------------------------------------------|
+| Autor et al. (2020) | Superstar effect explains majority of between-firm decline |
+| Korean study (CEPR) | Software explains ~2/3 of decline |
+| IMF | Falling investment prices (IT proxy) explain ~50% in advanced economies |
+| McKinsey | Technology + automation: largest single factor |
+| Karabarbounis & Neiman | Falling relative price of capital (IT-driven) is primary driver |
+
+### Implications
+
+1. **The labor share decline is concentrated in high-tech sectors** and firms with IT-intensive business models
+
+2. **Traditional measures may understate the shift** because:
+   - IPP is harder to value than physical capital
+   - Depreciation accounting for software is imprecise
+   - Multinational profit shifting distorts geographic attribution
+
+3. **The trend may accelerate** as AI/ML enables even greater automation and scale without proportional labor
+
+4. **Policy implications** differ depending on interpretation:
+   - If it's about market power → antitrust
+   - If it's about technology → education/training/redistribution
+   - If it's measurement → improve national accounts
 
 ---
 
@@ -250,6 +354,10 @@ Focus exclusively on corporate sector to avoid proprietors' income imputation.
 - Barkai, S. (2020). "Declining Labor and Capital Shares." *Journal of Finance*, 75(5), 2421-2463.
 
 - Cette, G., Koehl, L., & Philippon, T. (2019). "Labor Shares in Some Advanced Economies." NBER Working Paper 26136.
+
+- Autor, D., Dorn, D., Katz, L., Patterson, C., & Van Reenen, J. (2020). "The Fall of the Labor Share and the Rise of Superstar Firms." *Quarterly Journal of Economics*, 135(2), 645-709. [NBER WP 23396](https://www.nber.org/papers/w23396)
+
+- Nallareddy, S., & Ogneva, M. (2024). "Capitalization of Intellectual Property Products Does Not Explain the Decline in the Labor Share." *Journal of Monetary Economics*. [ScienceDirect](https://www.sciencedirect.com/science/article/abs/pii/S1094202524000577)
 
 ### Online Resources
 
@@ -320,4 +428,5 @@ Research note compiled January 2026.
 
 ## 📝 Changelog
 
+- **v1.1** (January 2026): Added section on IT, software, and superstar firms; added Autor et al. (2020) and Nallareddy & Ogneva (2024) to literature review
 - **v1.0** (January 2026): Initial research note with BEA and Penn World Table data
