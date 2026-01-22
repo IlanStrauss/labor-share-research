@@ -1,6 +1,6 @@
-# U.S. Labor Share of GDP: A Methodological Research Note
+# U.S. Labor Share of GDP: A Methodological Research Note (Claude Code)
 
-## Executive Summary
+## Executive Summary (To be filled)
 
 **The "declining labor share" narrative is methodologically sensitive.** Different measurement approaches yield dramatically different conclusions about whether labor's share of national income has declined.
 
@@ -430,3 +430,4 @@ Research note compiled January 2026.
 
 - **v1.1** (January 2026): Added section on IT, software, and superstar firms; added Autor et al. (2020) and Nallareddy & Ogneva (2024) to literature review
 - **v1.0** (January 2026): Initial research note with BEA and Penn World Table data
+
