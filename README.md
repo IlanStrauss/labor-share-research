@@ -44,6 +44,38 @@
 | **Short-run cyclical dynamics** | **BLS Nonfarm Business** | Quarterly frequency, timely release |
 | **Globalization / profit shifting** | **GNI-based measure** | Attributes income to residents, not production location |
 
+### Why Rising Depreciation Matters: A Numerical Example
+
+The key insight is that **depreciation has grown faster than any other income category**, mechanically pushing down the gross labor share even when the net share is stable or rising.
+
+**The Math:**
+
+```
+Gross Labor Share = Compensation / GDI
+Net Labor Share   = Compensation / (GDI − Depreciation)
+```
+
+| Year | Compensation | Depreciation | GDI | Gross LS | Net Income | Net LS |
+|------|--------------|--------------|-----|----------|------------|--------|
+| 1929 | 49.5 | 10.0 | 100 | **49.5%** | 90.0 | **55.0%** |
+| 2024 | 51.9 | 16.5 | 100 | **51.9%** | 83.5 | **62.2%** |
+| *Change* | *+2.4* | *+6.5* | — | *+2.4 pp* | *−6.5* | *+7.2 pp* |
+
+**What happened:**
+- Compensation's share of GDI actually **rose** (+2.4 pp)
+- But depreciation rose **even faster** (+6.5 pp)
+- This shrinks the "pie" available for distribution (Net Income fell from 90 to 83.5)
+- Labor's share of this smaller pie **increased substantially** (+7.2 pp)
+
+**Why depreciation rose:**
+- Shift from long-lived assets (buildings: 2-3% depreciation/year) to short-lived assets (software: 25-33%/year)
+- Rise of intellectual property products (IPP) — R&D, software, entertainment
+- More capital-intensive economy overall
+
+**The implication:** If you care about what workers can actually consume (welfare), use net. If you care about production function parameters, use gross.
+
+---
+
 ### Our Recommended Default: Net Labor Share
 
 For most policy discussions about "whether workers are getting their fair share," we recommend the **Net Labor Share** (red line) because:
