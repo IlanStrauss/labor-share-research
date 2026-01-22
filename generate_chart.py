@@ -66,7 +66,7 @@ ax.annotate('1970 Peak', xy=(1970, 58.4), xytext=(1972, 54),
             fontsize=9, color='#2563eb',
             arrowprops=dict(arrowstyle='->', color='#2563eb', lw=1.5))
 
-ax.annotate('Post-2008\nDecline', xy=(2010, 53), xytext=(2003, 48),
+ax.annotate('Post-2008\nDecline', xy=(2010, 53), xytext=(2015, 48),
             fontsize=9, color='#2563eb',
             arrowprops=dict(arrowstyle='->', color='#2563eb', lw=1.5))
 
@@ -84,19 +84,18 @@ ax.yaxis.set_major_formatter(mtick.PercentFormatter(decimals=0))
 ax.legend(loc='upper left', fontsize=10, framealpha=0.95)
 
 # Add source note
-fig.text(0.5, 0.02,
+fig.text(0.5, 0.01,
          'Sources: BEA NIPA Table 1.11 (FRED: A4002E1A156NBEA, A262RE1A156NBEA, A041RE1A156NBEA); '
          'Penn World Table 10.01 (FRED: LABSHPUSA156NRUG)',
-         ha='center', fontsize=8, color='gray', style='italic')
+         ha='center', fontsize=9, color='#444')
 
-# Add methodology note
-note_text = """Key: Gross = Compensation/GDI; Net = Compensation/(GDI−Depreciation);
-Adjusted = Compensation + ⅔×Proprietors' Income"""
-fig.text(0.98, 0.15, note_text, ha='right', fontsize=8, color='gray',
-         bbox=dict(boxstyle='round', facecolor='white', alpha=0.8))
+# Add methodology note - positioned below chart in source area
+note_text = "Key: Gross = Compensation/GDI  |  Net = Compensation/(GDI−Depreciation)  |  Adjusted = Comp. + ⅔×Proprietors' Income"
+fig.text(0.5, 0.05, note_text, ha='center', fontsize=8, color='#555',
+         style='italic')
 
 plt.tight_layout()
-plt.subplots_adjust(bottom=0.08)
+plt.subplots_adjust(bottom=0.12)
 
 # Save
 plt.savefig('labor_share_comparison.png', dpi=150, bbox_inches='tight',

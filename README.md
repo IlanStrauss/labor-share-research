@@ -31,6 +31,40 @@
 
 ---
 
+## 🎯 Which Measure Should You Use?
+
+**There is no single "correct" measure.** The right choice depends on your research question:
+
+| If You're Studying... | Recommended Measure | Why |
+|-----------------------|---------------------|-----|
+| **Aggregate welfare / living standards** | **Net Labor Share** (red line) | Depreciation can't be consumed; net income is what's available for households |
+| **Corporate bargaining power / markups** | **Corporate sector only** | Avoids proprietors' income imputation; cleanest labor vs capital split |
+| **Long-run structural change** | **BEA Gross with proprietors' adjustment** (purple) | Accounts for shift from self-employment to wage employment |
+| **International comparisons** | **Penn World Table** (green) | Standardized methodology across countries |
+| **Short-run cyclical dynamics** | **BLS Nonfarm Business** | Quarterly frequency, timely release |
+| **Globalization / profit shifting** | **GNI-based measure** | Attributes income to residents, not production location |
+
+### Our Recommended Default: Net Labor Share
+
+For most policy discussions about "whether workers are getting their fair share," we recommend the **Net Labor Share** (red line) because:
+
+1. **Depreciation is not income** — it's the cost of maintaining the capital stock
+2. **Rising depreciation explains most of the "decline"** — from 10% (1929) to 16.5% (2024) of GDI
+3. **Net measures show stability or increase** — contradicting the declinist narrative
+4. **Better welfare interpretation** — reflects income actually available for consumption
+
+However, if your focus is specifically on **corporate power and markups**, the corporate sector gross measure is more appropriate since it directly measures the labor-capital split without imputation issues.
+
+### When the Gross Measure Makes Sense
+
+The standard **Gross Labor Share** (blue line) is appropriate when:
+- Comparing to most existing literature (which uses gross)
+- Analyzing production function parameters
+- Studying capital-labor substitution elasticity
+- You believe depreciation reflects real economic costs firms face
+
+---
+
 ## ⚠️ Points to Consider
 
 ### Methodological Choices That Change the Story
