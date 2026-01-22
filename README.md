@@ -1,4 +1,4 @@
-# U.S. Labor Share of GDI (Whole Economy): A Methodological Research Note
+# U.S. Labor Share of GDI: A Methodological Note
 
 ## Executive Summary
 
@@ -605,4 +605,5 @@ Research note compiled January 2026.
 
 - **v1.1** (January 2026): Added section on IT, software, and superstar firms; added Autor et al. (2020) and Nallareddy & Ogneva (2024) to literature review
 - **v1.0** (January 2026): Initial research note with BEA and Penn World Table data
+
 
