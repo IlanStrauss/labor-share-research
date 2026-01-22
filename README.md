@@ -16,21 +16,21 @@ When measuring labor's share of national income, we must choose a denominator: *
 
 **The practical impact is small but real.** For most years, the difference is <0.5 percentage points. But for transparency, we use the measure that matches how the data is actually constructed: GDI.
 
-> **Summary:** Labor share = Compensation / GDI. Both numerator and denominator come from the income-side accounts. Using GDP instead would introduce measurement noise from the statistical discrepancy without adding information.
+**Summary:** Labor share = Compensation / GDI. Both numerator and denominator come from the income-side accounts. Using GDP instead would introduce measurement noise from the statistical discrepancy without adding information.
 
-> 📊 **Sector Scope: Whole Economy vs Business Sector**
->
-> This analysis uses **whole-economy GDI shares**, which include:
-> - Government sector (employees paid by government)
-> - Housing sector (imputed rent from owner-occupied housing)
-> - All industries and legal forms
->
-> Much of the academic literature focuses on the **nonfinancial corporate sector** or **nonfarm business sector** only, which:
-> - Shows a *clearer decline* in labor share (~5 pp since 1975 per Karabarbounis & Neiman)
-> - Avoids proprietors' income imputation issues
-> - Excludes government and housing
->
-> **Our whole-economy approach is intentional:** it captures total income distribution including self-employment, but readers should note that corporate-sector-only measures tell a more negative story for labor.
+### Sector Scope: Whole Economy vs Business Sector
+
+This analysis uses **whole-economy GDI shares**, which include:
+- Government sector (employees paid by government)
+- Housing sector (imputed rent from owner-occupied housing)
+- All industries and legal forms
+
+Much of the academic literature focuses on the **nonfinancial corporate sector** or **nonfarm business sector** only, which:
+- Shows a *clearer decline* in labor share (~5 pp since 1975 per Karabarbounis & Neiman)
+- Avoids proprietors' income imputation issues
+- Excludes government and housing
+
+**Our whole-economy approach is intentional:** it captures total income distribution including self-employment, but readers should note that corporate-sector-only measures tell a more negative story for labor.
 
 ---
 
