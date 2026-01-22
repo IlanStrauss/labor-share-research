@@ -19,6 +19,18 @@
 
 ---
 
+## 📈 Labor Share Over Time: Multiple Measures
+
+![U.S. Labor Share Comparison Chart](labor_share_comparison.png)
+
+**Key Takeaway:** The story you tell depends on how you measure:
+- **Blue (Gross BEA):** Shows decline from 1970 peak, but higher than 1929
+- **Green (Penn World Table):** Similar pattern, different methodology
+- **Red (Net, depreciation-adjusted):** Shows labor share has *increased*
+- **Purple (with proprietors' income):** Shows modest decline
+
+---
+
 ## ⚠️ Points to Consider
 
 ### Methodological Choices That Change the Story
@@ -47,18 +59,6 @@
    - Wage-only measures show clear decline
    - Total compensation (including benefits) shows much less decline
    - Health insurance costs have shifted from wages to benefits
-
----
-
-## 📈 Labor Share Over Time: Multiple Measures
-
-![U.S. Labor Share Comparison Chart](labor_share_comparison.png)
-
-**Key Takeaway:** The story you tell depends on how you measure:
-- **Blue (Gross BEA):** Shows decline from 1970 peak, but higher than 1929
-- **Green (Penn World Table):** Similar pattern, different methodology
-- **Red (Net, depreciation-adjusted):** Shows labor share has *increased*
-- **Purple (with proprietors' income):** Shows modest decline
 
 ---
 
