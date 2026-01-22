@@ -597,6 +597,8 @@ This research note is shared for educational and research purposes. Data sources
 
 ## 👤 Author
 
+Written by [Claude Code](https://claude.ai/code) under the direction of **Ilan Strauss**.
+
 Research note compiled January 2026.
 
 ---
