@@ -8,11 +8,11 @@
 
 When measuring labor's share of national income, we must choose a denominator: **GDP** (Gross Domestic Product) or **GDI** (Gross Domestic Income). This note uses GDI. Here's why.
 
-**GDP measures production; GDI measures income.** In theory, they should be identical—every dollar of output generates a dollar of income. In practice, they differ by a "statistical discrepancy" arising from measurement error (typically <1% of GDP, occasionally larger).
+**GDP measures production; GDI measures income.** In theory, they should be identical — every dollar of output generates a dollar of income. In practice, they differ by a "statistical discrepancy" arising from measurement error (typically <1% of GDP, occasionally larger).
 
-**Labor share data comes from the income side.** The BEA series we use—compensation of employees, corporate profits, proprietors' income, depreciation—are all components of GDI. When FRED reports "Shares of gross domestic income: Compensation of employees," the BEA/FRED series is *defined as* compensation as a percent of GDI. The data is constructed as GDI shares.
+**Labor share data comes from the income side.** The BEA series we use — compensation of employees, corporate profits, proprietors' income, depreciation — are all components of GDI. When FRED reports "Shares of gross domestic income: Compensation of employees," the BEA/FRED series is *defined as* compensation as a percent of GDI. The data is constructed as GDI shares.
 
-**Using GDP as denominator introduces noise.** If you compute `Compensation / GDP` instead of `Compensation / GDI`, you're dividing an income-side numerator by an expenditure-side denominator. When GDP > GDI (positive statistical discrepancy, per BEA's definition of discrepancy = GDP − GDI), you'll get a *lower* labor share than the true income-based measure. When GDP < GDI (negative discrepancy), you'll get a *higher* one. Neither reflects the actual income distribution—it just reflects measurement error in the accounts.
+**Using GDP as denominator introduces noise.** If you compute `Compensation / GDP` instead of `Compensation / GDI`, you're dividing an income-side numerator by an expenditure-side denominator. When GDP > GDI (positive statistical discrepancy, per BEA's definition of discrepancy = GDP − GDI), you'll get a *lower* labor share than the true income-based measure. When GDP < GDI (negative discrepancy), you'll get a *higher* one. Neither reflects the actual income distribution — it just reflects measurement error in the accounts.
 
 **The practical impact is small but real.** For most years, the difference is <0.5 percentage points. But for transparency, we use the measure that matches how the data is actually constructed: GDI.
 
@@ -105,14 +105,14 @@ Labor share peaked at 58.4% in 1970 and has declined since. This coincides with 
 
 This is a counterintuitive finding. "Net labor share" means labor's share of **Net Domestic Income (NDI = GDI − Depreciation)**. When you subtract depreciation from the denominator, labor's share rises from 51.9% (gross) to 62.2% (net) in 2024.
 
-This framing is useful for one welfare lens—NDI approximates income available *without running down the capital stock*—but it is not a "more true" labor share for all purposes. Depreciation is an accounting concept, and the economy *can* consume by decumulating capital in the short run. See calculation below.
+This framing is useful for one welfare lens — NDI approximates income available *without running down the capital stock* — but it is not a "more true" labor share for all purposes. Depreciation is an accounting concept, and the economy *can* consume by decumulating capital in the short run. See calculation below.
 
 #### 4. Wages fell but benefits rose
 
 Wages alone fell from 48.6% to 42.8% of GDI (-5.8 pp), but employer-provided benefits (health insurance, retirement contributions) rose from 0.9% to 9.1% (+8.2 pp). Measured total compensation rose.
 
 **Important caveats:**
-- This shift partly reflects **cost inflation** (especially healthcare) rather than increased real compensation to workers. A larger share going to health insurance premiums doesn't necessarily mean workers are better off—it may mean healthcare became more expensive.
+- This shift partly reflects **cost inflation** (especially healthcare) rather than increased real compensation to workers. A larger share going to health insurance premiums doesn't necessarily mean workers are better off — it may mean healthcare became more expensive.
 - Total compensation share can rise even if **median cash wages stagnate**, because distribution *within* compensation can change (rising top-earner pay, composition shifts toward higher-paid industries, etc.).
 
 #### 5. Proprietors' income collapsed (13.5% → 7.0%)
@@ -153,7 +153,7 @@ Net Labor Share   = Compensation / (GDI − Depreciation)
 - Rise of intellectual property products (IPP) — R&D, software, entertainment
 - More capital-intensive economy overall
 
-**The implication:** If you care about *sustainable* income (without running down the capital stock), net measures are informative—though depreciation is an accounting construct, not a literal cash flow. If you care about how firms actually split revenue between workers and capital owners (including reinvestment to replace worn-out equipment), use gross.
+**The implication:** If you care about *sustainable* income (without running down the capital stock), net measures are informative — though depreciation is an accounting construct, not a literal cash flow. If you care about how firms actually split revenue between workers and capital owners (including reinvestment to replace worn-out equipment), use gross.
 
 ---
 
@@ -202,17 +202,17 @@ However, if your focus is specifically on **corporate power and markups**, the c
 
 ### The Case for Gross: A Rigorous Reconstruction
 
-The net measure provides a useful corrective to simplistic declinist narratives—but it doesn't make the **corporate power question** go away. Here's how to think about the gross picture rigorously:
+The net measure provides a useful corrective to simplistic declinist narratives — but it doesn't make the **corporate power question** go away. Here's how to think about the gross picture rigorously:
 
 #### Why Gross Measures Matter
 
-1. **Depreciation is a real cost firms face.** Companies *must* replace worn-out equipment to stay in business. From the firm's perspective, depreciation isn't "extra money" that could go to workers—it's committed to maintaining productive capacity.
+1. **Depreciation is a real cost firms face.** Companies *must* replace worn-out equipment to stay in business. From the firm's perspective, depreciation isn't "extra money" that could go to workers — it's committed to maintaining productive capacity.
 
 2. **The corporate sector shows a clearer decline.** When you focus on the nonfinancial corporate sector (excluding government, housing, and self-employment), labor share declined ~5 percentage points since 1975. This is where the "superstar firms" dynamic operates.
 
 3. **Most existing literature uses gross.** For comparability with Karabarbounis & Neiman (2014), Autor et al. (2020), and other foundational papers, gross measures are the standard.
 
-4. **Technology and substitution questions require gross.** If you're asking "has automation changed how firms combine labor and capital?", you need to look at gross measures—net measures obscure this by removing the capital maintenance component.
+4. **Technology and substitution questions require gross.** If you're asking "has automation changed how firms combine labor and capital?", you need to look at gross measures — net measures obscure this by removing the capital maintenance component.
 
 #### A Fair Interpretation of the Gross Decline
 
@@ -254,7 +254,7 @@ If you want to make a rigorous case about the gross labor share:
 2. **Gross vs Net Measures**
    - Gross measures include depreciation in the denominator
    - Net measures (subtracting depreciation) show less/no decline
-   - Depreciation cannot be consumed—net measures may better reflect welfare
+   - Depreciation cannot be consumed — net measures may better reflect welfare
 
 3. **Treatment of Proprietors' Income**
    - Mixed income (self-employed) is part labor, part capital
@@ -452,7 +452,7 @@ Focus exclusively on corporate sector to avoid proprietors' income imputation.
 
 ### The Superstar Firms Hypothesis
 
-[Autor, Dorn, Katz, Patterson & Van Reenen (2020)](https://academic.oup.com/qje/article-abstract/135/2/645/5721266) propose that the labor share decline is driven by the **rise of "superstar firms"**—highly productive companies that capture increasing market share while employing relatively few workers.
+[Autor, Dorn, Katz, Patterson & Van Reenen (2020)](https://academic.oup.com/qje/article-abstract/135/2/645/5721266) propose that the labor share decline is driven by the **rise of "superstar firms"** — highly productive companies that capture increasing market share while employing relatively few workers.
 
 **Key Findings:**
 - Labor's share of U.S. output fell from ~67% to ~61% during 1982-2012
@@ -460,7 +460,7 @@ Focus exclusively on corporate sector to avoid proprietors' income imputation.
 - The decline is **between-firm reallocation**, not within-firm decline
 - "Superstar firms with low labor shares are capturing an ever greater share of the market"
 
-**The IT Connection:** Autor et al. argue this pattern reflects "scale-biased technological change"—larger firms benefit disproportionately from IT advances (falling software/hardware prices), enabling them to capture market share. ([NBER WP 23396](https://www.nber.org/papers/w23396))
+**The IT Connection:** Autor et al. argue this pattern reflects "scale-biased technological change" — larger firms benefit disproportionately from IT advances (falling software/hardware prices), enabling them to capture market share. ([NBER WP 23396](https://www.nber.org/papers/w23396))
 
 ### Software as a Labor Substitute
 
@@ -506,7 +506,7 @@ Digital advertising (Google, Meta) represents an extreme case of low labor inten
 - **High margins**: 80%+ gross margins
 - **Scale without labor**: Software serves billions with thousands of employees
 - **Network effects**: Winner-take-most dynamics
-- **Intangible assets**: Value is in algorithms, data, brand—not physical capital or workers
+- **Intangible assets**: Value is in algorithms, data, brand — not physical capital or workers
 
 ### Depreciation and IT
 
@@ -519,7 +519,7 @@ IT/software capital depreciates much faster than traditional capital:
 | Software | 25-33% per year |
 | R&D | 15-25% per year |
 
-This explains why **depreciation rose from 10% to 16.5% of GDI**—the economy shifted toward faster-depreciating assets.
+This explains why **depreciation rose from 10% to 16.5% of GDI** — the economy shifted toward faster-depreciating assets.
 
 ### Quantifying IT's Contribution
 
