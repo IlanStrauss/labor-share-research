@@ -8,15 +8,15 @@
 
 When measuring labor's share of national income, we must choose a denominator: **GDP** (Gross Domestic Product) or **GDI** (Gross Domestic Income). This note uses GDI. Here's why.
 
-**GDP measures production; GDI measures income.** In theory, they should be identical — every dollar of output generates a dollar of income. In practice, they differ by a "statistical discrepancy" arising from measurement error (typically <1% of GDP, occasionally larger).
+**GDP measures production; GDI measures income.** In theory, they should be identical — every dollar of output generates a dollar of income. In practice, they differ by a "statistical discrepancy" arising from measurement error (often around ~1% of GDP, sometimes larger).
 
 **Labor share data comes from the income side.** The BEA series we use — compensation of employees, corporate profits, proprietors' income, depreciation — are all components of GDI. When FRED reports "Shares of gross domestic income: Compensation of employees," the BEA/FRED series is *defined as* compensation as a percent of GDI. The data is constructed as GDI shares.
 
-**Using GDP as denominator introduces noise.** If you compute `Compensation / GDP` instead of `Compensation / GDI`, you're dividing an income-side numerator by an expenditure-side denominator. When GDP > GDI (positive statistical discrepancy, per BEA's definition of discrepancy = GDP − GDI), you'll get a *lower* labor share than the true income-based measure. When GDP < GDI (negative discrepancy), you'll get a *higher* one. Neither reflects the actual income distribution — it just reflects measurement error in the accounts.
+**Using GDP as denominator introduces noise.** If you compute `Compensation / GDP` instead of `Compensation / GDI`, you're dividing an income-side numerator by an expenditure-side denominator. When GDP > GDI (positive statistical discrepancy, per [BEA's definition](https://www.bea.gov/research/papers/2007/statistical-discrepancy): discrepancy = GDP − GDI), you'll get a *lower* labor share than the true income-based measure. When GDP < GDI (negative discrepancy), you'll get a *higher* one. Neither reflects the actual income distribution — it just reflects measurement error in the accounts.
 
-**The practical impact is small but real.** For most years, the difference is <0.5 percentage points. But for transparency, we use the measure that matches how the data is actually constructed: GDI.
+**The practical impact is small but real.** The statistical discrepancy is often around ~1% of GDP (e.g., 1.0% in 2024, 1.2% in 2023 per [FRED](https://fred.stlouisfed.org/series/SB0000081A027NBEA)), which translates to roughly ~0.5 pp in measured labor share. (Approximation: if discrepancy is *d*% of GDP and labor share is *s*, the induced wedge is roughly *s* × *d* percentage points — so 52% × 1% ≈ 0.5 pp.) For transparency, we use the measure that matches how the data is actually constructed: GDI.
 
-**Summary:** Labor share = Compensation / GDI. Both numerator and denominator come from the income-side accounts. Using GDP instead would introduce measurement noise from the statistical discrepancy without adding information.
+**Summary:** Labor share = Compensation / GDI. Both numerator and denominator come from the income-side accounts. Using GDP instead mixes in the statistical discrepancy; for an income-side decomposition, GDI avoids that mechanical wedge. (A common alternative is the [average of GDP and GDI](https://fred.stlouisfed.org/series/LA0000091A027NBEA), which can reduce measurement error when you are not committed to a single side of the accounts.)
 
 ### Sector Scope: Whole Economy vs Business Sector
 
@@ -25,13 +25,13 @@ This analysis uses **whole-economy GDI shares**, which include:
 - Housing sector (imputed rent from owner-occupied housing)
 - All industries and legal forms
 
-**Why this matters:** Whole-economy measures *mechanically* show a higher labor share than business-only measures because:
+**Why this matters:** Whole-economy measures often yield higher compensation shares than business-only measures, in part because:
 - **Government value-added is largely compensation by construction** — government doesn't earn "profits," so most of its income-side contribution is wages
 - **Owner-occupied housing adds imputed components** — rental income imputed to homeowners
 - These sectors answer "total income distribution in the NIPAs," not "factor shares in a market production function"
 
 Much of the academic literature focuses on the **nonfinancial corporate sector** or **nonfarm business sector** only, which:
-- Shows a *clearer decline* in labor share (~5 pp since 1975 per Karabarbounis & Neiman)
+- Shows a *clearer decline* in labor share (~5 pp since 1975 per [BLS nonfarm business labor share](https://fred.stlouisfed.org/series/PRS85006173))
 - Avoids proprietors' income imputation issues
 - Excludes government and housing
 
@@ -45,10 +45,12 @@ Much of the academic literature focuses on the **nonfinancial corporate sector**
 |---------|-------------|
 | **Gross labor share (compensation/GDI) increased** from 49.5% (1929) to 51.9% (2024) | The long-run trend is *up*, not down |
 | **Decline is real from 1970 peak** (58.4%) to 2024 (51.9%) | ~6.5 pp decline over 54 years |
-| **Net labor share has *increased*** when accounting for rising depreciation | Depreciation rose from 10% to 16.5% of GDI |
+| **Net labor share has *increased*** when accounting for rising depreciation | Rises because CFC's share rose materially (10% → 16.5%), shrinking the denominator |
 | **Wages fell but benefits rose** | Wages: 48.6% → 42.8%; Benefits: 0.9% → 9.1% (reflects cost inflation, not necessarily higher real compensation) |
 | **Proprietors' income collapsed** from 13.5% to 7.0% | Confounds labor share measurement |
 | **Corporate profits (with IVA+CCAdj) rose modestly** from 10.2% (1929) to 11.5% (2024) | +1.3 pp over 95 years; 1970→2024 change is ~+2.5 pp (from ~9%); other profit concepts may differ |
+
+*Note: Early-year NIPA estimates (especially pre-WWII) are reconstructed and subject to revision. Long-run comparisons are best read as broad patterns rather than precise point estimates.*
 
 ---
 
@@ -87,7 +89,7 @@ This matters because:
 - **Net interest** — interest payments minus interest receipts (2.1% of GDI)
 - **Rental income** — income from property ownership (3.7% of GDI)
 
-**Depreciation (Consumption of Fixed Capital)** is *not* income to anyone — it's an accounting allowance for the wearing out of capital equipment. A factory's machines lose value over time; depreciation captures this. It's included in GDP/GDI but cannot be consumed. (16.5% of GDI in 2024, up from 10% in 1929)
+**Depreciation (Consumption of Fixed Capital)** is *not* income to anyone — it's an accounting allowance for the wearing out of capital equipment. A factory's machines lose value over time; depreciation captures this. It's included in GDP/GDI but is not available for consumption without reducing the capital stock. (16.5% of GDI in 2024, up from 10% in 1929)
 
 ---
 
@@ -95,7 +97,7 @@ This matters because:
 
 #### 1. Gross labor share increased from 1929 to 2024 (+2.4 pp)
 
-Contrary to popular belief, employee compensation as a share of GDI is *higher* today (51.9%) than in 1929 (49.5%). The "declining labor share" narrative typically cherry-picks the 1970 peak as a starting point.
+Contrary to popular belief, employee compensation as a share of GDI is *higher* today (51.9%) than in 1929 (49.5%). Many presentations of "declining labor share" start in the early 1970s, near a historical high.
 
 #### 2. The decline from the 1970 peak is real (~6.5 pp)
 
@@ -121,7 +123,7 @@ The share of income going to self-employed individuals (farmers, small business 
 
 #### 6. Corporate profits rose modestly (+1.3 pp)
 
-Despite narratives about soaring corporate profits, the increase from 10.2% to 11.5% of GDI over 95 years is modest. The bigger story is the rise in depreciation, not profits.
+In this particular NIPA profit concept (with IVA and CCAdj), the increase from 10.2% to 11.5% of GDI over 95 years is modest. For this specific measure and time frame, the larger change is the rise in depreciation (+6.5 pp) rather than profits (+1.3 pp). Other profit concepts (pre-tax, after-tax, excluding adjustments) can show larger movements.
 
 ---
 
@@ -135,6 +137,8 @@ The key insight is that **depreciation has grown faster than any other income ca
 Gross Labor Share = Compensation / GDI
 Net Labor Share   = Compensation / (GDI − Depreciation)
 ```
+
+*Note: All shares below are expressed as percentages of GDI (so the transformation Compensation / (1 − Depreciation Share) is valid).*
 
 | Year | Compensation | Depreciation | GDI | Gross LS | Net Income | Net LS |
 |------|--------------|--------------|-----|----------|------------|--------|
@@ -254,7 +258,7 @@ If you want to make a rigorous case about the gross labor share:
 2. **Gross vs Net Measures**
    - Gross measures include depreciation in the denominator
    - Net measures (subtracting depreciation) show less/no decline
-   - Depreciation cannot be consumed — net measures may better reflect welfare
+   - Depreciation is not available for consumption without reducing the capital stock — net measures may better reflect sustainable income
 
 3. **Treatment of Proprietors' Income**
    - Mixed income (self-employed) is part labor, part capital
@@ -289,7 +293,7 @@ If you want to make a rigorous case about the gross labor share:
 | **Depreciation (CFC)** | **10.0%** | **~13%** | **16.5%** | **+6.5 pp** |
 | Taxes on Production | 6.6% | ~7% | 6.7% | +0.1 pp |
 
-*Source: BEA NIPA Table 1.11, accessed via FRED (January 2026)*
+*Source: BEA NIPA Table 1.11. Key series: Compensation share ([A4002E1A156NBEA](https://fred.stlouisfed.org/series/A4002E1A156NBEA)), Depreciation share ([A262RE1A156NBEA](https://fred.stlouisfed.org/series/A262RE1A156NBEA)), Proprietors' income ([A041RE1A156NBEA](https://fred.stlouisfed.org/series/A041RE1A156NBEA)), Corporate profits ([A445RE1A156NBEA](https://fred.stlouisfed.org/series/A445RE1A156NBEA)). Accessed January 2026.*
 
 ### Penn World Table Labor Share (1950-2019)
 
@@ -336,7 +340,7 @@ If you want to make a rigorous case about the gross labor share:
 - Directly from national accounts
 
 **Cons:**
-- Includes depreciation which cannot be consumed
+- Includes depreciation, which is not available for consumption without reducing the capital stock
 - Sensitive to capital intensity changes
 
 **Result:** Modest decline from 1970 peak; increase since 1929
@@ -367,6 +371,8 @@ If you want to make a rigorous case about the gross labor share:
 
 Where α = assumed labor share of proprietors' income (typically 0.5–0.75)
 
+**Important:** This is a *reclassification* of mixed income by assumption, not additional measurement. It changes the labor–capital split by assumption rather than by observing how proprietors actually allocate their time vs. capital.
+
 **Calculation (α = 0.67):**
 | Year | Compensation | Proprietors' | Adjusted Labor Share |
 |------|--------------|--------------|---------------------|
@@ -395,7 +401,7 @@ Focus exclusively on corporate sector to avoid proprietors' income imputation.
 - Misses large portion of economy
 - Corporate share has grown (composition effect)
 
-**Result:** Clearer decline (~5 pp since 1975 per Karabarbounis & Neiman)
+**Result:** Clearer decline (~5 pp since 1975 per [BLS nonfarm business labor share](https://fred.stlouisfed.org/series/PRS85006173))
 
 ### Approach 5: GNP/GNI-Based Measure
 
@@ -406,7 +412,7 @@ Focus exclusively on corporate sector to avoid proprietors' income imputation.
 - Attributes income to residents, not production location
 - Adjusts for multinational profit shifting
 
-**For U.S.:** NFIA is positive but small (~0.5-1% of GDP), so GNI > GDP. This would *slightly increase* measured labor share.
+**For U.S.:** Net primary income from abroad (NFIA) is typically small relative to GDP and can be positive or negative depending on the year — so GNI may be slightly above or below GDP. The effect on measured labor share is correspondingly small (usually <0.5 pp).
 
 **Result:** Minor adjustment for U.S.; more significant for small open economies (Ireland, etc.)
 
@@ -455,7 +461,7 @@ Focus exclusively on corporate sector to avoid proprietors' income imputation.
 [Autor, Dorn, Katz, Patterson & Van Reenen (2020)](https://academic.oup.com/qje/article-abstract/135/2/645/5721266) propose that the labor share decline is driven by the **rise of "superstar firms"** — highly productive companies that capture increasing market share while employing relatively few workers.
 
 **Key Findings:**
-- Labor's share of U.S. output fell from ~67% to ~61% during 1982-2012
+- The aggregate labor share decline (from ~67% to ~61% during 1982-2012, per BLS-style measures) is driven by *reallocation* toward low-labor-share firms
 - In retail, the top 4 firms went from <15% of sales (1982) to ~30% (2012)
 - The decline is **between-firm reallocation**, not within-firm decline
 - "Superstar firms with low labor shares are capturing an ever greater share of the market"
@@ -464,7 +470,7 @@ Focus exclusively on corporate sector to avoid proprietors' income imputation.
 
 ### Software as a Labor Substitute
 
-Research using Korean firm-level data ([CEPR VoxEU](https://cepr.org/voxeu/columns/softwares-impact-labours-income-share-new-evidence)) shows:
+Research using Korean firm-level data (Cho & Kim, summarized in [CEPR VoxEU](https://cepr.org/voxeu/columns/softwares-impact-labours-income-share-new-evidence); see underlying working paper for full methodology) shows:
 
 | Capital Type | Relationship to Labor |
 |--------------|----------------------|
@@ -477,9 +483,7 @@ Research using Korean firm-level data ([CEPR VoxEU](https://cepr.org/voxeu/colum
 
 The post-2013 NIPA revision capitalized intellectual property products (software, R&D, entertainment originals), which changes how we measure the economy:
 
-| Measure | 1998 | 2016 | Change |
-|---------|------|------|--------|
-| IPP share of net capital stock | 5.7% | 7.3% | +33% |
+IPP's share of the net capital stock has grown substantially since the 1990s as software, R&D, and entertainment originals became larger components of investment.
 
 **The Debate:**
 - [Koh et al. (2020)](https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA17477): IPP capitalization "entirely explains" the labor share decline
@@ -487,18 +491,15 @@ The post-2013 NIPA revision capitalized intellectual property products (software
 
 ### Tech Giants: Extreme Labor Efficiency
 
-Modern tech companies generate extraordinary revenue with minimal labor, contributing to aggregate labor share decline when they grow:
+Modern tech companies — particularly software-intensive platforms — generate extraordinary revenue with minimal labor, contributing to aggregate labor share decline when they capture market share:
 
-| Company | Gross Margin | Revenue/Employee |
-|---------|--------------|------------------|
-| **Meta** | ~80% | ~$1.5M |
-| **Apple** | ~45% | ~$2.4M |
-| **Google (Alphabet)** | ~55-60% | ~$1.5M |
-| **Nvidia** | ~65% | ~$3M+ |
-| **Amazon** | ~45% | Lower (labor-intensive logistics) |
-| **Walmart** | ~25% | Lowest (retail baseline) |
+- **High gross margins**: Software and digital advertising firms often have gross margins of 50–80%+, far above traditional manufacturing or retail
+- **High revenue per employee**: Leading tech firms often generate $1–3+ million in annual revenue per employee, compared to <$500K for most traditional firms
+- **Scale without proportional labor**: Once built, software platforms can serve billions of users with relatively small workforces
 
-*Illustrative figures (~FY2024). Definitions: Gross margin = (Revenue − Cost of Goods Sold) / Revenue. Revenue/employee = Total revenue / Average headcount. Figures are approximate and vary by reporting period; for authoritative data, consult company 10-K filings.*
+For comparison, traditional labor-intensive firms (retail, logistics) have lower margins and lower revenue per employee. When high-margin, low-labor-intensity firms grow as a share of the economy, the aggregate labor share mechanically declines even if nothing changes within existing firms.
+
+*For authoritative figures on specific companies, consult their 10-K filings, noting that definitions (gross margin, headcount) vary across firms and fiscal periods.*
 
 ### The Digital Advertising Model
 
@@ -596,13 +597,14 @@ This explains why **depreciation rose from 10% to 16.5% of GDI** — the economy
 
 All data used in this analysis is publicly available through FRED (Federal Reserve Economic Data). Key series:
 
-> ⚠️ **Reproducibility Warning: FRED Endpoint Lag**
+> ⚠️ **Reproducibility Note**
 >
-> The FRED **series pages** (e.g., `/series/A262RE1A156NBEA`) may show the most recent year (2024), while the **table download endpoints** (e.g., `/data/A262RE1A156NBEA.txt`) sometimes lag by one year. This means:
-> - Our 2024 figures were verified against the FRED series pages (January 2026)
-> - Scripts that pull from the `.txt` table endpoints may silently return 2023 as "latest"
+> FRED series are periodically revised as BEA updates its estimates. For reproducibility:
+> - Use the FRED API with explicit vintage/date ranges, or ALFRED for historical vintages
+> - Verify the latest observation timestamp matches your expected data
+> - Our 2024 figures were verified against FRED series pages in January 2026
 >
-> **Recommendation:** For reproducibility, either (1) use the FRED API with explicit date ranges, or (2) download directly from [BEA NIPA Table 1.11](https://apps.bea.gov/iTable/?reqid=19&step=2&isuri=1&categories=survey&_gl=1*nkh4b9*_ga*MTgxMDA2MDU3OC4xNzM0NTY0Mzc5*_ga_J4698JNNFT*MTczNzU3MDQyOS4xNC4wLjE3Mzc1NzA0MjkuNjAuMC4w#eyJhcHBpZCI6MTksInN0ZXBzIjpbMSwyLDMsM10sImRhdGEiOltbImNhdGVnb3JpZXMiLCJTdXJ2ZXkiXSxbIk5JUEFfVGFibGVfTGlzdCIsIjExIl0sWyJGaXJzdF9ZZWFyIiwiMTkyOSJdLFsiTGFzdF9ZZWFyIiwiMjAyNCJdLFsiU2NhbGUiLCIwIl0sWyJTZXJpZXMiLCJBIl1dfQ==), which provides the authoritative source.
+> **Authoritative source:** [BEA NIPA Table 1.11](https://apps.bea.gov/iTable/) provides the official data.
 
 ```
 # BEA Compensation Share
