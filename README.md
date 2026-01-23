@@ -186,13 +186,59 @@ For policy discussions about "whether workers are getting their fair share," the
 
 However, if your focus is specifically on **corporate power and markups**, the corporate sector gross measure is more appropriate since it directly measures the labor-capital split without imputation issues.
 
-### When the Gross Measure Makes Sense
+### The Bottom Line: Which Measure for Which Question?
 
-The standard **Gross Labor Share** (blue line) is appropriate when:
-- Comparing to most existing literature (which uses gross)
-- Studying how technology changes the mix of labor vs. capital in production
-- Analyzing whether capital and labor are becoming more or less substitutable over time
-- You believe depreciation reflects real economic costs firms face (they must replace worn-out equipment to stay in business)
+| Your Question | Better Measure | What It Shows |
+|---------------|----------------|---------------|
+| "Are corporations squeezing workers?" | **Gross (corporate sector)** | Actual firm-level revenue split; depreciation is a real cost firms face |
+| "What income is available to households?" | **Net (whole economy)** | Depreciation isn't "income" anyone can spend |
+| "Has technology changed the labor-capital mix?" | **Gross** | Production-side question about how firms combine inputs |
+| "Is the decline narrative overblown?" | **Net** | Shows gross decline is largely a depreciation story, not a profit grab |
+
+**For policy debates about corporate power → use gross corporate-sector measures.**
+**For debates about overall living standards → net whole-economy measures add important context.**
+
+---
+
+### The Case for Gross: A Rigorous Reconstruction
+
+The net measure provides a useful corrective to simplistic declinist narratives—but it doesn't make the **corporate power question** go away. Here's how to think about the gross picture rigorously:
+
+#### Why Gross Measures Matter
+
+1. **Depreciation is a real cost firms face.** Companies *must* replace worn-out equipment to stay in business. From the firm's perspective, depreciation isn't "extra money" that could go to workers—it's committed to maintaining productive capacity.
+
+2. **The corporate sector shows a clearer decline.** When you focus on the nonfinancial corporate sector (excluding government, housing, and self-employment), labor share declined ~5 percentage points since 1975. This is where the "superstar firms" dynamic operates.
+
+3. **Most existing literature uses gross.** For comparability with Karabarbounis & Neiman (2014), Autor et al. (2020), and other foundational papers, gross measures are the standard.
+
+4. **Technology and substitution questions require gross.** If you're asking "has automation changed how firms combine labor and capital?", you need to look at gross measures—net measures obscure this by removing the capital maintenance component.
+
+#### A Fair Interpretation of the Gross Decline
+
+The gross labor share decline from the 1970 peak (~6.5 pp) is real, but context matters:
+
+| Consideration | Impact on Interpretation |
+|---------------|--------------------------|
+| **Starting point matters** | 1929→2024: labor share *rose* +2.4 pp. The 1970 peak was historically high. |
+| **Depreciation explains ~half** | Depreciation rose 6.5 pp; this mechanically reduces labor's share of gross income |
+| **Composition shifted** | Wages fell but benefits rose; proprietors' income collapsed |
+| **Corporate sector vs whole economy** | Corporate sector decline is clearer (~5 pp); whole economy is muddier |
+| **Superstar firms** | Decline is concentrated in firms with high market share and low labor intensity |
+
+#### Recommended Approach for Gross Analysis
+
+If you want to make a rigorous case about the gross labor share:
+
+1. **Specify the sector:** Corporate sector, nonfarm business, or whole economy? Each tells a different story.
+
+2. **Specify the time period:** 1929 baseline vs. 1970 baseline changes the narrative entirely.
+
+3. **Decompose the change:** How much is depreciation? Proprietors' income shift? Benefits vs. wages? Corporate profits?
+
+4. **Acknowledge the IPP debate:** Koh et al. (2020) argue IPP capitalization explains the entire decline; Nallareddy & Ogneva (2024) disagree. The jury is still out.
+
+5. **Consider within-sector dynamics:** Is the decline happening within firms, or is it reallocation toward low-labor-share firms (the Autor et al. superstar story)?
 
 ---
 
