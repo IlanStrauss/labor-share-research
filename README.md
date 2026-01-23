@@ -10,9 +10,9 @@ When measuring labor's share of national income, we must choose a denominator: *
 
 **GDP measures production; GDI measures income.** In theory, they should be identical—every dollar of output generates a dollar of income. In practice, they differ by a "statistical discrepancy" arising from measurement error (typically <1% of GDP, occasionally larger).
 
-**Labor share data comes from the income side.** The BEA series we use—compensation of employees, corporate profits, proprietors' income, depreciation—are all components of GDI. When FRED reports "Shares of gross domestic income: Compensation of employees," it is literally computing `Compensation / GDI`. The data is *constructed* as GDI shares.
+**Labor share data comes from the income side.** The BEA series we use—compensation of employees, corporate profits, proprietors' income, depreciation—are all components of GDI. When FRED reports "Shares of gross domestic income: Compensation of employees," the BEA/FRED series is *defined as* compensation as a percent of GDI. The data is constructed as GDI shares.
 
-**Using GDP as denominator introduces noise.** If you compute `Compensation / GDP` instead of `Compensation / GDI`, you're dividing an income-side numerator by an expenditure-side denominator. When GDP > GDI (negative statistical discrepancy), you'll get a *lower* labor share than the true income-based measure. When GDP < GDI (positive discrepancy), you'll get a *higher* one. Neither reflects the actual income distribution—it just reflects measurement error in the accounts.
+**Using GDP as denominator introduces noise.** If you compute `Compensation / GDP` instead of `Compensation / GDI`, you're dividing an income-side numerator by an expenditure-side denominator. When GDP > GDI (positive statistical discrepancy, per BEA's definition of discrepancy = GDP − GDI), you'll get a *lower* labor share than the true income-based measure. When GDP < GDI (negative discrepancy), you'll get a *higher* one. Neither reflects the actual income distribution—it just reflects measurement error in the accounts.
 
 **The practical impact is small but real.** For most years, the difference is <0.5 percentage points. But for transparency, we use the measure that matches how the data is actually constructed: GDI.
 
@@ -24,6 +24,11 @@ This analysis uses **whole-economy GDI shares**, which include:
 - Government sector (employees paid by government)
 - Housing sector (imputed rent from owner-occupied housing)
 - All industries and legal forms
+
+**Why this matters:** Whole-economy measures *mechanically* show a higher labor share than business-only measures because:
+- **Government value-added is largely compensation by construction** — government doesn't earn "profits," so most of its income-side contribution is wages
+- **Owner-occupied housing adds imputed components** — rental income imputed to homeowners
+- These sectors answer "total income distribution in the NIPAs," not "factor shares in a market production function"
 
 Much of the academic literature focuses on the **nonfinancial corporate sector** or **nonfarm business sector** only, which:
 - Shows a *clearer decline* in labor share (~5 pp since 1975 per Karabarbounis & Neiman)
@@ -43,7 +48,7 @@ Much of the academic literature focuses on the **nonfinancial corporate sector**
 | **Net labor share has *increased*** when accounting for rising depreciation | Depreciation rose from 10% to 16.5% of GDI |
 | **Wages fell but benefits rose** | Wages: 48.6% → 42.8%; Benefits: 0.9% → 9.1% (reflects cost inflation, not necessarily higher real compensation) |
 | **Proprietors' income collapsed** from 13.5% to 7.0% | Confounds labor share measurement |
-| **Corporate profits (with IVA+CCAdj) rose modestly** from 10.2% to 11.5% | +1.3 pp over 95 years; other profit concepts may differ |
+| **Corporate profits (with IVA+CCAdj) rose modestly** from 10.2% (1929) to 11.5% (2024) | +1.3 pp over 95 years; 1970→2024 change is ~+2.5 pp (from ~9%); other profit concepts may differ |
 
 ---
 
@@ -90,7 +95,7 @@ This matters because:
 
 #### 1. Gross labor share increased from 1929 to 2024 (+2.4 pp)
 
-Contrary to popular belief, employee compensation as a share of GDP is *higher* today (51.9%) than in 1929 (49.5%). The "declining labor share" narrative typically cherry-picks the 1970 peak as a starting point.
+Contrary to popular belief, employee compensation as a share of GDI is *higher* today (51.9%) than in 1929 (49.5%). The "declining labor share" narrative typically cherry-picks the 1970 peak as a starting point.
 
 #### 2. The decline from the 1970 peak is real (~6.5 pp)
 
@@ -98,13 +103,17 @@ Labor share peaked at 58.4% in 1970 and has declined since. This coincides with 
 
 #### 3. Net labor share has *increased* when adjusting for depreciation
 
-This is a counterintuitive finding. When you subtract depreciation from the denominator, labor's share of *net* income has risen. This matters because depreciation represents the cost of maintaining the capital stock—though note that depreciation is an accounting concept and the economy *can* consume by running down capital in the short run. See calculation below.
+This is a counterintuitive finding. "Net labor share" means labor's share of **Net Domestic Income (NDI = GDI − Depreciation)**. When you subtract depreciation from the denominator, labor's share rises from 51.9% (gross) to 62.2% (net) in 2024.
+
+This framing is useful for one welfare lens—NDI approximates income available *without running down the capital stock*—but it is not a "more true" labor share for all purposes. Depreciation is an accounting concept, and the economy *can* consume by decumulating capital in the short run. See calculation below.
 
 #### 4. Wages fell but benefits rose
 
 Wages alone fell from 48.6% to 42.8% of GDI (-5.8 pp), but employer-provided benefits (health insurance, retirement contributions) rose from 0.9% to 9.1% (+8.2 pp). Measured total compensation rose.
 
-**Important caveat:** This shift partly reflects **cost inflation** (especially healthcare) rather than increased real compensation to workers. A larger share going to health insurance premiums doesn't necessarily mean workers are better off—it may mean healthcare became more expensive.
+**Important caveats:**
+- This shift partly reflects **cost inflation** (especially healthcare) rather than increased real compensation to workers. A larger share going to health insurance premiums doesn't necessarily mean workers are better off—it may mean healthcare became more expensive.
+- Total compensation share can rise even if **median cash wages stagnate**, because distribution *within* compensation can change (rising top-earner pay, composition shifts toward higher-paid industries, etc.).
 
 #### 5. Proprietors' income collapsed (13.5% → 7.0%)
 
@@ -380,7 +389,7 @@ Focus exclusively on corporate sector to avoid proprietors' income imputation.
 
 2. **What caused any decline?**
    - Technology (automation, IT investment)
-   - Globalization (~11% of decline per McKinsey)
+   - Globalization (estimates vary; some studies attribute ~10-15% of decline)
    - Rising markups/market power
    - Decline in unionization
    - Superstar firms effect
@@ -404,8 +413,7 @@ Focus exclusively on corporate sector to avoid proprietors' income imputation.
 - The decline is **between-firm reallocation**, not within-firm decline
 - "Superstar firms with low labor shares are capturing an ever greater share of the market"
 
-**The IT Connection:**
-> "The documented fact pattern is consistent with scale-biased technological changes in which larger firms benefit disproportionately from information technology advances, such as falling computer software or hardware prices, and are thus able to increase their market shares."
+**The IT Connection:** Autor et al. argue this pattern reflects "scale-biased technological change"—larger firms benefit disproportionately from IT advances (falling software/hardware prices), enabling them to capture market share. ([NBER WP 23396](https://www.nber.org/papers/w23396))
 
 ### Software as a Labor Substitute
 
@@ -434,16 +442,16 @@ The post-2013 NIPA revision capitalized intellectual property products (software
 
 Modern tech companies generate extraordinary revenue with minimal labor, contributing to aggregate labor share decline when they grow:
 
-| Company | Gross Margin | Revenue/Employee | Profit/Employee |
-|---------|--------------|------------------|-----------------|
-| **Meta** | 82% | ~$1.5M | $842K |
-| **Apple** | 46% | $2.38M | High |
-| **Google** | 58% | ~$1.5M | High |
-| **Nvidia** | ~65% | $3.6M | $2M |
-| **Amazon** | ~45% | Lower | $20K |
-| **Walmart** | ~25% | Lowest | $7K |
+| Company | Gross Margin | Revenue/Employee |
+|---------|--------------|------------------|
+| **Meta** | ~80% | ~$1.5M |
+| **Apple** | ~45% | ~$2.4M |
+| **Google (Alphabet)** | ~55-60% | ~$1.5M |
+| **Nvidia** | ~65% | ~$3M+ |
+| **Amazon** | ~45% | Lower (labor-intensive logistics) |
+| **Walmart** | ~25% | Lowest (retail baseline) |
 
-*Sources: [MacroTrends](https://www.macrotrends.net/stocks/charts/META/meta-platforms/profit-margins), [TrueUp](https://www.trueup.io/revenue-per-employee), [Digital Information World](https://www.digitalinformationworld.com/2025/06/which-tech-giants-generate-the-most-revenue-per-employee.html)*
+*Illustrative figures (~FY2024). Definitions: Gross margin = (Revenue − Cost of Goods Sold) / Revenue. Revenue/employee = Total revenue / Average headcount. Figures are approximate and vary by reporting period; for authoritative data, consult company 10-K filings.*
 
 ### The Digital Advertising Model
 
@@ -468,13 +476,13 @@ This explains why **depreciation rose from 10% to 16.5% of GDI**—the economy s
 
 ### Quantifying IT's Contribution
 
+*Note: The table below provides illustrative summaries of findings from various studies. Precise attributions vary by methodology, time period, and country. Treat as directional guidance, not exact figures.*
+
 | Study | IT/Technology Contribution to Labor Share Decline |
 |-------|--------------------------------------------------|
-| Autor et al. (2020) | Superstar effect explains majority of between-firm decline |
-| Korean study (CEPR) | Software explains ~2/3 of decline |
-| IMF | Falling investment prices (IT proxy) explain ~50% in advanced economies |
-| McKinsey | Technology + automation: largest single factor |
-| Karabarbounis & Neiman | Falling relative price of capital (IT-driven) is primary driver |
+| [Autor et al. (2020)](https://www.nber.org/papers/w23396) | Superstar effect explains majority of between-firm decline |
+| [Korean study (CEPR VoxEU)](https://cepr.org/voxeu/columns/softwares-impact-labours-income-share-new-evidence) | Software explains ~2/3 of decline (Korea, 1990-2018) |
+| [Karabarbounis & Neiman (2014)](https://www.nber.org/papers/w19136) | Falling relative price of capital (IT-driven) is primary driver |
 
 ### Implications
 
