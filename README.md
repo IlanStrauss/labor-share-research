@@ -58,7 +58,7 @@ Much of the academic literature focuses on the **nonfinancial corporate sector**
 
 **Key Takeaway:** The story you tell depends on how you measure:
 - **Blue (Gross BEA):** Shows decline from 1970 peak, but higher than 1929
-- **Green (Penn World Table):** Similar pattern, different methodology
+- **Green (Penn World Table):** Similar pattern, but uses different methodology (imputes self-employment labor income differently than BEA; not strictly comparable to blue line)
 - **Red (Net, depreciation-adjusted):** Shows labor share has *increased*
 - **Purple (with proprietors' income):** Shows modest decline
 
@@ -180,6 +180,7 @@ For policy discussions about "whether workers are getting their fair share," the
 
 **Important caveats:**
 - Depreciation is an *imputed accounting concept*, not a literal cash outflow — in the short run, an economy *can* consume by running down capital
+- **The net calculation implicitly assigns all depreciation to capital's side of the ledger.** This is non-obvious: some depreciation is on assets that substitute for labor (automation), while some is on employer-provided equipment that complements labor. The calculation makes it *look like* labor won because the denominator shrunk, which is somewhat mechanical rather than substantive.
 - IPP/intangibles depreciation is especially measurement-sensitive and subject to revision
 - The net framing is *one* valid lens, not the definitively "correct" measure
 
