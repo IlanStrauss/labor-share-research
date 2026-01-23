@@ -153,7 +153,7 @@ Net Labor Share   = Compensation / (GDI − Depreciation)
 - Rise of intellectual property products (IPP) — R&D, software, entertainment
 - More capital-intensive economy overall
 
-**The implication:** If you care about *sustainable* income (without running down the capital stock), net measures are informative—though depreciation is an accounting construct, not a literal cash flow. If you care about production function parameters, use gross.
+**The implication:** If you care about *sustainable* income (without running down the capital stock), net measures are informative—though depreciation is an accounting construct, not a literal cash flow. If you care about how firms actually split revenue between workers and capital owners (including reinvestment to replace worn-out equipment), use gross.
 
 ---
 
@@ -190,9 +190,9 @@ However, if your focus is specifically on **corporate power and markups**, the c
 
 The standard **Gross Labor Share** (blue line) is appropriate when:
 - Comparing to most existing literature (which uses gross)
-- Analyzing production function parameters
-- Studying capital-labor substitution elasticity
-- You believe depreciation reflects real economic costs firms face
+- Studying how technology changes the mix of labor vs. capital in production
+- Analyzing whether capital and labor are becoming more or less substitutable over time
+- You believe depreciation reflects real economic costs firms face (they must replace worn-out equipment to stay in business)
 
 ---
 
