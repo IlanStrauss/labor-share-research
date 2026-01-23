@@ -41,7 +41,7 @@ Much of the academic literature focuses on the **nonfarm business sector** only,
 
 ---
 
-## 🔑 Key Findings
+## Key Findings
 
 | Finding | Implication |
 |---------|-------------|
@@ -56,7 +56,7 @@ Much of the academic literature focuses on the **nonfarm business sector** only,
 
 ---
 
-## 📈 Labor Share Over Time: Multiple Measures
+## Labor Share Over Time: Multiple Measures
 
 ![U.S. Labor Share Comparison Chart](labor_share_comparison.png)
 
@@ -163,7 +163,7 @@ Net Labor Share   = Compensation / (GDI − Depreciation)
 
 ---
 
-## 🎯 Which Measure Should You Use?
+## Which Measure Should You Use?
 
 **There is no single "correct" measure.** The right choice depends on your research question:
 
@@ -248,7 +248,7 @@ If you want to make a rigorous case about the gross labor share:
 
 ---
 
-## ⚠️ Points to Consider
+## Points to Consider
 
 ### Methodological Choices That Change the Story
 
@@ -284,7 +284,7 @@ If you want to make a rigorous case about the gross labor share:
 
 ---
 
-## 📊 Data Tables
+## Data Tables
 
 ### BEA Table 1.11: Percentage Shares of Gross Domestic Income
 
@@ -340,7 +340,7 @@ If you want to make a rigorous case about the gross labor share:
 
 ---
 
-## 🔬 Methodological Approaches
+## Methodological Approaches
 
 ### Approach 1: Gross Labor Share (Standard)
 
@@ -431,7 +431,7 @@ Focus exclusively on corporate sector to avoid proprietors' income imputation.
 
 ---
 
-## 📚 Literature Review
+## Literature Review
 
 ### Seminal Papers
 
@@ -467,7 +467,7 @@ Focus exclusively on corporate sector to avoid proprietors' income imputation.
 
 ---
 
-## 💻 The Role of IT, Software, and Digital Business Models
+## The Role of IT, Software, and Digital Business Models
 
 ### The Superstar Firms Hypothesis
 
@@ -563,7 +563,7 @@ This explains why **depreciation rose from 10% to 16.5% of GDI** — the economy
 
 ---
 
-## 🔍 Data Sources
+## Data Sources
 
 ### Primary Sources
 
@@ -604,13 +604,13 @@ This explains why **depreciation rose from 10% to 16.5% of GDI** — the economy
 
 ---
 
-## 📋 Replication Notes
+## Replication Notes
 
 ### Data Access
 
 All data used in this analysis is publicly available through FRED (Federal Reserve Economic Data). Key series:
 
-> ⚠️ **Reproducibility Note**
+> **Reproducibility Note**
 >
 > FRED series are periodically revised as BEA updates its estimates. For reproducibility:
 > - Use the FRED API with explicit vintage/date ranges, or ALFRED for historical vintages
@@ -665,13 +665,13 @@ Adjusted = 51.9% + (0.67 × 7.0%) = 56.6%
 
 ---
 
-## 📄 License
+## License
 
 This research note is shared for educational and research purposes. Data sources are public domain (BEA, BLS) or citation-requested (Penn World Table).
 
 ---
 
-## 👤 Author
+## Author
 
 Written by [Claude Code](https://claude.ai/code) under the direction of **Ilan Strauss**.
 
@@ -679,7 +679,7 @@ Research note compiled January 2026.
 
 ---
 
-## 📝 Changelog
+## Changelog
 
 - **v1.1** (January 2026): Added section on IT, software, and superstar firms; added Autor et al. (2020) and Nallareddy & Ogneva (2024) to literature review
 - **v1.0** (January 2026): Initial research note with BEA and Penn World Table data
