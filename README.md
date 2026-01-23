@@ -123,7 +123,7 @@ The share of income going to self-employed individuals (farmers, small business 
 
 #### 6. Corporate profits rose modestly (+1.3 pp)
 
-In this particular NIPA profit concept (with IVA and CCAdj), the increase from 10.2% to 11.5% of GDI over 95 years is modest. For this specific measure and time frame, the larger change is the rise in depreciation (+6.5 pp) rather than profits (+1.3 pp). Other profit concepts (pre-tax, after-tax, excluding adjustments) can show larger movements.
+In this particular NIPA profit concept (with IVA and CCAdj), the increase from 10.2% to 11.5% of GDI over 95 years is modest. The rise in depreciation's share (+6.5 pp) — which is not income going *to* anyone, but rather a deduction from gross income — is larger than the rise in any actual income category, including corporate profits (+1.3 pp). Other profit concepts (pre-tax, after-tax, excluding adjustments) can show larger movements.
 
 ---
 
@@ -210,7 +210,7 @@ The net measure provides a useful corrective to simplistic declinist narratives 
 
 #### Why Gross Measures Matter
 
-1. **Depreciation is a real cost firms face.** Companies *must* replace worn-out equipment to stay in business. From the firm's perspective, depreciation isn't "extra money" that could go to workers — it's committed to maintaining productive capacity.
+1. **Depreciation is a real cost firms face.** Companies *must* replace worn-out equipment to stay in business. From the firm's perspective, depreciation isn't "extra money" that could go to workers — it's committed to maintaining productive capacity. (Caveat: For IPP — software, R&D — the relationship between accounting depreciation and actual replacement needs is less direct; software depreciation rates are heavily conventionalized.)
 
 2. **The corporate sector shows a clearer decline.** When you focus on the nonfinancial corporate sector (excluding government, housing, and self-employment), labor share declined ~5 percentage points since 1975. This is where the "superstar firms" dynamic operates.
 
@@ -369,7 +369,7 @@ If you want to make a rigorous case about the gross labor share:
 
 **Formula:** `Adjusted Labor Share = (Compensation + α × Proprietors' Income) / GDI`
 
-Where α = assumed labor share of proprietors' income (typically 0.5–0.75)
+Where α = assumed labor share of proprietors' income (typically 0.5–0.75). A common choice is α ≈ 0.67, following [Gollin (2002)](https://www.jstor.org/stable/10.1086/338747), who uses the economy-wide compensation share as a proxy — the logic being that self-employed individuals likely have similar labor/capital splits to the overall economy.
 
 **Important:** This is a *reclassification* of mixed income by assumption, not additional measurement. It changes the labor–capital split by assumption rather than by observing how proprietors actually allocate their time vs. capital.
 
