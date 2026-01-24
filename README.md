@@ -11,7 +11,7 @@
 | **Gross Labor Share** (Compensation/GDI) | 58.4% | 51.9% | **−6.5 pp** |
 | **Wages + Benefits** (excl. employer FICA) | 56.1% | 48.9% | **−7.2 pp** |
 | **Wages Only** (excl. all supplements) | 51.6% | 42.7% | **−8.9 pp** |
-| **Net Labor Share** (Compensation/NDI) | 67.0% | 62.2% | **−4.8 pp** |
+| **Depreciation-Adjusted Labor Share** (Compensation/NDI) | 67.0% | 62.2% | **−4.8 pp** |
 | Depreciation Share | 12.8% | 16.5% | +3.7 pp |
 | Employer FICA Share | 2.3% | 3.0% | +0.7 pp |
 
@@ -32,16 +32,18 @@ This chart shows multiple measurement approaches for the period since the 1970 p
 - **Purple**: Adjusted measure including ⅔ of proprietors' income
 - **Amber**: Wages only (excluding all supplements)
 
-### Chart 2: Gross vs Net Labor Share (Depreciation Effect)
+### Chart 2: Gross vs Depreciation-Adjusted Labor Share
 
-![Gross vs Net Labor Share](labor_share_net_vs_gross.png)
+![Gross vs Depreciation-Adjusted Labor Share](labor_share_net_vs_gross.png)
 
 This chart isolates the effect of rising depreciation:
 - **Blue**: Gross labor share (Compensation / GDI)
-- **Red**: Net labor share (Compensation / NDI, where NDI = GDI − Depreciation)
+- **Red**: Depreciation-adjusted labor share (Compensation / NDI, where NDI = GDI − Depreciation)
 - **Gray shaded area**: Depreciation's share of GDI (secondary axis)
 
-**Key insight:** The net measure shows a smaller decline (−4.8 pp) than the gross measure (−6.5 pp). This difference (~26% smaller decline) reflects how rising depreciation affects the choice of denominator: as depreciation rose from 12.8% to 16.5% of GDI, the net denominator (NDI) shrank, mechanically pushing up the net labor share relative to gross.
+**Key insight:** The depreciation-adjusted measure shows a smaller decline (−4.8 pp) than the gross measure (−6.5 pp). This difference (~26% smaller decline) reflects how rising depreciation affects the choice of denominator: as depreciation rose from 12.8% to 16.5% of GDI, the net denominator (NDI) shrank, mechanically pushing up the depreciation-adjusted labor share relative to gross.
+
+> **Terminology note:** Throughout this document, "net" or "depreciation-adjusted" means *net of depreciation* (i.e., using NDI = GDI − CFC as denominator), **not** net of taxes. All measures here are pre-income-tax.
 
 ---
 
@@ -57,7 +59,25 @@ When measuring labor's share of national income, we use **GDI** (Gross Domestic 
 
 3. **GDI is internally consistent.** Both numerator (compensation) and denominator (GDI) come from the same accounting framework.
 
-### What "Compensation" Includes (Pre-Tax Considerations)
+### Tax Boundary Declaration
+
+All factor shares in this note are measured **before income taxes**:
+
+| Component | Tax Treatment | Reference |
+|-----------|---------------|-----------|
+| **Compensation** | Pre-personal income tax, pre-employee FICA; *includes* employer FICA | Standard total labor cost |
+| **Corporate Profits** (with IVA+CCAdj) | Pre-corporate income tax | [BEA definition](https://www.bea.gov/help/glossary/corporate-profits-iva-and-ccadj) |
+| **Proprietors' Income** | Pre-personal income tax | Mixed labor/capital |
+| **Taxes on Production** | Sales taxes, property taxes, excises | *Not* income taxes |
+
+**What "pre-tax" and "post-tax" mean here:**
+- **Pre-personal income tax**: Wages are measured before workers pay income taxes
+- **Pre-corporate income tax**: Profits are measured before firms pay corporate taxes
+- **Employer FICA**: Included in compensation (standard practice); can be separated out
+
+**We do not construct an "after personal income taxes" labor share** in this note. Doing so requires tax-incidence assumptions (who bears the burden of each tax?) that are beyond the scope of this analysis.
+
+### What "Compensation" Includes
 
 The BEA "Compensation of Employees" series (A4002E1A156NBEA) includes:
 
@@ -91,76 +111,74 @@ The BEA "Compensation of Employees" series (A4002E1A156NBEA) includes:
 
 The **"Wages + Benefits (excl. FICA)"** line (teal in Chart 1) excludes employer payroll taxes while keeping private benefits. This shows that excluding payroll taxes, the labor share decline is *steeper* (−7.2 pp), not smaller—because employer FICA rose from 2.3% to 3.0% of GDI.
 
-### Gross vs Net Labor Share: The Depreciation Question
+### Gross vs Depreciation-Adjusted Labor Share
 
 **Gross Labor Share** = Compensation / GDI
 
-**Net Labor Share** = Compensation / (GDI − Depreciation)
+**Depreciation-Adjusted Labor Share** = Compensation / NDI = Compensation / (GDI − Depreciation)
 
-The net measure matters because depreciation (Consumption of Fixed Capital) is **not income available for consumption** — it represents the resources needed to replace worn-out capital. Following [Bridgman (2018)](https://www.researchgate.net/publication/318349851_IS_LABOR'S_LOSS_CAPITAL'S_GAIN_GROSS_VERSUS_NET_LABOR_SHARES) and [Rognlie (2015)](https://www.brookings.edu/wp-content/uploads/2016/07/2015a_rognlie.pdf), net labor share is more relevant for understanding the distribution of *sustainable* income.
+> **Important:** "Net" or "depreciation-adjusted" here means *net of depreciation*, **not** net of taxes. This is standard terminology in the labor share literature but can confuse readers.
+
+The depreciation-adjusted measure matters because depreciation (Consumption of Fixed Capital) is **not income available for consumption** — it represents the resources needed to replace worn-out capital. Following [Bridgman (2018)](https://www.researchgate.net/publication/318349851_IS_LABOR'S_LOSS_CAPITAL'S_GAIN_GROSS_VERSUS_NET_LABOR_SHARES) and [Rognlie (2015)](https://www.brookings.edu/wp-content/uploads/2016/07/2015a_rognlie.pdf), the depreciation-adjusted labor share is more relevant for understanding the distribution of *sustainable* income.
 
 **Why depreciation rose:**
 - Shift from long-lived assets (buildings: 2-3%/year depreciation) to short-lived assets (software: 25-33%/year)
 - Rise of intellectual property products (R&D, software, entertainment originals)
 - More capital-intensive economy overall
 
-### Capital Share Methodology: Avoiding Double-Counting
+### Capital Share Methodology: Interest, Rent, and the NIPA Identity
 
 A concern raised: *How do we ensure interest income and rent aren't double-counted when calculating capital's share?*
 
-**The BEA national accounts handle this correctly.** Here's how:
+#### The Key Principle: Profits Are "After Costs"
+
+Corporate profits in the NIPAs (with IVA and CCAdj) are measured as receipts less expenses—including wages, interest paid, and rent paid. This is a *pre-corporate-income-tax* concept. ([BEA Glossary](https://www.bea.gov/help/glossary/corporate-profits-iva-and-ccadj))
+
+#### The "Net Interest" Trap: It's NOT "Bank's Income"
+
+**Caution:** The "Net Interest and Miscellaneous Payments" line in GDI is **not** a direct measure of financial sector income. It is an *identity offset* constructed to make the production-income identity balance. ([BEA NIPA Handbook Ch. 14](https://www.bea.gov/resources/methodologies/nipa-handbook/pdf/chapter-14.pdf))
+
+Specifically:
+- Corporate profits *include* net receipts of interest (interest received minus interest paid)
+- The "Net Interest" GDI component then *offsets* this by showing economy-wide net interest payments
+- This is an accounting convention, not a clean attribution of income to lenders
+
+**Do not interpret "Net Interest" as "the bank's income."** It's a balancing item in the national accounts identity.
 
 #### How GDI Components Are Defined
 
-| Component | What It Measures | Interest/Rent Treatment |
-|-----------|------------------|-------------------------|
-| **Corporate Profits** | Net earnings *after* deducting interest paid, rent paid, wages, depreciation | Interest & rent already subtracted |
-| **Net Interest** | Interest received minus interest paid (economy-wide) | Captures financial sector's net income |
-| **Rental Income** | Income from property ownership | Captures landlords' income |
+| Component | What It Measures | Treatment of Interest/Rent |
+|-----------|------------------|----------------------------|
+| **Corporate Profits** (with IVA+CCAdj) | Profits from current production, *pre-corporate income tax* | Net of interest paid, rent paid, wages, depreciation |
+| **Net Interest** | Economy-wide net interest payments (an identity offset) | **Not** = financial sector income |
+| **Rental Income** | Income of persons from property ownership | Direct measure of landlord income |
 | **Compensation** | Wages + supplements paid to employees | — |
 | **Proprietors' Income** | Mixed labor/capital income of self-employed | — |
-| **Depreciation (CFC)** | Accounting allowance for capital wearing out | Not "income" to anyone |
+| **Depreciation (CFC)** | Consumption of fixed capital | Not "income" to anyone |
+| **Taxes on Production** | Sales taxes, property taxes, excises, etc. | Distinct from income taxes |
 
-#### Why There's No Double-Counting
+#### Why Components Sum to 100%
 
-Consider a manufacturing firm that:
-- Earns $100M revenue
-- Pays $50M in wages
-- Pays $5M in interest to banks
-- Pays $3M in rent to landlords
-- Has $10M in depreciation
-- Has $32M in profits
+The BEA separates depreciation as its own GDI component rather than embedding it in profits. All components are mutually exclusive by construction:
 
-In the national accounts:
-- **Compensation**: +$50M (goes to labor share)
-- **Corporate Profits**: +$32M (interest and rent already deducted)
-- **Net Interest**: +$5M (this is the bank's income, correctly attributed to financial sector)
-- **Rental Income**: +$3M (this is the landlord's income)
-- **Depreciation**: +$10M
+Compensation + Profits + Proprietors' + Rental + Net Interest + Depreciation + Taxes on Production = GDI (100%)
 
-Total = $100M = GDI ✓
+#### Capital Share Calculation (If Needed)
 
-**The key insight:** Corporate profits are reported *net of* interest and rent expenses. So when we add Net Interest and Rental Income as separate capital income components, we're correctly attributing income to the entities that receive it (banks, landlords), not double-counting.
-
-**Why GDI components sum to 100%:** The BEA separates depreciation as its own GDI component rather than embedding it in profits or other categories. This is why: Compensation + Profits + Proprietors' Income + Rental Income + Net Interest + Depreciation + Taxes on Production = GDI (100%). Each component is mutually exclusive.
-
-#### Capital Share Calculation
-
-If you want to calculate capital's share:
+For capital's share, the cleanest approach is the **residual method**:
 
 ```
-Capital Share = (Corporate Profits + Net Interest + Rental Income + some portion of Proprietors' Income) / GDI
+Capital Share = (GDI − Compensation − Taxes on Production − labor portion of Proprietors') / GDI
 ```
 
-Or equivalently:
+This avoids the "net interest" interpretation problem entirely.
+
+For **depreciation-adjusted** capital share (using NDI):
 ```
-Capital Share = (GDI - Compensation - Depreciation - Taxes on Production - labor portion of Proprietors') / GDI
+Depreciation-Adjusted Capital Share = (NDI − Compensation − Taxes − labor portion of Proprietors') / NDI
 ```
 
-For **net** capital share (excluding depreciation from both sides):
-```
-Net Capital Share = (NDI - Compensation - Taxes - labor portion of Proprietors') / NDI
-```
+> **Recommendation:** If you're focused on "capital vs labor," use **Net Operating Surplus** as your capital aggregate (which BEA publishes), rather than manually summing profits + interest + rent. This sidesteps the net-interest accounting complexity.
 
 ---
 
@@ -185,9 +203,9 @@ The **nonfarm business sector** shows a clearer decline. The [BLS nonfarm busine
 
 Labor share peaked at 58.4% in 1970 and fell to 51.9% by 2024. This timing coincides with declining unionization, globalization, and automation — though causal attribution requires careful analysis.
 
-### 2. Net labor share declined less (~4.8 pp)
+### 2. Depreciation-adjusted labor share declined less (~4.8 pp)
 
-When adjusting for rising depreciation, the decline is attenuated. Net labor share went from 67.0% (1970) to 62.2% (2024) — a decline of 4.8 pp compared to 6.5 pp for gross. The net decline is ~26% smaller than the gross decline.
+When adjusting for rising depreciation, the decline is attenuated. The depreciation-adjusted labor share went from 67.0% (1970) to 62.2% (2024) — a decline of 4.8 pp compared to 6.5 pp for gross. The depreciation-adjusted decline is ~26% smaller than the gross decline.
 
 ### 3. Decomposing the labor share decline
 
@@ -242,15 +260,17 @@ Starting from 1970 (the peak) rather than 1929 (pre-modern economy) changes the 
 
 **Table notes:**
 - † **Wages + Benefits (excl. employer FICA)**: Compensation minus employer FICA. This "pre-payroll-tax" measure shows a steeper decline (−7.2 pp) than total compensation (−6.5 pp).
-- ‡ **Corporate Profits**: Reported *net of* interest paid, rent paid, and depreciation, but *before* corporate income taxes. Corporate income taxes are paid out of this figure.
+- ‡ **Corporate Profits**: Reported *net of* interest paid, rent paid, and depreciation, but *before* corporate income taxes. Corporate income taxes are paid out of this figure. ([BEA definition](https://www.bea.gov/help/glossary/corporate-profits-iva-and-ccadj))
 - § **Taxes on Production**: Includes sales taxes, property taxes, customs duties, etc. These are distinct from corporate income taxes (which come out of profits) and personal income taxes (which workers pay out of compensation).
+
+**Optional extension (not shown):** For a *post-corporate-tax* profit measure, use "Corporate profits after tax with IVA and CCAdj" = profits before tax − taxes on corporate income. ([BEA NIPA Handbook Ch. 13](https://www.bea.gov/resources/methodologies/nipa-handbook/pdf/chapter-13.pdf))
 
 ### Historical Reference: 1929
 
 | Measure | 1929 | 2024 | Note |
 |---------|------|------|------|
 | Gross Labor Share | 49.5% | 51.9% | 2024 is *higher* |
-| Net Labor Share | 55.0% | 62.2% | 2024 is *much higher* |
+| Depreciation-Adjusted Labor Share | 55.0% | 62.2% | 2024 is *much higher* |
 | Depreciation | 10.0% | 16.5% | Rose substantially |
 | Proprietors' Income | 13.5% | 7.0% | Collapsed (structural shift) |
 
@@ -261,8 +281,9 @@ Starting from 1970 (the peak) rather than 1929 (pre-modern economy) changes the 
 | Your Question | Recommended Measure | Why |
 |---------------|---------------------|-----|
 | **Are corporations squeezing workers?** | Gross (corporate sector) | Shows actual firm-level revenue split |
-| **What income is sustainable?** | Net (depreciation-adjusted) | Depreciation isn't available for consumption |
+| **What income is sustainable?** | Depreciation-adjusted (Comp/NDI) | Depreciation isn't available for consumption |
 | **How do wages compare to total labor costs?** | Wages vs Total Compensation | Reveals role of benefits/payroll taxes |
+| **What's the "pre-payroll-tax" labor share?** | Wages + Benefits (excl. FICA) | Excludes employer FICA from numerator |
 | **International comparisons** | Penn World Table | Standardized methodology |
 | **Short-run dynamics** | BLS Nonfarm Business | Quarterly frequency |
 
@@ -312,15 +333,17 @@ This produces:
 
 ### Calculations
 
-**Net Labor Share:**
+**Depreciation-Adjusted Labor Share:**
 ```
 NDI = GDI × (1 - Depreciation_Share)
-Net_Labor_Share = Compensation_Share / (1 - Depreciation_Share)
+Depreciation_Adjusted_Labor_Share = Compensation_Share / (1 - Depreciation_Share)
 
 Example (2024):
 NDI = 100% × (1 - 0.165) = 83.5%
-Net_Labor_Share = 51.9% / 83.5% = 62.2%
+Depreciation_Adjusted_Labor_Share = 51.9% / 83.5% = 62.2%
 ```
+
+Note: "Net" in labor share literature means net-of-depreciation, NOT net-of-taxes.
 
 **Adjusted Labor Share (with proprietors' income):**
 ```
@@ -349,6 +372,7 @@ January 2026
 
 ## Changelog
 
+- **v2.2** (January 2026): Major methodological fixes: (1) Renamed "Net Labor Share" → "Depreciation-adjusted labor share" to avoid confusion with "after-tax"; (2) Corrected net interest explanation (it's an identity offset, NOT "bank's income"); (3) Added explicit tax boundary declaration; (4) Added BEA NIPA Handbook citations
 - **v2.1** (January 2026): Added "Wages + Benefits (excl. FICA)" measure; clarified tax treatment (corporate profits are pre-corporate income tax); added explicit note that GDI components sum to 100%; expanded supplements decomposition in data tables
 - **v2.0** (January 2026): Refocused on 1970-2024 period; added separate gross/net charts; improved axis readability (5-year intervals); added wages-only measure; expanded methodology notes on pre-tax treatment and capital share calculation
 - **v1.1** (January 2026): Added section on IT, software, and superstar firms
