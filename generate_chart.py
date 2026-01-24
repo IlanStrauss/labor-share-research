@@ -87,6 +87,39 @@ adj_labor_share = [comp + (alpha * prop) for comp, prop in zip(bea_comp, bea_pro
 # Supplements (benefits + employer social insurance) = Compensation - Wages
 supplements = [comp - wage for comp, wage in zip(bea_comp, bea_wages)]
 
+# === EMPLOYER FICA SHARE CALCULATION ===
+# Historical employer FICA rates (OASDI + Medicare combined)
+# Source: SSA.gov, Tax Policy Center, milefoot.com
+# These are statutory rates; actual share is lower due to wage base cap
+employer_fica_rates = {
+    1970: 4.80, 1971: 5.20, 1972: 5.20, 1973: 5.85, 1974: 5.85,
+    1975: 5.85, 1976: 5.85, 1977: 5.85, 1978: 6.05, 1979: 6.13,
+    1980: 6.13, 1981: 6.65, 1982: 6.70, 1983: 6.70, 1984: 7.00,
+    1985: 7.05, 1986: 7.15, 1987: 7.15, 1988: 7.51, 1989: 7.51,
+}
+# From 1990 onward, rate stabilized at 7.65% (6.2% OASDI + 1.45% Medicare)
+for y in range(1990, 2025):
+    employer_fica_rates[y] = 7.65
+
+# Calculate employer FICA share of GDI
+# Formula: employer_fica_share ≈ rate × (wages_share / 100) × adjustment_factor
+# The adjustment factor (~0.92) accounts for the Social Security wage base cap
+# Calibrated to match 2024 actual data: $866B FICA / $29,002B GDI = 2.99%
+# Theoretical 2024: 7.65% × 42.7% = 3.27%, so adjustment = 2.99/3.27 = 0.91
+WAGE_CAP_ADJUSTMENT = 0.91
+
+employer_fica_share = []
+for i, year in enumerate(years):
+    rate = employer_fica_rates[year] / 100  # Convert % to decimal
+    wages_share_decimal = bea_wages[i] / 100
+    theoretical = rate * wages_share_decimal * 100  # Back to % of GDI
+    adjusted = theoretical * WAGE_CAP_ADJUSTMENT
+    employer_fica_share.append(adjusted)
+
+# Compensation excluding employer FICA (wages + benefits only)
+# This is "pre-payroll-tax" labor share - excludes employer portion of FICA
+comp_ex_fica = [comp - fica for comp, fica in zip(bea_comp, employer_fica_share)]
+
 # === HISTORICAL CONTEXT (for reference in text, not in main chart) ===
 # 1929 values for comparison (mentioned briefly in analysis)
 hist_1929 = {
@@ -105,6 +138,7 @@ COLORS = {
     'net': '#dc2626',        # Red - Net (depreciation-adjusted)
     'pwt': '#16a34a',        # Green - Penn World Table
     'adjusted': '#9333ea',   # Purple - With proprietors' adjustment
+    'ex_fica': '#0891b2',    # Teal/Cyan - Compensation ex-FICA
     'wages': '#f59e0b',      # Amber - Wages only
     'depreciation': '#6b7280' # Gray - Depreciation
 }
@@ -140,8 +174,12 @@ def create_main_chart():
             label='Adjusted: + ⅔ Proprietors\' Income', marker='d', markersize=MARKER_SIZE,
             markevery=5)
 
+    ax.plot(years, comp_ex_fica, '-', linewidth=LINE_WIDTH, color=COLORS['ex_fica'],
+            label='Wages + Benefits (excl. employer FICA)', marker='P', markersize=MARKER_SIZE,
+            markevery=5, alpha=0.9)
+
     ax.plot(years, bea_wages, '-', linewidth=LINE_WIDTH-0.5, color=COLORS['wages'],
-            label='Wages Only (excl. benefits/payroll taxes)', marker='^', markersize=MARKER_SIZE,
+            label='Wages Only (excl. all supplements)', marker='^', markersize=MARKER_SIZE,
             markevery=5, alpha=0.85)
 
     # Reference lines
@@ -393,6 +431,16 @@ def print_summary_stats():
     print(f"  1970: {supplements[idx_1970]:.1f}%")
     print(f"  2024: {supplements[idx_2024]:.1f}%")
     print(f"  Change: {supplements[idx_2024] - supplements[idx_1970]:+.1f} pp")
+
+    print(f"\nEmployer FICA Share (estimated):")
+    print(f"  1970: {employer_fica_share[idx_1970]:.1f}%")
+    print(f"  2024: {employer_fica_share[idx_2024]:.1f}%")
+    print(f"  Change: {employer_fica_share[idx_2024] - employer_fica_share[idx_1970]:+.1f} pp")
+
+    print(f"\nCompensation ex-FICA (Wages + Benefits only):")
+    print(f"  1970: {comp_ex_fica[idx_1970]:.1f}%")
+    print(f"  2024: {comp_ex_fica[idx_2024]:.1f}%")
+    print(f"  Change: {comp_ex_fica[idx_2024] - comp_ex_fica[idx_1970]:+.1f} pp")
 
     print(f"\nHistorical Reference (1929):")
     print(f"  Gross labor share: {hist_1929['compensation']:.1f}%")
