@@ -109,75 +109,86 @@ COLORS = {
     'depreciation': '#6b7280' # Gray - Depreciation
 }
 
+# === INCREASED SIZES FOR BETTER READABILITY ===
+LINE_WIDTH = 3.5          # Thicker lines (was 2.5)
+MARKER_SIZE = 7           # Bigger markers (was 4)
+TITLE_SIZE = 18           # Bigger title (was 14)
+AXIS_LABEL_SIZE = 15      # Bigger axis labels (was 12)
+TICK_SIZE = 13            # Bigger tick labels (was 10)
+LEGEND_SIZE = 12          # Bigger legend (was 9)
+ANNOTATION_SIZE = 12      # Bigger annotations (was 9-10)
+SOURCE_SIZE = 10          # Bigger source note (was 8)
+
 
 def create_main_chart():
     """
     Chart 1: Gross Labor Share Comparison (1970-2024)
     Focus on the post-war peak to present period
     """
-    fig, ax = plt.subplots(figsize=(14, 8))
+    fig, ax = plt.subplots(figsize=(16, 10))
 
     # Plot main series
-    ax.plot(years, bea_comp, '-', linewidth=2.5, color=COLORS['gross'],
-            label='BEA: Total Compensation / GDI (Gross)', marker='o', markersize=4,
+    ax.plot(years, bea_comp, '-', linewidth=LINE_WIDTH, color=COLORS['gross'],
+            label='BEA: Total Compensation / GDI (Gross)', marker='o', markersize=MARKER_SIZE,
             markevery=5)
 
-    ax.plot(pwt_years, pwt_labsh, '-', linewidth=2.5, color=COLORS['pwt'],
-            label='Penn World Table: Labor Share', marker='s', markersize=4,
+    ax.plot(pwt_years, pwt_labsh, '-', linewidth=LINE_WIDTH, color=COLORS['pwt'],
+            label='Penn World Table: Labor Share', marker='s', markersize=MARKER_SIZE,
             markevery=5)
 
-    ax.plot(years, adj_labor_share, '-', linewidth=2.5, color=COLORS['adjusted'],
-            label='Adjusted: + ⅔ Proprietors\' Income', marker='d', markersize=4,
+    ax.plot(years, adj_labor_share, '-', linewidth=LINE_WIDTH, color=COLORS['adjusted'],
+            label='Adjusted: + ⅔ Proprietors\' Income', marker='d', markersize=MARKER_SIZE,
             markevery=5)
 
-    ax.plot(years, bea_wages, '-', linewidth=2, color=COLORS['wages'],
-            label='Wages Only (excl. benefits/payroll taxes)', marker='^', markersize=4,
-            markevery=5, alpha=0.8)
+    ax.plot(years, bea_wages, '-', linewidth=LINE_WIDTH-0.5, color=COLORS['wages'],
+            label='Wages Only (excl. benefits/payroll taxes)', marker='^', markersize=MARKER_SIZE,
+            markevery=5, alpha=0.85)
 
     # Reference lines
-    ax.axhline(y=50, color='gray', linestyle=':', alpha=0.5, linewidth=1)
-    ax.axhline(y=55, color='gray', linestyle=':', alpha=0.5, linewidth=1)
-    ax.axhline(y=60, color='gray', linestyle=':', alpha=0.5, linewidth=1)
+    ax.axhline(y=50, color='gray', linestyle=':', alpha=0.5, linewidth=1.5)
+    ax.axhline(y=55, color='gray', linestyle=':', alpha=0.5, linewidth=1.5)
+    ax.axhline(y=60, color='gray', linestyle=':', alpha=0.5, linewidth=1.5)
 
     # Annotations
-    ax.annotate('1970 Peak\n(58.4%)', xy=(1970, 58.4), xytext=(1973, 61),
-                fontsize=9, color=COLORS['gross'], ha='center',
-                arrowprops=dict(arrowstyle='->', color=COLORS['gross'], lw=1.5))
+    ax.annotate('1970 Peak\n(58.4%)', xy=(1970, 58.4), xytext=(1974, 62),
+                fontsize=ANNOTATION_SIZE, color=COLORS['gross'], ha='center', fontweight='bold',
+                arrowprops=dict(arrowstyle='->', color=COLORS['gross'], lw=2))
 
-    ax.annotate('2024\n(51.9%)', xy=(2024, 51.9), xytext=(2021, 49),
-                fontsize=9, color=COLORS['gross'], ha='center',
-                arrowprops=dict(arrowstyle='->', color=COLORS['gross'], lw=1.5))
+    ax.annotate('2024\n(51.9%)', xy=(2024, 51.9), xytext=(2020, 48),
+                fontsize=ANNOTATION_SIZE, color=COLORS['gross'], ha='center', fontweight='bold',
+                arrowprops=dict(arrowstyle='->', color=COLORS['gross'], lw=2))
 
     # Add 1929 reference annotation (brief mention)
-    ax.annotate('Note: 1929 gross labor share was 49.5%\n(below current level)',
+    ax.annotate('Note: 1929 gross labor share was 49.5% (below current level)',
                 xy=(0.02, 0.02), xycoords='axes fraction',
-                fontsize=8, color='#666', style='italic',
-                bbox=dict(boxstyle='round,pad=0.3', facecolor='#f8f8f8', edgecolor='#ddd'))
+                fontsize=SOURCE_SIZE, color='#555', style='italic',
+                bbox=dict(boxstyle='round,pad=0.4', facecolor='#f8f8f8', edgecolor='#ccc'))
 
     # Formatting
-    ax.set_xlabel('Year', fontsize=12, fontweight='bold')
-    ax.set_ylabel('Labor Share of GDI (%)', fontsize=12, fontweight='bold')
+    ax.set_xlabel('Year', fontsize=AXIS_LABEL_SIZE, fontweight='bold')
+    ax.set_ylabel('Labor Share of GDI (%)', fontsize=AXIS_LABEL_SIZE, fontweight='bold')
     ax.set_title('U.S. Gross Labor Share of GDI: 1970-2024\n(Multiple Measurement Approaches)',
-                 fontsize=14, fontweight='bold', pad=15)
+                 fontsize=TITLE_SIZE, fontweight='bold', pad=20)
 
     # X-axis: every 5 years
     ax.set_xlim(1968, 2026)
     ax.set_xticks(range(1970, 2030, 5))
-    ax.set_xticklabels([str(y) for y in range(1970, 2030, 5)], fontsize=10)
+    ax.set_xticklabels([str(y) for y in range(1970, 2030, 5)], fontsize=TICK_SIZE)
 
     # Y-axis
     ax.set_ylim(40, 70)
     ax.set_yticks(range(40, 75, 5))
+    ax.tick_params(axis='y', labelsize=TICK_SIZE)
     ax.yaxis.set_major_formatter(mtick.PercentFormatter(decimals=0))
 
     # Legend
-    ax.legend(loc='upper right', fontsize=9, framealpha=0.95)
+    ax.legend(loc='upper right', fontsize=LEGEND_SIZE, framealpha=0.95)
 
     # Source note
     fig.text(0.5, 0.02,
              'Sources: BEA NIPA Table 1.11 (FRED: A4002E1A156NBEA, W270RE1A156NBEA, A041RE1A156NBEA); '
              'Penn World Table 10.01 (FRED: LABSHPUSA156NRUG)',
-             ha='center', fontsize=8, color='#666')
+             ha='center', fontsize=SOURCE_SIZE, color='#555')
 
     plt.tight_layout()
     plt.subplots_adjust(bottom=0.10)
@@ -196,78 +207,72 @@ def create_depreciation_chart():
     Chart 2: Gross vs Net Labor Share (1970-2024)
     Shows the effect of rising depreciation on measured labor share
     """
-    fig, ax = plt.subplots(figsize=(14, 8))
+    fig, ax = plt.subplots(figsize=(16, 10))
 
     # Plot gross and net series
-    ax.plot(years, bea_comp, '-', linewidth=2.5, color=COLORS['gross'],
-            label='Gross Labor Share (Compensation / GDI)', marker='o', markersize=4,
+    ax.plot(years, bea_comp, '-', linewidth=LINE_WIDTH, color=COLORS['gross'],
+            label='Gross Labor Share (Compensation / GDI)', marker='o', markersize=MARKER_SIZE,
             markevery=5)
 
-    ax.plot(years, net_labor_share, '-', linewidth=2.5, color=COLORS['net'],
-            label='Net Labor Share (Compensation / NDI)', marker='^', markersize=4,
+    ax.plot(years, net_labor_share, '-', linewidth=LINE_WIDTH, color=COLORS['net'],
+            label='Net Labor Share (Compensation / NDI)', marker='^', markersize=MARKER_SIZE,
             markevery=5)
 
     # Add depreciation on secondary axis for context
     ax2 = ax.twinx()
     ax2.fill_between(years, 0, bea_dep, alpha=0.15, color=COLORS['depreciation'],
                      label='Depreciation Share of GDI')
-    ax2.plot(years, bea_dep, '--', linewidth=1.5, color=COLORS['depreciation'],
+    ax2.plot(years, bea_dep, '--', linewidth=2.5, color=COLORS['depreciation'],
              alpha=0.7)
-    ax2.set_ylabel('Depreciation Share (%)', fontsize=11, color=COLORS['depreciation'])
+    ax2.set_ylabel('Depreciation Share (%)', fontsize=AXIS_LABEL_SIZE-1, color=COLORS['depreciation'])
     ax2.set_ylim(10, 20)
-    ax2.tick_params(axis='y', colors=COLORS['depreciation'])
+    ax2.tick_params(axis='y', colors=COLORS['depreciation'], labelsize=TICK_SIZE)
 
     # Reference lines
-    ax.axhline(y=55, color='gray', linestyle=':', alpha=0.5, linewidth=1)
-    ax.axhline(y=60, color='gray', linestyle=':', alpha=0.5, linewidth=1)
-    ax.axhline(y=65, color='gray', linestyle=':', alpha=0.5, linewidth=1)
+    ax.axhline(y=55, color='gray', linestyle=':', alpha=0.5, linewidth=1.5)
+    ax.axhline(y=60, color='gray', linestyle=':', alpha=0.5, linewidth=1.5)
+    ax.axhline(y=65, color='gray', linestyle=':', alpha=0.5, linewidth=1.5)
 
-    # Annotations
+    # Annotations - positioned to avoid overlap
     ax.annotate('Gross: 58.4% → 51.9%\n(−6.5 pp)',
-                xy=(1995, 56), fontsize=10, color=COLORS['gross'],
-                bbox=dict(boxstyle='round,pad=0.3', facecolor='white', edgecolor=COLORS['gross'], alpha=0.9))
+                xy=(1988, 55.5), fontsize=ANNOTATION_SIZE, color=COLORS['gross'], fontweight='bold',
+                bbox=dict(boxstyle='round,pad=0.4', facecolor='white', edgecolor=COLORS['gross'], alpha=0.95))
 
     ax.annotate('Net: 67.0% → 62.2%\n(−4.8 pp)',
-                xy=(1995, 68), fontsize=10, color=COLORS['net'],
-                bbox=dict(boxstyle='round,pad=0.3', facecolor='white', edgecolor=COLORS['net'], alpha=0.9))
+                xy=(1988, 68.5), fontsize=ANNOTATION_SIZE, color=COLORS['net'], fontweight='bold',
+                bbox=dict(boxstyle='round,pad=0.4', facecolor='white', edgecolor=COLORS['net'], alpha=0.95))
 
-    ax.annotate('Depreciation rose:\n12.8% → 16.5%\n(+3.7 pp)',
-                xy=(2010, 49), fontsize=9, color=COLORS['depreciation'],
-                bbox=dict(boxstyle='round,pad=0.3', facecolor='#f5f5f5', edgecolor=COLORS['depreciation'], alpha=0.9))
-
-    # Add 1929 reference
-    ax.annotate('Historical context: In 1929, gross was 49.5% and net was 55.0%\n'
-                '(depreciation was only 10% of GDI vs 16.5% today)',
-                xy=(0.02, 0.02), xycoords='axes fraction',
-                fontsize=8, color='#666', style='italic',
-                bbox=dict(boxstyle='round,pad=0.3', facecolor='#f8f8f8', edgecolor='#ddd'))
+    ax.annotate('Depreciation rose:\n12.8% → 16.5% (+3.7 pp)',
+                xy=(2008, 50), fontsize=ANNOTATION_SIZE-1, color=COLORS['depreciation'], fontweight='bold',
+                bbox=dict(boxstyle='round,pad=0.4', facecolor='#f5f5f5', edgecolor=COLORS['depreciation'], alpha=0.95))
 
     # Formatting
-    ax.set_xlabel('Year', fontsize=12, fontweight='bold')
-    ax.set_ylabel('Labor Share (%)', fontsize=12, fontweight='bold')
+    ax.set_xlabel('Year', fontsize=AXIS_LABEL_SIZE, fontweight='bold')
+    ax.set_ylabel('Labor Share (%)', fontsize=AXIS_LABEL_SIZE, fontweight='bold')
     ax.set_title('U.S. Labor Share: Gross vs Net (Depreciation-Adjusted), 1970-2024\n'
                  'Net = Compensation / (GDI − Depreciation)',
-                 fontsize=14, fontweight='bold', pad=15)
+                 fontsize=TITLE_SIZE, fontweight='bold', pad=20)
 
     # X-axis: every 5 years
     ax.set_xlim(1968, 2026)
     ax.set_xticks(range(1970, 2030, 5))
-    ax.set_xticklabels([str(y) for y in range(1970, 2030, 5)], fontsize=10)
+    ax.set_xticklabels([str(y) for y in range(1970, 2030, 5)], fontsize=TICK_SIZE)
 
     # Y-axis
     ax.set_ylim(48, 72)
     ax.set_yticks(range(50, 75, 5))
+    ax.tick_params(axis='y', labelsize=TICK_SIZE)
     ax.yaxis.set_major_formatter(mtick.PercentFormatter(decimals=0))
 
-    # Legend (combine both axes)
+    # Legend - moved to upper left to avoid overlap with annotations
     lines1, labels1 = ax.get_legend_handles_labels()
-    ax.legend(lines1, labels1, loc='lower left', fontsize=9, framealpha=0.95)
+    ax.legend(lines1, labels1, loc='upper left', fontsize=LEGEND_SIZE, framealpha=0.95)
 
-    # Source note
+    # Source note with 1929 context - at bottom, outside plot area
     fig.text(0.5, 0.02,
-             'Sources: BEA NIPA Table 1.11 (FRED: A4002E1A156NBEA compensation, A262RE1A156NBEA depreciation). '
-             'Net Domestic Income (NDI) = GDI − Depreciation.',
-             ha='center', fontsize=8, color='#666')
+             'Sources: BEA NIPA Table 1.11 (FRED: A4002E1A156NBEA, A262RE1A156NBEA). '
+             'Historical context: 1929 gross was 49.5%, net was 55.0% (depreciation only 10% of GDI).',
+             ha='center', fontsize=SOURCE_SIZE, color='#555')
 
     plt.tight_layout()
     plt.subplots_adjust(bottom=0.10)
@@ -285,61 +290,62 @@ def create_combined_chart():
     """
     Chart 3: Combined overview (for backward compatibility with original README)
     """
-    fig, ax = plt.subplots(figsize=(14, 8))
+    fig, ax = plt.subplots(figsize=(16, 10))
 
     # Plot all main series
-    ax.plot(years, bea_comp, '-', linewidth=2.5, color=COLORS['gross'],
-            label='BEA: Compensation / GDI (Gross)', marker='o', markersize=4,
+    ax.plot(years, bea_comp, '-', linewidth=LINE_WIDTH, color=COLORS['gross'],
+            label='BEA: Compensation / GDI (Gross)', marker='o', markersize=MARKER_SIZE,
             markevery=5)
 
-    ax.plot(pwt_years, pwt_labsh, '-', linewidth=2.5, color=COLORS['pwt'],
-            label='Penn World Table', marker='s', markersize=4,
+    ax.plot(pwt_years, pwt_labsh, '-', linewidth=LINE_WIDTH, color=COLORS['pwt'],
+            label='Penn World Table', marker='s', markersize=MARKER_SIZE,
             markevery=5)
 
-    ax.plot(years, net_labor_share, '-', linewidth=2.5, color=COLORS['net'],
-            label='Net (depreciation-adjusted)', marker='^', markersize=4,
+    ax.plot(years, net_labor_share, '-', linewidth=LINE_WIDTH, color=COLORS['net'],
+            label='Net (depreciation-adjusted)', marker='^', markersize=MARKER_SIZE,
             markevery=5)
 
-    ax.plot(years, adj_labor_share, '-', linewidth=2.5, color=COLORS['adjusted'],
-            label='Adjusted: + ⅔ Proprietors\' Income', marker='d', markersize=4,
+    ax.plot(years, adj_labor_share, '-', linewidth=LINE_WIDTH, color=COLORS['adjusted'],
+            label='Adjusted: + ⅔ Proprietors\' Income', marker='d', markersize=MARKER_SIZE,
             markevery=5)
 
     # Reference lines
-    ax.axhline(y=50, color='gray', linestyle=':', alpha=0.5, linewidth=1)
-    ax.axhline(y=60, color='gray', linestyle=':', alpha=0.5, linewidth=1)
+    ax.axhline(y=50, color='gray', linestyle=':', alpha=0.5, linewidth=1.5)
+    ax.axhline(y=60, color='gray', linestyle=':', alpha=0.5, linewidth=1.5)
 
     # Annotations
-    ax.annotate('1970 Peak', xy=(1970, 58.4), xytext=(1974, 55),
-                fontsize=9, color=COLORS['gross'],
-                arrowprops=dict(arrowstyle='->', color=COLORS['gross'], lw=1.5))
+    ax.annotate('1970 Peak', xy=(1970, 58.4), xytext=(1975, 55),
+                fontsize=ANNOTATION_SIZE, color=COLORS['gross'], fontweight='bold',
+                arrowprops=dict(arrowstyle='->', color=COLORS['gross'], lw=2))
 
     # Formatting
-    ax.set_xlabel('Year', fontsize=12, fontweight='bold')
-    ax.set_ylabel('Labor Share (%)', fontsize=12, fontweight='bold')
+    ax.set_xlabel('Year', fontsize=AXIS_LABEL_SIZE, fontweight='bold')
+    ax.set_ylabel('Labor Share (%)', fontsize=AXIS_LABEL_SIZE, fontweight='bold')
     ax.set_title('U.S. Labor Share of GDI: Multiple Measures (1970-2024)',
-                 fontsize=14, fontweight='bold', pad=15)
+                 fontsize=TITLE_SIZE, fontweight='bold', pad=20)
 
     # X-axis: every 5 years
     ax.set_xlim(1968, 2026)
     ax.set_xticks(range(1970, 2030, 5))
-    ax.set_xticklabels([str(y) for y in range(1970, 2030, 5)], fontsize=10)
+    ax.set_xticklabels([str(y) for y in range(1970, 2030, 5)], fontsize=TICK_SIZE)
 
     # Y-axis
     ax.set_ylim(48, 72)
+    ax.tick_params(axis='y', labelsize=TICK_SIZE)
     ax.yaxis.set_major_formatter(mtick.PercentFormatter(decimals=0))
 
     # Legend
-    ax.legend(loc='upper right', fontsize=9, framealpha=0.95)
+    ax.legend(loc='upper right', fontsize=LEGEND_SIZE, framealpha=0.95)
 
     # Source note
     fig.text(0.5, 0.02,
              'Sources: BEA NIPA Table 1.11; Penn World Table 10.01 via FRED',
-             ha='center', fontsize=8, color='#666')
+             ha='center', fontsize=SOURCE_SIZE, color='#555')
 
     # Methodology note
-    note_text = ("Gross = Comp/GDI | Net = Comp/(GDI−Depreciation) | "
+    note_text = ("Gross = Comp/GDI  |  Net = Comp/(GDI−Depreciation)  |  "
                  "Adjusted = Comp + ⅔×Proprietors' Income")
-    fig.text(0.5, 0.05, note_text, ha='center', fontsize=8, color='#555', style='italic')
+    fig.text(0.5, 0.05, note_text, ha='center', fontsize=SOURCE_SIZE, color='#444', style='italic')
 
     plt.tight_layout()
     plt.subplots_adjust(bottom=0.12)
