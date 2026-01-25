@@ -189,7 +189,7 @@ COLORS = {
     'net': '#dc2626',        # Red - Net (depreciation-adjusted)
     'pwt': '#16a34a',        # Green - Penn World Table
     'adjusted': '#9333ea',   # Purple - With proprietors' adjustment
-    'ex_fica': '#0891b2',    # Teal/Cyan - Compensation ex-FICA
+    'ex_fica': '#db2777',    # Pink/Magenta - Compensation ex-social insurance (distinct from green)
     'wages': '#f59e0b',      # Amber - Wages only
     'depreciation': '#6b7280' # Gray - Depreciation
 }
