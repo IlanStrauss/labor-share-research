@@ -164,36 +164,25 @@ Next, Figure 3 shows the share of national income going to capital owners, compu
 
 ![Capital Share](capital_share.png)
 
-The "Net Operating Surplus" includes the income available for corporate profits, along with interest, rent, and the capital portion of proprietors' income.
+All three lines include exactly **⅓ of proprietors' income** (the capital portion per Gollin 2002), making them consistent with the Gollin-adjusted labor share in Figure 1.
 
 **The equation:**
 ```
-Net Operating Surplus = GDI − Compensation − Depreciation − Taxes on Production
+Capital Share = NOS − (⅔ × Proprietors' Income)
+              = GDI − Compensation − Depreciation − Taxes on Production − (⅔ × Prop)
 ```
 
 **Line-by-line explanation:**
 
-- **Green (NOS / GDI, pre-corporate tax)**: Net Operating Surplus as a share of GDI, before corporate income taxes are paid. This rose from 21.8% (1970) to 24.9% (2024), a +3.1 pp increase.
+- **Green (Capital Share / GDI, pre-corporate tax)**: Net Operating Surplus minus ⅔ of proprietors' income, before corporate income taxes. This rose from 16.9% (1970) to 20.2% (2024), a +3.3 pp increase.
 
-- **Orange (NOS / GDI, post-corporate tax)**: After subtracting taxes on corporate income. Still shows an increase, though smaller.
+- **Orange (Capital Share / GDI, post-corporate tax)**: After subtracting taxes on corporate income. Still shows an increase, though smaller.
 
-- **Dashed indigo (Corporate Profits / GDI)**: Just the corporate profits component (with IVA and CCAdj) as a share of GDI, excluding proprietors' income, interest, and rent. Corporate profits rose substantially, from 7.4% to 11.5% of GDI. This is our favoured measure since interest and rent are better considered a cost on corporate profits (excluding the financial and real estate sectors).
+- **Dashed indigo (Corporate Profits + ⅓ Proprietors')**: Corporate profits (with IVA and CCAdj) plus ⅓ of proprietors' income. This rose from 9.8% (1970) to 13.8% (2024), a +4.0 pp increase.
 
-**Interpretation:** As labor's share of GDI fell by 6.5 percentage points, capital's share (Net Operating Surplus) rose by about 3 percentage points. The remainder was absorbed by rising depreciation (+3.7 pp). In other words:
-- **Labor share**: −6.5 pp
-- **Capital share (NOS)**: +3.1 pp
-- **Depreciation share**: +3.7 pp
-- **Taxes on production**: −0.3 pp
+**Interpretation:** As labor's share of GDI fell by 6.5 percentage points, capital's share (Gollin-adjusted) rose by about 3.3 percentage points. The remainder was absorbed by rising depreciation (+3.7 pp) and a small decrease in taxes on production.
 
-These changes sum to zero (−6.5 + 3.1 + 3.7 − 0.3 = 0), as they must — the shares of GDI must sum to 100%.
-
-**Corporate profits drove the capital share increase.** Within the Net Operating Surplus, corporate profits rose most dramatically — from 7.4% to 11.5% of GDI (+4.1 pp). This reflects increased profit margins, market concentration, and the rise of high-margin technology firms.
-
-**Important caveat:** The NOS measure in this figure includes *all* of proprietors' income (~7% of GDI). However, the Gollin (2002) adjustment used in Figure 1 allocates ⅔ of proprietors' income to *labor*. If we applied that same adjustment here, the "Gollin-adjusted capital share" would be:
-
-`NOS − (⅔ × Proprietors' Income) = 24.9% − (0.67 × 7.0%) = 20.2% (2024)`
-
-This would show a smaller increase in capital share (+1.4 pp instead of +3.1 pp). The figure above uses the simpler NOS definition for transparency, but readers should note this limitation when comparing to Gollin-adjusted labor share measures.
+**Corporate profits drove the capital share increase.** Corporate profits plus the capital portion of proprietors' income rose from 9.8% to 13.8% of GDI (+4.0 pp). This reflects increased profit margins, market concentration, and the rise of high-margin technology firms.
 
 ---
 

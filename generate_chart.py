@@ -160,12 +160,25 @@ corp_profits_aftertax = [
 # === CAPITAL SHARE CALCULATIONS ===
 # Net Operating Surplus (NOS) = GDI - Compensation - Depreciation - Taxes on Production
 # This is capital income BEFORE corporate income taxes (includes profits, interest, rent)
-nos_share = [100 - comp - dep - tax for comp, dep, tax in zip(bea_comp, bea_dep, taxes_on_prod)]
+nos_share_raw = [100 - comp - dep - tax for comp, dep, tax in zip(bea_comp, bea_dep, taxes_on_prod)]
+
+# Gollin-adjusted capital shares: include only ⅓ of proprietors' income (capital portion)
+# Following Gollin (2002): ⅔ to labor, ⅓ to capital
+# NOS_raw includes 100% of proprietors', so we subtract ⅔ to get ⅓
+capital_alpha = 1/3  # Capital's share of proprietors' income
+labor_alpha = 2/3    # Labor's share of proprietors' income
+
+# Gollin-adjusted NOS = NOS_raw - (⅔ × Proprietors' Income)
+nos_share = [nos - (labor_alpha * prop) for nos, prop in zip(nos_share_raw, bea_prop)]
 
 # Net Operating Surplus after corporate income taxes (rough approximation)
 # NOS_aftertax ≈ NOS - (Pretax profits - Aftertax profits)
 corp_tax_share = [pre - post for pre, post in zip(corp_profits_pretax, corp_profits_aftertax)]
 nos_aftertax_share = [nos - ctax for nos, ctax in zip(nos_share, corp_tax_share)]
+
+# Corporate Profits + ⅓ Proprietors' Income (Gollin-adjusted)
+# This makes corp profits line consistent with NOS lines (all include ⅓ of prop income)
+corp_profits_adjusted = [corp + (capital_alpha * prop) for corp, prop in zip(corp_profits_pretax, bea_prop)]
 
 # Depreciation-adjusted capital share = NOS / NDI
 # Where NDI = GDI - Depreciation
@@ -365,32 +378,34 @@ def create_capital_share_chart():
     """
     Figure 3: Capital Share (Net Operating Surplus) 1970-2024
     Shows capital's share after deducting labor costs, depreciation, and production taxes
+    All lines include ⅓ of proprietors' income (Gollin-consistent)
     """
     fig, ax = plt.subplots(figsize=(16, 10))
 
     # Plot capital share measures (with alpha for transparency)
+    # All lines now include ⅓ of proprietors' income (capital portion per Gollin 2002)
     ax.plot(years, nos_share, '-', linewidth=LINE_WIDTH, color='#059669',  # Emerald green
-            label='Net Operating Surplus / GDI (pre-corporate tax)', marker='o', markersize=MARKER_SIZE,
+            label='Capital Share / GDI (pre-corporate tax)', marker='o', markersize=MARKER_SIZE,
             markevery=5, alpha=LINE_ALPHA)
 
     ax.plot(years, nos_aftertax_share, '-', linewidth=LINE_WIDTH, color='#ea580c',  # Orange (distinct from green)
-            label='Net Operating Surplus / GDI (post-corporate tax)', marker='s', markersize=MARKER_SIZE,
+            label='Capital Share / GDI (post-corporate tax)', marker='s', markersize=MARKER_SIZE,
             markevery=5, alpha=LINE_ALPHA)
 
-    ax.plot(years, corp_profits_pretax, '--', linewidth=LINE_WIDTH-1, color='#6366f1',  # Indigo
-            label='Corporate Profits / GDI (pre-tax)', marker='^', markersize=MARKER_SIZE-2,
+    ax.plot(years, corp_profits_adjusted, '--', linewidth=LINE_WIDTH-1, color='#6366f1',  # Indigo
+            label='Corporate Profits + ⅓ Proprietors\' / GDI', marker='^', markersize=MARKER_SIZE-2,
             markevery=5, alpha=0.7)
 
     # Reference lines
+    ax.axhline(y=15, color='gray', linestyle=':', alpha=0.4, linewidth=1.5)
     ax.axhline(y=20, color='gray', linestyle=':', alpha=0.4, linewidth=1.5)
-    ax.axhline(y=25, color='gray', linestyle=':', alpha=0.4, linewidth=1.5)
 
     # Annotations
-    ax.annotate(f'NOS: {nos_share[0]:.1f}% → {nos_share[-1]:.1f}%\n(+{nos_share[-1]-nos_share[0]:.1f} pp)',
+    ax.annotate(f'Capital Share: {nos_share[0]:.1f}% → {nos_share[-1]:.1f}%\n({nos_share[-1]-nos_share[0]:+.1f} pp)',
                 xy=(1975, nos_share[5]), fontsize=ANNOTATION_SIZE, color='#059669', fontweight='bold',
                 bbox=dict(boxstyle='round,pad=0.4', facecolor='white', edgecolor='#059669', alpha=0.95))
 
-    ax.annotate(f'Corporate Profits:\n{corp_profits_pretax[0]:.1f}% → {corp_profits_pretax[-1]:.1f}%',
+    ax.annotate(f'Corp + ⅓ Prop:\n{corp_profits_adjusted[0]:.1f}% → {corp_profits_adjusted[-1]:.1f}%',
                 xy=(2010, 12), fontsize=ANNOTATION_SIZE, color='#6366f1', fontweight='bold',
                 bbox=dict(boxstyle='round,pad=0.4', facecolor='white', edgecolor='#6366f1', alpha=0.95))
 
@@ -415,8 +430,8 @@ def create_capital_share_chart():
 
     # Source note
     fig.text(0.5, 0.02,
-             'Source: BEA NIPA Table 1.11 via FRED. NOS = 100% − Compensation − Depreciation − Taxes on Production. '
-             'Corporate tax = pretax profits − after-tax profits.',
+             'Source: BEA NIPA Table 1.11 via FRED. All lines include ⅓ of proprietors\' income (capital portion per Gollin 2002). '
+             'Capital Share = NOS − ⅔×Prop. Corp + ⅓ Prop = Corporate Profits + ⅓×Prop.',
              ha='center', fontsize=SOURCE_SIZE, color='#555')
 
     plt.tight_layout()
