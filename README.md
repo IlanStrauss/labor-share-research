@@ -172,13 +172,12 @@ Capital Share = NOS − (⅔ × Proprietors' Income)
               = GDI − Compensation − Depreciation − Taxes on Production − (⅔ × Prop)
 ```
 
-**Line-by-line explanation:**
 
-- **Green (Capital Share / GDI, pre-corporate tax)**: Net Operating Surplus minus ⅔ of proprietors' income, before corporate income taxes. This rose from 16.9% (1970) to 20.2% (2024), a +3.3 pp increase.
+- **Green (Capital Share / GDI, pre-corporate tax)**: Capital share before corporate income taxtes. This rose from 16.9% (1970) to 20.2% (2024), a +3.3 pp increase. This includes interest and rent income and is defined as net Operating Surplus minus ⅔ of proprietors' income, before corporate income taxes. 
 
-- **Orange (Capital Share / GDI, post-corporate tax)**: After subtracting taxes on corporate income. Still shows an increase, though smaller.
+- **Orange (Capital Share / GDI, post-corporate tax)**: As above, but now subtracting taxes on corporate income. Still shows an increase, though smaller.
 
-- **Dashed indigo (Corporate Profits + ⅓ Proprietors')**: Corporate profits (with IVA and CCAdj) plus ⅓ of proprietors' income. This rose from 9.8% (1970) to 13.8% (2024), a +4.0 pp increase.
+- **Dashed indigo (Corporate Profits + ⅓ Proprietors')**: Exclude rent and interest income, which are expenses. Corporate profits (with IVA and CCAdj) plus ⅓ of proprietors' income. This rose from 9.8% (1970) to 13.8% (2024), a +4.0 pp increase.
 
 **Interpretation:** As labor's share of GDI fell by 6.5 percentage points, capital's share (Gollin-adjusted) rose by about 3.3 percentage points. The remainder was absorbed by rising depreciation (+3.7 pp) and a small decrease in taxes on production.
 
@@ -583,6 +582,7 @@ The BLS nonfarm business labor share shows a **~16% decline** from its early-197
 - **Exposition:** Rewrote depreciation sections to present the **capital share effect as logically prior** — depreciation reduces capital's net income first; labor's higher NDI share is the consequence
 - **Accounting identities:** Added explicit GDI and NDI identities to make the distributional logic unambiguous
 - **Links:** Fixed 5 broken academic links (Gollin, Bridgman, Koh et al., BEA handbook/update) with working alternatives
+
 
 
 
