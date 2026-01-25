@@ -24,7 +24,7 @@
 - Adjusting for rising depreciation attenuates (but does not eliminate) the decline: −4.8 pp
 - Looking at **wages only** (excluding benefits and payroll taxes) shows the steepest decline: −8.9 pp
 
-> ### ⚠️ Key Methodological Assumption: Proprietors' Income
+> ### Key Methodological Assumption: Proprietors' Income
 >
 > **Proprietors' income** (~7% of GDI) is "mixed income" — it contains both labor and capital returns for self-employed individuals. This document follows **[Gollin (2002)](https://www.journals.uchicago.edu/doi/abs/10.1086/340770)** in allocating **⅔ of proprietors' income to labor** and **⅓ to capital** when computing the "Adjusted" labor share measure (purple line in Figure 1).
 >
