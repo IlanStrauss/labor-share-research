@@ -251,8 +251,7 @@ def create_main_chart():
     # Formatting
     ax.set_xlabel('Year', fontsize=AXIS_LABEL_SIZE, fontweight='bold')
     ax.set_ylabel('Labor Share of GDI (%)', fontsize=AXIS_LABEL_SIZE, fontweight='bold')
-    ax.set_title('Figure 1. Labor Share Declined Across All Measures Since 1970 Peak\n(U.S. Gross Labor Share of GDI, 1970-2024)',
-                 fontsize=TITLE_SIZE, fontweight='bold', pad=20)
+    # Title removed - heading is in README above the figure
 
     # X-axis: every 5 years
     ax.set_xlim(1968, 2026)
@@ -328,8 +327,7 @@ def create_depreciation_chart():
     # Formatting
     ax.set_xlabel('Year', fontsize=AXIS_LABEL_SIZE, fontweight='bold')
     ax.set_ylabel('Labor Share (%)', fontsize=AXIS_LABEL_SIZE, fontweight='bold')
-    ax.set_title('Figure 2. Depreciation-Adjusted Labor Share Also Declined, But Less Steeply\n(Gross vs. Depreciation-Adjusted, 1970-2024)',
-                 fontsize=TITLE_SIZE, fontweight='bold', pad=20)
+    # Title removed - heading is in README above the figure
 
     # X-axis: every 5 years
     ax.set_xlim(1968, 2026)
