@@ -147,7 +147,7 @@ Figure 1 shows five different ways of measuring labor's share of national income
 
 ![Gross vs Net Labor Share](labor_share_net_vs_gross.png)
 
-**What this figure shows:** The same numerator (total employee compensation) divided by two different denominators: GDI (gross) vs NDI (net of depreciation).
+Figure 2 shows the same total employee compensation (numerator) but divided by two different denominators: one is gross (GDI)the other is net (NDI), meaning depreciation of fixed capital has been deducted.
 
 **Line-by-line explanation:**
 
@@ -609,6 +609,7 @@ The BLS nonfarm business labor share shows a **~16% decline** from its early-197
 - **Exposition:** Rewrote depreciation sections to present the **capital share effect as logically prior** — depreciation reduces capital's net income first; labor's higher NDI share is the consequence
 - **Accounting identities:** Added explicit GDI and NDI identities to make the distributional logic unambiguous
 - **Links:** Fixed 5 broken academic links (Gollin, Bridgman, Koh et al., BEA handbook/update) with working alternatives
+
 
 
 
