@@ -143,6 +143,10 @@ Figure 1 shows five different ways of measuring labor's share of national income
 
 **Interpretation:** All measures show a decline from 1970 to the latest available year (BEA series through 2024; Penn World Table through 2019). The magnitude varies: the decline is −6.5 pp for the standard measure, but −8.9 pp for wages only. This means that rising employer contributions to benefits and payroll taxes have partially masked wage stagnation. If you care about workers' cash wages, the decline is steeper than the headline labor share suggests.
 
+Next, we move on to the importance of adjusting total income for depreciation. 
+
+**Terminology note:** In the labor share literature, "net" means *net of depreciation* (using NDI as denominator), **not** net of taxes. All measures in this document are pre-income-tax.
+
 ### Figure 2. Labor Share of Net Income (NDI) Also Declined, But Less Steeply
 
 ![Gross vs Net Labor Share](labor_share_net_vs_gross.png)
@@ -154,14 +158,13 @@ Depreciation is a capital maintenance cost — it represents wear and tear on ma
 The standard measure of total income does not exclude depreciation (Blue line) - hence GDI. This contrasts with the red line (net domestic income), whereby depreciation is removed as income from the economy leading to the labour share of income increasing as it is divided by a smaller amount. It is a mechnical relationship. Labor's higher net-income share is the residual result. The gap between two lines has widened. In 1970, depreciation was 12.8% of GDI; by 2024, it had risen to 16.5%. As the depreciation share grew, the difference between GDI and NDI widened. This made labor's share of NDI rise *relative to* the gross labor share — even though both declined in absolute terms.
 
 
-
-**Terminology note:** In the labor share literature, "net" means *net of depreciation* (using NDI as denominator), **not** net of taxes. All measures in this document are pre-income-tax.
+Next, Figure 3 shows the share of national income going to capital owners, computed as a residual after subtracting labor compensation, depreciation, and taxes on production from GDI. This 
 
 ### Figure 3. Capital Share Rose as Labor Share Fell
 
 ![Capital Share](capital_share.png)
 
-**What this figure shows:** The share of national income going to capital owners, computed as a residual after subtracting labor compensation, depreciation, and taxes on production from GDI. This is the "Net Operating Surplus" — the income available for corporate profits, interest, rent, and the capital portion of proprietors' income.
+is the "Net Operating Surplus" — the income available for corporate profits, interest, rent, and the capital portion of proprietors' income.
 
 **The equation:**
 ```
@@ -193,6 +196,8 @@ These changes sum to zero (−6.5 + 3.1 + 3.7 − 0.3 = 0), as they must — the
 This would show a smaller increase in capital share (+1.4 pp instead of +3.1 pp). The figure above uses the simpler NOS definition for transparency, but readers should note this limitation when comparing to Gollin-adjusted labor share measures.
 
 ---
+
+# Appendix
 
 ## Methodological Notes
 
@@ -589,6 +594,7 @@ The BLS nonfarm business labor share shows a **~16% decline** from its early-197
 - **Exposition:** Rewrote depreciation sections to present the **capital share effect as logically prior** — depreciation reduces capital's net income first; labor's higher NDI share is the consequence
 - **Accounting identities:** Added explicit GDI and NDI identities to make the distributional logic unambiguous
 - **Links:** Fixed 5 broken academic links (Gollin, Bridgman, Koh et al., BEA handbook/update) with working alternatives
+
 
 
 
