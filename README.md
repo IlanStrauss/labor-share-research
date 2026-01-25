@@ -147,29 +147,9 @@ Figure 1 shows five different ways of measuring labor's share of national income
 
 ![Gross vs Net Labor Share](labor_share_net_vs_gross.png)
 
-Figure 2 shows the same total employee compensation (numerator) but divided by two different denominators: one is gross (GDI)the other is net (NDI), meaning depreciation of fixed capital has been deducted.
+Figure 2 shows the same total employee compensation (numerator) but divided by two different denominators: one is gross (GDI) the other is net (NDI), meaning depreciation of fixed capital has been deducted. Depreciation is a capital maintenance cost — it represents wear and tear on machinery, software, and buildings. 
 
-**Line-by-line explanation:**
-
-- **Blue (Gross Labor Share = Compensation / GDI)**: The standard measure. The denominator includes depreciation (Consumption of Fixed Capital).
-
-- **Red (Labor Share of NDI = Compensation / NDI)**: The denominator is Net Domestic Income = GDI − Depreciation. This removes resources set aside to replace worn-out capital.
-
-**Understanding the gross-to-net shift (capital share is logically prior):**
-
-Depreciation is a capital maintenance cost — it represents wear and tear on machinery, software, and buildings. When we move from gross to net income:
-
-1. **Depreciation reduces capital's net income first** → capital's share of net income falls
-2. **Labor's higher share of NDI is the consequence** — with a smaller pie being divided, labor's unchanged absolute claim represents a larger percentage share
-
-This is the economically intuitive order: depreciation is subtracted from capital's claim *before* dividing between factors. Labor's higher net-income share is the residual result.
-
-**Equivalent arithmetic:**
-
-- Gross labor share = Compensation / GDI
-- Labor share of NDI = Compensation / (GDI − Depreciation)
-
-When depreciation is subtracted from the denominator, the denominator becomes *smaller*. Dividing by a smaller number produces a *larger* result. So labor's share of NDI is always higher than the gross labor share.
+The standard measure of total income does not exclude depreciation (Blue line) - hence GDI. This contrasts with the red line (net domestic income), whereby depreciation is removed as income from the economy leading to the labour share of income increasing as it is divided by a smaller amount. It is a mechnical relationship. Labor's higher net-income share is the residual result.
 
 **Why the gap between the lines widened:** In 1970, depreciation was 12.8% of GDI; by 2024, it had risen to 16.5%. As the depreciation share grew, the difference between GDI and NDI widened. This made labor's share of NDI rise *relative to* the gross labor share — even though both declined in absolute terms.
 
@@ -609,6 +589,7 @@ The BLS nonfarm business labor share shows a **~16% decline** from its early-197
 - **Exposition:** Rewrote depreciation sections to present the **capital share effect as logically prior** — depreciation reduces capital's net income first; labor's higher NDI share is the consequence
 - **Accounting identities:** Added explicit GDI and NDI identities to make the distributional logic unambiguous
 - **Links:** Fixed 5 broken academic links (Gollin, Bridgman, Koh et al., BEA handbook/update) with working alternatives
+
 
 
 
