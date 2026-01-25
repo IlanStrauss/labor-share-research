@@ -1,4 +1,4 @@
-# U.S. Labor Share of GDI: A Methodological Note (v.2)
+# Has the U.S. Labour Share Declined? A brief note (v.2)
 
 ## Executive Summary
 
