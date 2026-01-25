@@ -24,6 +24,8 @@
 - On a **net-income (NDI)** basis — where depreciation is treated as a capital cost subtracted before distribution — the decline is less: −4.8 pp
 - Looking at **wages only** (excluding benefits and payroll taxes) shows the steepest decline: −8.9 pp
 
+**Sector scope:** This analysis uses **whole-economy GDI shares**, which include the government sector (employees paid by government) and housing sector (imputed rent from owner-occupied housing). Government tends to *raise* measured labor share (government has little measured operating surplus), while owner-occupied housing tends to *lower* it (adds imputed rental income with no compensation). The [BLS nonfarm business sector](https://fred.stlouisfed.org/series/PRS85006173) — which excludes these sectors — shows an even steeper decline (~16% from its early-1970s peak).
+
 ---
 
 ## Defining the Labor Share
