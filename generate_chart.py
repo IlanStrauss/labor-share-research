@@ -400,14 +400,7 @@ def create_capital_share_chart():
     ax.axhline(y=15, color='gray', linestyle=':', alpha=0.4, linewidth=1.5)
     ax.axhline(y=20, color='gray', linestyle=':', alpha=0.4, linewidth=1.5)
 
-    # Annotations
-    ax.annotate(f'Capital Share: {nos_share[0]:.1f}% → {nos_share[-1]:.1f}%\n({nos_share[-1]-nos_share[0]:+.1f} pp)',
-                xy=(1975, nos_share[5]), fontsize=ANNOTATION_SIZE, color='#059669', fontweight='bold',
-                bbox=dict(boxstyle='round,pad=0.4', facecolor='white', edgecolor='#059669', alpha=0.95))
-
-    ax.annotate(f'Corp + ⅓ Prop:\n{corp_profits_adjusted[0]:.1f}% → {corp_profits_adjusted[-1]:.1f}%',
-                xy=(2010, 12), fontsize=ANNOTATION_SIZE, color='#6366f1', fontweight='bold',
-                bbox=dict(boxstyle='round,pad=0.4', facecolor='white', edgecolor='#6366f1', alpha=0.95))
+    # No text box annotations - data speaks for itself
 
     # Formatting
     ax.set_xlabel('Year', fontsize=AXIS_LABEL_SIZE, fontweight='bold')
