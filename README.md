@@ -177,11 +177,10 @@ Capital Share = NOS − (⅔ × Proprietors' Income)
 
 - **Orange (Capital Share / GDI, post-corporate tax)**: As above, but now subtracting taxes on corporate income. Still shows an increase, though smaller.
 
-- **Dashed indigo (Corporate Profits + ⅓ Proprietors')**: Exclude rent and interest income, which are expenses. Corporate profits (with IVA and CCAdj) plus ⅓ of proprietors' income. This rose from 9.8% (1970) to 13.8% (2024), a +4.0 pp increase.
+- **Dashed indigo (Corporate Profits + ⅓ Proprietors')**: My preferred measure. Properly excludes rent and interest income, which are expenses. Corporate profits (with IVA and CCAdj) plus ⅓ of proprietors' income. This rose from 9.8% (1970) to 13.8% (2024), a +4.0 pp increase. This likely reflects increased profit margins, market concentration, globalization and technological change, and the rise of high-margin technology firms.
 
-**Interpretation:** As labor's share of GDI fell by 6.5 percentage points, capital's share (Gollin-adjusted) rose by about 3.3 percentage points. The remainder was absorbed by rising depreciation (+3.7 pp) and a small decrease in taxes on production.
+**Key Point:** As labor's share of GDI fell by 6.5 percentage points, capital's share (Gollin-adjusted) rose by about 3.3 percentage points. The remainder was absorbed by rising depreciation (+3.7 pp) and a small decrease in taxes on production.
 
-**Corporate profits drove the capital share increase.** Corporate profits plus the capital portion of proprietors' income rose from 9.8% to 13.8% of GDI (+4.0 pp). This reflects increased profit margins, market concentration, and the rise of high-margin technology firms.
 
 ---
 
@@ -582,6 +581,7 @@ The BLS nonfarm business labor share shows a **~16% decline** from its early-197
 - **Exposition:** Rewrote depreciation sections to present the **capital share effect as logically prior** — depreciation reduces capital's net income first; labor's higher NDI share is the consequence
 - **Accounting identities:** Added explicit GDI and NDI identities to make the distributional logic unambiguous
 - **Links:** Fixed 5 broken academic links (Gollin, Bridgman, Koh et al., BEA handbook/update) with working alternatives
+
 
 
 
