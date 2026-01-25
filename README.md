@@ -1,4 +1,4 @@
-# U.S. Labor Share of GDI: A Methodological Note
+# U.S. Labor Share of GDI: A Methodological Note (v.2)
 
 ## Executive Summary
 
@@ -572,3 +572,8 @@ The BLS nonfarm business labor share shows a **~16% decline** from its early-197
 
 *Note: The BLS index is not directly comparable to BEA percentage shares. To convert approximate levels: if 2017 labor share ≈ 58%, then index value 96.9 implies ~56% labor share in 2024 Q4.*
 
+---
+
+## Changelog
+
+*No changes yet since v.2 release.*
