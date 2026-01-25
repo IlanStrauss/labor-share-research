@@ -562,7 +562,7 @@ This research note is shared for educational and research purposes. Data sources
 
 ## Author
 
-Research note compiled by [Claude Code](https://claude.ai/code) under the direction of **Ilan Strauss**.
+Research note compiled by Ilan Strauss using [Claude Code](https://claude.ai/code). Thank you to Rob Petersen for helpful feedback and clarifying discussions. All errors are my own.
 
 January 2026
 
@@ -615,4 +615,5 @@ The BLS nonfarm business labor share shows a **~16% decline** from its early-197
 - **Exposition:** Rewrote depreciation sections to present the **capital share effect as logically prior** — depreciation reduces capital's net income first; labor's higher NDI share is the consequence
 - **Accounting identities:** Added explicit GDI and NDI identities to make the distributional logic unambiguous
 - **Links:** Fixed 5 broken academic links (Gollin, Bridgman, Koh et al., BEA handbook/update) with working alternatives
+
 
