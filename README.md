@@ -21,7 +21,8 @@
 - The **standard gross measure** shows a −6.5 pp decline
 - Adjusting for rising depreciation attenuates (but does not eliminate) the decline: −4.8 pp
 - Looking at **wages only** (excluding benefits and payroll taxes) shows the steepest decline: −8.9 pp
-- The 1970 peak was historically high — in 1929, gross labor share was only 49.5%
+
+**Historical context:** The 1970 peak (58.4%) was historically high — in 1929, gross labor share was only 49.5%, below today's level. But this does not change the central finding: *labor share has declined from its peak, regardless of which measure is used.*
 
 ---
 
