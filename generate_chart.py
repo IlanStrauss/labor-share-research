@@ -396,16 +396,10 @@ def create_capital_share_chart():
                 xy=(2010, 12), fontsize=ANNOTATION_SIZE, color='#6366f1', fontweight='bold',
                 bbox=dict(boxstyle='round,pad=0.4', facecolor='white', edgecolor='#6366f1', alpha=0.95))
 
-    # Key insight box
-    ax.annotate('Capital share (NOS) rose as labor share fell.\nCorporate profits increased substantially.',
-                xy=(1990, 28), fontsize=ANNOTATION_SIZE, color='#333', style='italic',
-                bbox=dict(boxstyle='round,pad=0.5', facecolor='#f0f0f0', edgecolor='#999', alpha=0.95))
-
     # Formatting
     ax.set_xlabel('Year', fontsize=AXIS_LABEL_SIZE, fontweight='bold')
     ax.set_ylabel('Share of GDI (%)', fontsize=AXIS_LABEL_SIZE, fontweight='bold')
-    ax.set_title('Figure 3. Capital Share Rose as Labor Share Fell\n(Net Operating Surplus = GDI − Compensation − Depreciation − Production Taxes)',
-                 fontsize=TITLE_SIZE, fontweight='bold', pad=20)
+    # Title removed - heading is in README above the figure
 
     # X-axis: every 5 years
     ax.set_xlim(1968, 2026)
