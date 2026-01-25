@@ -254,9 +254,9 @@ def create_main_chart():
     # Title removed - heading is in README above the figure
 
     # X-axis: every 5 years
-    ax.set_xlim(1968, 2026)
-    ax.set_xticks(range(1970, 2030, 5))
-    ax.set_xticklabels([str(y) for y in range(1970, 2030, 5)], fontsize=TICK_SIZE)
+    ax.set_xlim(1970, 2024)
+    ax.set_xticks(range(1970, 2025, 5))
+    ax.set_xticklabels([str(y) for y in range(1970, 2025, 5)], fontsize=TICK_SIZE)
 
     # Y-axis
     ax.set_ylim(40, 70)
@@ -330,9 +330,9 @@ def create_depreciation_chart():
     # Title removed - heading is in README above the figure
 
     # X-axis: every 5 years
-    ax.set_xlim(1968, 2026)
-    ax.set_xticks(range(1970, 2030, 5))
-    ax.set_xticklabels([str(y) for y in range(1970, 2030, 5)], fontsize=TICK_SIZE)
+    ax.set_xlim(1970, 2024)
+    ax.set_xticks(range(1970, 2025, 5))
+    ax.set_xticklabels([str(y) for y in range(1970, 2025, 5)], fontsize=TICK_SIZE)
 
     # Y-axis
     ax.set_ylim(48, 72)
@@ -373,7 +373,7 @@ def create_capital_share_chart():
             label='Net Operating Surplus / GDI (pre-corporate tax)', marker='o', markersize=MARKER_SIZE,
             markevery=5, alpha=LINE_ALPHA)
 
-    ax.plot(years, nos_aftertax_share, '-', linewidth=LINE_WIDTH, color='#0d9488',  # Teal
+    ax.plot(years, nos_aftertax_share, '-', linewidth=LINE_WIDTH, color='#ea580c',  # Orange (distinct from green)
             label='Net Operating Surplus / GDI (post-corporate tax)', marker='s', markersize=MARKER_SIZE,
             markevery=5, alpha=LINE_ALPHA)
 
@@ -400,9 +400,9 @@ def create_capital_share_chart():
     # Title removed - heading is in README above the figure
 
     # X-axis: every 5 years
-    ax.set_xlim(1968, 2026)
-    ax.set_xticks(range(1970, 2030, 5))
-    ax.set_xticklabels([str(y) for y in range(1970, 2030, 5)], fontsize=TICK_SIZE)
+    ax.set_xlim(1970, 2024)
+    ax.set_xticks(range(1970, 2025, 5))
+    ax.set_xticklabels([str(y) for y in range(1970, 2025, 5)], fontsize=TICK_SIZE)
 
     # Y-axis
     ax.set_ylim(0, 32)
@@ -470,9 +470,9 @@ def create_combined_chart():
                  fontsize=TITLE_SIZE, fontweight='bold', pad=20)
 
     # X-axis: every 5 years
-    ax.set_xlim(1968, 2026)
-    ax.set_xticks(range(1970, 2030, 5))
-    ax.set_xticklabels([str(y) for y in range(1970, 2030, 5)], fontsize=TICK_SIZE)
+    ax.set_xlim(1970, 2024)
+    ax.set_xticks(range(1970, 2025, 5))
+    ax.set_xticklabels([str(y) for y in range(1970, 2025, 5)], fontsize=TICK_SIZE)
 
     # Y-axis
     ax.set_ylim(48, 72)
