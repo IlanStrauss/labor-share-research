@@ -385,15 +385,15 @@ def create_capital_share_chart():
     # Plot capital share measures (with alpha for transparency)
     # All lines now include ⅓ of proprietors' income (capital portion per Gollin 2002)
     ax.plot(years, nos_share, '-', linewidth=LINE_WIDTH, color='#059669',  # Emerald green
-            label='Capital Share / GDI (pre-corporate tax)', marker='o', markersize=MARKER_SIZE,
+            label='Total Capital Income (pre-tax)', marker='o', markersize=MARKER_SIZE,
             markevery=5, alpha=LINE_ALPHA)
 
     ax.plot(years, nos_aftertax_share, '-', linewidth=LINE_WIDTH, color='#ea580c',  # Orange (distinct from green)
-            label='Capital Share / GDI (post-corporate tax)', marker='s', markersize=MARKER_SIZE,
+            label='Total Capital Income (post-tax)', marker='s', markersize=MARKER_SIZE,
             markevery=5, alpha=LINE_ALPHA)
 
     ax.plot(years, corp_profits_adjusted, '--', linewidth=LINE_WIDTH-1, color='#6366f1',  # Indigo
-            label='Corporate Profits + ⅓ Proprietors\' / GDI', marker='^', markersize=MARKER_SIZE-2,
+            label='Corporate Profits + ⅓ Prop', marker='^', markersize=MARKER_SIZE-2,
             markevery=5, alpha=0.7)
 
     # Reference lines
