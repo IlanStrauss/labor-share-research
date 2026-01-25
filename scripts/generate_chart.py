@@ -289,9 +289,9 @@ def create_main_chart():
     plt.tight_layout()
     plt.subplots_adjust(bottom=0.10)
 
-    plt.savefig('labor_share_gross.png', dpi=150, bbox_inches='tight',
+    plt.savefig('../figures/labor_share_gross.png', dpi=150, bbox_inches='tight',
                 facecolor='white', edgecolor='none')
-    plt.savefig('labor_share_gross.pdf', bbox_inches='tight',
+    plt.savefig('../figures/labor_share_gross.pdf', bbox_inches='tight',
                 facecolor='white', edgecolor='none')
     plt.close()
 
@@ -365,9 +365,9 @@ def create_depreciation_chart():
     plt.tight_layout()
     plt.subplots_adjust(bottom=0.10)
 
-    plt.savefig('labor_share_net_vs_gross.png', dpi=150, bbox_inches='tight',
+    plt.savefig('../figures/labor_share_net_vs_gross.png', dpi=150, bbox_inches='tight',
                 facecolor='white', edgecolor='none')
-    plt.savefig('labor_share_net_vs_gross.pdf', bbox_inches='tight',
+    plt.savefig('../figures/labor_share_net_vs_gross.pdf', bbox_inches='tight',
                 facecolor='white', edgecolor='none')
     plt.close()
 
@@ -430,9 +430,9 @@ def create_capital_share_chart():
     plt.tight_layout()
     plt.subplots_adjust(bottom=0.10)
 
-    plt.savefig('capital_share.png', dpi=150, bbox_inches='tight',
+    plt.savefig('../figures/capital_share.png', dpi=150, bbox_inches='tight',
                 facecolor='white', edgecolor='none')
-    plt.savefig('capital_share.pdf', bbox_inches='tight',
+    plt.savefig('../figures/capital_share.pdf', bbox_inches='tight',
                 facecolor='white', edgecolor='none')
     plt.close()
 
@@ -503,9 +503,9 @@ def create_combined_chart():
     plt.tight_layout()
     plt.subplots_adjust(bottom=0.12)
 
-    plt.savefig('labor_share_comparison.png', dpi=150, bbox_inches='tight',
+    plt.savefig('../figures/labor_share_comparison.png', dpi=150, bbox_inches='tight',
                 facecolor='white', edgecolor='none')
-    plt.savefig('labor_share_comparison.pdf', bbox_inches='tight',
+    plt.savefig('../figures/labor_share_comparison.pdf', bbox_inches='tight',
                 facecolor='white', edgecolor='none')
     plt.close()
 

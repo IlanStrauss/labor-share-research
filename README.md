@@ -129,7 +129,7 @@ The choice of numerator matters: wages alone have fallen more steeply than total
 
 ### Figure 1. Labor Share Declined Across All Measures Since 1970 Peak
 
-![U.S. Gross Labor Share](labor_share_gross.png)
+![U.S. Gross Labor Share](figures/labor_share_gross.png)
 
 Figure 1 shows five different ways of measuring labor's share of national income, all using GDI as the denominator but varying the labor income numerator (the top of the equation). Each line represents a different definition of "labor income."
 
@@ -151,7 +151,7 @@ Next, we move on to the importance of adjusting total income for depreciation.
 
 ### Figure 2. Labor Share of Net Income (NDI) Also Declined, But Less Steeply
 
-![Gross vs Net Labor Share](labor_share_net_vs_gross.png)
+![Gross vs Net Labor Share](figures/labor_share_net_vs_gross.png)
 
 Figure 2 shows the same total employee compensation (numerator) but divided by two different denominators: one is gross (GDI) the other is net (NDI), meaning depreciation of fixed capital has been deducted. 
 
@@ -164,7 +164,7 @@ Next, Figure 3 shows the share of national income going to capital owners, compu
 
 ### Figure 3. Capital Share Rose as Labor Share Fell
 
-![Capital Share](capital_share.png)
+![Capital Share](figures/capital_share.png)
 
 All three lines include exactly **⅓ of proprietors' income** (the capital portion per Gollin 2002), making them consistent with the Gollin-adjusted labor share in Figure 1.
 

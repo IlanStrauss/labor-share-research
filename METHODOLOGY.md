@@ -283,7 +283,7 @@ All data accessed via [FRED](https://fred.stlouisfed.org/) (Federal Reserve Econ
 ### Running the Code
 
 ```bash
-python3 generate_chart.py
+cd scripts && python3 generate_chart.py
 ```
 
 This produces:
