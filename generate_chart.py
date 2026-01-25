@@ -380,7 +380,7 @@ def create_capital_share_chart():
             markevery=5, alpha=LINE_ALPHA)
 
     ax.plot(years, corp_profits_pretax, '--', linewidth=LINE_WIDTH-1, color='#6366f1',  # Indigo
-            label='Corporate Profits only (pre-tax)', marker='^', markersize=MARKER_SIZE-2,
+            label='Corporate Profits / GDI (pre-tax)', marker='^', markersize=MARKER_SIZE-2,
             markevery=5, alpha=0.7)
 
     # Reference lines

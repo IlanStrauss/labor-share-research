@@ -173,7 +173,7 @@ Net Operating Surplus = GDI − Compensation − Depreciation − Taxes on Produ
 **Line-by-line explanation:**
 - **Green (NOS / GDI, pre-corporate tax)**: Net Operating Surplus as a share of GDI, before corporate income taxes are paid. This rose from 21.8% (1970) to 24.9% (2024), a +3.1 pp increase.
 - **Teal (NOS / GDI, post-corporate tax)**: After subtracting taxes on corporate income. Still shows an increase, though smaller.
-- **Dashed indigo (Corporate Profits only)**: Just the corporate profits component (with IVA and CCAdj), excluding proprietors' income, interest, and rent. Corporate profits rose substantially, from 7.4% to 11.5% of GDI.
+- **Dashed indigo (Corporate Profits / GDI)**: Just the corporate profits component (with IVA and CCAdj) as a share of GDI, excluding proprietors' income, interest, and rent. Corporate profits rose substantially, from 7.4% to 11.5% of GDI.
 
 **Interpretation:** As labor's share of GDI fell by 6.5 percentage points, capital's share (Net Operating Surplus) rose by about 3 percentage points. The remainder was absorbed by rising depreciation (+3.7 pp). In other words:
 - **Labor share**: −6.5 pp
