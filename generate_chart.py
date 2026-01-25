@@ -413,8 +413,8 @@ def create_capital_share_chart():
     ax.set_xticklabels([str(y) for y in range(1970, 2025, 5)], fontsize=TICK_SIZE)
 
     # Y-axis
-    ax.set_ylim(0, 32)
-    ax.set_yticks(range(0, 35, 5))
+    ax.set_ylim(5, 32)
+    ax.set_yticks(range(5, 35, 5))
     ax.tick_params(axis='y', labelsize=TICK_SIZE)
     ax.yaxis.set_major_formatter(mtick.PercentFormatter(decimals=0))
 
