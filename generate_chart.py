@@ -404,7 +404,7 @@ def create_capital_share_chart():
 
     # Formatting
     ax.set_xlabel('Year', fontsize=AXIS_LABEL_SIZE, fontweight='bold')
-    ax.set_ylabel('Share of GDI (%)', fontsize=AXIS_LABEL_SIZE, fontweight='bold')
+    ax.set_ylabel('Capital Share of GDI (%)', fontsize=AXIS_LABEL_SIZE, fontweight='bold')
     # Title removed - heading is in README above the figure
 
     # X-axis: every 5 years
