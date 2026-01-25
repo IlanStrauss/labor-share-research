@@ -80,7 +80,7 @@ A key methodological choice is whether to measure factor shares over **gross** o
 
 **The distributional logic (capital-first):**
 
-Depreciation is a **capital maintenance cost**. Moving from **gross** to **net** income subtracts depreciation **before** dividing income between labor and capital. Therefore:
+Depreciation is a **capital maintenance cost**. Moving from **gross** to **net** income subtracts depreciation from the denominator (total domestic income) **before** dividing the income between labor and capital. This automatically raises the labor share (dividing labor income by a smaller number). Therefore:
 
 1. Depreciation **reduces** capital's net income and in turn the net capital income share 
 2. Labor's *higher* share of net income is then the residual consequence of the now smaller net-income pie
@@ -611,6 +611,7 @@ The BLS nonfarm business labor share shows a **~16% decline** from its early-197
 - **Exposition:** Rewrote depreciation sections to present the **capital share effect as logically prior** — depreciation reduces capital's net income first; labor's higher NDI share is the consequence
 - **Accounting identities:** Added explicit GDI and NDI identities to make the distributional logic unambiguous
 - **Links:** Fixed 5 broken academic links (Gollin, Bridgman, Koh et al., BEA handbook/update) with working alternatives
+
 
 
 
