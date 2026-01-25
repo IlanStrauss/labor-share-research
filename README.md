@@ -572,15 +572,3 @@ The BLS nonfarm business labor share shows a **~16% decline** from its early-197
 
 *Note: The BLS index is not directly comparable to BEA percentage shares. To convert approximate levels: if 2017 labor share ≈ 58%, then index value 96.9 implies ~56% labor share in 2024 Q4.*
 
----
-
-## Changelog
-
-- **v2.5** (January 2026): Added Appendix with BLS nonfarm business labor share corroboration (~16% decline from 1970 peak, confirming result is not driven by government/housing scope)
-- **v2.4** (January 2026): Final polish: (1) Clarified proprietors' income sensitivity with explicit baselines; (2) Changed "specifically FICA" to "dominated by FICA" per BEA definition; (3) Dropped "pre-payroll-tax" label; (4) Fixed taxes on production change to −0.3 pp (not ~0); (5) Tightened net interest wording to describe accounting treatment; (6) Added 1929 comparability caveat; (7) Added annual data note and explicit rounding caveat for subcomponents
-- **v2.3** (January 2026): Methodological rigor improvements: (1) Made Gollin (2002) ⅔ proprietors' income assumption explicit in Executive Summary; (2) Renamed "employer FICA" → "employer social insurance" ([BEA definition](https://www.bea.gov/help/glossary/contribution-government-social-insurance) — broader than FICA alone); (3) Fixed supplements values to match BEA series A038RE1A156NBEA (6.7%/9.1%, not computed from rounded values); (4) Clarified PWT series ends in 2019; (5) Refined net interest explanation (offset for receipts in profits/proprietors'); (6) Restructured GDI to Table 1.11 level (NOS as aggregate); (7) Softened rhetorical claims
-- **v2.2** (January 2026): Major methodological fixes: (1) Renamed "Net Labor Share" → "Depreciation-adjusted labor share" to avoid confusion with "after-tax"; (2) Corrected net interest explanation (it's an identity offset, NOT "bank's income"); (3) Added explicit tax boundary declaration; (4) Added BEA NIPA Handbook citations
-- **v2.1** (January 2026): Added "Wages + Benefits (excl. employer social insurance)" measure; clarified tax treatment (corporate profits are pre-corporate income tax); added explicit note that GDI components sum to 100%; expanded supplements decomposition in data tables
-- **v2.0** (January 2026): Refocused on 1970-2024 period; added separate gross/net charts; improved axis readability (5-year intervals); added wages-only measure; expanded methodology notes on pre-tax treatment and capital share calculation
-- **v1.1** (January 2026): Added section on IT, software, and superstar firms
-- **v1.0** (January 2026): Initial research note
