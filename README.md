@@ -103,7 +103,7 @@ The choice of numerator matters: wages alone have fallen more steeply than total
 
 ## Figures
 
-### Figure 1: Gross Labor Share (1970-2024)
+### Figure 1. Labor Share Declined Across All Measures Since 1970 Peak
 
 ![U.S. Gross Labor Share](labor_share_gross.png)
 
@@ -118,7 +118,7 @@ The choice of numerator matters: wages alone have fallen more steeply than total
 
 **Interpretation:** All five measures show a decline from 1970 to 2024. The magnitude varies: the decline is −6.5 pp for the standard measure, but −8.9 pp for wages only. This means that rising employer contributions to benefits and payroll taxes have partially masked wage stagnation. If you care about workers' cash wages, the decline is steeper than the headline labor share suggests.
 
-### Figure 2: Gross vs Depreciation-Adjusted Labor Share
+### Figure 2. Depreciation-Adjusted Labor Share Also Declined, But Less Steeply
 
 ![Gross vs Depreciation-Adjusted Labor Share](labor_share_net_vs_gross.png)
 
@@ -130,9 +130,47 @@ The choice of numerator matters: wages alone have fallen more steeply than total
 
 **Why the gap between the lines widened:** In 1970, depreciation was 12.8% of GDI; by 2024, it had risen to 16.5%. When we subtract depreciation from the denominator, we get a smaller number (NDI), which mechanically increases the labor share ratio. As depreciation grew, this effect strengthened, widening the gap between the two lines.
 
-**Interpretation:** The depreciation-adjusted measure shows a smaller decline (−4.8 pp vs −6.5 pp for gross). This matters because depreciation is not income available for consumption — it represents capital maintenance. If you want to know labor's share of *sustainable, distributable income*, the depreciation-adjusted measure is more appropriate. But the decline is real under both measures.
+**A common confusion: "Depreciation is a capital cost, so why does removing it affect labor share?"**
+
+This is counterintuitive. Depreciation is indeed a cost attributable to capital — it represents wear and tear on machinery, software, and buildings. You might expect that removing depreciation would only affect the *capital* share, not the labor share.
+
+But here's the key: depreciation affects the **denominator** of the labor share ratio, not the numerator. Consider:
+- Gross labor share = Compensation / GDI
+- Depreciation-adjusted labor share = Compensation / (GDI − Depreciation)
+
+When we remove depreciation from the denominator, we make the denominator *smaller*. Dividing by a smaller number produces a *larger* result. So the depreciation-adjusted labor share is always higher than the gross labor share.
+
+As depreciation rose from 12.8% to 16.5% of GDI, the difference between GDI and NDI grew. This made the depreciation-adjusted labor share rise *relative to* the gross labor share — even though both declined in absolute terms.
+
+**Interpretation:** The depreciation-adjusted measure shows a smaller decline (−4.8 pp vs −6.5 pp for gross). This matters because depreciation is not income available for consumption — it represents capital maintenance costs. If you want to know labor's share of *sustainable, distributable income*, the depreciation-adjusted measure is more appropriate. But the decline is real under both measures.
 
 > **Terminology note:** In the labor share literature, "net" means *net of depreciation* (using NDI as denominator), **not** net of taxes. All measures in this document are pre-income-tax.
+
+### Figure 3. Capital Share Rose as Labor Share Fell
+
+![Capital Share](capital_share.png)
+
+**What this figure shows:** The share of national income going to capital owners, computed as a residual after subtracting labor compensation, depreciation, and taxes on production from GDI. This is the "Net Operating Surplus" — the income available for corporate profits, interest, rent, and the capital portion of proprietors' income.
+
+**The equation:**
+```
+Net Operating Surplus = GDI − Compensation − Depreciation − Taxes on Production
+```
+
+**Line-by-line explanation:**
+- **Green (NOS / GDI, pre-corporate tax)**: Net Operating Surplus as a share of GDI, before corporate income taxes are paid. This rose from 21.8% (1970) to 24.9% (2024), a +3.1 pp increase.
+- **Teal (NOS / GDI, post-corporate tax)**: After subtracting taxes on corporate income. Still shows an increase, though smaller.
+- **Dashed indigo (Corporate Profits only)**: Just the corporate profits component (with IVA and CCAdj), excluding proprietors' income, interest, and rent. Corporate profits rose substantially, from 7.4% to 11.5% of GDI.
+
+**Interpretation:** As labor's share of GDI fell by 6.5 percentage points, capital's share (Net Operating Surplus) rose by about 3 percentage points. The remainder was absorbed by rising depreciation (+3.7 pp). In other words:
+- **Labor share**: −6.5 pp
+- **Capital share (NOS)**: +3.1 pp
+- **Depreciation share**: +3.7 pp
+- **Taxes on production**: ~0 pp
+
+These changes approximately sum to zero (allowing for rounding), as they must — the shares of GDI must sum to 100%.
+
+**Corporate profits drove the capital share increase.** Within the Net Operating Surplus, corporate profits rose most dramatically — from 7.4% to 11.5% of GDI (+4.1 pp). This reflects increased profit margins, market concentration, and the rise of high-margin technology firms.
 
 ---
 

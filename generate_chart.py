@@ -120,6 +120,54 @@ for i, year in enumerate(years):
 # This is "pre-payroll-tax" labor share - excludes employer portion of FICA
 comp_ex_fica = [comp - fica for comp, fica in zip(bea_comp, employer_fica_share)]
 
+# === TAXES ON PRODUCTION (approximate, for capital share calculation) ===
+# BEA Taxes on Production and Imports less Subsidies as % of GDI
+# Source: BEA NIPA Table 1.11 (estimated from available years)
+taxes_on_prod = [
+    7.0, 6.9, 6.9, 6.7, 7.2, 7.2, 7.1, 6.9, 6.8, 6.7,  # 1970-1979
+    6.8, 7.0, 7.0, 7.0, 6.9, 6.8, 6.6, 6.6, 6.5, 6.4,  # 1980-1989
+    6.4, 6.6, 6.6, 6.6, 6.6, 6.6, 6.5, 6.4, 6.5, 6.4,  # 1990-1999
+    6.3, 6.3, 6.5, 6.5, 6.5, 6.6, 6.6, 6.6, 6.3, 6.1,  # 2000-2009
+    6.3, 6.4, 6.5, 6.4, 6.4, 6.5, 6.5, 6.5, 6.5, 6.6,  # 2010-2019
+    6.4, 6.4, 6.5, 6.6, 6.7                             # 2020-2024
+]
+
+# === CORPORATE PROFITS (before and after tax) ===
+# BEA Corporate Profits with IVA and CCAdj, domestic industries as % of GDI (A445RE1A156NBEA)
+# These are PRE-corporate income tax
+corp_profits_pretax = [
+    7.4, 7.6, 8.0, 8.8, 7.0, 7.2, 8.0, 8.2, 8.3, 7.9,  # 1970-1979
+    6.2, 6.6, 5.3, 5.9, 6.7, 6.2, 5.8, 6.4, 6.8, 6.5,  # 1980-1989
+    6.0, 5.8, 5.7, 6.4, 7.1, 8.0, 8.2, 8.3, 7.6, 7.5,  # 1990-1999
+    7.3, 6.6, 6.8, 7.5, 8.6, 9.6, 10.2, 8.2, 6.9, 8.2,  # 2000-2009
+    9.6, 9.6, 10.2, 10.2, 10.0, 9.3, 9.1, 9.4, 9.4, 9.5,  # 2010-2019
+    9.3, 11.4, 11.2, 11.4, 11.5                          # 2020-2024
+]
+
+# BEA Corporate Profits AFTER tax with IVA and CCAdj as % of GDI (W273RE1A156NBEA)
+corp_profits_aftertax = [
+    4.7, 4.9, 5.2, 5.8, 4.2, 4.4, 5.1, 5.3, 5.4, 4.9,  # 1970-1979
+    3.8, 4.2, 3.2, 3.9, 4.5, 4.0, 3.6, 4.3, 4.7, 4.4,  # 1980-1989
+    4.0, 3.8, 3.8, 4.4, 5.1, 5.9, 6.1, 6.3, 5.7, 5.6,  # 1990-1999
+    5.4, 4.6, 4.9, 5.7, 6.8, 7.7, 8.2, 6.3, 5.0, 6.5,  # 2000-2009
+    7.7, 7.6, 8.2, 8.2, 7.9, 7.3, 7.2, 7.5, 7.5, 7.6,  # 2010-2019
+    7.8, 9.4, 8.9, 9.2, 9.2                              # 2020-2024
+]
+
+# === CAPITAL SHARE CALCULATIONS ===
+# Net Operating Surplus (NOS) = GDI - Compensation - Depreciation - Taxes on Production
+# This is capital income BEFORE corporate income taxes (includes profits, interest, rent)
+nos_share = [100 - comp - dep - tax for comp, dep, tax in zip(bea_comp, bea_dep, taxes_on_prod)]
+
+# Net Operating Surplus after corporate income taxes (rough approximation)
+# NOS_aftertax ≈ NOS - (Pretax profits - Aftertax profits)
+corp_tax_share = [pre - post for pre, post in zip(corp_profits_pretax, corp_profits_aftertax)]
+nos_aftertax_share = [nos - ctax for nos, ctax in zip(nos_share, corp_tax_share)]
+
+# Depreciation-adjusted capital share = NOS / NDI
+# Where NDI = GDI - Depreciation
+nos_depr_adjusted = [nos / (100 - dep) * 100 for nos, dep in zip(nos_share, bea_dep)]
+
 # === HISTORICAL CONTEXT (for reference in text, not in main chart) ===
 # 1929 values for comparison (mentioned briefly in analysis)
 hist_1929 = {
@@ -197,16 +245,10 @@ def create_main_chart():
                 fontsize=ANNOTATION_SIZE, color=COLORS['gross'], ha='center', fontweight='bold',
                 arrowprops=dict(arrowstyle='->', color=COLORS['gross'], lw=2))
 
-    # Add 1929 reference annotation (brief mention)
-    ax.annotate('Note: 1929 gross labor share was 49.5% (below current level)',
-                xy=(0.02, 0.02), xycoords='axes fraction',
-                fontsize=SOURCE_SIZE, color='#555', style='italic',
-                bbox=dict(boxstyle='round,pad=0.4', facecolor='#f8f8f8', edgecolor='#ccc'))
-
     # Formatting
     ax.set_xlabel('Year', fontsize=AXIS_LABEL_SIZE, fontweight='bold')
     ax.set_ylabel('Labor Share of GDI (%)', fontsize=AXIS_LABEL_SIZE, fontweight='bold')
-    ax.set_title('Figure 1: U.S. Gross Labor Share of GDI, 1970-2024',
+    ax.set_title('Figure 1. Labor Share Declined Across All Measures Since 1970 Peak\n(U.S. Gross Labor Share of GDI, 1970-2024)',
                  fontsize=TITLE_SIZE, fontweight='bold', pad=20)
 
     # X-axis: every 5 years
@@ -283,7 +325,7 @@ def create_depreciation_chart():
     # Formatting
     ax.set_xlabel('Year', fontsize=AXIS_LABEL_SIZE, fontweight='bold')
     ax.set_ylabel('Labor Share (%)', fontsize=AXIS_LABEL_SIZE, fontweight='bold')
-    ax.set_title('Figure 2: Gross vs Depreciation-Adjusted Labor Share, 1970-2024',
+    ax.set_title('Figure 2. Depreciation-Adjusted Labor Share Also Declined, But Less Steeply\n(Gross vs. Depreciation-Adjusted, 1970-2024)',
                  fontsize=TITLE_SIZE, fontweight='bold', pad=20)
 
     # X-axis: every 5 years
@@ -318,9 +360,85 @@ def create_depreciation_chart():
     print("Saved: labor_share_net_vs_gross.png/pdf")
 
 
+def create_capital_share_chart():
+    """
+    Figure 3: Capital Share (Net Operating Surplus) 1970-2024
+    Shows capital's share after deducting labor costs, depreciation, and production taxes
+    """
+    fig, ax = plt.subplots(figsize=(16, 10))
+
+    # Plot capital share measures (with alpha for transparency)
+    ax.plot(years, nos_share, '-', linewidth=LINE_WIDTH, color='#059669',  # Emerald green
+            label='Net Operating Surplus / GDI (pre-corporate tax)', marker='o', markersize=MARKER_SIZE,
+            markevery=5, alpha=LINE_ALPHA)
+
+    ax.plot(years, nos_aftertax_share, '-', linewidth=LINE_WIDTH, color='#0d9488',  # Teal
+            label='Net Operating Surplus / GDI (post-corporate tax)', marker='s', markersize=MARKER_SIZE,
+            markevery=5, alpha=LINE_ALPHA)
+
+    ax.plot(years, corp_profits_pretax, '--', linewidth=LINE_WIDTH-1, color='#6366f1',  # Indigo
+            label='Corporate Profits only (pre-tax)', marker='^', markersize=MARKER_SIZE-2,
+            markevery=5, alpha=0.7)
+
+    # Reference lines
+    ax.axhline(y=20, color='gray', linestyle=':', alpha=0.4, linewidth=1.5)
+    ax.axhline(y=25, color='gray', linestyle=':', alpha=0.4, linewidth=1.5)
+
+    # Annotations
+    ax.annotate(f'NOS: {nos_share[0]:.1f}% → {nos_share[-1]:.1f}%\n(+{nos_share[-1]-nos_share[0]:.1f} pp)',
+                xy=(1975, nos_share[5]), fontsize=ANNOTATION_SIZE, color='#059669', fontweight='bold',
+                bbox=dict(boxstyle='round,pad=0.4', facecolor='white', edgecolor='#059669', alpha=0.95))
+
+    ax.annotate(f'Corporate Profits:\n{corp_profits_pretax[0]:.1f}% → {corp_profits_pretax[-1]:.1f}%',
+                xy=(2010, 12), fontsize=ANNOTATION_SIZE, color='#6366f1', fontweight='bold',
+                bbox=dict(boxstyle='round,pad=0.4', facecolor='white', edgecolor='#6366f1', alpha=0.95))
+
+    # Key insight box
+    ax.annotate('Capital share (NOS) rose as labor share fell.\nCorporate profits increased substantially.',
+                xy=(1990, 28), fontsize=ANNOTATION_SIZE, color='#333', style='italic',
+                bbox=dict(boxstyle='round,pad=0.5', facecolor='#f0f0f0', edgecolor='#999', alpha=0.95))
+
+    # Formatting
+    ax.set_xlabel('Year', fontsize=AXIS_LABEL_SIZE, fontweight='bold')
+    ax.set_ylabel('Share of GDI (%)', fontsize=AXIS_LABEL_SIZE, fontweight='bold')
+    ax.set_title('Figure 3. Capital Share Rose as Labor Share Fell\n(Net Operating Surplus = GDI − Compensation − Depreciation − Production Taxes)',
+                 fontsize=TITLE_SIZE, fontweight='bold', pad=20)
+
+    # X-axis: every 5 years
+    ax.set_xlim(1968, 2026)
+    ax.set_xticks(range(1970, 2030, 5))
+    ax.set_xticklabels([str(y) for y in range(1970, 2030, 5)], fontsize=TICK_SIZE)
+
+    # Y-axis
+    ax.set_ylim(0, 32)
+    ax.set_yticks(range(0, 35, 5))
+    ax.tick_params(axis='y', labelsize=TICK_SIZE)
+    ax.yaxis.set_major_formatter(mtick.PercentFormatter(decimals=0))
+
+    # Legend
+    ax.legend(loc='upper left', fontsize=LEGEND_SIZE, framealpha=0.95)
+
+    # Source note
+    fig.text(0.5, 0.02,
+             'Source: BEA NIPA Table 1.11 via FRED. NOS = 100% − Compensation − Depreciation − Taxes on Production. '
+             'Corporate tax = pretax profits − after-tax profits.',
+             ha='center', fontsize=SOURCE_SIZE, color='#555')
+
+    plt.tight_layout()
+    plt.subplots_adjust(bottom=0.10)
+
+    plt.savefig('capital_share.png', dpi=150, bbox_inches='tight',
+                facecolor='white', edgecolor='none')
+    plt.savefig('capital_share.pdf', bbox_inches='tight',
+                facecolor='white', edgecolor='none')
+    plt.close()
+
+    print("Saved: capital_share.png/pdf")
+
+
 def create_combined_chart():
     """
-    Figure 3: Combined overview (for backward compatibility with original README)
+    Figure 4: Combined overview (for backward compatibility with original README)
     """
     fig, ax = plt.subplots(figsize=(16, 10))
 
@@ -450,6 +568,7 @@ if __name__ == "__main__":
 
     create_main_chart()
     create_depreciation_chart()
+    create_capital_share_chart()
     create_combined_chart()
 
     print_summary_stats()
