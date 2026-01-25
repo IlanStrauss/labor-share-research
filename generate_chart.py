@@ -144,43 +144,44 @@ COLORS = {
 }
 
 # === INCREASED SIZES FOR BETTER READABILITY ===
-LINE_WIDTH = 3.5          # Thicker lines (was 2.5)
-MARKER_SIZE = 7           # Bigger markers (was 4)
-TITLE_SIZE = 18           # Bigger title (was 14)
-AXIS_LABEL_SIZE = 15      # Bigger axis labels (was 12)
-TICK_SIZE = 13            # Bigger tick labels (was 10)
-LEGEND_SIZE = 12          # Bigger legend (was 9)
-ANNOTATION_SIZE = 12      # Bigger annotations (was 9-10)
-SOURCE_SIZE = 10          # Bigger source note (was 8)
+LINE_WIDTH = 7.0          # Much thicker lines (doubled from 3.5)
+LINE_ALPHA = 0.75         # Semi-transparent for overlapping visibility
+MARKER_SIZE = 10          # Bigger markers
+TITLE_SIZE = 22           # Bigger title
+AXIS_LABEL_SIZE = 18      # Bigger axis labels
+TICK_SIZE = 16            # Much bigger tick labels (year numbers, percentages)
+LEGEND_SIZE = 16          # Much bigger legend
+ANNOTATION_SIZE = 14      # Bigger annotations
+SOURCE_SIZE = 12          # Bigger source note
 
 
 def create_main_chart():
     """
-    Chart 1: Gross Labor Share Comparison (1970-2024)
+    Figure 1: Gross Labor Share Comparison (1970-2024)
     Focus on the post-war peak to present period
     """
     fig, ax = plt.subplots(figsize=(16, 10))
 
-    # Plot main series
+    # Plot main series (with alpha for transparency where lines overlap)
     ax.plot(years, bea_comp, '-', linewidth=LINE_WIDTH, color=COLORS['gross'],
             label='BEA: Total Compensation / GDI (Gross)', marker='o', markersize=MARKER_SIZE,
-            markevery=5)
+            markevery=5, alpha=LINE_ALPHA)
 
     ax.plot(pwt_years, pwt_labsh, '-', linewidth=LINE_WIDTH, color=COLORS['pwt'],
             label='Penn World Table: Labor Share', marker='s', markersize=MARKER_SIZE,
-            markevery=5)
+            markevery=5, alpha=LINE_ALPHA)
 
     ax.plot(years, adj_labor_share, '-', linewidth=LINE_WIDTH, color=COLORS['adjusted'],
             label='Adjusted: + ⅔ Proprietors\' Income', marker='d', markersize=MARKER_SIZE,
-            markevery=5)
+            markevery=5, alpha=LINE_ALPHA)
 
     ax.plot(years, comp_ex_fica, '-', linewidth=LINE_WIDTH, color=COLORS['ex_fica'],
             label='Wages + Benefits (excl. employer FICA)', marker='P', markersize=MARKER_SIZE,
-            markevery=5, alpha=0.9)
+            markevery=5, alpha=LINE_ALPHA)
 
-    ax.plot(years, bea_wages, '-', linewidth=LINE_WIDTH-0.5, color=COLORS['wages'],
+    ax.plot(years, bea_wages, '-', linewidth=LINE_WIDTH, color=COLORS['wages'],
             label='Wages Only (excl. all supplements)', marker='^', markersize=MARKER_SIZE,
-            markevery=5, alpha=0.85)
+            markevery=5, alpha=LINE_ALPHA)
 
     # Reference lines
     ax.axhline(y=50, color='gray', linestyle=':', alpha=0.5, linewidth=1.5)
@@ -205,7 +206,7 @@ def create_main_chart():
     # Formatting
     ax.set_xlabel('Year', fontsize=AXIS_LABEL_SIZE, fontweight='bold')
     ax.set_ylabel('Labor Share of GDI (%)', fontsize=AXIS_LABEL_SIZE, fontweight='bold')
-    ax.set_title('U.S. Gross Labor Share of GDI: 1970-2024\n(Multiple Measurement Approaches)',
+    ax.set_title('Figure 1: U.S. Gross Labor Share of GDI, 1970-2024',
                  fontsize=TITLE_SIZE, fontweight='bold', pad=20)
 
     # X-axis: every 5 years
@@ -242,53 +243,47 @@ def create_main_chart():
 
 def create_depreciation_chart():
     """
-    Chart 2: Gross vs Net Labor Share (1970-2024)
-    Shows the effect of rising depreciation on measured labor share
+    Figure 2: Gross vs Depreciation-Adjusted Labor Share (1970-2024)
+    Simple comparison - single y-axis, no dual-axis nonsense
     """
     fig, ax = plt.subplots(figsize=(16, 10))
 
-    # Plot gross and net series
+    # Plot gross and depreciation-adjusted series (with alpha for transparency)
     ax.plot(years, bea_comp, '-', linewidth=LINE_WIDTH, color=COLORS['gross'],
             label='Gross Labor Share (Compensation / GDI)', marker='o', markersize=MARKER_SIZE,
-            markevery=5)
+            markevery=5, alpha=LINE_ALPHA)
 
     ax.plot(years, net_labor_share, '-', linewidth=LINE_WIDTH, color=COLORS['net'],
-            label='Net Labor Share (Compensation / NDI)', marker='^', markersize=MARKER_SIZE,
-            markevery=5)
-
-    # Add depreciation on secondary axis for context
-    ax2 = ax.twinx()
-    ax2.fill_between(years, 0, bea_dep, alpha=0.15, color=COLORS['depreciation'],
-                     label='Depreciation Share of GDI')
-    ax2.plot(years, bea_dep, '--', linewidth=2.5, color=COLORS['depreciation'],
-             alpha=0.7)
-    ax2.set_ylabel('Depreciation Share (%)', fontsize=AXIS_LABEL_SIZE-1, color=COLORS['depreciation'])
-    ax2.set_ylim(10, 20)
-    ax2.tick_params(axis='y', colors=COLORS['depreciation'], labelsize=TICK_SIZE)
+            label='Depreciation-Adjusted (Compensation / NDI)', marker='^', markersize=MARKER_SIZE,
+            markevery=5, alpha=LINE_ALPHA)
 
     # Reference lines
-    ax.axhline(y=55, color='gray', linestyle=':', alpha=0.5, linewidth=1.5)
-    ax.axhline(y=60, color='gray', linestyle=':', alpha=0.5, linewidth=1.5)
-    ax.axhline(y=65, color='gray', linestyle=':', alpha=0.5, linewidth=1.5)
+    ax.axhline(y=55, color='gray', linestyle=':', alpha=0.4, linewidth=1.5)
+    ax.axhline(y=60, color='gray', linestyle=':', alpha=0.4, linewidth=1.5)
+    ax.axhline(y=65, color='gray', linestyle=':', alpha=0.4, linewidth=1.5)
 
-    # Annotations - positioned to avoid overlap
-    ax.annotate('Gross: 58.4% → 51.9%\n(−6.5 pp)',
-                xy=(1988, 55.5), fontsize=ANNOTATION_SIZE, color=COLORS['gross'], fontweight='bold',
-                bbox=dict(boxstyle='round,pad=0.4', facecolor='white', edgecolor=COLORS['gross'], alpha=0.95))
+    # Annotations
+    ax.annotate('Gross: 58.4% → 51.9%\n(−6.5 pp decline)',
+                xy=(1970, 58.4), xytext=(1978, 54),
+                fontsize=ANNOTATION_SIZE, color=COLORS['gross'], fontweight='bold',
+                bbox=dict(boxstyle='round,pad=0.4', facecolor='white', edgecolor=COLORS['gross'], alpha=0.95),
+                arrowprops=dict(arrowstyle='->', color=COLORS['gross'], lw=2))
 
-    ax.annotate('Net: 67.0% → 62.2%\n(−4.8 pp)',
-                xy=(1988, 68.5), fontsize=ANNOTATION_SIZE, color=COLORS['net'], fontweight='bold',
-                bbox=dict(boxstyle='round,pad=0.4', facecolor='white', edgecolor=COLORS['net'], alpha=0.95))
+    ax.annotate('Depreciation-Adjusted:\n67.0% → 62.2% (−4.8 pp decline)',
+                xy=(1970, 67.0), xytext=(1978, 70),
+                fontsize=ANNOTATION_SIZE, color=COLORS['net'], fontweight='bold',
+                bbox=dict(boxstyle='round,pad=0.4', facecolor='white', edgecolor=COLORS['net'], alpha=0.95),
+                arrowprops=dict(arrowstyle='->', color=COLORS['net'], lw=2))
 
-    ax.annotate('Depreciation rose:\n12.8% → 16.5% (+3.7 pp)',
-                xy=(2008, 50), fontsize=ANNOTATION_SIZE-1, color=COLORS['depreciation'], fontweight='bold',
-                bbox=dict(boxstyle='round,pad=0.4', facecolor='#f5f5f5', edgecolor=COLORS['depreciation'], alpha=0.95))
+    # Key insight annotation
+    ax.annotate('The gap widened because depreciation\nrose from 12.8% to 16.5% of GDI',
+                xy=(2010, 58), fontsize=ANNOTATION_SIZE, color='#333', style='italic',
+                bbox=dict(boxstyle='round,pad=0.5', facecolor='#f0f0f0', edgecolor='#999', alpha=0.95))
 
     # Formatting
     ax.set_xlabel('Year', fontsize=AXIS_LABEL_SIZE, fontweight='bold')
     ax.set_ylabel('Labor Share (%)', fontsize=AXIS_LABEL_SIZE, fontweight='bold')
-    ax.set_title('U.S. Labor Share: Gross vs Net (Depreciation-Adjusted), 1970-2024\n'
-                 'Net = Compensation / (GDI − Depreciation)',
+    ax.set_title('Figure 2: Gross vs Depreciation-Adjusted Labor Share, 1970-2024',
                  fontsize=TITLE_SIZE, fontweight='bold', pad=20)
 
     # X-axis: every 5 years
@@ -302,14 +297,13 @@ def create_depreciation_chart():
     ax.tick_params(axis='y', labelsize=TICK_SIZE)
     ax.yaxis.set_major_formatter(mtick.PercentFormatter(decimals=0))
 
-    # Legend - moved to upper left to avoid overlap with annotations
-    lines1, labels1 = ax.get_legend_handles_labels()
-    ax.legend(lines1, labels1, loc='upper left', fontsize=LEGEND_SIZE, framealpha=0.95)
+    # Legend
+    ax.legend(loc='lower left', fontsize=LEGEND_SIZE, framealpha=0.95)
 
-    # Source note with 1929 context - at bottom, outside plot area
+    # Source note
     fig.text(0.5, 0.02,
              'Sources: BEA NIPA Table 1.11 (FRED: A4002E1A156NBEA, A262RE1A156NBEA). '
-             'Historical context: 1929 gross was 49.5%, net was 55.0% (depreciation only 10% of GDI).',
+             'NDI = GDI − Depreciation (Consumption of Fixed Capital).',
              ha='center', fontsize=SOURCE_SIZE, color='#555')
 
     plt.tight_layout()
@@ -326,26 +320,26 @@ def create_depreciation_chart():
 
 def create_combined_chart():
     """
-    Chart 3: Combined overview (for backward compatibility with original README)
+    Figure 3: Combined overview (for backward compatibility with original README)
     """
     fig, ax = plt.subplots(figsize=(16, 10))
 
-    # Plot all main series
+    # Plot all main series (with alpha for transparency)
     ax.plot(years, bea_comp, '-', linewidth=LINE_WIDTH, color=COLORS['gross'],
             label='BEA: Compensation / GDI (Gross)', marker='o', markersize=MARKER_SIZE,
-            markevery=5)
+            markevery=5, alpha=LINE_ALPHA)
 
     ax.plot(pwt_years, pwt_labsh, '-', linewidth=LINE_WIDTH, color=COLORS['pwt'],
             label='Penn World Table', marker='s', markersize=MARKER_SIZE,
-            markevery=5)
+            markevery=5, alpha=LINE_ALPHA)
 
     ax.plot(years, net_labor_share, '-', linewidth=LINE_WIDTH, color=COLORS['net'],
-            label='Net (depreciation-adjusted)', marker='^', markersize=MARKER_SIZE,
-            markevery=5)
+            label='Depreciation-adjusted', marker='^', markersize=MARKER_SIZE,
+            markevery=5, alpha=LINE_ALPHA)
 
     ax.plot(years, adj_labor_share, '-', linewidth=LINE_WIDTH, color=COLORS['adjusted'],
             label='Adjusted: + ⅔ Proprietors\' Income', marker='d', markersize=MARKER_SIZE,
-            markevery=5)
+            markevery=5, alpha=LINE_ALPHA)
 
     # Reference lines
     ax.axhline(y=50, color='gray', linestyle=':', alpha=0.5, linewidth=1.5)

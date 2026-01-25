@@ -26,9 +26,9 @@
 
 ---
 
-## Charts
+## Figures
 
-### Chart 1: Gross Labor Share (1970-2024)
+### Figure 1: Gross Labor Share (1970-2024)
 
 ![U.S. Gross Labor Share](labor_share_gross.png)
 
@@ -39,16 +39,15 @@ This chart shows multiple measurement approaches for the period since the 1970 p
 - **Purple**: Adjusted measure including ⅔ of proprietors' income
 - **Amber**: Wages only (excluding all supplements)
 
-### Chart 2: Gross vs Depreciation-Adjusted Labor Share
+### Figure 2: Gross vs Depreciation-Adjusted Labor Share
 
 ![Gross vs Depreciation-Adjusted Labor Share](labor_share_net_vs_gross.png)
 
-This chart isolates the effect of rising depreciation:
+This figure compares gross and depreciation-adjusted labor share:
 - **Blue**: Gross labor share (Compensation / GDI)
 - **Red**: Depreciation-adjusted labor share (Compensation / NDI, where NDI = GDI − Depreciation)
-- **Gray shaded area**: Depreciation's share of GDI (secondary axis)
 
-**Key insight:** The depreciation-adjusted measure shows a smaller decline (−4.8 pp) than the gross measure (−6.5 pp). This difference (~26% smaller decline) reflects how rising depreciation affects the choice of denominator: as depreciation rose from 12.8% to 16.5% of GDI, the net denominator (NDI) shrank, mechanically pushing up the depreciation-adjusted labor share relative to gross.
+**Key insight:** The depreciation-adjusted measure shows a smaller decline (−4.8 pp) than the gross measure (−6.5 pp). The gap between the two lines widened because depreciation rose from 12.8% to 16.5% of GDI — shrinking the NDI denominator and mechanically pushing up the depreciation-adjusted labor share relative to gross.
 
 > **Terminology note:** Throughout this document, "net" or "depreciation-adjusted" means *net of depreciation* (i.e., using NDI = GDI − CFC as denominator), **not** net of taxes. All measures here are pre-income-tax.
 
@@ -116,7 +115,7 @@ The BEA "Compensation of Employees" series (A4002E1A156NBEA) includes:
 | Labor share ex-payroll taxes | Wages + Benefits (excl. FICA) | −7.2 pp |
 | Cash wages only | Wages Only | −8.9 pp |
 
-The **"Wages + Benefits (excl. FICA)"** line (teal in Chart 1) excludes employer payroll taxes while keeping private benefits. This shows that excluding payroll taxes, the labor share decline is *steeper* (−7.2 pp), not smaller—because employer FICA rose from 2.3% to 3.0% of GDI.
+The **"Wages + Benefits (excl. FICA)"** line (teal in Figure 1) excludes employer payroll taxes while keeping private benefits. This shows that excluding payroll taxes, the labor share decline is *steeper* (−7.2 pp), not smaller—because employer FICA rose from 2.3% to 3.0% of GDI.
 
 ### Gross vs Depreciation-Adjusted Labor Share
 
