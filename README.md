@@ -158,13 +158,13 @@ Depreciation is a capital maintenance cost — it represents wear and tear on ma
 The standard measure of total income does not exclude depreciation (Blue line) - hence GDI. This contrasts with the red line (net domestic income), whereby depreciation is removed as income from the economy leading to the labour share of income increasing as it is divided by a smaller amount. It is a mechnical relationship. Labor's higher net-income share is the residual result. The gap between two lines has widened. In 1970, depreciation was 12.8% of GDI; by 2024, it had risen to 16.5%. As the depreciation share grew, the difference between GDI and NDI widened. This made labor's share of NDI rise *relative to* the gross labor share — even though both declined in absolute terms.
 
 
-Next, Figure 3 shows the share of national income going to capital owners, computed as a residual after subtracting labor compensation, depreciation, and taxes on production from GDI. This 
+Next, Figure 3 shows the share of national income going to capital owners, computed as a residual after subtracting labor compensation, depreciation, and taxes on production from GDI. 
 
 ### Figure 3. Capital Share Rose as Labor Share Fell
 
 ![Capital Share](capital_share.png)
 
-is the "Net Operating Surplus" — the income available for corporate profits, interest, rent, and the capital portion of proprietors' income.
+The "Net Operating Surplus" includes the income available for corporate profits, along with interest, rent, and the capital portion of proprietors' income.
 
 **The equation:**
 ```
@@ -177,7 +177,7 @@ Net Operating Surplus = GDI − Compensation − Depreciation − Taxes on Produ
 
 - **Orange (NOS / GDI, post-corporate tax)**: After subtracting taxes on corporate income. Still shows an increase, though smaller.
 
-- **Dashed indigo (Corporate Profits / GDI)**: Just the corporate profits component (with IVA and CCAdj) as a share of GDI, excluding proprietors' income, interest, and rent. Corporate profits rose substantially, from 7.4% to 11.5% of GDI.
+- **Dashed indigo (Corporate Profits / GDI)**: Just the corporate profits component (with IVA and CCAdj) as a share of GDI, excluding proprietors' income, interest, and rent. Corporate profits rose substantially, from 7.4% to 11.5% of GDI. This is our favoured measure since interest and rent are better considered a cost on corporate profits (excluding the financial and real estate sectors).
 
 **Interpretation:** As labor's share of GDI fell by 6.5 percentage points, capital's share (Net Operating Surplus) rose by about 3 percentage points. The remainder was absorbed by rising depreciation (+3.7 pp). In other words:
 - **Labor share**: −6.5 pp
@@ -594,6 +594,7 @@ The BLS nonfarm business labor share shows a **~16% decline** from its early-197
 - **Exposition:** Rewrote depreciation sections to present the **capital share effect as logically prior** — depreciation reduces capital's net income first; labor's higher NDI share is the consequence
 - **Accounting identities:** Added explicit GDI and NDI identities to make the distributional logic unambiguous
 - **Links:** Fixed 5 broken academic links (Gollin, Bridgman, Koh et al., BEA handbook/update) with working alternatives
+
 
 
 
