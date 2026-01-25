@@ -123,10 +123,15 @@ The choice of numerator matters: wages alone have fallen more steeply than total
 **What this figure shows:** Five different ways of measuring labor's share of national income, all using GDI as the denominator but varying the numerator. Each line represents a different definition of "labor income."
 
 **Line-by-line explanation:**
+
 - **Blue (BEA Total Compensation / GDI)**: The standard gross labor share. The numerator is total compensation of employees (wages + supplements). This is the benchmark measure used in most academic literature.
-- **Teal (Wages + Benefits, excl. employer social insurance)**: The numerator excludes employer payroll taxes (~3% of GDI) while keeping private benefits. This isolates the "pre-payroll-tax" labor share.
+
+- **Pink (Wages + Benefits, excl. employer social insurance)**: The numerator excludes employer payroll taxes (~3% of GDI) while keeping private benefits. This isolates the "pre-payroll-tax" labor share.
+
 - **Green (Penn World Table, 1970–2019 only)**: Uses a different methodology that imputes a labor share for self-employed workers, rather than treating proprietors' income as mixed. *Note: PWT data ends in 2019; the line does not extend to 2024.*
+
 - **Purple (Adjusted: + ⅔ Proprietors' Income)**: Adds two-thirds of proprietors' income to the numerator, following [Gollin (2002)](https://www.journals.uchicago.edu/doi/abs/10.1086/340770), to account for the labor component of self-employment income.
+
 - **Amber (Wages Only)**: The numerator is just wages and salaries — no benefits, no employer payroll taxes. This shows the steepest decline.
 
 **Interpretation:** All measures show a decline from 1970 to the latest available year (BEA series through 2024; Penn World Table through 2019). The magnitude varies: the decline is −6.5 pp for the standard measure, but −8.9 pp for wages only. This means that rising employer contributions to benefits and payroll taxes have partially masked wage stagnation. If you care about workers' cash wages, the decline is steeper than the headline labor share suggests.
@@ -138,7 +143,9 @@ The choice of numerator matters: wages alone have fallen more steeply than total
 **What this figure shows:** The same numerator (total employee compensation) divided by two different denominators: GDI (gross) vs NDI (net of depreciation).
 
 **Line-by-line explanation:**
+
 - **Blue (Gross Labor Share = Compensation / GDI)**: The standard measure. The denominator includes depreciation (Consumption of Fixed Capital).
+
 - **Red (Depreciation-Adjusted = Compensation / NDI)**: The denominator is Net Domestic Income = GDI − Depreciation. This removes resources set aside to replace worn-out capital.
 
 **Why the gap between the lines widened:** In 1970, depreciation was 12.8% of GDI; by 2024, it had risen to 16.5%. When we subtract depreciation from the denominator, we get a smaller number (NDI), which mechanically increases the labor share ratio. As depreciation grew, this effect strengthened, widening the gap between the two lines.
@@ -171,8 +178,11 @@ Net Operating Surplus = GDI − Compensation − Depreciation − Taxes on Produ
 ```
 
 **Line-by-line explanation:**
+
 - **Green (NOS / GDI, pre-corporate tax)**: Net Operating Surplus as a share of GDI, before corporate income taxes are paid. This rose from 21.8% (1970) to 24.9% (2024), a +3.1 pp increase.
+
 - **Teal (NOS / GDI, post-corporate tax)**: After subtracting taxes on corporate income. Still shows an increase, though smaller.
+
 - **Dashed indigo (Corporate Profits / GDI)**: Just the corporate profits component (with IVA and CCAdj) as a share of GDI, excluding proprietors' income, interest, and rent. Corporate profits rose substantially, from 7.4% to 11.5% of GDI.
 
 **Interpretation:** As labor's share of GDI fell by 6.5 percentage points, capital's share (Net Operating Surplus) rose by about 3 percentage points. The remainder was absorbed by rising depreciation (+3.7 pp). In other words:
