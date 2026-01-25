@@ -21,7 +21,7 @@
 
 **Key takeaways:**
 - The **standard gross measure** shows a −6.5 pp decline
-- On a **net-income (NDI)** basis—where depreciation is treated as a capital cost subtracted before distribution—the decline is less: −4.8 pp
+- On a **net-income (NDI)** basis — where depreciation is treated as a capital cost subtracted before distribution — the decline is less: −4.8 pp
 - Looking at **wages only** (excluding benefits and payroll taxes) shows the steepest decline: −8.9 pp
 
 > ### Key Methodological Assumption: Proprietors' Income
@@ -290,7 +290,7 @@ The BEA "Compensation of Employees" series (A4002E1A156NBEA) includes:
 | Labor share ex-payroll taxes | Wages + Benefits (excl. employer social insurance) | −7.2 pp |
 | Cash wages only | Wages Only | −8.9 pp |
 
-The **"Wages + Benefits (excl. employer social insurance)"** line (teal in Figure 1) excludes employer payroll taxes while keeping private benefits. This shows that excluding payroll taxes, the labor share decline is *steeper* (−7.2 pp), not smaller—because employer social insurance rose from 2.3% to 3.0% of GDI.
+The **"Wages + Benefits (excl. employer social insurance)"** line (teal in Figure 1) excludes employer payroll taxes while keeping private benefits. This shows that excluding payroll taxes, the labor share decline is *steeper* (−7.2 pp), not smaller — because employer social insurance rose from 2.3% to 3.0% of GDI.
 
 ### Gross vs Net Income (NDI) Labor Share
 
@@ -313,7 +313,7 @@ A concern raised: *How do we ensure interest income and rent aren't double-count
 
 #### The Key Principle: Profits Are "After Costs"
 
-Corporate profits in the NIPAs (with IVA and CCAdj) are measured as receipts less expenses—including wages, interest paid, and rent paid. This is a *pre-corporate-income-tax* concept. ([BEA Glossary](https://www.bea.gov/help/glossary/corporate-profits-iva-and-ccadj))
+Corporate profits in the NIPAs (with IVA and CCAdj) are measured as receipts less expenses — including wages, interest paid, and rent paid. This is a *pre-corporate-income-tax* concept. ([BEA Glossary](https://www.bea.gov/help/glossary/corporate-profits-iva-and-ccadj))
 
 #### The "Net Interest" Trap: It's NOT "Bank's Income"
 
@@ -388,7 +388,7 @@ Labor share peaked at 58.4% in 1970 and fell to 51.9% by 2024. This timing coinc
 
 ### 2. Labor share of net income (NDI) declined less (~4.8 pp)
 
-On an NDI basis—where depreciation is treated as a capital cost subtracted before distribution—the decline is attenuated. Labor's share of net income went from 67.0% (1970) to 62.2% (2024) — a decline of 4.8 pp compared to 6.5 pp for gross. The NDI-basis decline is ~26% smaller than the gross decline.
+On an NDI basis — where depreciation is treated as a capital cost subtracted before distribution — the decline is attenuated. Labor's share of net income went from 67.0% (1970) to 62.2% (2024) — a decline of 4.8 pp compared to 6.5 pp for gross. The NDI-basis decline is ~26% smaller than the gross decline.
 
 ### 3. Decomposing the labor share decline
 
