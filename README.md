@@ -21,7 +21,7 @@
 
 **Key takeaways:**
 - The **standard gross measure** shows a −6.5 pp decline
-- On a **net-income (NDI)** basis—where depreciation is treated as a capital cost subtracted before distribution—the decline is attenuated (but not eliminated): −4.8 pp
+- On a **net-income (NDI)** basis—where depreciation is treated as a capital cost subtracted before distribution—the decline is less: −4.8 pp
 - Looking at **wages only** (excluding benefits and payroll taxes) shows the steepest decline: −8.9 pp
 
 > ### Key Methodological Assumption: Proprietors' Income
@@ -613,6 +613,7 @@ The BLS nonfarm business labor share shows a **~16% decline** from its early-197
 - **Exposition:** Rewrote depreciation sections to present the **capital share effect as logically prior** — depreciation reduces capital's net income first; labor's higher NDI share is the consequence
 - **Accounting identities:** Added explicit GDI and NDI identities to make the distributional logic unambiguous
 - **Links:** Fixed 5 broken academic links (Gollin, Bridgman, Koh et al., BEA handbook/update) with working alternatives
+
 
 
 
