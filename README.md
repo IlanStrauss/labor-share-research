@@ -338,11 +338,11 @@ When adjusting for rising depreciation, the decline is attenuated. The depreciat
 
 The three-way decomposition reveals where the "missing" labor share went:
 
-| Measure | 1970 | 2024 | Change |
-|---------|------|------|--------|
-| Total Compensation | 58.4% | 51.9% | −6.5 pp |
-| Wages + Benefits (ex-FICA) | 56.1% | 48.9% | −7.2 pp |
-| Wages Only | 51.6% | 42.7% | −8.9 pp |
+| Measure (Numerator / GDI) | 1970 | 2024 | Change |
+|---------------------------|------|------|--------|
+| Total Compensation (wages + all supplements) | 58.4% | 51.9% | −6.5 pp |
+| Wages + Benefits (excl. employer FICA) | 56.1% | 48.9% | −7.2 pp |
+| Wages Only (cash wages, no supplements) | 51.6% | 42.7% | −8.9 pp |
 
 **Key insight:** The rise in supplements (+2.4 pp) consists of:
 - **Private benefits** (pension, health insurance): ~+1.7 pp
@@ -359,8 +359,6 @@ The 1929 gross labor share was 49.5% — below the current 2024 level (51.9%). T
 - Tight labor markets
 - Less international competition
 - Lower capital intensity
-
-Starting from 1970 (the peak) rather than 1929 (pre-modern economy) changes the narrative entirely.
 
 ---
 
@@ -383,7 +381,7 @@ Starting from 1970 (the peak) rather than 1929 (pre-modern economy) changes the 
 | **Depreciation (CFC)** | **12.8%** | **16.5%** | **+3.7 pp** |
 | Taxes on Production§ | ~7% | 6.7% | ~0 pp |
 
-*Source: BEA NIPA Table 1.11 via FRED. 1970 subcomponent values are approximate.*
+*Sources: BEA NIPA Table 1.11 via FRED. Key series: [Compensation (A4002E1A156NBEA)](https://fred.stlouisfed.org/series/A4002E1A156NBEA), [Wages (W270RE1A156NBEA)](https://fred.stlouisfed.org/series/W270RE1A156NBEA), [Depreciation (A262RE1A156NBEA)](https://fred.stlouisfed.org/series/A262RE1A156NBEA), [Corporate Profits (A445RE1A156NBEA)](https://fred.stlouisfed.org/series/A445RE1A156NBEA). 1970 subcomponent values are approximate.*
 
 **Table notes:**
 - † **Wages + Benefits (excl. employer FICA)**: Compensation minus employer FICA. This "pre-payroll-tax" measure shows a steeper decline (−7.2 pp) than total compensation (−6.5 pp).
@@ -434,12 +432,14 @@ Starting from 1970 (the peak) rather than 1929 (pre-modern economy) changes the 
 
 | Source | Series ID | Description |
 |--------|-----------|-------------|
-| BEA NIPA | A4002E1A156NBEA | Compensation share of GDI |
-| BEA NIPA | W270RE1A156NBEA | Wages & salaries share of GDI |
-| BEA NIPA | A262RE1A156NBEA | Depreciation share of GDI |
-| BEA NIPA | A041RE1A156NBEA | Proprietors' income share of GDI |
-| Penn World Table | LABSHPUSA156NRUG | Labor share (different methodology) |
-| BLS | PRS85006173 | Nonfarm business labor share index |
+| BEA NIPA | [A4002E1A156NBEA](https://fred.stlouisfed.org/series/A4002E1A156NBEA) | Compensation share of GDI |
+| BEA NIPA | [W270RE1A156NBEA](https://fred.stlouisfed.org/series/W270RE1A156NBEA) | Wages & salaries share of GDI |
+| BEA NIPA | [A262RE1A156NBEA](https://fred.stlouisfed.org/series/A262RE1A156NBEA) | Depreciation share of GDI |
+| BEA NIPA | [A041RE1A156NBEA](https://fred.stlouisfed.org/series/A041RE1A156NBEA) | Proprietors' income share of GDI |
+| BEA NIPA | [A445RE1A156NBEA](https://fred.stlouisfed.org/series/A445RE1A156NBEA) | Corporate profits (pre-tax) share of GDI |
+| BEA NIPA | [W273RE1A156NBEA](https://fred.stlouisfed.org/series/W273RE1A156NBEA) | Corporate profits (post-tax) share of GDI |
+| Penn World Table | [LABSHPUSA156NRUG](https://fred.stlouisfed.org/series/LABSHPUSA156NRUG) | Labor share (different methodology) |
+| BLS | [PRS85006173](https://fred.stlouisfed.org/series/PRS85006173) | Nonfarm business labor share index |
 
 All data accessed via [FRED](https://fred.stlouisfed.org/) (Federal Reserve Economic Data).
 
