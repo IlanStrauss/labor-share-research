@@ -172,6 +172,12 @@ These changes approximately sum to zero (allowing for rounding), as they must �
 
 **Corporate profits drove the capital share increase.** Within the Net Operating Surplus, corporate profits rose most dramatically — from 7.4% to 11.5% of GDI (+4.1 pp). This reflects increased profit margins, market concentration, and the rise of high-margin technology firms.
 
+> **Important caveat:** The NOS measure in this figure includes *all* of proprietors' income (~7% of GDI). However, the Gollin (2002) adjustment used in Figure 1 allocates ⅔ of proprietors' income to *labor*. If we applied that same adjustment here, the "Gollin-adjusted capital share" would be:
+>
+> `NOS − (⅔ × Proprietors' Income) = 24.9% − (0.67 × 7.0%) = 20.2% (2024)`
+>
+> This would show a smaller increase in capital share (+1.4 pp instead of +3.1 pp). The figure above uses the simpler NOS definition for transparency, but readers should note this limitation when comparing to Gollin-adjusted labor share measures.
+
 ---
 
 ## Methodological Notes
@@ -381,7 +387,7 @@ The 1929 gross labor share was 49.5% — below the current 2024 level (51.9%). T
 | **Depreciation (CFC)** | **12.8%** | **16.5%** | **+3.7 pp** |
 | Taxes on Production§ | ~7% | 6.7% | ~0 pp |
 
-*Sources: BEA NIPA Table 1.11 via FRED. Key series: [Compensation (A4002E1A156NBEA)](https://fred.stlouisfed.org/series/A4002E1A156NBEA), [Wages (W270RE1A156NBEA)](https://fred.stlouisfed.org/series/W270RE1A156NBEA), [Depreciation (A262RE1A156NBEA)](https://fred.stlouisfed.org/series/A262RE1A156NBEA), [Corporate Profits (A445RE1A156NBEA)](https://fred.stlouisfed.org/series/A445RE1A156NBEA). 1970 subcomponent values are approximate.*
+*Sources: BEA NIPA Table 1.11 via FRED. Key series: [Compensation (A4002E1A156NBEA)](https://fred.stlouisfed.org/series/A4002E1A156NBEA), [Wages (W270RE1A156NBEA)](https://fred.stlouisfed.org/series/W270RE1A156NBEA), [Depreciation (A262RE1A156NBEA)](https://fred.stlouisfed.org/series/A262RE1A156NBEA), [Corporate Profits (A445RE1A156NBEA)](https://fred.stlouisfed.org/series/A445RE1A156NBEA). 1970 subcomponent values are approximate. Note: Component shares may not sum to exactly 100% due to rounding in source data (BEA publishes shares rounded to one decimal place).*
 
 **Table notes:**
 - † **Wages + Benefits (excl. employer FICA)**: Compensation minus employer FICA. This "pre-payroll-tax" measure shows a steeper decline (−7.2 pp) than total compensation (−6.5 pp).
