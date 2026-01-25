@@ -202,14 +202,6 @@ If you view employer social insurance as a "tax on labor" rather than compensati
 
 **Caveat:** Rising private benefits doesn't necessarily mean workers are better off — much of it reflects healthcare cost inflation, not improved coverage.
 
-### 4. Historical context: 1929 was lower
-
-The 1929 gross labor share was 49.5% — below the current 2024 level (51.9%). The 1970 peak was historically high, driven partly by:
-- Strong unions
-- Tight labor markets
-- Less international competition
-- Lower capital intensity
-
 ---
 
 ## Data Tables
@@ -239,17 +231,6 @@ The 1929 gross labor share was 49.5% — below the current 2024 level (51.9%). T
 - § **Taxes on Production**: Includes sales taxes, property taxes, customs duties, etc. These are distinct from corporate income taxes (which come out of profits) and personal income taxes (which workers pay out of compensation).
 
 **Optional extension (not shown):** For a *post-corporate-tax* profit measure, use "Corporate profits after tax with IVA and CCAdj" = profits before tax − taxes on corporate income. ([BEA NIPA Handbook](https://www.bea.gov/resources/methodologies/nipa-handbook))
-
-### Historical Reference: 1929
-
-| Measure | 1929 | 2024 | Note |
-|---------|------|------|------|
-| Gross Labor Share | 49.5% | 51.9% | 2024 is *higher* |
-| Labor Share of NDI | 55.0% | 62.2% | 2024 is *much higher* |
-| Depreciation | 10.0% | 16.5% | Rose substantially |
-| Proprietors' Income | 13.5% | 7.0% | Collapsed (structural shift) |
-
-*Caveat: Very long-run comparisons (1929 vs. 2024) can be sensitive to historical revisions and definitional changes in the national accounts. The 1929 figures provide context, not precision.*
 
 ---
 
