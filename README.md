@@ -2,9 +2,7 @@
 
 ## Executive Summary
 
-**Has the U.S. labor share declined? Yes.** Across the standard BEA whole-economy measures in Table 1.11, the labor share is below its late-1960s/1970 peak. The decline is consistent across all measures examined here, though magnitude varies with methodological choices (sector scope, proprietors' income treatment, depreciation inclusion).
-
-**What's debatable is the magnitude, not the direction.** Different measurement choices yield declines ranging from −4.8 pp to −8.9 pp — a substantial range, but all negative.
+**Has the U.S. labor share declined? Yes.** Across the standard BEA whole-economy measures in Table 1.11, the labor share is below its late-1960s/1970 peak. The decline is consistent across all measures examined here, though magnitude varies with methodological choices (sector scope, proprietors' income treatment, depreciation inclusion). Different measurement choices yield declines ranging from −4.8 pp to −8.9 pp — a substantial range, but all negative.
 
 ### Key Findings (1970-2024)
 
@@ -615,5 +613,6 @@ The BLS nonfarm business labor share shows a **~16% decline** from its early-197
 - **Exposition:** Rewrote depreciation sections to present the **capital share effect as logically prior** — depreciation reduces capital's net income first; labor's higher NDI share is the consequence
 - **Accounting identities:** Added explicit GDI and NDI identities to make the distributional logic unambiguous
 - **Links:** Fixed 5 broken academic links (Gollin, Bridgman, Koh et al., BEA handbook/update) with working alternatives
+
 
 
