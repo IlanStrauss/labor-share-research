@@ -534,8 +534,49 @@ January 2026
 
 ---
 
+## Appendix: BLS Nonfarm Business Sector Corroboration
+
+The main analysis uses **whole-economy BEA shares**, which include the government sector and owner-occupied housing. A natural concern: *Is the labor share decline driven by these scope choices rather than genuine trends in the private economy?*
+
+### BLS Nonfarm Business Labor Share
+
+The [BLS nonfarm business labor share index](https://fred.stlouisfed.org/series/PRS85006173) provides an independent check. This series:
+
+- Covers the **nonfarm business sector only** (excludes government, nonprofits, owner-occupied housing)
+- Uses **quarterly frequency** (more timely than annual BEA shares)
+- Is an **index** (2017=100), not a percentage share — but changes are directly comparable
+
+### Key Finding: Decline Is Confirmed
+
+| Period | BLS Index Value | Change |
+|--------|-----------------|--------|
+| 1970 Q1 | ~115 | — |
+| 2024 Q4 | 96.9 | **−16%** from 1970 peak |
+
+The BLS nonfarm business labor share shows a **~16% decline** from its early-1970s high — *larger* than the whole-economy BEA decline. This confirms:
+
+1. **The decline is real**, not an artifact of government/housing inclusion
+2. **If anything, the whole-economy measure understates the private-sector decline** (because government has high labor share and no operating surplus)
+
+### Why Nonfarm Business Shows a Steeper Decline
+
+- **Government sector**: ~15% of GDP, but has near-100% labor share (no profits). Including government *raises* measured whole-economy labor share.
+- **Owner-occupied housing**: Adds imputed rental income to GDI with zero compensation. Including it *lowers* measured labor share.
+- These effects partially offset, but the net result is that whole-economy measures are *less sensitive* to private-sector profit dynamics than nonfarm business measures.
+
+### Data Source
+
+| Source | Series ID | Description |
+|--------|-----------|-------------|
+| BLS | [PRS85006173](https://fred.stlouisfed.org/series/PRS85006173) | Nonfarm business labor share index (2017=100) |
+
+*Note: The BLS index is not directly comparable to BEA percentage shares. To convert approximate levels: if 2017 labor share ≈ 58%, then index value 96.9 implies ~56% labor share in 2024 Q4.*
+
+---
+
 ## Changelog
 
+- **v2.5** (January 2026): Added Appendix with BLS nonfarm business labor share corroboration (~16% decline from 1970 peak, confirming result is not driven by government/housing scope)
 - **v2.4** (January 2026): Final polish: (1) Clarified proprietors' income sensitivity with explicit baselines; (2) Changed "specifically FICA" to "dominated by FICA" per BEA definition; (3) Dropped "pre-payroll-tax" label; (4) Fixed taxes on production change to −0.3 pp (not ~0); (5) Tightened net interest wording to describe accounting treatment; (6) Added 1929 comparability caveat; (7) Added annual data note and explicit rounding caveat for subcomponents
 - **v2.3** (January 2026): Methodological rigor improvements: (1) Made Gollin (2002) ⅔ proprietors' income assumption explicit in Executive Summary; (2) Renamed "employer FICA" → "employer social insurance" ([BEA definition](https://www.bea.gov/help/glossary/contribution-government-social-insurance) — broader than FICA alone); (3) Fixed supplements values to match BEA series A038RE1A156NBEA (6.7%/9.1%, not computed from rounded values); (4) Clarified PWT series ends in 2019; (5) Refined net interest explanation (offset for receipts in profits/proprietors'); (6) Restructured GDI to Table 1.11 level (NOS as aggregate); (7) Softened rhetorical claims
 - **v2.2** (January 2026): Major methodological fixes: (1) Renamed "Net Labor Share" → "Depreciation-adjusted labor share" to avoid confusion with "after-tax"; (2) Corrected net interest explanation (it's an identity offset, NOT "bank's income"); (3) Added explicit tax boundary declaration; (4) Added BEA NIPA Handbook citations
