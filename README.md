@@ -26,9 +26,9 @@
 
 ---
 
-## Defining the Labor Share: Concepts and Equations
+## Defining the Labor Share
 
-Before presenting the data, we must be precise about what we are measuring. The "labor share" is the fraction of national income that accrues to workers as compensation for their labor, as opposed to capital owners (profits, interest, rent). This section defines the key concepts rigorously.
+The "labor share" is the fraction of national income that accrues to workers as compensation for their labor, as opposed to capital owners (profits, interest, rent). This section defines the key concepts.
 
 ### The Basic Definition
 
@@ -611,6 +611,7 @@ The BLS nonfarm business labor share shows a **~16% decline** from its early-197
 - **Exposition:** Rewrote depreciation sections to present the **capital share effect as logically prior** — depreciation reduces capital's net income first; labor's higher NDI share is the consequence
 - **Accounting identities:** Added explicit GDI and NDI identities to make the distributional logic unambiguous
 - **Links:** Fixed 5 broken academic links (Gollin, Bridgman, Koh et al., BEA handbook/update) with working alternatives
+
 
 
 
