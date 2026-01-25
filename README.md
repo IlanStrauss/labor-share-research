@@ -32,7 +32,7 @@
 - Relative to the **Gollin-adjusted** series (Comp + ⅔·Prop ≈ 56.6%): allocating **0%** of proprietors' to labor gives ~4.7 pp lower; allocating **100%** gives ~2.3 pp higher.
 - Relative to the **unadjusted** series (Comp/GDI = 51.9%): allocating **100%** of proprietors' to labor adds ~7 pp.
 
-The **standard gross labor share** (blue line) does *not* include any proprietors' income in the numerator — it is simply Compensation of Employees / GDI. The Gollin adjustment only applies to the "Adjusted" measure.
+The **standard gross labor share** (blue line) does *not* include any proprietors' income in the numerator — it is simply Compensation of Employees / GDI. The Gollin adjustment only applies to the purple "Adjusted" line in Figure 1, which adds ⅔ of proprietors' income to compensation in the numerator to account for the labor component of self-employment earnings.
 
 ---
 
