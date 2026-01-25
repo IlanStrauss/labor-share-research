@@ -24,16 +24,6 @@
 - On a **net-income (NDI)** basis — where depreciation is treated as a capital cost subtracted before distribution — the decline is less: −4.8 pp
 - Looking at **wages only** (excluding benefits and payroll taxes) shows the steepest decline: −8.9 pp
 
-### Key Methodological Assumption: Proprietors' Income
-
-**Proprietors' income** (~7% of GDI) is "mixed income" — it contains both labor and capital returns for self-employed individuals (e.g., a sole-proprietor lawyer's earnings include both compensation for their work and returns on the firm's assets; a farmer's income reflects both their labor and the productivity of their land and equipment). This document follows **[Gollin (2002)](https://web.williams.edu/Economics/wp/Gollin_Getting_Income_Shares_Right_working_paper_with_figures.pdf)** in allocating **⅔ of proprietors' income to labor** and **⅓ to capital** when computing the "Adjusted" labor share measure (purple line in Figure 1).
-
-**Sensitivity to this assumption** (using 2024 values, Prop ≈ 7%):
-- Relative to the **Gollin-adjusted** series (Comp + ⅔·Prop ≈ 56.6%): allocating **0%** of proprietors' to labor gives ~4.7 pp lower; allocating **100%** gives ~2.3 pp higher.
-- Relative to the **unadjusted** series (Comp/GDI = 51.9%): allocating **100%** of proprietors' to labor adds ~7 pp.
-
-The **standard gross labor share** (blue line) does *not* include any proprietors' income in the numerator — it is simply Compensation of Employees / GDI. The Gollin adjustment only applies to the purple "Adjusted" line in Figure 1, which adds ⅔ of proprietors' income to compensation in the numerator to account for the labor component of self-employment earnings.
-
 ---
 
 ## Defining the Labor Share: Concepts and Equations
@@ -255,6 +245,16 @@ All factor shares in this note are measured **before income taxes**:
 - **Employer FICA**: Included in compensation (standard practice); can be separated out
 
 **We do not construct an "after personal income taxes" labor share** in this note. Doing so requires tax-incidence assumptions (who bears the burden of each tax?) that are beyond the scope of this analysis.
+
+### Assumption: Proprietors' Income
+
+**Proprietors' income** (~7% of GDI) is "mixed income" — it contains both labor and capital returns for self-employed individuals (e.g., a sole-proprietor lawyer's earnings include both compensation for their work and returns on the firm's assets; a farmer's income reflects both their labor and the productivity of their land and equipment). This document follows **[Gollin (2002)](https://web.williams.edu/Economics/wp/Gollin_Getting_Income_Shares_Right_working_paper_with_figures.pdf)** in allocating **⅔ of proprietors' income to labor** and **⅓ to capital** when computing the "Adjusted" labor share measure (purple line in Figure 1).
+
+**Sensitivity to this assumption** (using 2024 values, Prop ≈ 7%):
+- Relative to the **Gollin-adjusted** series (Comp + ⅔·Prop ≈ 56.6%): allocating **0%** of proprietors' to labor gives ~4.7 pp lower; allocating **100%** gives ~2.3 pp higher.
+- Relative to the **unadjusted** series (Comp/GDI = 51.9%): allocating **100%** of proprietors' to labor adds ~7 pp.
+
+The **standard gross labor share** (blue line) does *not* include any proprietors' income in the numerator — it is simply Compensation of Employees / GDI. The Gollin adjustment only applies to the purple "Adjusted" line in Figure 1, which adds ⅔ of proprietors' income to compensation in the numerator to account for the labor component of self-employment earnings.
 
 ### What "Employee Compensation" Includes (Numerator Components)
 
