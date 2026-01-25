@@ -393,7 +393,7 @@ def create_capital_share_chart():
             markevery=5, alpha=LINE_ALPHA)
 
     ax.plot(years, corp_profits_adjusted, '--', linewidth=LINE_WIDTH-1, color='#6366f1',  # Indigo
-            label='Corporate Profits + ⅓ Prop', marker='^', markersize=MARKER_SIZE-2,
+            label='Corporate Profit', marker='^', markersize=MARKER_SIZE-2,
             markevery=5, alpha=0.7)
 
     # Reference lines
@@ -418,8 +418,8 @@ def create_capital_share_chart():
     ax.tick_params(axis='y', labelsize=TICK_SIZE)
     ax.yaxis.set_major_formatter(mtick.PercentFormatter(decimals=0))
 
-    # Legend
-    ax.legend(loc='center left', fontsize=LEGEND_SIZE, framealpha=0.95)
+    # Legend - positioned in lower right to avoid overlapping data lines
+    ax.legend(loc='lower right', fontsize=LEGEND_SIZE, framealpha=0.95)
 
     # Source note
     fig.text(0.5, 0.02,
