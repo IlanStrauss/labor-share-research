@@ -413,13 +413,13 @@ def create_capital_share_chart():
     ax.set_xticklabels([str(y) for y in range(1970, 2025, 5)], fontsize=TICK_SIZE)
 
     # Y-axis
-    ax.set_ylim(5, 32)
-    ax.set_yticks(range(5, 35, 5))
+    ax.set_ylim(5, 25)
+    ax.set_yticks(range(5, 30, 5))
     ax.tick_params(axis='y', labelsize=TICK_SIZE)
     ax.yaxis.set_major_formatter(mtick.PercentFormatter(decimals=0))
 
-    # Legend - positioned in lower right to avoid overlapping data lines
-    ax.legend(loc='lower right', fontsize=LEGEND_SIZE, framealpha=0.95)
+    # Legend - positioned in upper right with tighter y-axis
+    ax.legend(loc='upper right', fontsize=LEGEND_SIZE, framealpha=0.95)
 
     # Source note
     fig.text(0.5, 0.02,
