@@ -6,7 +6,7 @@
 
 ### Key Findings (1970-2024)
 
-*All series are annual, BEA whole-economy shares from Table 1.11 via FRED; latest year shown is 2024.*
+*All series are annual, BEA whole-economy shares from [Table 1.11 via FRED](https://fred.stlouisfed.org/release/tables?rid=53&eid=42211); latest year shown is 2024.*
 
 | Measure | 1970 | 2024 | Change |
 |---------|------|------|--------|
