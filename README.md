@@ -28,7 +28,7 @@
 
 > ### Key Methodological Assumption: Proprietors' Income
 >
-> **Proprietors' income** (~7% of GDI) is "mixed income" — it contains both labor and capital returns for self-employed individuals. This document follows **[Gollin (2002)](https://www.journals.uchicago.edu/doi/abs/10.1086/340770)** in allocating **⅔ of proprietors' income to labor** and **⅓ to capital** when computing the "Adjusted" labor share measure (purple line in Figure 1).
+> **Proprietors' income** (~7% of GDI) is "mixed income" — it contains both labor and capital returns for self-employed individuals. This document follows **[Gollin (2002)](https://web.williams.edu/Economics/wp/Gollin_Getting_Income_Shares_Right_working_paper_with_figures.pdf)** in allocating **⅔ of proprietors' income to labor** and **⅓ to capital** when computing the "Adjusted" labor share measure (purple line in Figure 1).
 >
 > **Sensitivity to this assumption** (using 2024 values, Prop ≈ 7%):
 > - Relative to the **Gollin-adjusted** series (Comp + ⅔·Prop ≈ 56.6%): allocating **0%** of proprietors' to labor gives ~4.7 pp lower; allocating **100%** gives ~2.3 pp higher.
@@ -92,7 +92,7 @@ We use GDI rather than GDP because the labor share numerator (compensation) come
 
 A key methodological choice is whether to include depreciation in the denominator. **Depreciation** (Consumption of Fixed Capital, CFC) represents resources that must be set aside to replace worn-out capital — it is not income available for distribution to workers or capital owners.
 
-Following [Bridgman (2018)](https://www.researchgate.net/publication/318349851_IS_LABOR'S_LOSS_CAPITAL'S_GAIN_GROSS_VERSUS_NET_LABOR_SHARES) and [Rognlie (2015)](https://www.brookings.edu/wp-content/uploads/2016/07/2015a_rognlie.pdf), we also compute a **depreciation-adjusted** labor share:
+Following [Bridgman (2018)](https://bea.gov/papers/pdf/laborshare1410.pdf) and [Rognlie (2015)](https://www.brookings.edu/wp-content/uploads/2016/07/2015a_rognlie.pdf), we also compute a **depreciation-adjusted** labor share:
 
 ```
                                Compensation of Employees
@@ -134,7 +134,7 @@ The choice of numerator matters: wages alone have fallen more steeply than total
 
 - **Green (Penn World Table, 1970–2019 only)**: Uses a different methodology that imputes a labor share for self-employed workers, rather than treating proprietors' income as mixed. *Note: PWT data ends in 2019; the line does not extend to 2024.*
 
-- **Purple (Adjusted: + ⅔ Proprietors' Income)**: Adds two-thirds of proprietors' income to the numerator, following [Gollin (2002)](https://www.journals.uchicago.edu/doi/abs/10.1086/340770), to account for the labor component of self-employment income.
+- **Purple (Adjusted: + ⅔ Proprietors' Income)**: Adds two-thirds of proprietors' income to the numerator, following [Gollin (2002)](https://web.williams.edu/Economics/wp/Gollin_Getting_Income_Shares_Right_working_paper_with_figures.pdf), to account for the labor component of self-employment income.
 
 - **Amber (Wages Only)**: The numerator is just wages and salaries — no benefits, no employer payroll taxes. This shows the steepest decline.
 
@@ -154,15 +154,17 @@ The choice of numerator matters: wages alone have fallen more steeply than total
 
 **Why the gap between the lines widened:** In 1970, depreciation was 12.8% of GDI; by 2024, it had risen to 16.5%. When we subtract depreciation from the denominator, we get a smaller number (NDI), which mechanically increases the labor share ratio. As depreciation grew, this effect strengthened, widening the gap between the two lines.
 
-**A common confusion: "Depreciation is a capital cost, so why does removing it affect labor share?"**
+**Understanding the depreciation adjustment:**
 
-This is counterintuitive. Depreciation is indeed a cost attributable to capital — it represents wear and tear on machinery, software, and buildings. You might expect that removing depreciation would only affect the *capital* share, not the labor share.
+Depreciation is a cost attributable to capital — it represents wear and tear on machinery, software, and buildings. When we move from gross to net income measures, allowing for depreciation immediately adjusts capital's net income downward, and thus also the capital income share. Since all net income is being divided between capital and labour, this automatically adjusts the labour share upward.
 
-But here's the key: depreciation affects the **denominator** of the labor share ratio, not the numerator. Consider:
+From a practical standpoint, the effect on the capital income share is logically prior: depreciation reduces capital's claim on income first. The effect on the labour share is a consequence of that logically prior effect — with a smaller pie being divided, labour's unchanged absolute claim represents a larger percentage share.
+
+**The arithmetic:**
 - Gross labor share = Compensation / GDI
 - Depreciation-adjusted labor share = Compensation / (GDI − Depreciation)
 
-When we remove depreciation from the denominator, we make the denominator *smaller*. Dividing by a smaller number produces a *larger* result. So the depreciation-adjusted labor share is always higher than the gross labor share.
+When depreciation is subtracted from the denominator, the denominator becomes *smaller*. Dividing by a smaller number produces a *larger* result. So the depreciation-adjusted labor share is always higher than the gross labor share.
 
 As depreciation rose from 12.8% to 16.5% of GDI, the difference between GDI and NDI grew. This made the depreciation-adjusted labor share rise *relative to* the gross labor share — even though both declined in absolute terms.
 
@@ -279,7 +281,7 @@ The **"Wages + Benefits (excl. employer social insurance)"** line (teal in Figur
 
 > **Important:** "Net" or "depreciation-adjusted" here means *net of depreciation*, **not** net of taxes. This is standard terminology in the labor share literature but can confuse readers.
 
-The depreciation-adjusted measure matters because depreciation (Consumption of Fixed Capital) is **not income available for consumption** — it represents the resources needed to replace worn-out capital. Following [Bridgman (2018)](https://www.researchgate.net/publication/318349851_IS_LABOR'S_LOSS_CAPITAL'S_GAIN_GROSS_VERSUS_NET_LABOR_SHARES) and [Rognlie (2015)](https://www.brookings.edu/wp-content/uploads/2016/07/2015a_rognlie.pdf), the depreciation-adjusted labor share is more relevant for understanding the distribution of *sustainable* income.
+The depreciation-adjusted measure matters because depreciation (Consumption of Fixed Capital) is **not income available for consumption** — it represents the resources needed to replace worn-out capital. Following [Bridgman (2018)](https://bea.gov/papers/pdf/laborshare1410.pdf) and [Rognlie (2015)](https://www.brookings.edu/wp-content/uploads/2016/07/2015a_rognlie.pdf), the depreciation-adjusted labor share is more relevant for understanding the distribution of *sustainable* income.
 
 **Why depreciation rose:**
 - Shift from long-lived assets (buildings: 2-3%/year depreciation) to short-lived assets (software: 25-33%/year)
@@ -296,14 +298,14 @@ Corporate profits in the NIPAs (with IVA and CCAdj) are measured as receipts les
 
 #### The "Net Interest" Trap: It's NOT "Bank's Income"
 
-**Caution:** The "Net Interest and Miscellaneous Payments" line in GDI is **not** a direct measure of financial sector income. It is an *offset item* that removes net interest receipts already embedded in corporate profits and proprietors' income. ([BEA NIPA Handbook Ch. 13](https://www.bea.gov/resources/methodologies/nipa-handbook/pdf/chapter-13.pdf))
+**Caution:** The "Net Interest and Miscellaneous Payments" line in GDI is **not** a direct measure of financial sector income. It is an *offset item* that removes net interest receipts already embedded in corporate profits and proprietors' income. ([BEA NIPA Handbook](https://www.bea.gov/resources/methodologies/nipa-handbook))
 
 Specifically:
 - Corporate profits *include* net interest receipts (interest received minus interest paid) as part of business income
 - The "Net Interest" GDI component then *offsets* these receipts — in the NIPA production account, interest flows are treated in a way that requires this offset item
 - This ensures interest payments flow from borrowers to lenders without double-counting
 
-**Do not interpret "Net Interest" as "the bank's income."** It reflects an accounting treatment of interest flows in the production-income identity, not a clean attribution of income to financial institutions. ([BEA NIPA Update](https://apps.bea.gov/scb/2018/09-september/pdf/0918-nipa-update.pdf))
+**Do not interpret "Net Interest" as "the bank's income."** It reflects an accounting treatment of interest flows in the production-income identity, not a clean attribution of income to financial institutions. ([BEA NIPA Update](https://apps.bea.gov/scb/issues/2018/09-september/0918-nipa-update.htm))
 
 #### How GDI Components Are Defined
 
@@ -327,7 +329,7 @@ The NOS subcomponents (profits, proprietors', rental, net interest) sum to NOS, 
 
 #### Capital Share Calculation (If Needed)
 
-For capital's share, the cleanest approach is the **residual method**:
+For capital's share, the **residual method** is cleanest:
 
 ```
 Capital Share = (GDI − Compensation − Taxes on Production − labor portion of Proprietors') / GDI
@@ -423,7 +425,7 @@ The 1929 gross labor share was 49.5% — below the current 2024 level (51.9%). T
 - ‡ **Corporate Profits**: Reported *net of* interest paid, rent paid, and depreciation, but *before* corporate income taxes. Corporate income taxes are paid out of this figure. ([BEA definition](https://www.bea.gov/help/glossary/corporate-profits-iva-and-ccadj))
 - § **Taxes on Production**: Includes sales taxes, property taxes, customs duties, etc. These are distinct from corporate income taxes (which come out of profits) and personal income taxes (which workers pay out of compensation).
 
-**Optional extension (not shown):** For a *post-corporate-tax* profit measure, use "Corporate profits after tax with IVA and CCAdj" = profits before tax − taxes on corporate income. ([BEA NIPA Handbook Ch. 13](https://www.bea.gov/resources/methodologies/nipa-handbook/pdf/chapter-13.pdf))
+**Optional extension (not shown):** For a *post-corporate-tax* profit measure, use "Corporate profits after tax with IVA and CCAdj" = profits before tax − taxes on corporate income. ([BEA NIPA Handbook](https://www.bea.gov/resources/methodologies/nipa-handbook))
 
 ### Historical Reference: 1929
 
@@ -457,11 +459,11 @@ The 1929 gross labor share was 49.5% — below the current 2024 level (51.9%). T
 
 | Paper | Key Argument |
 |-------|--------------|
-| [**Bridgman (2018)**](https://www.researchgate.net/publication/318349851_IS_LABOR'S_LOSS_CAPITAL'S_GAIN_GROSS_VERSUS_NET_LABOR_SHARES) | Net labor share is more relevant; shows less decline than gross |
+| [**Bridgman (2018)**](https://bea.gov/papers/pdf/laborshare1410.pdf) | Net labor share is more relevant; shows less decline than gross |
 | [**Rognlie (2015)**](https://www.brookings.edu/wp-content/uploads/2016/07/2015a_rognlie.pdf) | Most of capital share increase is housing; net capital share stable |
 | [**Karabarbounis & Neiman (2014)**](https://www.nber.org/papers/w19136) | Global labor share declined; driven by falling investment prices |
 | [**Autor et al. (2020)**](https://www.nber.org/papers/w23396) | "Superstar firms" with low labor shares capture market share |
-| [**Koh et al. (2020)**](https://onlinelibrary.wiley.com/doi/abs/10.3982/ECTA17477) | IPP capitalization explains entire decline |
+| [**Koh et al. (2020)**](https://www.bse.eu/sites/default/files/working_paper_pdfs/927_1.pdf) | IPP capitalization explains entire decline |
 
 ---
 
