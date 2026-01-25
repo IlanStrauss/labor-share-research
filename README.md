@@ -15,7 +15,7 @@
 | **Gross Labor Share** (Compensation/GDI) | 58.4% | 51.9% | **−6.5 pp** |
 | **Wages + Benefits** (excl. employer social insurance†) | 56.1% | 48.9% | **−7.2 pp** |
 | **Wages Only** (excl. all supplements) | 51.6% | 42.7% | **−8.9 pp** |
-| **Depreciation-Adjusted Labor Share** (Compensation/NDI) | 67.0% | 62.2% | **−4.8 pp** |
+| **Labor Share of Net Domestic Income** (Compensation/NDI) | 67.0% | 62.2% | **−4.8 pp** |
 | Depreciation Share | 12.8% | 16.5% | +3.7 pp |
 | Employer Social Insurance† Share | 2.3% | 3.0% | +0.7 pp |
 
@@ -23,7 +23,7 @@
 
 **Key takeaways:**
 - The **standard gross measure** shows a −6.5 pp decline
-- Adjusting for rising depreciation attenuates (but does not eliminate) the decline: −4.8 pp
+- On a **net-income (NDI)** basis—where depreciation is treated as a capital cost subtracted before distribution—the decline is attenuated (but not eliminated): −4.8 pp
 - Looking at **wages only** (excluding benefits and payroll taxes) shows the steepest decline: −8.9 pp
 
 > ### Key Methodological Assumption: Proprietors' Income
@@ -88,21 +88,40 @@ This structure matters: the four NOS subcomponents are not independent — in pa
 
 We use GDI rather than GDP because the labor share numerator (compensation) comes from the income side of the accounts. Using GDP would mix income-side numerators with expenditure-side denominators, introducing measurement noise from the statistical discrepancy.
 
-### The Depreciation-Adjusted (Net) Measure
+### The Net Domestic Income (NDI) Measure
 
-A key methodological choice is whether to include depreciation in the denominator. **Depreciation** (Consumption of Fixed Capital, CFC) represents resources that must be set aside to replace worn-out capital — it is not income available for distribution to workers or capital owners.
+A key methodological choice is whether to measure factor shares over **gross** or **net** income. **Depreciation** (Consumption of Fixed Capital, CFC) represents resources that must be set aside to replace worn-out capital — it is not income available for distribution to workers or capital owners.
 
-Following [Bridgman (2018)](https://bea.gov/papers/pdf/laborshare1410.pdf) and [Rognlie (2015)](https://www.brookings.edu/wp-content/uploads/2016/07/2015a_rognlie.pdf), we also compute a **depreciation-adjusted** labor share:
+**The distributional logic (capital-first):**
+
+Depreciation is a **capital maintenance cost**. Moving from **gross** to **net** income subtracts depreciation **before** dividing income between labor and capital. Therefore:
+
+1. Depreciation **reduces capital's net income and net capital share first**
+2. Labor's higher share of net income is the **residual consequence** of that smaller net-income pie
+
+The accounting identities make this explicit:
 
 ```
-                               Compensation of Employees
-Depreciation-Adjusted Share = ────────────────────────────────────────
-                               GDI − Depreciation (= Net Domestic Income)
+Gross income identity (Table 1.11):
+  GDI = Compensation + Net Operating Surplus + Taxes on Production + Depreciation
+
+Net income identity (distribution-relevant):
+  NDI = GDI − Depreciation = Compensation + Net Operating Surplus + Taxes on Production
+```
+
+On a net basis, depreciation has already been netted out of capital's claim; labor's higher share is the corollary of measuring the split over net income.
+
+Following [Bridgman (2018)](https://bea.gov/papers/pdf/laborshare1410.pdf) and [Rognlie (2015)](https://www.brookings.edu/wp-content/uploads/2016/07/2015a_rognlie.pdf), we compute labor's share of **Net Domestic Income (NDI)**:
+
+```
+                                   Compensation of Employees
+Labor Share of Net Income (NDI) = ────────────────────────────────────────
+                                   GDI − Depreciation (= NDI)
 ```
 
 > **Terminology note:** In the labor share literature, "net" typically means *net of depreciation*, **not** net of taxes. All measures in this document are pre-income-tax.
 
-The depreciation-adjusted measure shows a smaller decline than the gross measure because depreciation has risen substantially (from 12.8% to 16.5% of GDI). When we remove depreciation from the denominator, we are measuring labor's share of *sustainable, consumable income* rather than gross output.
+Equivalently, if we measure labor's share over net income (NDI), the labor-share ratio rises mechanically because the denominator excludes depreciation. The NDI-basis measure shows a smaller decline than the gross measure because depreciation has risen substantially (from 12.8% to 16.5% of GDI). We are measuring labor's share of *sustainable, consumable income* rather than gross output.
 
 ### Alternative Numerator Definitions
 
@@ -140,9 +159,9 @@ The choice of numerator matters: wages alone have fallen more steeply than total
 
 **Interpretation:** All measures show a decline from 1970 to the latest available year (BEA series through 2024; Penn World Table through 2019). The magnitude varies: the decline is −6.5 pp for the standard measure, but −8.9 pp for wages only. This means that rising employer contributions to benefits and payroll taxes have partially masked wage stagnation. If you care about workers' cash wages, the decline is steeper than the headline labor share suggests.
 
-### Figure 2. Depreciation-Adjusted Labor Share Also Declined, But Less Steeply
+### Figure 2. Labor Share of Net Income (NDI) Also Declined, But Less Steeply
 
-![Gross vs Depreciation-Adjusted Labor Share](labor_share_net_vs_gross.png)
+![Gross vs Net Labor Share](labor_share_net_vs_gross.png)
 
 **What this figure shows:** The same numerator (total employee compensation) divided by two different denominators: GDI (gross) vs NDI (net of depreciation).
 
@@ -150,25 +169,27 @@ The choice of numerator matters: wages alone have fallen more steeply than total
 
 - **Blue (Gross Labor Share = Compensation / GDI)**: The standard measure. The denominator includes depreciation (Consumption of Fixed Capital).
 
-- **Red (Depreciation-Adjusted = Compensation / NDI)**: The denominator is Net Domestic Income = GDI − Depreciation. This removes resources set aside to replace worn-out capital.
+- **Red (Labor Share of NDI = Compensation / NDI)**: The denominator is Net Domestic Income = GDI − Depreciation. This removes resources set aside to replace worn-out capital.
 
-**Why the gap between the lines widened:** In 1970, depreciation was 12.8% of GDI; by 2024, it had risen to 16.5%. When we subtract depreciation from the denominator, we get a smaller number (NDI), which mechanically increases the labor share ratio. As depreciation grew, this effect strengthened, widening the gap between the two lines.
+**Understanding the gross-to-net shift (capital share is logically prior):**
 
-**Understanding the depreciation adjustment:**
+Depreciation is a capital maintenance cost — it represents wear and tear on machinery, software, and buildings. When we move from gross to net income:
 
-Depreciation is a cost attributable to capital — it represents wear and tear on machinery, software, and buildings. When we move from gross to net income measures, allowing for depreciation immediately adjusts capital's net income downward, and thus also the capital income share. Since all net income is being divided between capital and labour, this automatically adjusts the labour share upward.
+1. **Depreciation reduces capital's net income first** → capital's share of net income falls
+2. **Labor's higher share of NDI is the consequence** — with a smaller pie being divided, labor's unchanged absolute claim represents a larger percentage share
 
-From a practical standpoint, the effect on the capital income share is logically prior: depreciation reduces capital's claim on income first. The effect on the labour share is a consequence of that logically prior effect — with a smaller pie being divided, labour's unchanged absolute claim represents a larger percentage share.
+This is the economically intuitive order: depreciation is subtracted from capital's claim *before* dividing between factors. Labor's higher net-income share is the residual result.
 
-**The arithmetic:**
+**Equivalent arithmetic:**
+
 - Gross labor share = Compensation / GDI
-- Depreciation-adjusted labor share = Compensation / (GDI − Depreciation)
+- Labor share of NDI = Compensation / (GDI − Depreciation)
 
-When depreciation is subtracted from the denominator, the denominator becomes *smaller*. Dividing by a smaller number produces a *larger* result. So the depreciation-adjusted labor share is always higher than the gross labor share.
+When depreciation is subtracted from the denominator, the denominator becomes *smaller*. Dividing by a smaller number produces a *larger* result. So labor's share of NDI is always higher than the gross labor share.
 
-As depreciation rose from 12.8% to 16.5% of GDI, the difference between GDI and NDI grew. This made the depreciation-adjusted labor share rise *relative to* the gross labor share — even though both declined in absolute terms.
+**Why the gap between the lines widened:** In 1970, depreciation was 12.8% of GDI; by 2024, it had risen to 16.5%. As the depreciation share grew, the difference between GDI and NDI widened. This made labor's share of NDI rise *relative to* the gross labor share — even though both declined in absolute terms.
 
-**Interpretation:** The depreciation-adjusted measure shows a smaller decline (−4.8 pp vs −6.5 pp for gross). This matters because depreciation is not income available for consumption — it represents capital maintenance costs. If you want to know labor's share of *sustainable, distributable income*, the depreciation-adjusted measure is more appropriate. But the decline is real under both measures.
+**Interpretation:** The NDI-basis measure shows a smaller decline (−4.8 pp vs −6.5 pp for gross). This matters because depreciation is not income available for consumption — it represents capital maintenance costs. If you want to know labor's share of *sustainable, distributable income*, the NDI measure is more appropriate. But the decline is real under both measures.
 
 > **Terminology note:** In the labor share literature, "net" means *net of depreciation* (using NDI as denominator), **not** net of taxes. All measures in this document are pre-income-tax.
 
@@ -273,15 +294,15 @@ The BEA "Compensation of Employees" series (A4002E1A156NBEA) includes:
 
 The **"Wages + Benefits (excl. employer social insurance)"** line (teal in Figure 1) excludes employer payroll taxes while keeping private benefits. This shows that excluding payroll taxes, the labor share decline is *steeper* (−7.2 pp), not smaller—because employer social insurance rose from 2.3% to 3.0% of GDI.
 
-### Gross vs Depreciation-Adjusted Labor Share
+### Gross vs Net Income (NDI) Labor Share
 
 **Gross Labor Share** = Compensation / GDI
 
-**Depreciation-Adjusted Labor Share** = Compensation / NDI = Compensation / (GDI − Depreciation)
+**Labor Share of Net Income (NDI)** = Compensation / NDI = Compensation / (GDI − Depreciation)
 
-> **Important:** "Net" or "depreciation-adjusted" here means *net of depreciation*, **not** net of taxes. This is standard terminology in the labor share literature but can confuse readers.
+> **Important:** "Net" here means *net of depreciation*, **not** net of taxes. This is standard terminology in the labor share literature but can confuse readers.
 
-The depreciation-adjusted measure matters because depreciation (Consumption of Fixed Capital) is **not income available for consumption** — it represents the resources needed to replace worn-out capital. Following [Bridgman (2018)](https://bea.gov/papers/pdf/laborshare1410.pdf) and [Rognlie (2015)](https://www.brookings.edu/wp-content/uploads/2016/07/2015a_rognlie.pdf), the depreciation-adjusted labor share is more relevant for understanding the distribution of *sustainable* income.
+The NDI-basis measure matters because depreciation (Consumption of Fixed Capital) is **not income available for consumption** — it represents the resources needed to replace worn-out capital. Following [Bridgman (2018)](https://bea.gov/papers/pdf/laborshare1410.pdf) and [Rognlie (2015)](https://www.brookings.edu/wp-content/uploads/2016/07/2015a_rognlie.pdf), measuring labor's share of net income is more relevant for understanding the distribution of *sustainable* income.
 
 **Why depreciation rose:**
 - Shift from long-lived assets (buildings: 2-3%/year depreciation) to short-lived assets (software: 25-33%/year)
@@ -367,9 +388,9 @@ The **nonfarm business sector** shows a clearer decline. The [BLS nonfarm busine
 
 Labor share peaked at 58.4% in 1970 and fell to 51.9% by 2024. This timing coincides with declining unionization, globalization, and automation — though causal attribution requires careful analysis.
 
-### 2. Depreciation-adjusted labor share declined less (~4.8 pp)
+### 2. Labor share of net income (NDI) declined less (~4.8 pp)
 
-When adjusting for rising depreciation, the decline is attenuated. The depreciation-adjusted labor share went from 67.0% (1970) to 62.2% (2024) — a decline of 4.8 pp compared to 6.5 pp for gross. The depreciation-adjusted decline is ~26% smaller than the gross decline.
+On an NDI basis—where depreciation is treated as a capital cost subtracted before distribution—the decline is attenuated. Labor's share of net income went from 67.0% (1970) to 62.2% (2024) — a decline of 4.8 pp compared to 6.5 pp for gross. The NDI-basis decline is ~26% smaller than the gross decline.
 
 ### 3. Decomposing the labor share decline
 
@@ -432,7 +453,7 @@ The 1929 gross labor share was 49.5% — below the current 2024 level (51.9%). T
 | Measure | 1929 | 2024 | Note |
 |---------|------|------|------|
 | Gross Labor Share | 49.5% | 51.9% | 2024 is *higher* |
-| Depreciation-Adjusted Labor Share | 55.0% | 62.2% | 2024 is *much higher* |
+| Labor Share of NDI | 55.0% | 62.2% | 2024 is *much higher* |
 | Depreciation | 10.0% | 16.5% | Rose substantially |
 | Proprietors' Income | 13.5% | 7.0% | Collapsed (structural shift) |
 
@@ -445,7 +466,7 @@ The 1929 gross labor share was 49.5% — below the current 2024 level (51.9%). T
 | Your Question | Recommended Measure | Why |
 |---------------|---------------------|-----|
 | **Are corporations squeezing workers?** | Gross (corporate sector) | Shows actual firm-level revenue split |
-| **What income is sustainable?** | Depreciation-adjusted (Comp/NDI) | Depreciation isn't available for consumption |
+| **What income is sustainable?** | Labor share of NDI (Comp/NDI) | Depreciation isn't available for consumption |
 | **How do wages compare to total labor costs?** | Wages vs Total Compensation | Reveals role of benefits/payroll taxes |
 | **Labor share excl. govt social insurance?** | Wages + Benefits (excl. employer social insurance) | Excludes employer social insurance (dominated by FICA) from numerator |
 | **International comparisons** | Penn World Table | Standardized methodology |
@@ -499,14 +520,25 @@ This produces:
 
 ### Calculations
 
-**Depreciation-Adjusted Labor Share:**
+**Labor Share of Net Domestic Income (NDI):**
+
+*Interpretation:* This is labor's share of **net income**, after depreciation has reduced the income available to capital. Depreciation lowers capital's net income first; labor's higher share of NDI is the consequence. The ratio form below is a convenient way to compute the same net-basis share.
+
 ```
 NDI = GDI × (1 - Depreciation_Share)
-Depreciation_Adjusted_Labor_Share = Compensation_Share / (1 - Depreciation_Share)
+Labor_Share_of_NDI = Compensation_Share / (1 - Depreciation_Share)
 
 Example (2024):
 NDI = 100% × (1 - 0.165) = 83.5%
-Depreciation_Adjusted_Labor_Share = 51.9% / 83.5% = 62.2%
+Labor_Share_of_NDI = 51.9% / 83.5% = 62.2%
+```
+
+*For completeness, the net capital share counterpart:*
+```
+Net_Capital_Share (NDI basis) = NOS_Share / (1 - Depreciation_Share)
+
+Example (2024):
+Net_Capital_Share = 24.9% / 83.5% = 29.8%
 ```
 
 Note: "Net" in labor share literature means net-of-depreciation, NOT net-of-taxes.
@@ -578,4 +610,8 @@ The BLS nonfarm business labor share shows a **~16% decline** from its early-197
 
 ## Changelog
 
-*No changes yet since v.2 release.*
+### v.2.1 (January 2026)
+- **Terminology:** Renamed "Depreciation-Adjusted Labor Share" → "Labor Share of Net Domestic Income (NDI)" throughout to avoid implying depreciation "adjusts" labor
+- **Exposition:** Rewrote depreciation sections to present the **capital share effect as logically prior** — depreciation reduces capital's net income first; labor's higher NDI share is the consequence
+- **Accounting identities:** Added explicit GDI and NDI identities to make the distributional logic unambiguous
+- **Links:** Fixed 5 broken academic links (Gollin, Bridgman, Koh et al., BEA handbook/update) with working alternatives
