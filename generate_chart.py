@@ -87,7 +87,10 @@ adj_labor_share = [comp + (alpha * prop) for comp, prop in zip(bea_comp, bea_pro
 # Supplements (benefits + employer social insurance) = Compensation - Wages
 supplements = [comp - wage for comp, wage in zip(bea_comp, bea_wages)]
 
-# === EMPLOYER FICA SHARE CALCULATION ===
+# === EMPLOYER SOCIAL INSURANCE SHARE CALCULATION ===
+# Note: BEA "employer contributions for government social insurance" is broader than FICA alone -
+# it includes FICA (Social Security + Medicare) plus smaller programs (unemployment insurance, etc.)
+# We use FICA rates as a proxy since FICA is the dominant component (~90%+ of the total)
 # Historical employer FICA rates (OASDI + Medicare combined)
 # Source: SSA.gov, Tax Policy Center, milefoot.com
 # These are statutory rates; actual share is lower due to wage base cap
@@ -224,7 +227,7 @@ def create_main_chart():
             markevery=5, alpha=LINE_ALPHA)
 
     ax.plot(years, comp_ex_fica, '-', linewidth=LINE_WIDTH, color=COLORS['ex_fica'],
-            label='Wages + Benefits (excl. employer FICA)', marker='P', markersize=MARKER_SIZE,
+            label='Wages + Benefits (excl. employer social insurance)', marker='P', markersize=MARKER_SIZE,
             markevery=5, alpha=LINE_ALPHA)
 
     ax.plot(years, bea_wages, '-', linewidth=LINE_WIDTH, color=COLORS['wages'],
@@ -544,12 +547,12 @@ def print_summary_stats():
     print(f"  2024: {supplements[idx_2024]:.1f}%")
     print(f"  Change: {supplements[idx_2024] - supplements[idx_1970]:+.1f} pp")
 
-    print(f"\nEmployer FICA Share (estimated):")
+    print(f"\nEmployer Social Insurance Share (estimated from FICA rates):")
     print(f"  1970: {employer_fica_share[idx_1970]:.1f}%")
     print(f"  2024: {employer_fica_share[idx_2024]:.1f}%")
     print(f"  Change: {employer_fica_share[idx_2024] - employer_fica_share[idx_1970]:+.1f} pp")
 
-    print(f"\nCompensation ex-FICA (Wages + Benefits only):")
+    print(f"\nCompensation ex-Social Insurance (Wages + Benefits only):")
     print(f"  1970: {comp_ex_fica[idx_1970]:.1f}%")
     print(f"  2024: {comp_ex_fica[idx_2024]:.1f}%")
     print(f"  Change: {comp_ex_fica[idx_2024] - comp_ex_fica[idx_1970]:+.1f} pp")
