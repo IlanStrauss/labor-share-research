@@ -11,11 +11,13 @@
 | Measure | 1970 | 2024 | Change |
 |---------|------|------|--------|
 | **Gross Labor Share** (Compensation/GDI) | 58.4% | 51.9% | **−6.5 pp** |
-| **Wages + Benefits** (excl. employer FICA) | 56.1% | 48.9% | **−7.2 pp** |
+| **Wages + Benefits** (excl. employer FICA†) | 56.1% | 48.9% | **−7.2 pp** |
 | **Wages Only** (excl. all supplements) | 51.6% | 42.7% | **−8.9 pp** |
 | **Depreciation-Adjusted Labor Share** (Compensation/NDI) | 67.0% | 62.2% | **−4.8 pp** |
 | Depreciation Share | 12.8% | 16.5% | +3.7 pp |
-| Employer FICA Share | 2.3% | 3.0% | +0.7 pp |
+| Employer FICA† Share | 2.3% | 3.0% | +0.7 pp |
+
+*† FICA = Federal Insurance Contributions Act (Social Security + Medicare payroll taxes). Employers pay 7.65% of wages; employees pay another 7.65%.*
 
 **Key takeaways:**
 - The **standard gross measure** shows a −6.5 pp decline
@@ -26,44 +28,125 @@
 
 ---
 
+## Defining the Labor Share: Concepts and Equations
+
+Before presenting the data, we must be precise about what we are measuring. The "labor share" is the fraction of national income that accrues to workers as compensation for their labor, as opposed to capital owners (profits, interest, rent). This section defines the key concepts rigorously.
+
+### The Basic Definition
+
+The **gross labor share** is defined as:
+
+```
+                    Compensation of Employees
+Gross Labor Share = ─────────────────────────────
+                    Gross Domestic Income (GDI)
+```
+
+This is the standard measure used in the literature ([Karabarbounis & Neiman 2014](https://www.nber.org/papers/w19136), [Autor et al. 2020](https://www.nber.org/papers/w23396), [Elsby et al. 2013](https://www.brookings.edu/articles/the-decline-of-the-u-s-labor-share/)).
+
+### What Goes Into the Numerator?
+
+**Compensation of Employees** (BEA series A4002E1A156NBEA) includes:
+
+1. **Wages and Salaries**: Cash payments to workers before personal income taxes
+2. **Supplements to Wages and Salaries**:
+   - *Employer contributions for employee pension and insurance funds* (~6% of GDI): Health insurance, 401(k) contributions, life insurance
+   - *Employer contributions for government social insurance* (~3% of GDI): The employer portion of **FICA** (Federal Insurance Contributions Act) taxes — specifically, Social Security (6.2% of wages up to a cap) and Medicare (1.45% of all wages)
+
+This is a **pre-personal-income-tax** measure of total labor cost to employers. It does *not* include the employee's portion of FICA or personal income taxes — those are paid out of wages received.
+
+### What Goes Into the Denominator?
+
+**Gross Domestic Income (GDI)** is the sum of all incomes earned in production:
+
+```
+GDI = Compensation of Employees
+    + Corporate Profits (with IVA and CCAdj)
+    + Proprietors' Income
+    + Rental Income of Persons
+    + Net Interest and Miscellaneous Payments
+    + Taxes on Production and Imports less Subsidies
+    + Consumption of Fixed Capital (Depreciation)
+```
+
+We use GDI rather than GDP because the labor share numerator (compensation) comes from the income side of the accounts. Using GDP would mix income-side numerators with expenditure-side denominators, introducing measurement noise from the statistical discrepancy.
+
+### The Depreciation-Adjusted (Net) Measure
+
+A key methodological choice is whether to include depreciation in the denominator. **Depreciation** (Consumption of Fixed Capital, CFC) represents resources that must be set aside to replace worn-out capital — it is not income available for distribution to workers or capital owners.
+
+Following [Bridgman (2018)](https://www.researchgate.net/publication/318349851_IS_LABOR'S_LOSS_CAPITAL'S_GAIN_GROSS_VERSUS_NET_LABOR_SHARES) and [Rognlie (2015)](https://www.brookings.edu/wp-content/uploads/2016/07/2015a_rognlie.pdf), we also compute a **depreciation-adjusted** labor share:
+
+```
+                               Compensation of Employees
+Depreciation-Adjusted Share = ────────────────────────────────────────
+                               GDI − Depreciation (= Net Domestic Income)
+```
+
+> **Terminology note:** In the labor share literature, "net" typically means *net of depreciation*, **not** net of taxes. All measures in this document are pre-income-tax.
+
+The depreciation-adjusted measure shows a smaller decline than the gross measure because depreciation has risen substantially (from 12.8% to 16.5% of GDI). When we remove depreciation from the denominator, we are measuring labor's share of *sustainable, consumable income* rather than gross output.
+
+### Alternative Numerator Definitions
+
+We also examine alternative numerator definitions to isolate different components:
+
+| Numerator | What It Measures | Interpretation |
+|-----------|------------------|----------------|
+| **Total Compensation** | Wages + all supplements | Total cost of employing labor |
+| **Wages + Benefits (excl. FICA)** | Wages + employer pension/insurance | Excludes employer payroll taxes |
+| **Wages Only** | Cash wages before taxes | Excludes all non-cash compensation |
+
+The choice of numerator matters: wages alone have fallen more steeply than total compensation because rising employer benefits and payroll taxes have partially offset wage stagnation.
+
+---
+
 ## Figures
 
 ### Figure 1: Gross Labor Share (1970-2024)
 
 ![U.S. Gross Labor Share](labor_share_gross.png)
 
-This chart shows multiple measurement approaches for the period since the 1970 peak:
-- **Blue**: BEA Total Compensation / GDI (standard gross measure)
-- **Teal**: Wages + Benefits only (excluding employer FICA—"pre-payroll-tax")
-- **Green**: Penn World Table labor share (different methodology for self-employment)
-- **Purple**: Adjusted measure including ⅔ of proprietors' income
-- **Amber**: Wages only (excluding all supplements)
+**What this figure shows:** Five different ways of measuring labor's share of national income, all using GDI as the denominator but varying the numerator. Each line represents a different definition of "labor income."
+
+**Line-by-line explanation:**
+- **Blue (BEA Total Compensation / GDI)**: The standard gross labor share. The numerator is total compensation of employees (wages + supplements). This is the benchmark measure used in most academic literature.
+- **Teal (Wages + Benefits, excl. employer FICA)**: The numerator excludes employer payroll taxes (~3% of GDI) while keeping private benefits. This isolates the "pre-payroll-tax" labor share.
+- **Green (Penn World Table)**: Uses a different methodology that imputes a labor share for self-employed workers, rather than treating proprietors' income as mixed.
+- **Purple (Adjusted: + ⅔ Proprietors' Income)**: Adds two-thirds of proprietors' income to the numerator, following [Gollin (2002)](https://www.journals.uchicago.edu/doi/abs/10.1086/340770), to account for the labor component of self-employment income.
+- **Amber (Wages Only)**: The numerator is just wages and salaries — no benefits, no employer payroll taxes. This shows the steepest decline.
+
+**Interpretation:** All five measures show a decline from 1970 to 2024. The magnitude varies: the decline is −6.5 pp for the standard measure, but −8.9 pp for wages only. This means that rising employer contributions to benefits and payroll taxes have partially masked wage stagnation. If you care about workers' cash wages, the decline is steeper than the headline labor share suggests.
 
 ### Figure 2: Gross vs Depreciation-Adjusted Labor Share
 
 ![Gross vs Depreciation-Adjusted Labor Share](labor_share_net_vs_gross.png)
 
-This figure compares gross and depreciation-adjusted labor share:
-- **Blue**: Gross labor share (Compensation / GDI)
-- **Red**: Depreciation-adjusted labor share (Compensation / NDI, where NDI = GDI − Depreciation)
+**What this figure shows:** The same numerator (total employee compensation) divided by two different denominators: GDI (gross) vs NDI (net of depreciation).
 
-**Key insight:** The depreciation-adjusted measure shows a smaller decline (−4.8 pp) than the gross measure (−6.5 pp). The gap between the two lines widened because depreciation rose from 12.8% to 16.5% of GDI — shrinking the NDI denominator and mechanically pushing up the depreciation-adjusted labor share relative to gross.
+**Line-by-line explanation:**
+- **Blue (Gross Labor Share = Compensation / GDI)**: The standard measure. The denominator includes depreciation (Consumption of Fixed Capital).
+- **Red (Depreciation-Adjusted = Compensation / NDI)**: The denominator is Net Domestic Income = GDI − Depreciation. This removes resources set aside to replace worn-out capital.
 
-> **Terminology note:** Throughout this document, "net" or "depreciation-adjusted" means *net of depreciation* (i.e., using NDI = GDI − CFC as denominator), **not** net of taxes. All measures here are pre-income-tax.
+**Why the gap between the lines widened:** In 1970, depreciation was 12.8% of GDI; by 2024, it had risen to 16.5%. When we subtract depreciation from the denominator, we get a smaller number (NDI), which mechanically increases the labor share ratio. As depreciation grew, this effect strengthened, widening the gap between the two lines.
+
+**Interpretation:** The depreciation-adjusted measure shows a smaller decline (−4.8 pp vs −6.5 pp for gross). This matters because depreciation is not income available for consumption — it represents capital maintenance. If you want to know labor's share of *sustainable, distributable income*, the depreciation-adjusted measure is more appropriate. But the decline is real under both measures.
+
+> **Terminology note:** In the labor share literature, "net" means *net of depreciation* (using NDI as denominator), **not** net of taxes. All measures in this document are pre-income-tax.
 
 ---
 
 ## Methodological Notes
 
-### Why GDI, Not GDP?
+### Why GDI, Not GDP? (Denominator Choice)
 
-When measuring labor's share of national income, we use **GDI** (Gross Domestic Income), not GDP. Here's why:
+The labor share is a ratio. The **denominator** is the measure of total national income. We use **GDI** (Gross Domestic Income), not GDP, as the denominator. Here's why:
 
-1. **Labor share data comes from the income side.** The BEA series we use — compensation, profits, depreciation — are all components of GDI.
+1. **The numerator comes from the income side.** Compensation of employees is a component of GDI (the income-side measure). Using GDI as the denominator means both numerator and denominator come from the same accounting framework.
 
-2. **Using GDP introduces noise.** GDP and GDI differ by a "statistical discrepancy" (typically ~1% of GDP). Dividing income-side numerators by GDP mixes measurement error into the ratio.
+2. **Using GDP as denominator introduces noise.** GDP (expenditure-side) and GDI (income-side) differ by a "statistical discrepancy" (typically ~1% of GDP). Dividing an income-side numerator by an expenditure-side denominator mixes measurement error into the ratio.
 
-3. **GDI is internally consistent.** Both numerator (compensation) and denominator (GDI) come from the same accounting framework.
+3. **The shares sum correctly with GDI.** When we use GDI as the denominator, the component shares (compensation, profits, depreciation, etc.) sum to exactly 100%. This would not hold if we used GDP.
 
 ### Tax Boundary Declaration
 
@@ -83,7 +166,7 @@ All factor shares in this note are measured **before income taxes**:
 
 **We do not construct an "after personal income taxes" labor share** in this note. Doing so requires tax-incidence assumptions (who bears the burden of each tax?) that are beyond the scope of this analysis.
 
-### What "Compensation" Includes
+### What "Employee Compensation" Includes (Numerator Components)
 
 The BEA "Compensation of Employees" series (A4002E1A156NBEA) includes:
 
