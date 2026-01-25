@@ -8,6 +8,8 @@
 
 ### Key Findings (1970-2024)
 
+*All series are annual, BEA whole-economy shares from Table 1.11 via FRED; latest year shown is 2024.*
+
 | Measure | 1970 | 2024 | Change |
 |---------|------|------|--------|
 | **Gross Labor Share** (Compensation/GDI) | 58.4% | 51.9% | **−6.5 pp** |
@@ -28,7 +30,9 @@
 >
 > **Proprietors' income** (~7% of GDI) is "mixed income" — it contains both labor and capital returns for self-employed individuals. This document follows **[Gollin (2002)](https://www.journals.uchicago.edu/doi/abs/10.1086/340770)** in allocating **⅔ of proprietors' income to labor** and **⅓ to capital** when computing the "Adjusted" labor share measure (purple line in Figure 1).
 >
-> This assumption matters: if you instead treated *all* proprietors' income as capital, the labor share would be ~5 pp lower; if you treated it *all* as labor, it would be ~7 pp higher.
+> **Sensitivity to this assumption** (using 2024 values, Prop ≈ 7%):
+> - Relative to the **Gollin-adjusted** series (Comp + ⅔·Prop ≈ 56.6%): allocating **0%** of proprietors' to labor gives ~4.7 pp lower; allocating **100%** gives ~2.3 pp higher.
+> - Relative to the **unadjusted** series (Comp/GDI = 51.9%): allocating **100%** of proprietors' to labor adds ~7 pp.
 >
 > The **standard gross labor share** (blue line) does *not* include any proprietors' income in the numerator — it is simply Compensation of Employees / GDI. The Gollin adjustment only applies to the "Adjusted" measure.
 
@@ -59,7 +63,7 @@ This is the standard measure used in the literature ([Karabarbounis & Neiman 201
 1. **Wages and Salaries**: Cash payments to workers before personal income taxes
 2. **Supplements to Wages and Salaries**:
    - *Employer contributions for employee pension and insurance funds* (~6% of GDI): Health insurance, 401(k) contributions, life insurance
-   - *Employer contributions for government social insurance* (~3% of GDI): The employer portion of **FICA** (Federal Insurance Contributions Act) taxes — specifically, Social Security (6.2% of wages up to a cap) and Medicare (1.45% of all wages)
+   - *Employer contributions for government social insurance* (~3% of GDI): Dominated by Social Security and Medicare payroll contributions (FICA, ~7.65% of wages), plus other government social insurance programs (unemployment insurance, workers' compensation, etc.)
 
 This is a **pre-personal-income-tax** measure of total labor cost to employers. It does *not* include the employee's portion of FICA or personal income taxes — those are paid out of wages received.
 
@@ -126,7 +130,7 @@ The choice of numerator matters: wages alone have fallen more steeply than total
 
 - **Blue (BEA Total Compensation / GDI)**: The standard gross labor share. The numerator is total compensation of employees (wages + supplements). This is the benchmark measure used in most academic literature.
 
-- **Pink (Wages + Benefits, excl. employer social insurance)**: The numerator excludes employer payroll taxes (~3% of GDI) while keeping private benefits. This isolates the "pre-payroll-tax" labor share.
+- **Pink (Wages + Benefits, excl. employer social insurance)**: The numerator excludes employer contributions for government social insurance (~3% of GDI, dominated by FICA) while keeping private benefits.
 
 - **Green (Penn World Table, 1970–2019 only)**: Uses a different methodology that imputes a labor share for self-employed workers, rather than treating proprietors' income as mixed. *Note: PWT data ends in 2019; the line does not extend to 2024.*
 
@@ -189,9 +193,9 @@ Net Operating Surplus = GDI − Compensation − Depreciation − Taxes on Produ
 - **Labor share**: −6.5 pp
 - **Capital share (NOS)**: +3.1 pp
 - **Depreciation share**: +3.7 pp
-- **Taxes on production**: ~0 pp
+- **Taxes on production**: −0.3 pp
 
-These changes approximately sum to zero (allowing for rounding), as they must — the shares of GDI must sum to 100%.
+These changes sum to zero (−6.5 + 3.1 + 3.7 − 0.3 = 0), as they must — the shares of GDI must sum to 100%.
 
 **Corporate profits drove the capital share increase.** Within the Net Operating Surplus, corporate profits rose most dramatically — from 7.4% to 11.5% of GDI (+4.1 pp). This reflects increased profit margins, market concentration, and the rise of high-margin technology firms.
 
@@ -296,10 +300,10 @@ Corporate profits in the NIPAs (with IVA and CCAdj) are measured as receipts les
 
 Specifically:
 - Corporate profits *include* net interest receipts (interest received minus interest paid) as part of business income
-- The "Net Interest" GDI component then *offsets* these receipts — because interest income is not treated as arising from current production in the NIPA framework
+- The "Net Interest" GDI component then *offsets* these receipts — in the NIPA production account, interest flows are treated in a way that requires this offset item
 - This ensures interest payments flow from borrowers to lenders without double-counting
 
-**Do not interpret "Net Interest" as "the bank's income."** It reflects the accounting treatment of interest flows in the production-income identity, not a clean attribution of income to financial institutions.
+**Do not interpret "Net Interest" as "the bank's income."** It reflects an accounting treatment of interest flows in the production-income identity, not a clean attribution of income to financial institutions. ([BEA NIPA Update](https://apps.bea.gov/scb/2018/09-september/pdf/0918-nipa-update.pdf))
 
 #### How GDI Components Are Defined
 
@@ -410,12 +414,12 @@ The 1929 gross labor share was 49.5% — below the current 2024 level (51.9%). T
 | Rental Income | ~2% | 3.7% | ~+2 pp |
 | Net Interest | ~4% | 2.1% | ~−2 pp |
 | **Depreciation (CFC)** | **12.8%** | **16.5%** | **+3.7 pp** |
-| Taxes on Production§ | ~7% | 6.7% | ~0 pp |
+| Taxes on Production§ | 7.0% | 6.7% | −0.3 pp |
 
-*Sources: BEA NIPA Table 1.11 via FRED. Key series: [Compensation (A4002E1A156NBEA)](https://fred.stlouisfed.org/series/A4002E1A156NBEA), [Wages (W270RE1A156NBEA)](https://fred.stlouisfed.org/series/W270RE1A156NBEA), [Depreciation (A262RE1A156NBEA)](https://fred.stlouisfed.org/series/A262RE1A156NBEA), [Corporate Profits (A445RE1A156NBEA)](https://fred.stlouisfed.org/series/A445RE1A156NBEA). 1970 subcomponent values are approximate. Note: Component shares may not sum to exactly 100% due to rounding in source data (BEA publishes shares rounded to one decimal place).*
+*Sources: BEA NIPA Table 1.11 via FRED. Key series: [Compensation (A4002E1A156NBEA)](https://fred.stlouisfed.org/series/A4002E1A156NBEA), [Wages (W270RE1A156NBEA)](https://fred.stlouisfed.org/series/W270RE1A156NBEA), [Supplements (A038RE1A156NBEA)](https://fred.stlouisfed.org/series/A038RE1A156NBEA), [Depreciation (A262RE1A156NBEA)](https://fred.stlouisfed.org/series/A262RE1A156NBEA), [Corporate Profits (A445RE1A156NBEA)](https://fred.stlouisfed.org/series/A445RE1A156NBEA). 1970 subcomponent values are approximate. Note: Subcomponents may not sum exactly to totals due to rounding in published share series (e.g., 42.7% + 9.1% = 51.8% ≠ 51.9%).*
 
 **Table notes:**
-- † **Wages + Benefits (excl. employer social insurance)**: Compensation minus employer social insurance. This "pre-payroll-tax" measure shows a steeper decline (−7.2 pp) than total compensation (−6.5 pp).
+- † **Wages + Benefits (excl. employer social insurance)**: Compensation minus employer contributions for government social insurance (dominated by FICA). Shows a steeper decline (−7.2 pp) than total compensation (−6.5 pp).
 - ‡ **Corporate Profits**: Reported *net of* interest paid, rent paid, and depreciation, but *before* corporate income taxes. Corporate income taxes are paid out of this figure. ([BEA definition](https://www.bea.gov/help/glossary/corporate-profits-iva-and-ccadj))
 - § **Taxes on Production**: Includes sales taxes, property taxes, customs duties, etc. These are distinct from corporate income taxes (which come out of profits) and personal income taxes (which workers pay out of compensation).
 
@@ -430,6 +434,8 @@ The 1929 gross labor share was 49.5% — below the current 2024 level (51.9%). T
 | Depreciation | 10.0% | 16.5% | Rose substantially |
 | Proprietors' Income | 13.5% | 7.0% | Collapsed (structural shift) |
 
+*Caveat: Very long-run comparisons (1929 vs. 2024) can be sensitive to historical revisions and definitional changes in the national accounts. The 1929 figures provide context, not precision.*
+
 ---
 
 ## Which Measure Should You Use?
@@ -439,7 +445,7 @@ The 1929 gross labor share was 49.5% — below the current 2024 level (51.9%). T
 | **Are corporations squeezing workers?** | Gross (corporate sector) | Shows actual firm-level revenue split |
 | **What income is sustainable?** | Depreciation-adjusted (Comp/NDI) | Depreciation isn't available for consumption |
 | **How do wages compare to total labor costs?** | Wages vs Total Compensation | Reveals role of benefits/payroll taxes |
-| **What's the "pre-payroll-tax" labor share?** | Wages + Benefits (excl. employer social insurance) | Excludes employer social insurance from numerator |
+| **Labor share excl. govt social insurance?** | Wages + Benefits (excl. employer social insurance) | Excludes employer social insurance (dominated by FICA) from numerator |
 | **International comparisons** | Penn World Table | Standardized methodology |
 | **Short-run dynamics** | BLS Nonfarm Business | Quarterly frequency |
 
@@ -530,6 +536,7 @@ January 2026
 
 ## Changelog
 
+- **v2.4** (January 2026): Final polish: (1) Clarified proprietors' income sensitivity with explicit baselines; (2) Changed "specifically FICA" to "dominated by FICA" per BEA definition; (3) Dropped "pre-payroll-tax" label; (4) Fixed taxes on production change to −0.3 pp (not ~0); (5) Tightened net interest wording to describe accounting treatment; (6) Added 1929 comparability caveat; (7) Added annual data note and explicit rounding caveat for subcomponents
 - **v2.3** (January 2026): Methodological rigor improvements: (1) Made Gollin (2002) ⅔ proprietors' income assumption explicit in Executive Summary; (2) Renamed "employer FICA" → "employer social insurance" ([BEA definition](https://www.bea.gov/help/glossary/contribution-government-social-insurance) — broader than FICA alone); (3) Fixed supplements values to match BEA series A038RE1A156NBEA (6.7%/9.1%, not computed from rounded values); (4) Clarified PWT series ends in 2019; (5) Refined net interest explanation (offset for receipts in profits/proprietors'); (6) Restructured GDI to Table 1.11 level (NOS as aggregate); (7) Softened rhetorical claims
 - **v2.2** (January 2026): Major methodological fixes: (1) Renamed "Net Labor Share" → "Depreciation-adjusted labor share" to avoid confusion with "after-tax"; (2) Corrected net interest explanation (it's an identity offset, NOT "bank's income"); (3) Added explicit tax boundary declaration; (4) Added BEA NIPA Handbook citations
 - **v2.1** (January 2026): Added "Wages + Benefits (excl. employer social insurance)" measure; clarified tax treatment (corporate profits are pre-corporate income tax); added explicit note that GDI components sum to 100%; expanded supplements decomposition in data tables
