@@ -419,7 +419,7 @@ def create_capital_share_chart():
     ax.yaxis.set_major_formatter(mtick.PercentFormatter(decimals=0))
 
     # Legend
-    ax.legend(loc='upper left', fontsize=LEGEND_SIZE, framealpha=0.95)
+    ax.legend(loc='center left', fontsize=LEGEND_SIZE, framealpha=0.95)
 
     # Source note
     fig.text(0.5, 0.02,
