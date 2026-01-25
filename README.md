@@ -2,7 +2,9 @@
 
 ## Executive Summary
 
-**The "declining labor share" narrative is highly measurement-sensitive.** Different measurement approaches yield dramatically different conclusions about whether labor's share of national income has declined since the 1970 peak.
+**Has the U.S. labor share declined? Yes.** Under any sensible measurement approach, the current labor share is below its post-war high-water mark. The decline from the 1970 peak is real and consistent across all measures.
+
+**What's debatable is the magnitude, not the direction.** Different measurement choices yield declines ranging from −4.8 pp to −8.9 pp — a substantial range, but all negative.
 
 ### Key Findings (1970-2024)
 
@@ -15,7 +17,11 @@
 | Depreciation Share | 12.8% | 16.5% | +3.7 pp |
 | Employer FICA Share | 2.3% | 3.0% | +0.7 pp |
 
-**Historical context:** In 1929, the gross labor share was 49.5% — *below* the current 2024 level. The 1970 peak (58.4%) was historically high, not the "normal" level.
+**Key takeaways:**
+- The **standard gross measure** shows a −6.5 pp decline
+- Adjusting for rising depreciation attenuates (but does not eliminate) the decline: −4.8 pp
+- Looking at **wages only** (excluding benefits and payroll taxes) shows the steepest decline: −8.9 pp
+- The 1970 peak was historically high — in 1929, gross labor share was only 49.5%
 
 ---
 
