@@ -24,15 +24,15 @@
 - On a **net-income (NDI)** basis — where depreciation is treated as a capital cost subtracted before distribution — the decline is less: −4.8 pp
 - Looking at **wages only** (excluding benefits and payroll taxes) shows the steepest decline: −8.9 pp
 
-> ### Key Methodological Assumption: Proprietors' Income
->
-> **Proprietors' income** (~7% of GDI) is "mixed income" — it contains both labor and capital returns for self-employed individuals. This document follows **[Gollin (2002)](https://web.williams.edu/Economics/wp/Gollin_Getting_Income_Shares_Right_working_paper_with_figures.pdf)** in allocating **⅔ of proprietors' income to labor** and **⅓ to capital** when computing the "Adjusted" labor share measure (purple line in Figure 1).
->
-> **Sensitivity to this assumption** (using 2024 values, Prop ≈ 7%):
-> - Relative to the **Gollin-adjusted** series (Comp + ⅔·Prop ≈ 56.6%): allocating **0%** of proprietors' to labor gives ~4.7 pp lower; allocating **100%** gives ~2.3 pp higher.
-> - Relative to the **unadjusted** series (Comp/GDI = 51.9%): allocating **100%** of proprietors' to labor adds ~7 pp.
->
-> The **standard gross labor share** (blue line) does *not* include any proprietors' income in the numerator — it is simply Compensation of Employees / GDI. The Gollin adjustment only applies to the "Adjusted" measure.
+### Key Methodological Assumption: Proprietors' Income
+
+**Proprietors' income** (~7% of GDI) is "mixed income" — it contains both labor and capital returns for self-employed individuals (e.g., a sole-proprietor lawyer's earnings include both compensation for their work and returns on the firm's assets; a farmer's income reflects both their labor and the productivity of their land and equipment). This document follows **[Gollin (2002)](https://web.williams.edu/Economics/wp/Gollin_Getting_Income_Shares_Right_working_paper_with_figures.pdf)** in allocating **⅔ of proprietors' income to labor** and **⅓ to capital** when computing the "Adjusted" labor share measure (purple line in Figure 1).
+
+**Sensitivity to this assumption** (using 2024 values, Prop ≈ 7%):
+- Relative to the **Gollin-adjusted** series (Comp + ⅔·Prop ≈ 56.6%): allocating **0%** of proprietors' to labor gives ~4.7 pp lower; allocating **100%** gives ~2.3 pp higher.
+- Relative to the **unadjusted** series (Comp/GDI = 51.9%): allocating **100%** of proprietors' to labor adds ~7 pp.
+
+The **standard gross labor share** (blue line) does *not* include any proprietors' income in the numerator — it is simply Compensation of Employees / GDI. The Gollin adjustment only applies to the "Adjusted" measure.
 
 **Historical context:** The 1970 peak (58.4%) was historically high — in 1929, gross labor share was only 49.5%, below today's level. But this does not change the central finding: *labor share has declined from its peak, regardless of which measure is used.*
 
@@ -117,7 +117,7 @@ Labor Share of Net Income (NDI) = ───────────────�
                                    GDI − Depreciation (= NDI)
 ```
 
-> **Terminology note:** In the labor share literature, "net" typically means *net of depreciation*, **not** net of taxes. All measures in this document are pre-income-tax.
+**Terminology note:** In the labor share literature, "net" typically means *net of depreciation*, **not** net of taxes. All measures in this document are pre-income-tax.
 
 Equivalently, if we measure labor's share over net income (NDI), the labor-share ratio rises mechanically because the denominator excludes depreciation. The NDI-basis measure shows a smaller decline than the gross measure because depreciation has risen substantially (from 12.8% to 16.5% of GDI). We are measuring labor's share of *sustainable, consumable income* rather than gross output.
 
@@ -189,7 +189,7 @@ When depreciation is subtracted from the denominator, the denominator becomes *s
 
 **Interpretation:** The NDI-basis measure shows a smaller decline (−4.8 pp vs −6.5 pp for gross). This matters because depreciation is not income available for consumption — it represents capital maintenance costs. If you want to know labor's share of *sustainable, distributable income*, the NDI measure is more appropriate. But the decline is real under both measures.
 
-> **Terminology note:** In the labor share literature, "net" means *net of depreciation* (using NDI as denominator), **not** net of taxes. All measures in this document are pre-income-tax.
+**Terminology note:** In the labor share literature, "net" means *net of depreciation* (using NDI as denominator), **not** net of taxes. All measures in this document are pre-income-tax.
 
 ### Figure 3. Capital Share Rose as Labor Share Fell
 
@@ -220,11 +220,11 @@ These changes sum to zero (−6.5 + 3.1 + 3.7 − 0.3 = 0), as they must — the
 
 **Corporate profits drove the capital share increase.** Within the Net Operating Surplus, corporate profits rose most dramatically — from 7.4% to 11.5% of GDI (+4.1 pp). This reflects increased profit margins, market concentration, and the rise of high-margin technology firms.
 
-> **Important caveat:** The NOS measure in this figure includes *all* of proprietors' income (~7% of GDI). However, the Gollin (2002) adjustment used in Figure 1 allocates ⅔ of proprietors' income to *labor*. If we applied that same adjustment here, the "Gollin-adjusted capital share" would be:
->
-> `NOS − (⅔ × Proprietors' Income) = 24.9% − (0.67 × 7.0%) = 20.2% (2024)`
->
-> This would show a smaller increase in capital share (+1.4 pp instead of +3.1 pp). The figure above uses the simpler NOS definition for transparency, but readers should note this limitation when comparing to Gollin-adjusted labor share measures.
+**Important caveat:** The NOS measure in this figure includes *all* of proprietors' income (~7% of GDI). However, the Gollin (2002) adjustment used in Figure 1 allocates ⅔ of proprietors' income to *labor*. If we applied that same adjustment here, the "Gollin-adjusted capital share" would be:
+
+`NOS − (⅔ × Proprietors' Income) = 24.9% − (0.67 × 7.0%) = 20.2% (2024)`
+
+This would show a smaller increase in capital share (+1.4 pp instead of +3.1 pp). The figure above uses the simpler NOS definition for transparency, but readers should note this limitation when comparing to Gollin-adjusted labor share measures.
 
 ---
 
@@ -298,7 +298,7 @@ The **"Wages + Benefits (excl. employer social insurance)"** line (teal in Figur
 
 **Labor Share of Net Income (NDI)** = Compensation / NDI = Compensation / (GDI − Depreciation)
 
-> **Important:** "Net" here means *net of depreciation*, **not** net of taxes. This is standard terminology in the labor share literature but can confuse readers.
+**Important:** "Net" here means *net of depreciation*, **not** net of taxes. This is standard terminology in the labor share literature but can confuse readers.
 
 The NDI-basis measure matters because depreciation (Consumption of Fixed Capital) is **not income available for consumption** — it represents the resources needed to replace worn-out capital. Following [Bridgman (2018)](https://bea.gov/papers/pdf/laborshare1410.pdf) and [Rognlie (2015)](https://www.brookings.edu/wp-content/uploads/2016/07/2015a_rognlie.pdf), measuring labor's share of net income is more relevant for understanding the distribution of *sustainable* income.
 
@@ -361,7 +361,7 @@ For **depreciation-adjusted** capital share (using NDI):
 Depreciation-Adjusted Capital Share = (NDI − Compensation − Taxes − labor portion of Proprietors') / NDI
 ```
 
-> **Recommendation:** If you're focused on "capital vs labor," use **Net Operating Surplus** as your capital aggregate (which BEA publishes), rather than manually summing profits + interest + rent. This sidesteps the net-interest accounting complexity.
+**Recommendation:** If you're focused on "capital vs labor," use **Net Operating Surplus** as your capital aggregate (which BEA publishes), rather than manually summing profits + interest + rent. This sidesteps the net-interest accounting complexity.
 
 ---
 
