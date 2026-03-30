@@ -203,6 +203,26 @@ Equivalently, if we measure labor's share over net income (NDI), the labor-share
 
 ---
 
+## Appendix B: International Comparison
+
+How does the U.S. labor share compare to other major economies? Using the [Penn World Table](https://www.rug.nl/ggdc/productivity/pwt/) (version 11.0), which provides internationally comparable labor share estimates, we can benchmark the U.S. against peer economies. In 2023, the U.S. labor share stood at **56.8%** — the second-lowest among the G7 and major OECD economies. Only South Korea (54.6%) had a lower labor share. By contrast, Canada (65.9%), Germany (63.7%), and France (63.1%) all have labor shares roughly 7–9 percentage points higher than the U.S. Japan (58.7%) and the UK (59.5%) fall in between.
+
+| Country | Labor Share (2023) |
+|---------|-------------------|
+| Canada | 65.9% |
+| Germany | 63.7% |
+| France | 63.1% |
+| United Kingdom | 59.5% |
+| Japan | 58.7% |
+| **United States** | **56.8%** |
+| South Korea | 54.6% |
+
+*Source: Penn World Table 11.0 via [FRED](https://fred.stlouisfed.org/release?rid=285). Variable: Share of Labour Compensation in GDP at Current National Prices (labsh).*
+
+The flipside of a low labor share is a high capital share. The U.S. economy directs a larger fraction of national income to capital owners — through corporate profits, depreciation allowances, and property income — than most other advanced economies. This pattern is consistent with research showing that the U.S. has experienced one of the steepest labor share declines among OECD countries since the 1980s, driven by factors including technological change, globalization, and declining worker bargaining power ([Autor et al. 2020](https://www.nber.org/papers/w23396); [Karabarbounis & Neiman 2014](https://www.nber.org/papers/w19136)).
+
+---
+
 ## License
 
 This research note is shared for educational and research purposes. Data sources are public domain (BEA, BLS) or citation-requested (Penn World Table).
