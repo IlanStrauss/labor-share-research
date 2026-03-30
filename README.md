@@ -13,7 +13,12 @@
 | **Corporate Profit Share, Post-Tax** | 7.8% | 14.4% | **+6.6 pp** |
 | **Depreciation** | 12.8% | 16.5% | **+3.7 pp** |
 
-*Corporate profit shares exclude rental income (3.7% of GDI) and net interest (2.1%), which go to property owners and lenders respectively. Both include ⅓ of proprietors' income per [Gollin (2002)](https://web.williams.edu/Economics/wp/Gollin_Getting_Income_Shares_Right_working_paper_with_figures.pdf). Source: BEA NIPA [Table 1.11 via FRED](https://fred.stlouisfed.org/release/tables?rid=53&eid=42211).*
+**Definitions:**
+- **Labor Share** = Compensation of Employees / Gross Domestic Income. Compensation includes wages, salaries, and employer-paid benefits (health insurance, pensions, payroll taxes).
+- **Corporate Profit Share** = Corporate Profits + ⅓ × Proprietors' Income. We add ⅓ of proprietors' income to account for the capital return portion of self-employment income, per [Gollin (2002)](https://web.williams.edu/Economics/wp/Gollin_Getting_Income_Shares_Right_working_paper_with_figures.pdf). Pre-tax uses profits before corporate income tax; post-tax subtracts corporate taxes. Both **exclude** rental income (3.7% of GDI) and net interest (2.1%), which go to property owners and lenders respectively.
+- **Depreciation** = Consumption of Fixed Capital / GDI. This is an accounting allowance for capital wearing out — not income to anyone. As the economy shifted toward short-lived assets (software depreciates at 25–33%/year vs. 2–3% for buildings), depreciation's share rose.
+
+*Source: BEA NIPA [Table 1.11 via FRED](https://fred.stlouisfed.org/release/tables?rid=53&eid=42211).*
 
 **Key takeaway:** As labor's share fell by 6.5 pp, corporate profits (post-tax) rose by 6.6 pp. Depreciation absorbed an additional 3.7 pp — representing capital maintenance costs that are not income to anyone.
 
