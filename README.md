@@ -2,7 +2,9 @@
 
 ## Executive Summary
 
-**Has the U.S. labor share declined?** Yes! Across the standard BEA whole-economy measures in Table 1.11, the labor share is well below its late-1960s/1970 peak. The decline is consistent across all measures examined here, though magnitude varies with methodological choices. Concurrent to this has been a dramatic rise in the profit share of the income (which excludes interest income and rental income). It should be noted though that the profit share of income remains only 16.7% post tax and is roughly equal now to the depreciation share of income. Depreciation is income set aside by the firm to replace the value of its fixed capital as it declines in productivity. 
+**U.S. labor share declines while profit share grows** Yes! Across the standard BEA whole-economy measures in Table 1.11, the labor share is well below its late-1960s/1970 peak. The decline is consistent across all measures examined here, though magnitude varies with methodological choices. Concurrent to this has been a dramatic rise in the profit share of the income (which excludes interest income and rental income). 
+
+**The rise of profits and depreciation.** It should be noted that the profit share of income remains only 16.7% post tax and is roughly equal now to the depreciation share of income. Depreciation is income set aside by the firm to replace the value of its fixed capital as it declines in productivity. 
 
 Depreciation income does not really represent income available to the firm as profits. As such the profit share measure deducts depreciation. But it means as the economy's production becomes more machine-intensive, the depreciation share of income will continue to rise, especially as the life of its assets decline. Depreciation, therefore, arguebly represents a share of income that does not benefit anyone per se. However, if the price of capital goods falls sharply (as with computing hardware) then depreciation may not grow in value terms even as machinery become more important to production.
 
