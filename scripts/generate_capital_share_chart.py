@@ -73,7 +73,7 @@ ax.set_ylabel('Corporate Profit Share of GDI (%)', fontsize=12, fontweight='bold
 ax.set_title('Figure 3. Corporate Profit Share Rose as Labor Share Fell (1970-2024)',
              fontsize=14, fontweight='bold', pad=20)
 
-ax.set_xlim(1968, 2028)
+ax.set_xlim(1970, 2024)
 ax.set_ylim(5, 20)
 ax.yaxis.set_major_formatter(mtick.PercentFormatter(decimals=0))
 
