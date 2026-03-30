@@ -160,27 +160,28 @@ Depreciation is a capital maintenance cost — it represents wear and tear on ma
 The standard measure of total income does not exclude depreciation (Blue line) - hence GDI. This contrasts with the red line (net domestic income), whereby depreciation is removed as income from the economy leading to the labour share of income increasing as it is divided by a smaller amount. It is a mechnical relationship. Labor's higher net-income share is the residual result. The gap between two lines has widened. In 1970, depreciation was 12.8% of GDI; by 2024, it had risen to 16.5%. As the depreciation share grew, the difference between GDI and NDI widened. This made labor's share of NDI rise *relative to* the gross labor share — even though both declined in absolute terms.
 
 
-Next, Figure 3 shows the share of national income going to capital owners, computed as a residual after subtracting labor compensation, depreciation, and taxes on production from GDI. 
+Next, Figure 3 shows the corporate profit share of GDI — the share going to shareholders, excluding rental income (which goes to property owners) and net interest (which goes to lenders).
 
-### Figure 3. Capital Share Rose as Labor Share Fell
+### Figure 3. Corporate Profit Share Rose as Labor Share Fell
 
 ![Capital Share](figures/capital_share.png)
 
-All three lines include exactly **⅓ of proprietors' income** (the capital portion per Gollin 2002), making them consistent with the Gollin-adjusted labor share in Figure 1.
+Both lines show **corporate profits** (excluding rent and interest) plus **⅓ of proprietors' income** (the capital portion per Gollin 2002), making them consistent with the Gollin-adjusted labor share in Figure 1.
 
 **The equation:**
 ```
-Capital Share = NOS − (⅔ × Proprietors' Income)
-              = GDI − Compensation − Depreciation − Taxes on Production − (⅔ × Prop)
+Corporate Profit Share = Corporate Profits + (⅓ × Proprietors' Income)
 ```
 
-- **Pre-Tax Total Capital Share (Green)**: Capital share before corporate income taxes. This rose from 16.9% (1970) to 20.2% (2024), a +3.3 pp increase. This includes interest and rent income and is defined as Net Operating Surplus minus ⅔ of proprietors' income (leaving ⅓), before corporate income taxes.
+*Note: Both measures exclude rental income (3.7% of GDI in 2024) and net interest (2.1%), which are separate GDI components going to property owners and lenders respectively.*
 
-- **Post-Tax Total Capital Share (Orange)**: As above, but now subtracting taxes on corporate income. Still shows an increase, though smaller.
+- **Pre-Tax Corporate Profit Share (Green)**: Corporate profits before tax plus ⅓ of proprietors' income. This rose from 10.7% (1970) to 16.7% (2024), a **+6.0 pp** increase.
 
-- **Corporate Profit (Dashed indigo)**: My preferred measure. Properly excludes rent and interest income, which are expenses. Corporate profits (with IVA and CCAdj) plus ⅓ of proprietors' income. This rose from 9.8% (1970) to 13.8% (2024), a +4.0 pp increase. This likely reflects increased profit margins, market concentration, globalization and technological change, and the rise of high-margin technology firms.
+- **Post-Tax Corporate Profit Share (Orange)**: As above, but subtracting taxes on corporate income. This rose from 7.8% (1970) to 14.4% (2024), a **+6.6 pp** increase.
 
-**Key Point:** As labor's share of GDI fell by 6.5 percentage points, capital's share (Gollin-adjusted) rose by about 3.3 percentage points. The remainder was absorbed by rising depreciation (+3.7 pp) and a small decrease in taxes on production.
+**Key Point:** As labor's share of GDI fell by 6.5 percentage points, corporate profits (post-tax) rose by 6.6 pp. The remainder was absorbed by rising depreciation (+3.7 pp).
+
+**Perspective on size:** While corporate profits rose substantially in percentage point terms, the post-tax corporate profit share (excluding rent and interest) remains modest at 14.4% of GDI. Labor compensation (51.9%) still dominates. And if we further adjust for depreciation — calculating corporate profits as a share of *Net* Domestic Income — the capital income share is even smaller, since depreciation (16.5% of GDI) is subtracted from the denominator.
 
 ---
 
