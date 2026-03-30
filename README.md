@@ -6,12 +6,12 @@
 
 ### Key Findings (1970-2024)
 
-| Measure | 1970 | 2024 | Change |
-|---------|------|------|--------|
-| **Labor Share** (Compensation/GDI) | 58.4% | 51.9% | **−6.5 pp** |
-| **Corporate Profit Share, Pre-Tax** | 10.7% | 16.7% | **+6.0 pp** |
-| **Corporate Profit Share, Post-Tax** | 7.8% | 14.4% | **+6.6 pp** |
-| **Depreciation** | 12.8% | 16.5% | **+3.7 pp** |
+| Measure | 1970 | 2024 | Change (pp) | Change (%) |
+|---------|------|------|-------------|------------|
+| **Labor Share** (Compensation/GDI) | 58.4% | 51.9% | **−6.5 pp** | **−11%** |
+| **Corporate Profit Share, Pre-Tax** | 10.7% | 16.7% | **+6.0 pp** | **+56%** |
+| **Corporate Profit Share, Post-Tax** | 7.8% | 14.4% | **+6.6 pp** | **+85%** |
+| **Depreciation** | 12.8% | 16.5% | **+3.7 pp** | **+29%** |
 
 **Definitions:**
 - **Labor Share** = Compensation of Employees / Gross Domestic Income. Compensation includes wages, salaries, and employer-paid benefits (health insurance, pensions, payroll taxes).
