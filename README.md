@@ -233,19 +233,7 @@ This research note is shared for educational and research purposes. Data sources
 
 Research note compiled by Ilan Strauss using [Claude Code](https://claude.ai/code). Thank you to Rob Petersen for helpful feedback and clarifying discussions. All errors are my own.
 
-January 2026
-
----
-
-## Changelog
-
-### v.2.1 (January 2026)
-- **Terminology:** Renamed "Depreciation-Adjusted Labor Share" → "Labor Share of Net Domestic Income (NDI)" throughout to avoid implying depreciation "adjusts" labor
-- **Exposition:** Rewrote depreciation sections to present the **capital share effect as logically prior** — depreciation reduces capital's net income first; labor's higher NDI share is the consequence
-- **Accounting identities:** Added explicit GDI and NDI identities to make the distributional logic unambiguous
-- **Links:** Fixed 5 broken academic links (Gollin, Bridgman, Koh et al., BEA handbook/update) with working alternatives
-
-
+March 30 2026
 
 
 
