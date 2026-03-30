@@ -1,4 +1,4 @@
-# Has the U.S. Labour Share Declined? A note (v.2)
+# Has the U.S. Labour Share Declined? A note (v.3)
 
 ## Executive Summary
 
