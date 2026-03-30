@@ -6,25 +6,18 @@
 
 ### Key Findings (1970-2024)
 
-*All series are annual, BEA whole-economy shares from [Table 1.11 via FRED](https://fred.stlouisfed.org/release/tables?rid=53&eid=42211); latest year shown is 2024.*
-
 | Measure | 1970 | 2024 | Change |
 |---------|------|------|--------|
-| **Gross Labor Share** (Compensation/GDI) | 58.4% | 51.9% | **−6.5 pp** |
-| **Wages + Benefits** (excl. employer social insurance†) | 56.1% | 48.9% | **−7.2 pp** |
-| **Wages Only** (excl. all supplements) | 51.6% | 42.7% | **−8.9 pp** |
-| **Labor Share of Net Domestic Income** (Compensation/NDI) | 67.0% | 62.2% | **−4.8 pp** |
-| Depreciation Share | 12.8% | 16.5% | +3.7 pp |
-| Employer Social Insurance† Share | 2.3% | 3.0% | +0.7 pp |
+| **Labor Share** (Compensation/GDI) | 58.4% | 51.9% | **−6.5 pp** |
+| **Corporate Profit Share, Pre-Tax** | 10.7% | 16.7% | **+6.0 pp** |
+| **Corporate Profit Share, Post-Tax** | 7.8% | 14.4% | **+6.6 pp** |
+| **Depreciation** | 12.8% | 16.5% | **+3.7 pp** |
 
-*† Employer contributions for government social insurance ([BEA definition](https://www.bea.gov/help/glossary/contribution-government-social-insurance)). This is dominated by FICA (Social Security + Medicare, 7.65% of wages), but also includes smaller programs like unemployment insurance and workers' compensation.*
+*Corporate profit shares exclude rental income (3.7% of GDI) and net interest (2.1%), which go to property owners and lenders respectively. Both include ⅓ of proprietors' income per [Gollin (2002)](https://web.williams.edu/Economics/wp/Gollin_Getting_Income_Shares_Right_working_paper_with_figures.pdf). Source: BEA NIPA [Table 1.11 via FRED](https://fred.stlouisfed.org/release/tables?rid=53&eid=42211).*
 
-**Key takeaways:**
-- The **standard gross measure** shows a −6.5 pp decline
-- On a **net-income (NDI)** basis — where depreciation is treated as a capital cost subtracted before distribution — the decline is less: −4.8 pp
-- Looking at **wages only** (excluding benefits and payroll taxes) shows the steepest decline: −8.9 pp
+**Key takeaway:** As labor's share fell by 6.5 pp, corporate profits (post-tax) rose by 6.6 pp. Depreciation absorbed an additional 3.7 pp — representing capital maintenance costs that are not income to anyone.
 
-**Sector scope:** This analysis uses **whole-economy GDI shares**, which include the government sector (employees paid by government) and housing sector (imputed rent from owner-occupied housing). Government tends to *raise* measured labor share (government has little measured operating surplus), while owner-occupied housing tends to *lower* it (adds imputed rental income with no compensation). The [BLS nonfarm business sector](https://fred.stlouisfed.org/series/PRS85006173) — which excludes these sectors — shows an even steeper decline (~16% from its early-1970s peak).
+**Sector scope:** This analysis uses **whole-economy GDI shares**. The [BLS nonfarm business sector](https://fred.stlouisfed.org/series/PRS85006173) — which excludes government and housing — shows an even steeper labor share decline (~16% from its early-1970s peak).
 
 ---
 
