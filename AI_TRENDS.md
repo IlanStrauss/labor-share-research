@@ -2,7 +2,7 @@
 
 *Companion to the [main note](README.md), November 2026. Code: [`scripts/ai_trend_projection.py`](scripts/ai_trend_projection.py). Data: [`data/ai_trend_projection.csv`](data/ai_trend_projection.csv).*
 
-If AI doubles the trend since 2000, the pre-tax profit share of GDI reaches 19.9% by 2035 and 25.5% by 2050, against 18.0% and 20.8% if the trend since 2000 simply continues. After corporate tax, the doubled trend gives 17.9% by 2035 and 23.7% by 2050, against 15.9% and 18.8%. The US business-sector profit share from [business-profit-share](https://github.com/IlanStrauss/business-profit-share) reaches 46.6% by 2035 and 55.6% by 2050 on the doubled trend, against 43.0% and 47.5%. These are mechanical extrapolations of a past trend, not forecasts.
+If AI doubles the trend since 2000, the pre-tax profit share of GDI reaches 19.9% by 2035 and 25.5% by 2050, against 18.0% and 20.8% if the trend since 2000 simply continues. After corporate tax, the doubled trend gives 17.9% by 2035 and 23.7% by 2050, against 15.9% and 18.8%. The US business-sector profit share from [business-profit-share](https://github.com/IlanStrauss/business-profit-share) reaches 46.6% by 2035 and 55.6% by 2050 on the doubled trend, against 43.0% and 47.5% (it sits far above the GDI shares mainly because it counts depreciation as profit, while they deduct it). These are mechanical extrapolations of a past trend, not forecasts.
 
 ![AI scenario for profit shares](figures/ai_trend_capital_share.png)
 

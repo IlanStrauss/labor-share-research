@@ -132,18 +132,16 @@ def plot(rows, png, pdf):
     rows = [r for r in rows if r['year'] >= PLOT_START]
     years = [r['year'] for r in rows]
     last = years[-1]
-    # Color = tax treatment, the same in both panels: before tax, one tax layer, all taxes
+    # Color = tax treatment, the same in both panels: blue before tax, orange after all taxes
     # (palette checked for color-vision deficiency with the dataviz validator)
-    BLUE, TEAL, MAGENTA = '#2563eb', '#0d9488', '#c026d3'
+    BLUE, ORANGE = '#2563eb', '#ea580c'
     panels = [
         ('Labor share of GDI', [
             ('labor_pre_tax', 'Pre-tax (compensation)', BLUE),
-            ('labor_after_income_tax', 'After income tax on wages', TEAL),
-            ('labor_post_tax', 'After payroll and income tax', MAGENTA)], (34, 62)),
+            ('labor_post_tax', 'Post-tax (after payroll and income tax)', ORANGE)], (34, 62)),
         ('Profit share of GDI', [
             ('profit_pre_tax', 'Pre-tax (Figure 3 definition)', BLUE),
-            ('profit_after_corporate_tax', 'After corporate tax (Figure 3 definition)', TEAL),
-            ('profit_after_all_taxes', 'After corporate and personal tax', MAGENTA)], (4, 18)),
+            ('profit_after_all_taxes', 'Post-tax (after corporate and personal tax)', ORANGE)], (4, 18)),
     ]
     fig, axes = plt.subplots(1, 2, figsize=(20, 9.5))
     for ax, (title, series, ylim), legend_loc in zip(axes, panels, ['lower left', 'upper left']):

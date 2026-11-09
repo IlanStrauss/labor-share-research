@@ -24,7 +24,7 @@
 
 *Source: BEA NIPA [Table 1.11 via FRED](https://fred.stlouisfed.org/release/tables?rid=53&eid=42211).*
 
-**Key takeaway:** As labor's share fell by 6.5 pp, corporate profits (post-tax) rose by 6.6 pp. Depreciation absorbed an additional 3.7 pp — representing capital maintenance costs that are not income to anyone.
+**Key takeaway:** Labor's share of GDI fell by 6.5 pp. GDI is the sum of compensation, depreciation, net operating surplus, and production taxes less subsidies, so the other three shares rose by 6.5 pp in total: depreciation by 3.7 pp and net operating surplus (profits, proprietors' income, rent, and net interest) by 4.4 pp, while production taxes less subsidies fell by 1.7 pp (components rounded). Depreciation, which represents capital maintenance costs that are not income to anyone, thus matches more than half of labor's fall. The 6.6 pp rise in post-tax corporate profits is measured differently and is not one of these components, so it cannot be added to the rise in depreciation (see Figure 3).
 
 **Sector scope:** This analysis uses **whole-economy GDI shares**. The [BLS nonfarm business sector](https://fred.stlouisfed.org/series/PRS85006173) — which excludes government and housing — shows an even steeper labor share decline (~16% from its early-1970s peak).
 
@@ -156,9 +156,9 @@ Corporate Profit Share = Corporate Profits + (⅓ × Proprietors' Income)
 
 - **Post-Tax Corporate Profit Share (Orange)**: As above, but subtracting taxes on corporate income. This rose from 7.8% (1970) to 14.4% (2024), a **+6.6 pp** increase.
 
-**Key Point:** As labor's share of GDI fell by 6.5 percentage points, corporate profits (post-tax) rose by 6.6 pp. The remainder was absorbed by rising depreciation (+3.7 pp).
+**Key Point:** As labor's share of GDI fell by 6.5 percentage points, the post-tax corporate profit share rose by 6.6 pp. The two changes are not an accounting decomposition, because this profit measure is not a component of GDI. It includes profits that US companies earn abroad, which are not part of GDI; it deducts depreciation as firms report it for tax, which in 2024 was smaller than BEA's economic depreciation; and it leaves out corporate income tax, which fell as a share of GDI. In the GDI accounts, labor's fall is matched by higher depreciation (+3.7 pp) and net operating surplus (+4.4 pp), less lower production taxes (−1.7 pp).
 
-**Perspective on size:** While corporate profits rose substantially in percentage point terms, the post-tax corporate profit share (excluding rent and interest) remains modest at 14.4% of GDI. Labor compensation (51.9%) still dominates. And if we further adjust for depreciation — calculating corporate profits as a share of *Net* Domestic Income — the capital income share is even smaller, since depreciation (16.5% of GDI) is subtracted from the denominator.
+**Perspective on size:** While corporate profits rose substantially in percentage point terms, the post-tax corporate profit share (excluding rent and interest) remains modest at 14.4% of GDI. Labor compensation (51.9%) still dominates. Measured against *Net* Domestic Income (GDI less depreciation), the same profits are a larger share: 17.2% post-tax and 20.0% pre-tax in 2024, because depreciation (16.5% of GDI) comes out of the denominator while the numerator is unchanged. Corporate profits are already measured after depreciation, so depreciation should not be deducted from them a second time. On this net basis their rise since 1970 is also larger, about 8 pp.
 
 ---
 
@@ -187,7 +187,7 @@ Net income identity (distribution-relevant):
   NDI = GDI − Depreciation = Compensation + Net Operating Surplus + Taxes on Production
 ```
 
-On a net basis, depreciation has already been netted out of capital's claim; labor's higher share is the corollary of measuring the split over net income.
+On a net basis, depreciation has already been netted out of capital's claim; labor's higher share is the corollary of measuring the split over net income. Corporate profits are part of that net claim. They are already measured after depreciation, so depreciation should not be deducted from them again, and their share of NDI is higher than their share of GDI, just as labor's is.
 
 Following [Bridgman (2018)](https://bea.gov/papers/pdf/laborshare1410.pdf) and [Rognlie (2015)](https://www.brookings.edu/wp-content/uploads/2016/07/2015a_rognlie.pdf), we compute labor's share of **Net Domestic Income (NDI)**:
 
