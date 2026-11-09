@@ -4,7 +4,7 @@ run offline and reproduce the published numbers exactly. Run it only to move to 
 then rerun the analysis scripts and update the text. See data/README.md.
 
 Run:  python3 scripts/fetch_data.py              (everything)
-      python3 scripts/fetch_data.py pwt bls      (only the parts named: bea, pwt, bls, business)
+      python3 scripts/fetch_data.py pwt bls      (only the parts named: bea, pwt, bls)
 
 Writes
 - data/bea_nipa_extract.csv: the BEA NIPA annual series listed in SERIES below, from BEA's bulk
@@ -13,8 +13,6 @@ Writes
   publisher's archive on DataverseNL (doi:10.34894/FABVLR).
 - data/bls_nonfarm_labor_share.csv: BLS labor share index for the nonfarm business sector (series PRS85006173),
   from the BLS public API.
-- data/business_profit_share_usa.csv: the US rows of github.com/IlanStrauss/business-profit-share,
-  at a fixed commit.
 """
 
 import csv
@@ -60,13 +58,15 @@ SERIES = [
     'B703RC',  # Personal dividend income
     'B231RC', 'B245RC',  # Federal, and state and local, personal income taxes
     'A1587C', 'CON544', 'CON550', 'B738RC',  # Employee contributions for government social insurance
+    'A445RC',  # Corporate profits with IVA and CCAdj, domestic industries
+    'A191RC',  # Gross domestic product
+    'A765RC', 'A194RC', 'A265RC',  # General government: value added, compensation, depreciation
+    'A2009C',  # Gross housing value added
 ]
 
 PWT_XLSX = 'https://dataverse.nl/api/access/datafile/554105'  # pwt110.xlsx, Penn World Table 11.0
 BLS = 'PRS85006173'
 BLS_API = 'https://api.bls.gov/publicAPI/v1/timeseries/data/'
-BUSINESS_CSV = ('https://raw.githubusercontent.com/IlanStrauss/business-profit-share/'
-                '6de05be00bf92d23817b87cacac49e8c779f32d3/data/processed/profit_share_extended.csv')
 
 
 def get(url, tries=3, raw=False):
@@ -144,13 +144,7 @@ def bls():
     write('bls_nonfarm_labor_share.csv', ['year', 'period', 'index_2017_100'], sorted(rows))
 
 
-def business():
-    biz = list(csv.DictReader(io.StringIO(get(BUSINESS_CSV))))
-    cols = list(biz[0].keys())
-    write('business_profit_share_usa.csv', cols, [[r[c] for c in cols] for r in biz if r['iso3c'] == 'USA'])
-
-
-PARTS = {'bea': bea, 'pwt': pwt, 'bls': bls, 'business': business}
+PARTS = {'bea': bea, 'pwt': pwt, 'bls': bls}
 
 
 def main(parts):

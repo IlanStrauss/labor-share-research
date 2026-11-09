@@ -1,5 +1,5 @@
 """
-Print every number the README cites, from the data saved in data/.
+Print every number README.md and METHODOLOGY.md cite, from the data saved in data/.
 
 Run:  python3 scripts/readme_numbers.py
 
@@ -101,6 +101,60 @@ def main():
     peak = max((y for y in annual if 1970 <= y <= 1975), key=annual.get)
     section("Sector scope: BLS nonfarm business labor share (index, 2017 = 100, annual averages)")
     print(f"  early-1970s peak {peak}: {annual[peak]:.1f}; {B}: {annual[B]:.1f}; change {100 * (annual[B] / annual[peak] - 1):.1f}%")
+    qv = {(y, p): x for y, p, x in q}
+    print(f"  quarterly: {A}Q1 {qv[(A, 'Q01')]:.1f}, {B}Q4 {qv[(B, 'Q04')]:.1f}, latest {q[-1][0]}{q[-1][1]} {q[-1][2]:.1f}")
+    lab = v['Labor share (compensation / GDI)']
+    print(f"  whole economy, compensation / GDI: {100 * (lab[1] / lab[0] - 1):.1f}%")
+
+    comp, prop = gdi('A4002C', B), gdi('A041RC', B)
+    section(f"METHODOLOGY.md: proprietors' income, {B}")
+    print(f"  proprietors' income {prop:.1f}%; compensation {comp:.1f}%; adjusted (compensation + 2/3 of it) {comp + 2 * prop / 3:.1f}%")
+    print(f"  against the adjusted share: none to labor {-2 * prop / 3:+.1f} pp, all to labor {prop / 3:+.1f} pp; "
+          f"against compensation alone: all to labor {prop:+.1f} pp")
+
+    section(f"METHODOLOGY.md: GDI by component ({A} and {B})")
+    nos_parts = ('A041RC', 'A445RC', 'A048RC', 'W272RC')
+    rows = [
+        ('Compensation of employees', lambda y: gdi('A4002C', y)),
+        ('  Wages and salaries', lambda y: gdi('W270RC', y)),
+        ('  Wages and benefits (less employer social insurance)', lambda y: gdi('A4002C', y) - gdi('B039RC', y)),
+        ('  Supplements', lambda y: gdi('A4002C', y) - gdi('W270RC', y)),
+        ('    Employer contributions, pension and insurance funds', lambda y: gdi('B040RC', y)),
+        ('    Employer contributions, government social insurance', lambda y: gdi('B039RC', y)),
+        ("Proprietors' income", lambda y: gdi('A041RC', y)),
+        ('Corporate profits with IVA and CCAdj, domestic', lambda y: gdi('A445RC', y)),
+        ('Rental income of persons', lambda y: gdi('A048RC', y)),
+        ('Net interest, domestic industries', lambda y: gdi('W272RC', y)),
+        ('Rest of net operating surplus', lambda y: gdi('W271RC', y) - sum(gdi(c, y) for c in nos_parts)),
+        ('Depreciation', lambda y: gdi('A262RC', y)),
+        ('Taxes on production and imports less subsidies', lambda y: gdi('W056RC', y) - gdi('A107RC', y)),
+    ]
+    for name, f in rows:
+        print(f"  {name:56s}{f(A):8.1f}{f(B):8.1f}{f(B) - f(A):+8.1f}")
+    top = [0, 6, 7, 8, 9, 10, 11, 12]
+    for y in (A, B):
+        print(f"  {y}: top-level rows sum to {sum(rows[i][1](y) for i in top):.2f}; supplements less the two "
+              f"employer contributions {rows[3][1](y) - rows[4][1](y) - rows[5][1](y):+.2f}")
+
+    section(f"METHODOLOGY.md: net domestic income (NDI), {B} worked example")
+    net = 100 - gdi('A262RC', B)
+    print(f"  NDI {net:.1f}% of GDI; compensation / NDI {100 * comp / net:.1f}%; net operating surplus "
+          f"{gdi('W271RC', B):.1f}% of GDI = {100 * gdi('W271RC', B) / net:.1f}% of NDI")
+    nd, gd = v['Labor share of NDI (compensation / NDI)'], v['Labor share (compensation / GDI)']
+    print(f"  {A}-{B}: NDI labor share {nd[1] - nd[0]:+.1f} pp, GDI labor share {gd[1] - gd[0]:+.1f} pp "
+          f"(the NDI fall is {100 * (1 - (nd[1] - nd[0]) / (gd[1] - gd[0])):.0f}% smaller)")
+    wages = v['Wages only (wages and salaries / GDI)']
+    print(f"  wages-only fall is {100 * ((wages[1] - wages[0]) / (gd[1] - gd[0]) - 1):.0f}% larger than compensation's")
+    share = lambda y: d['A4002C'][y] / d['A261RC'][y]
+    print(f"  highest compensation / GDI since {min(d['A4002C'])}: {max(d['A4002C'], key=share)}")
+
+    section("METHODOLOGY.md: general government")
+    for y in (A, B):
+        print(f"  {y}: value added {100 * d['A765RC'][y] / d['A191RC'][y]:.1f}% of GDP; compensation "
+              f"{100 * d['A194RC'][y] / d['A765RC'][y]:.1f}% and depreciation {100 * d['A265RC'][y] / d['A765RC'][y]:.1f}% "
+              f"of its value added; housing value added {100 * d['A2009C'][y] / d['A191RC'][y]:.1f}% of GDP")
+        rest = 100 * (d['A4002C'][y] - d['A194RC'][y]) / (d['A261RC'][y] - d['A765RC'][y] - d['A2009C'][y])
+        print(f"        compensation outside general government / GDI less government and housing value added: {rest:.1f}%")
 
 
 if __name__ == '__main__':

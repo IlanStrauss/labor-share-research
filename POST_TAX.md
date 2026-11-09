@@ -38,7 +38,7 @@ Income tax on wages  = τ × Wages and salaries
 - **Payroll taxes**: employer and employee contributions for government social insurance, mainly Social Security and Medicare, plus unemployment insurance and railroad retirement (BEA Table 3.6). Employer contributions also include small insurance-type items such as workers' compensation and pension-guaranty premiums, about 0.1% of GDI. We exclude contributions by the self-employed, whose income is not in compensation, and Medicare supplementary medical insurance premiums, which enrollees (mostly people aged 65 and over) pay.
 - **τ**: the average income tax rate on household income, following [Mendoza, Razin and Tesar (1994)](https://doi.org/10.1016/0304-3932(94)90021-3), a widely used method for splitting personal income tax between labor and capital income in national accounts. Personal income taxes are federal plus state and local income taxes paid by persons (BEA Table 3.4); the denominator is household income from BEA Table 2.1. τ was 13.0% in 1970 and 14.9% in 2024.
 
-For profits we use Figure 3's definition: corporate profits after depreciation (without IVA/CCAdj, BEA Table 1.12) plus one third of proprietors' income, over GDI. Post-tax profits subtract corporate income tax and τ times dividends received by persons and one third of proprietors' income, so profits carry the same average household income tax rate that wages carry. Figure 3 of the main note subtracts corporate income tax only.
+For profits we use Figure 3's definition: corporate profits after depreciation (without IVA/CCAdj, BEA Table 1.12) plus one third of proprietors' income (a common split since Johnson 1954), over GDI. Post-tax profits subtract corporate income tax and τ times dividends received by persons and one third of proprietors' income, so profits carry the same average household income tax rate that wages carry. Figure 3 of the main note subtracts corporate income tax only.
 
 ---
 
@@ -67,7 +67,7 @@ The script reads BEA's data from [`data/bea_nipa_extract.csv`](data/bea_nipa_ext
 
 ## References
 
-- Gollin, D. (2002). Getting income shares right. *Journal of Political Economy*, 110(2), 458–474.
+- Johnson, D. G. (1954). The functional distribution of income in the United States, 1850–1952. *Review of Economics and Statistics*, 36(2), 175–182.
 - Mendoza, E. G., Razin, A., and Tesar, L. L. (1994). Effective tax rates in macroeconomics: Cross-country estimates of tax rates on factor incomes and consumption. *Journal of Monetary Economics*, 34(3), 297–323.
 - Piketty, T., Saez, E., and Zucman, G. (2018). Distributional national accounts: Methods and estimates for the United States. *Quarterly Journal of Economics*, 133(2), 553–609.
 - Summers, L. H. (1989). Some simple economics of mandated benefits. *American Economic Review*, 79(2), 177–183.

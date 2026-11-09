@@ -19,8 +19,8 @@
 
 **Definitions:**
 - **Labor Share** = Compensation of Employees / Gross Domestic Income. Compensation includes wages, salaries, and employer-paid benefits (health insurance, pensions, payroll taxes).
-- **Corporate Profit Share** = (Corporate Profits + ⅓ × Proprietors' Income) / GDI. Corporate profits as reported by BEA are **already net of depreciation** — depreciation is deducted as a cost at the firm level before profits are reported. We add ⅓ of proprietors' income to account for the capital return portion of self-employment income, per [Gollin (2002)](https://web.williams.edu/Economics/wp/Gollin_Getting_Income_Shares_Right_working_paper_with_figures.pdf). Pre-tax uses profits before corporate income tax; post-tax subtracts corporate taxes. Both **exclude** rental income (3.6% of GDI) and net interest (1.9%), which go to property owners and lenders respectively.
-- **Depreciation** = Consumption of Fixed Capital / GDI. This is an accounting allowance for capital wearing out — not income to anyone. As the economy shifted toward short-lived assets (software depreciates at 25–33%/year vs. 2–3% for buildings), depreciation's share rose.
+- **Corporate Profit Share** = (Corporate Profits + ⅓ × Proprietors' Income) / GDI. Corporate profits as reported by BEA are **already net of depreciation** — depreciation is deducted as a cost at the firm level before profits are reported. We add ⅓ of proprietors' income to account for the capital return portion of self-employment income, a common split since Johnson (1954) ([Krueger 1999](https://doi.org/10.1257/aer.89.2.45)). Pre-tax uses profits before corporate income tax; post-tax subtracts corporate taxes. Both **exclude** rental income (3.6% of GDI) and net interest (1.9%), which go to property owners and lenders respectively.
+- **Depreciation** = Consumption of Fixed Capital / GDI. This is an accounting allowance for capital wearing out — not income to anyone. As the economy shifted toward short-lived assets ([BEA depreciates](https://apps.bea.gov/national/pdf/BEA_depreciation_rates.pdf) software at 33–55% a year, against 2–3% for office and commercial buildings), depreciation's share rose.
 
 *Source: BEA NIPA Tables 1.10 and 1.12, from BEA's bulk data file of 4 November 2026 (saved in [`data/`](data/)), computed by the scripts in [`scripts/`](scripts/). Changes are computed from unrounded data, so they can differ by 0.1 from the gap between the rounded values.*
 
@@ -28,7 +28,7 @@
 
 **Key takeaway:** Labor's share of GDI fell by 6.9 pp. GDI is the sum of compensation, depreciation, net operating surplus, and production taxes less subsidies, so the other three shares rose by 6.9 pp in total: depreciation by 3.6 pp and net operating surplus (profits, proprietors' income, rent, and net interest) by 5.1 pp, while production taxes less subsidies fell by 1.7 pp (components rounded). Depreciation, which represents capital maintenance costs that are not income to anyone, thus matches just over half of labor's fall. The 6.3 pp rise in post-tax corporate profits (after depreciation) is measured differently and is not one of these components, so it cannot be added to the rise in depreciation (see Figure 3).
 
-**Sector scope:** This analysis uses **whole-economy GDI shares**. The [BLS nonfarm business sector](https://fred.stlouisfed.org/series/PRS85006173) — which excludes government and housing — shows an even steeper labor share decline (about 15% from its 1970 peak to 2024).
+**Sector scope:** This analysis uses **whole-economy GDI shares**. The [BLS nonfarm business sector](https://fred.stlouisfed.org/series/PRS85006173) — which excludes government, nonprofits, and owner-occupied housing — shows an even steeper labor share decline (about 15% from its 1970 peak to 2024).
 
 ---
 
@@ -118,7 +118,7 @@ Figure 1 shows five different ways of measuring labor's share of national income
 
 - **Penn World Table (1970–2023 only)**: Green line. Uses a different methodology that imputes a labor share for self-employed workers, rather than treating proprietors' income as mixed. *Note: PWT data ends in 2023; the line does not extend to 2024.*
 
-- **Adjusted: Includes ⅔ Proprietors' Income**: Purple line. Adds two-thirds of proprietors' income to the numerator, following [Gollin (2002)](https://web.williams.edu/Economics/wp/Gollin_Getting_Income_Shares_Right_working_paper_with_figures.pdf), to account for the labor component of self-employment income.
+- **Adjusted: Includes ⅔ Proprietors' Income**: Purple line. Adds two-thirds of proprietors' income to the numerator, a common split since Johnson (1954) ([Krueger 1999](https://doi.org/10.1257/aer.89.2.45)), to account for the labor component of self-employment income.
 
 - **Wages Only**: Amber line. The numerator is just wages and salaries — no benefits, no employer payroll taxes. This shows the steepest decline.
 
@@ -147,7 +147,7 @@ Next, Figure 3 shows the corporate profit share of GDI — the share going to sh
 
 [![Corporate profit share, after depreciation](figures/capital_share.png)](figures/capital_share.png?raw=true)
 
-Both lines show **corporate profits after depreciation** (excluding rent and interest) plus **⅓ of proprietors' income** (the capital portion per Gollin 2002), making them consistent with the Gollin-adjusted labor share in Figure 1.
+Both lines show **corporate profits after depreciation** (excluding rent and interest) plus **⅓ of proprietors' income** (the capital portion under the same split), making them consistent with the adjusted labor share in Figure 1.
 
 **The equation:**
 ```

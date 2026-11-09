@@ -164,7 +164,7 @@ def plot(rows, png, pdf):
              "Source: BEA NIPA bulk data (Tables 1.10, 1.12, 2.1, 3.4, 3.6). Payroll taxes are employer and employee social insurance "
              "contributions.\nIncome tax on wages, dividends, and proprietors' income uses the average household income tax rate "
              "(Mendoza, Razin and Tesar 1994).\nProfits are corporate profits without IVA/CCAdj, after depreciation as firms "
-             "report it for tax, plus 1/3 of proprietors' income (Gollin 2002).",
+             "report it for tax, plus 1/3 of proprietors' income (Johnson 1954).",
              ha='center', fontsize=12, color='#555')
     plt.tight_layout(rect=(0, 0.07, 1, 1), h_pad=3)
     plt.savefig(png, dpi=150, bbox_inches='tight', facecolor='white', edgecolor='none')

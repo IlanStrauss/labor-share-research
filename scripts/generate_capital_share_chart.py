@@ -2,7 +2,7 @@
 """
 Generate Figure 3: Corporate Profit Share chart.
 Shows pre-tax and post-tax corporate profit share (profits after depreciation,
-excluding rent and interest), plus 1/3 of proprietors' income per Gollin (2002).
+excluding rent and interest), plus 1/3 of proprietors' income (a common split since Johnson 1954).
 
 Data: BEA NIPA bulk file, annual, read by bea_nipa.py (BEA series codes in brackets)
 - Pre-tax  = (corporate profits before tax without IVA/CCAdj [A053RC] + 1/3 x proprietors' income [A041RC]) / GDI [A261RC]
@@ -26,7 +26,7 @@ START, END = 1970, 2024
 years = list(range(START, END + 1))
 d = load()
 
-# Capital's share of proprietors' income (Gollin 2002)
+# Capital's share of proprietors' income (a common split since Johnson 1954)
 alpha = 1/3
 
 pretax_adjusted = [100 * (d['A053RC'][y] + alpha * d['A041RC'][y]) / d['A261RC'][y] for y in years]
@@ -74,7 +74,7 @@ ax.legend(loc='upper left', fontsize=LEGEND_SIZE, framealpha=0.95)
 
 fig.text(0.5, 0.01,
          'Source: BEA NIPA bulk data (Tables 1.10 and 1.12). Corporate profits without IVA/CCAdj, which are after depreciation '
-         'as firms report it for tax,\nplus ⅓ of proprietors\' income (Gollin 2002). Excludes rental income and net interest, '
+         'as firms report it for tax,\nplus ⅓ of proprietors\' income (Johnson 1954). Excludes rental income and net interest, '
          'which go to property owners and lenders.',
          ha='center', fontsize=SOURCE_SIZE, color='#555')
 

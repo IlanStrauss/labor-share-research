@@ -64,7 +64,7 @@ pwt_labsh = [pwt[y] for y in pwt_years]
 net_labor_share = [comp / (100 - dep) * 100 for comp, dep in zip(bea_comp, bea_dep)]
 
 # Adjusted Labor Share (with 2/3 of proprietors' income allocated to labor)
-# Following Gollin (2002) methodology
+# A common split since Johnson (1954); see Krueger (1999)
 alpha = 2/3
 adj_labor_share = [comp + (alpha * prop) for comp, prop in zip(bea_comp, bea_prop)]
 

@@ -10,10 +10,6 @@ Method
   - Labor's share of GDI before tax and after payroll and income tax, and the profit share of
     GDI (corporate profits after depreciation + 1/3 of proprietors' income) before tax and after
     corporate and personal tax, all as defined in post_tax_labor_share.py (BEA data).
-  - The US non-housing business-sector profit share (ps_wide) from
-    github.com/IlanStrauss/business-profit-share (data/business_profit_share_usa.csv, saved by fetch_data.py): 100 minus the labour share of business
-    value added, with the self-employed paid what employees earn (Gutierrez and Piton 2020).
-    It leaves out real estate, which holds owner-occupiers' imputed rents. Its profits are before depreciation.
 - Smoother: LOESS (local linear regression, Cleveland 1979) with a 30% span, about 16 years.
   It sets the starting level in the last data year, free of that year's cyclical swing.
 - Trend: OLS slope of the annual share on the year from 2000 to the last data year, with a
@@ -46,7 +42,6 @@ TARGET = 2035
 SPAN = 0.3
 AI_MULTIPLIER = 2
 Z90 = 1.645
-BUSINESS_CSV = os.path.join(ROOT, 'data', 'business_profit_share_usa.csv')
 
 # Blue = pre-tax, orange = post-tax, as in the post-tax figure
 BLUE, ORANGE, GRAY = '#2563eb', '#ea580c', '#4b5563'
@@ -56,8 +51,6 @@ PANELS = [
      [('labor_pre_tax', 'Pre-tax', BLUE), ('labor_post_tax', 'Post-tax', ORANGE)]),
     ('Profit share of GDI (profits after depreciation)', '% of gross domestic income',
      [('profit_pre_tax', 'Pre-tax', BLUE), ('profit_after_all_taxes', 'Post-tax', ORANGE)]),
-    ('Non-housing business-sector profit share (profits before depreciation)', '% of business value added',
-     [('business', 'Pre-tax', BLUE)]),
 ]
 
 
@@ -66,16 +59,6 @@ def gdi_series(d):
     years = np.array([r['year'] for r in rows])
     keys = ['labor_pre_tax', 'labor_post_tax', 'profit_pre_tax', 'profit_after_all_taxes']
     return {k: (years, np.array([r[k] for r in rows])) for k in keys}
-
-
-def business_share():
-    with open(BUSINESS_CSV, newline='') as f:
-        rows = [row for row in csv.DictReader(f)
-                if row['iso3c'] == 'USA' and row['ps_wide'] and int(row['year']) >= START]
-    rows.sort(key=lambda row: int(row['year']))
-    years = np.array([int(row['year']) for row in rows])
-    assert (np.diff(years) == 1).all(), 'business-sector series has gaps'
-    return years, np.array([float(row['ps_wide']) for row in rows])
 
 
 def trend(years, y, start=TREND_START):
@@ -103,7 +86,6 @@ def project(years, y):
 
 def main():
     series = gdi_series(load())
-    series['business'] = business_share()
     res = {k: project(*v) for k, v in series.items()}
 
     with open(os.path.join(ROOT, 'data', 'ai_trend_projection.csv'), 'w', newline='') as f:
@@ -136,8 +118,8 @@ def y_limits(keys, series, res, step):
 
 def plot(series, res):
     plt.style.use('seaborn-v0_8-whitegrid')
-    fig, axes = plt.subplots(3, 1, figsize=(14, 22))
-    for ax, (title, ylabel, members), step in zip(axes, PANELS, (4, 2, 4)):
+    fig, axes = plt.subplots(2, 1, figsize=(14, 15))
+    for ax, (title, ylabel, members), step in zip(axes, PANELS, (4, 2)):
         for k, label, color in members:
             years, y = series[k]
             r = res[k]
@@ -168,14 +150,12 @@ def plot(series, res):
            Line2D([0], [0], color=GRAY, linewidth=4, linestyle='--', label=f'AI: trend since {TREND_START} doubled')]
     axes[0].legend(handles=key, loc='lower left', fontsize=15, framealpha=0.95)
     fig.text(0.5, 0.005,
-             "Sources: BEA NIPA; non-housing business-sector share from github.com/IlanStrauss/business-profit-share "
-             "(Gutiérrez–Piton method), which leaves out real estate."
-             "\nPost-tax: labor after payroll and income tax; profits after corporate and "
-             "personal tax. GDI profits are corporate profits after depreciation\nplus 1/3 of proprietors' income. "
+             "Source: BEA NIPA. Post-tax: labor after payroll and income tax; profits after corporate and "
+             "personal tax. Profits are corporate profits after depreciation\nplus 1/3 of proprietors' income. "
              f"Trend = OLS slope of the annual share from {TREND_START} to the last data year; the scenario doubles it "
              "from the\nsmoothed last-year level (LOESS span 0.3). A mechanical scenario, not a forecast.",
              ha='center', fontsize=13, color='#555')
-    plt.tight_layout(rect=(0, 0.045, 1, 1), h_pad=3)
+    plt.tight_layout(rect=(0, 0.06, 1, 1), h_pad=3)
     for ext in ('png', 'pdf'):
         kw = {'dpi': 150} if ext == 'png' else {}
         plt.savefig(os.path.join(ROOT, 'figures', f'ai_trend_capital_share.{ext}'), bbox_inches='tight',
