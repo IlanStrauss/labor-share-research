@@ -148,7 +148,7 @@ def plot(years, series, res):
         ax.legend(loc='upper left', fontsize=14, framealpha=0.95)
     axes[0].set_ylabel('% of gross domestic income', fontsize=16)
     fig.text(0.5, 0.01,
-             "Source: BEA NIPA bulk data. Profit share as in Figure 3: corporate profits without IVA/CCAdj plus "
+             "Source: BEA NIPA bulk data. Profit share uses Figure 3's definition: corporate profits without IVA/CCAdj plus "
              "1/3 of proprietors' income, over GDI. LOESS span 0.3 (about 17 years).\n"
              f"Trend = OLS slope of the annual share, {START} to {years[-1]}. Projections start from the "
              f"smoothed {years[-1]} level. A mechanical scenario, not a forecast.",

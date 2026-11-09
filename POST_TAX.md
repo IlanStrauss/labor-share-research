@@ -20,10 +20,10 @@ Income tax on wages  = τ × Wages and salaries
 ```
 
 - **Compensation**: compensation of employees, which includes wages, salaries, employer-paid benefits, and employer contributions for social insurance (BEA Table 1.10). This is the numerator of the main note's headline labor share.
-- **Payroll taxes**: employer and employee contributions for government social insurance, mainly Social Security and Medicare, plus unemployment insurance and railroad retirement (BEA Table 3.6). We exclude contributions by the self-employed, whose income is not in compensation, and Medicare Part B premiums, which retirees pay.
-- **τ**: the average income tax rate on household income, following [Mendoza, Razin and Tesar (1994)](https://doi.org/10.1016/0304-3932(94)90021-3), the standard method for splitting personal income tax between labor and capital income in national accounts. Personal income taxes are federal plus state and local income taxes paid by persons (BEA Table 3.4); the denominator is household income from BEA Table 2.1. τ was 13.0% in 1970 and 14.9% in 2024.
+- **Payroll taxes**: employer and employee contributions for government social insurance, mainly Social Security and Medicare, plus unemployment insurance and railroad retirement (BEA Table 3.6). Employer contributions also include small insurance-type items such as workers' compensation and pension-guaranty premiums, about 0.1% of GDI. We exclude contributions by the self-employed, whose income is not in compensation, and Medicare supplementary medical insurance premiums, which enrollees (mostly people aged 65 and over) pay.
+- **τ**: the average income tax rate on household income, following [Mendoza, Razin and Tesar (1994)](https://doi.org/10.1016/0304-3932(94)90021-3), a widely used method for splitting personal income tax between labor and capital income in national accounts. Personal income taxes are federal plus state and local income taxes paid by persons (BEA Table 3.4); the denominator is household income from BEA Table 2.1. τ was 13.0% in 1970 and 14.9% in 2024.
 
-For profits we keep Figure 3's concept: corporate profits (without IVA/CCAdj) plus one third of proprietors' income, over GDI. "After corporate tax" is Figure 3's post-tax line. "After corporate and personal tax" also subtracts τ times dividends received by persons and one third of proprietors' income, so profits carry the same household income tax that wages carry.
+For profits we use Figure 3's definition: corporate profits (without IVA/CCAdj, BEA Table 1.12) plus one third of proprietors' income, over GDI. "After corporate tax" uses the same definition as Figure 3's post-tax line, with values from BEA's current data file. "After corporate and personal tax" also subtracts τ times dividends received by persons and one third of proprietors' income, so profits carry the same average household income tax rate that wages carry.
 
 ---
 
@@ -33,14 +33,14 @@ Labor, as % of GDI:
 
 - Pre-tax labor share: 58.4% to 51.4% (−6.9 pp).
 - After payroll and income tax: 47.6% to 39.4% (−8.2 pp).
-- Payroll taxes: 4.0% to 5.7% of GDI. Most of the rise came by 1990, when they reached 6.5%; they have edged down since.
+- Payroll taxes: 4.0% to 5.7% of GDI. Most of the rise came by 1990, when they reached 6.5%; they have fallen back since.
 - Income tax on wages: 6.7% to 6.3% of GDI.
 
 Profits, as % of GDI:
 
 - Pre-tax profit share: 10.5% to 16.2% (+5.6 pp).
 - After corporate tax: 7.6% to 13.9% (+6.3 pp). Corporate income tax fell from 2.9% to 2.3% of GDI.
-- After corporate and personal tax: 7.0% to 12.5% (+5.5 pp). Personal tax on dividends and proprietors' capital income rose from 0.6% to 1.4% of GDI as dividends grew from 2.3% to 7.3% of GDI, which offsets the fall in corporate tax.
+- After corporate and personal tax: 7.0% to 12.5% (+5.5 pp). Personal tax on dividends and proprietors' capital income rose from 0.6% to 1.4% of GDI as dividends grew from 2.3% to 7.3% of GDI, which more than offsets the fall in corporate tax.
 
 The profit/wage split:
 
@@ -51,7 +51,7 @@ The profit/wage split:
 
 ## What This Does Not Count
 
-Taxes pay for spending, and none of it is added back here. Payroll taxes fund Social Security and Medicare benefits, which depend on a worker's own contribution record. To the extent that link holds, payroll taxes work partly as deferred pay (Summers 1989). Treating them that way, and subtracting only income tax on wages, labor's share fell 6.5 pp (51.6% to 45.1%), slightly less than the 6.9 pp pre-tax decline, and the combined shift to profits is 12.0 pp. The steeper after-tax decline therefore rests on counting payroll taxes as a pure tax.
+Taxes pay for spending, and none of it is added back here. Payroll taxes fund Social Security and Medicare. Social Security benefits rise with a worker's own covered earnings, and Medicare eligibility depends on years of covered work, so workers get something back for these taxes. Payroll taxes that buy benefits workers value act less like a tax and more like part of pay (Summers 1989). Treating them that way, and subtracting only income tax on wages, labor's share fell 6.5 pp (51.6% to 45.1%), slightly less than the 6.9 pp pre-tax decline, and the combined shift to profits is 12.0 pp. The steeper after-tax decline therefore rests on counting payroll taxes as a pure tax.
 
 Other transfers and public services are not counted either. Allocating them requires distributional national accounts, which assign taxes and government spending to individuals rather than to labor and capital income ([Piketty, Saez and Zucman 2018](https://doi.org/10.1093/qje/qjx043)).
 

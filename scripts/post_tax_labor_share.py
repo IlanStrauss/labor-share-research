@@ -12,7 +12,8 @@ Labor
 - Payroll taxes = employer contributions for government social insurance [B039RC]
   + employee contributions: Social Security and Medicare [A1587C], state unemployment
   insurance [CON544], railroad retirement [CON550], state and local funds [B738RC].
-  Excludes self-employed contributions [CON520] and Medicare Part B premiums [CON530].
+  Excludes self-employed contributions [CON520] and Medicare supplementary medical
+  insurance premiums [CON530].
 - Income tax on wages = tau_h x wages [A034RC], where tau_h is the average income tax
   rate on household income (Mendoza, Razin and Tesar 1994):
       tau_h = (federal [B231RC] + state and local [B245RC] personal income taxes)
@@ -140,8 +141,8 @@ def plot(rows, png, pdf):
             ('labor_after_income_tax', 'After income tax on wages', TEAL),
             ('labor_post_tax', 'After payroll and income tax', MAGENTA)], (34, 62)),
         ('Profit share of GDI', [
-            ('profit_pre_tax', 'Pre-tax (as in Figure 3)', BLUE),
-            ('profit_after_corporate_tax', 'After corporate tax (as in Figure 3)', TEAL),
+            ('profit_pre_tax', 'Pre-tax (Figure 3 definition)', BLUE),
+            ('profit_after_corporate_tax', 'After corporate tax (Figure 3 definition)', TEAL),
             ('profit_after_all_taxes', 'After corporate and personal tax', MAGENTA)], (4, 18)),
     ]
     fig, axes = plt.subplots(1, 2, figsize=(20, 9.5))
@@ -161,7 +162,7 @@ def plot(rows, png, pdf):
         ax.set_ylabel('% of gross domestic income', fontsize=16)
         ax.legend(loc=legend_loc, fontsize=14, framealpha=0.95)
     fig.text(0.5, 0.01,
-             "Source: BEA NIPA bulk data (Tables 1.10, 2.1, 3.4, 3.6). Income tax on wages and on dividends and "
+             "Source: BEA NIPA bulk data (Tables 1.10, 1.12, 2.1, 3.4, 3.6). Income tax on wages and on dividends and "
              "proprietors' income uses the average household income tax rate (Mendoza, Razin and Tesar 1994).\n"
              "Payroll taxes are employer and employee social insurance contributions. Profits are corporate "
              "profits without IVA/CCAdj plus 1/3 of proprietors' income (Gollin 2002).",
