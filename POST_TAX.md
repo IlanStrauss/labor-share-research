@@ -63,7 +63,7 @@ Other transfers and public services are not counted either. Allocating them requ
 python3 scripts/post_tax_labor_share.py
 ```
 
-The script downloads BEA's NIPA bulk file on first run (no API key; ~12 MB, saved to `data/bea_raw/`, which git ignores) and prints every number cited above. Requires matplotlib.
+The script reads BEA's data from [`data/bea_nipa_extract.csv`](data/bea_nipa_extract.csv) (sources in [`data/README.md`](data/README.md)) and prints every number cited above. Requires matplotlib.
 
 ## References
 

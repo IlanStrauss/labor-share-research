@@ -2,7 +2,8 @@
 """
 Generate labor share comparison charts showing different measurement approaches.
 Focus: 1970-2024 period (post-war peak to present)
-Data sources: BEA NIPA bulk data (bea_nipa.py); Penn World Table 11.0 via FRED
+Data sources: BEA NIPA (data/bea_nipa_extract.csv); Penn World Table 11.0 via FRED (data/pwt_labor_share.csv),
+both saved by fetch_data.py
 
 Charts produced:
 1. Gross labor share comparison (main chart)
@@ -10,10 +11,8 @@ Charts produced:
 """
 
 import csv
-import io
 import os
 import sys
-import urllib.request
 
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mtick
@@ -51,12 +50,10 @@ bea_wages = gdi_share('W270RC')
 # Social Security and Medicare (FICA) plus smaller programs such as unemployment insurance
 employer_social_insurance = gdi_share('B039RC')
 
-# Penn World Table labor share (LABSHPUSA156NRUG), from FRED
+# Penn World Table labor share (FRED: LABSHPUSA156NRUG)
 # Note: PWT uses different methodology (imputes self-employment labor income)
-PWT_URL = 'https://fred.stlouisfed.org/graph/fredgraph.csv?id=LABSHPUSA156NRUG'
-with urllib.request.urlopen(PWT_URL, timeout=60) as r:
-    pwt = {int(row['observation_date'][:4]): 100 * float(row['LABSHPUSA156NRUG'])
-           for row in csv.DictReader(io.TextIOWrapper(r, encoding='utf-8'))}
+with open(os.path.join(ROOT, 'data', 'pwt_labor_share.csv'), newline='') as f:
+    pwt = {int(row['year']): float(row['labor_share_pct']) for row in csv.DictReader(f) if row['iso3c'] == 'USA'}
 pwt_years = [y for y in sorted(pwt) if START <= y <= END]
 pwt_labsh = [pwt[y] for y in pwt_years]
 

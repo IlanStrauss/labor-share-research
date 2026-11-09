@@ -22,13 +22,13 @@
 - **Corporate Profit Share** = (Corporate Profits + ⅓ × Proprietors' Income) / GDI. Corporate profits as reported by BEA are **already net of depreciation** — depreciation is deducted as a cost at the firm level before profits are reported. We add ⅓ of proprietors' income to account for the capital return portion of self-employment income, per [Gollin (2002)](https://web.williams.edu/Economics/wp/Gollin_Getting_Income_Shares_Right_working_paper_with_figures.pdf). Pre-tax uses profits before corporate income tax; post-tax subtracts corporate taxes. Both **exclude** rental income (3.6% of GDI) and net interest (1.9%), which go to property owners and lenders respectively.
 - **Depreciation** = Consumption of Fixed Capital / GDI. This is an accounting allowance for capital wearing out — not income to anyone. As the economy shifted toward short-lived assets (software depreciates at 25–33%/year vs. 2–3% for buildings), depreciation's share rose.
 
-*Source: BEA NIPA Tables 1.10 and 1.12, from BEA's bulk data file of 4 November 2026, computed by the scripts in [`scripts/`](scripts/). Changes are computed from unrounded data, so they can differ by 0.1 from the gap between the rounded values.*
+*Source: BEA NIPA Tables 1.10 and 1.12, from BEA's bulk data file of 4 November 2026 (saved in [`data/`](data/)), computed by the scripts in [`scripts/`](scripts/). Changes are computed from unrounded data, so they can differ by 0.1 from the gap between the rounded values.*
 
 *Numbers updated November 2026. The March 2026 version differed for two reasons. BEA's 2026 annual update revised recent years, mainly 2023 and 2024, lowering the 2024 labor share from 51.9% to 51.4% of GDI and depreciation from 16.5% to 16.4%; earlier years did not change. And Figure 3's profit and proprietors' income values had been typed in by hand and did not match BEA's data: for example, 7.2% of GDI for 1980 pre-tax profits, against 10.0% in BEA's data, and 7.8% for 1970 proprietors' income, against 7.3%. All numbers now come from BEA.*
 
 **Key takeaway:** Labor's share of GDI fell by 6.9 pp. GDI is the sum of compensation, depreciation, net operating surplus, and production taxes less subsidies, so the other three shares rose by 6.9 pp in total: depreciation by 3.6 pp and net operating surplus (profits, proprietors' income, rent, and net interest) by 5.1 pp, while production taxes less subsidies fell by 1.7 pp (components rounded). Depreciation, which represents capital maintenance costs that are not income to anyone, thus matches just over half of labor's fall. The 6.3 pp rise in post-tax corporate profits (after depreciation) is measured differently and is not one of these components, so it cannot be added to the rise in depreciation (see Figure 3).
 
-**Sector scope:** This analysis uses **whole-economy GDI shares**. The [BLS nonfarm business sector](https://fred.stlouisfed.org/series/PRS85006173) — which excludes government and housing — shows an even steeper labor share decline (~16% from its early-1970s peak).
+**Sector scope:** This analysis uses **whole-economy GDI shares**. The [BLS nonfarm business sector](https://fred.stlouisfed.org/series/PRS85006173) — which excludes government and housing — shows an even steeper labor share decline (about 15% from its 1970 peak to 2024).
 
 ---
 
@@ -176,6 +176,8 @@ The bottom panel shows which depreciation Figure 3's profits are after. Firms de
 
 For detailed methodological notes, data tables, replication code, and technical appendices, see **[METHODOLOGY.md](METHODOLOGY.md)**.
 
+**Replication.** Every number in this note is printed by `python3 scripts/readme_numbers.py`, and each figure by its script in [`scripts/`](scripts/), all from the data saved in [`data/`](data/). [`data/README.md`](data/README.md) gives each dataset's source and download date; `python3 scripts/fetch_data.py` downloads newer data.
+
 ---
 
 ## Appendix A: The Net Domestic Income (NDI) Measure
@@ -217,7 +219,7 @@ Equivalently, if we measure labor's share over net income (NDI), the labor-share
 
 ## Appendix B: International Comparison
 
-How does the U.S. labor share compare to other major economies? Using the [Penn World Table](https://www.rug.nl/ggdc/productivity/pwt/) (version 11.0), which provides internationally comparable labor share estimates, we can benchmark the U.S. against peer economies. In 2023, the U.S. labor share stood at **56.8%** — the second-lowest among the G7 and major OECD economies. Only South Korea (54.6%) had a lower labor share. By contrast, Canada (65.9%), Germany (63.7%), and France (63.1%) all have labor shares roughly 7–9 percentage points higher than the U.S. Japan (58.7%) and the UK (59.5%) fall in between.
+How does the U.S. labor share compare to other major economies? Using the [Penn World Table](https://www.rug.nl/ggdc/productivity/pwt/) (version 11.0), which provides internationally comparable labor share estimates, we can benchmark the U.S. against peer economies. In 2023, the U.S. labor share stood at **56.8%**, the second-lowest in the G7 after Italy (51.2%). South Korea (54.6%) was also lower. By contrast, Canada (65.9%), Germany (63.7%), and France (63.1%) all have labor shares roughly 6 to 9 percentage points higher than the U.S. Japan (58.7%) and the UK (59.5%) fall in between.
 
 | Country | Labor Share (2023) |
 |---------|-------------------|
@@ -228,8 +230,9 @@ How does the U.S. labor share compare to other major economies? Using the [Penn 
 | Japan | 58.7% |
 | **United States** | **56.8%** |
 | South Korea | 54.6% |
+| Italy | 51.2% |
 
-*Source: Penn World Table 11.0 via [FRED](https://fred.stlouisfed.org/release?rid=285). Variable: Share of Labour Compensation in GDP at Current National Prices (labsh).*
+*Source: Penn World Table 11.0 ([Feenstra, Inklaar and Timmer 2015](https://doi.org/10.1257/aer.20130954)), from its publisher's archive on [DataverseNL](https://doi.org/10.34894/FABVLR). Variable: share of labour compensation in GDP at current national prices (labsh).*
 
 The flipside of a low labor share is a high capital share. The U.S. economy directs a larger fraction of national income to capital owners — through corporate profits, depreciation allowances, and property income — than most other advanced economies. This pattern is consistent with research showing that the U.S. has experienced one of the steepest labor share declines among OECD countries since the 1980s, driven by factors including technological change, globalization, and declining worker bargaining power ([Autor et al. 2020](https://www.nber.org/papers/w23396); [Karabarbounis & Neiman 2014](https://www.nber.org/papers/w19136)).
 

@@ -11,9 +11,9 @@ Method
     GDI (corporate profits after depreciation + 1/3 of proprietors' income) before tax and after
     corporate and personal tax, all as defined in post_tax_labor_share.py (BEA data).
   - The US non-housing business-sector profit share (ps_wide) from
-    github.com/IlanStrauss/business-profit-share: 100 minus the labour share of business
+    github.com/IlanStrauss/business-profit-share (data/business_profit_share_usa.csv, saved by fetch_data.py): 100 minus the labour share of business
     value added, with the self-employed paid what employees earn (Gutierrez and Piton 2020).
-    Its profits are before depreciation.
+    It leaves out real estate, which holds owner-occupiers' imputed rents. Its profits are before depreciation.
 - Smoother: LOESS (local linear regression, Cleveland 1979) with a 30% span, about 16 years.
   It sets the starting level in the last data year, free of that year's cyclical swing.
 - Trend: OLS slope of the annual share on the year from 2000 to the last data year, with a
@@ -25,10 +25,8 @@ Method
 """
 
 import csv
-import io
 import os
 import sys
-import urllib.request
 
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mtick
@@ -48,9 +46,7 @@ TARGET = 2035
 SPAN = 0.3
 AI_MULTIPLIER = 2
 Z90 = 1.645
-# Pinned to a commit, so these numbers do not move when that repository changes
-BUSINESS_CSV = ('https://raw.githubusercontent.com/IlanStrauss/business-profit-share/'
-                '6de05be00bf92d23817b87cacac49e8c779f32d3/data/processed/profit_share_extended.csv')
+BUSINESS_CSV = os.path.join(ROOT, 'data', 'business_profit_share_usa.csv')
 
 # Blue = pre-tax, orange = post-tax, as in the post-tax figure
 BLUE, ORANGE, GRAY = '#2563eb', '#ea580c', '#4b5563'
@@ -60,7 +56,7 @@ PANELS = [
      [('labor_pre_tax', 'Pre-tax', BLUE), ('labor_post_tax', 'Post-tax', ORANGE)]),
     ('Profit share of GDI (profits after depreciation)', '% of gross domestic income',
      [('profit_pre_tax', 'Pre-tax', BLUE), ('profit_after_all_taxes', 'Post-tax', ORANGE)]),
-    ('Business-sector profit share (profits before depreciation)', '% of business value added',
+    ('Non-housing business-sector profit share (profits before depreciation)', '% of business value added',
      [('business', 'Pre-tax', BLUE)]),
 ]
 
@@ -73,8 +69,8 @@ def gdi_series(d):
 
 
 def business_share():
-    with urllib.request.urlopen(BUSINESS_CSV) as r:
-        rows = [row for row in csv.DictReader(io.TextIOWrapper(r, encoding='utf-8'))
+    with open(BUSINESS_CSV, newline='') as f:
+        rows = [row for row in csv.DictReader(f)
                 if row['iso3c'] == 'USA' and row['ps_wide'] and int(row['year']) >= START]
     rows.sort(key=lambda row: int(row['year']))
     years = np.array([int(row['year']) for row in rows])
@@ -172,8 +168,9 @@ def plot(series, res):
            Line2D([0], [0], color=GRAY, linewidth=4, linestyle='--', label=f'AI: trend since {TREND_START} doubled')]
     axes[0].legend(handles=key, loc='lower left', fontsize=15, framealpha=0.95)
     fig.text(0.5, 0.005,
-             "Sources: BEA NIPA bulk data; business-sector share from github.com/IlanStrauss/business-profit-share "
-             "(Gutiérrez–Piton method).\nPost-tax: labor after payroll and income tax; profits after corporate and "
+             "Sources: BEA NIPA; non-housing business-sector share from github.com/IlanStrauss/business-profit-share "
+             "(Gutiérrez–Piton method), which leaves out real estate."
+             "\nPost-tax: labor after payroll and income tax; profits after corporate and "
              "personal tax. GDI profits are corporate profits after depreciation\nplus 1/3 of proprietors' income. "
              f"Trend = OLS slope of the annual share from {TREND_START} to the last data year; the scenario doubles it "
              "from the\nsmoothed last-year level (LOESS span 0.3). A mechanical scenario, not a forecast.",

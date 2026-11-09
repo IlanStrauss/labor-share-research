@@ -11,7 +11,7 @@ If AI doubles the trend each share has followed since 2000, then by 2035 labor's
 | Profits after depreciation, pre-tax | 15.7 | 19.9 (17.9 to 21.8) |
 | Profits after depreciation, post-tax | 12.1 | 15.7 (14.0 to 17.4) |
 
-Post-tax means after payroll and income tax for labor, and after corporate and personal tax for profits, as in [POST_TAX.md](POST_TAX.md). The US business-sector profit share from [business-profit-share](https://github.com/IlanStrauss/business-profit-share) reaches 46.6% of business value added in 2035 on the doubled trend (it sits far above the GDI shares mainly because it counts depreciation as profit, while they deduct it).
+Post-tax means after payroll and income tax for labor, and after corporate and personal tax for profits, as in [POST_TAX.md](POST_TAX.md). The US non-housing business-sector profit share from [business-profit-share](https://github.com/IlanStrauss/business-profit-share) reaches 46.6% of business value added in 2035 on the doubled trend (like our GDI profit shares, it leaves out owner-occupiers' imputed rents; it sits far above them mainly because it counts depreciation as profit, while they deduct it).
 
 [![AI scenario: labor and profit shares to 2035](figures/ai_trend_capital_share.png)](figures/ai_trend_capital_share.png?raw=true)
 
@@ -25,7 +25,7 @@ Five shares, annual from 1970:
 
 - **Labor share of GDI**: compensation over GDI, before tax and after payroll and income tax.
 - **Profit share of GDI**: Figure 3's definition, corporate profits after depreciation (without IVA/CCAdj) plus one third of proprietors' income, over GDI, before tax and after corporate and personal tax.
-- **Business-sector profit share**: 100 minus the labor share of US business value added, with the self-employed paid what employees earn, following [Gutiérrez and Piton (2020)](https://doi.org/10.1257/aeri.20190285). Business value added excludes agriculture, real estate (which holds owner-occupied housing), public administration, education, and health. Depreciation counts as profit here. The series is `ps_wide` from business-profit-share (commit `6de05be`), through 2023.
+- **Non-housing business-sector profit share**: 100 minus the labor share of US business value added, with the self-employed paid what employees earn, following [Gutiérrez and Piton (2020)](https://doi.org/10.1257/aeri.20190285). Business value added excludes real estate, which holds owner-occupied housing and its imputed rents, as well as agriculture, public administration, education, and health. Depreciation counts as profit here. The series is `ps_wide` from business-profit-share (commit `6de05be`), through 2023, saved in [`data/business_profit_share_usa.csv`](data/business_profit_share_usa.csv).
 
 The GDI shares come from BEA's NIPA bulk file (4 November 2026), through 2025. Each share is projected separately:
 
@@ -45,7 +45,7 @@ S(t) = S(T) + m × b × (t − T)
 | Labor, post-tax | 39.0 | −0.159 (−0.193 to −0.124) |
 | Profits after depreciation, pre-tax | 16.1 | 0.188 (0.090 to 0.285) |
 | Profits after depreciation, post-tax | 12.4 | 0.167 (0.083 to 0.252) |
-| Business sector, profits before depreciation | 39.4 | 0.300 (0.197 to 0.404) |
+| Non-housing business sector, profits before depreciation | 39.4 | 0.300 (0.197 to 0.404) |
 
 ---
 
@@ -55,7 +55,7 @@ S(t) = S(T) + m × b × (t − T)
 - The 90% intervals cover uncertainty in the trend only, not year-to-year swings around it, so the range of plausible outcomes is wider.
 - Labor and profit shares are projected separately, so their changes need not offset. The rest of GDI (depreciation, production taxes, rent, interest, and two thirds of proprietors' income) is not projected.
 - The post-tax trends carry past tax changes forward, such as the 2017 cut in the corporate tax rate. Future tax changes would move the post-tax lines regardless of AI.
-- The business-sector share sits far above the GDI shares mainly because it counts all business income other than labor compensation as profit, including depreciation and net interest, and because its denominator leaves out government, education, and health, where labor takes most of value added. Since depreciation counts as profit, rising depreciation lifts this share, while the GDI profit shares are after depreciation.
+- The non-housing business-sector share sits far above the GDI shares mainly because it counts all business income other than labor compensation as profit, including depreciation and net interest, and because its denominator leaves out government, education, and health, where labor takes most of value added. Since depreciation counts as profit, rising depreciation lifts this share, while the GDI profit shares are after depreciation. Leaving out housing works the other way: real estate's value added is almost all capital income, so including it would raise the share.
 
 ---
 
@@ -65,7 +65,7 @@ S(t) = S(T) + m × b × (t − T)
 python3 scripts/ai_trend_projection.py
 ```
 
-Uses the same BEA bulk file as [`POST_TAX.md`](POST_TAX.md), downloads the business-sector series from business-profit-share at a fixed commit, and prints every number cited above. Requires matplotlib, numpy, and statsmodels.
+Reads the data saved in [`data/`](data/) (sources in [`data/README.md`](data/README.md)) and prints every number cited above. Requires matplotlib, numpy, and statsmodels.
 
 ## References
 
