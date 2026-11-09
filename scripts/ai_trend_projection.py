@@ -1,5 +1,5 @@
 """
-AI scenario: where profit shares end up in 2035 and 2050 if AI doubles their trend since 2000.
+AI scenario: labor and profit shares in 2035 if AI doubles their trend since 2000.
 See AI_TRENDS.md.
 
 Run:  python3 scripts/ai_trend_projection.py
@@ -7,18 +7,20 @@ Writes data/ai_trend_projection.csv and figures/ai_trend_capital_share.{png,pdf}
 
 Method
 - Shares, annual from 1970:
-  - Figure 3's profit share, (corporate profits without IVA/CCAdj + 1/3 of proprietors'
-    income) / GDI, before tax [A053RC] and after corporate tax [A055RC], from BEA.
+  - Labor's share of GDI before tax and after payroll and income tax, and the profit share of
+    GDI (corporate profits after depreciation + 1/3 of proprietors' income) before tax and after
+    corporate and personal tax, all as defined in post_tax_labor_share.py (BEA data).
   - The US non-housing business-sector profit share (ps_wide) from
     github.com/IlanStrauss/business-profit-share: 100 minus the labour share of business
     value added, with the self-employed paid what employees earn (Gutierrez and Piton 2020).
+    Its profits are before depreciation.
 - Smoother: LOESS (local linear regression, Cleveland 1979) with a 30% span, about 16 years.
   It sets the starting level in the last data year, free of that year's cyclical swing.
 - Trend: OLS slope of the annual share on the year from 2000 to the last data year, with a
   90% interval from Newey-West standard errors (3 lags).
 - Projection for year t after the last data year T:
-      current trend:  S_T + b (t - T)
-      AI scenario:    S_T + 2b (t - T)
+      trend since 2000:  S_T + b (t - T)
+      AI scenario:       S_T + 2b (t - T)
   where S_T is the smoothed share in year T and b the trend slope (percentage points a year).
 """
 
@@ -32,15 +34,17 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as mtick
 import numpy as np
 import statsmodels.api as sm
+from matplotlib.lines import Line2D
+from matplotlib.patches import Patch
 from statsmodels.nonparametric.smoothers_lowess import lowess
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from bea_nipa import ROOT, load  # noqa: E402
+from post_tax_labor_share import build  # noqa: E402
 
 START = 1970
 TREND_START = 2000
-END_PROJ = 2050
-REPORT_YEARS = (2035, 2050)
+TARGET = 2035
 SPAN = 0.3
 AI_MULTIPLIER = 2
 Z90 = 1.645
@@ -48,23 +52,24 @@ Z90 = 1.645
 BUSINESS_CSV = ('https://raw.githubusercontent.com/IlanStrauss/business-profit-share/'
                 '6de05be00bf92d23817b87cacac49e8c779f32d3/data/processed/profit_share_extended.csv')
 
-# key, panel title, y-axis label, color
+# Blue = pre-tax, orange = post-tax, as in the post-tax figure
+BLUE, ORANGE, GRAY = '#2563eb', '#ea580c', '#4b5563'
+# title, y-axis label, [(series key, label, color)]
 PANELS = [
-    ('pre_tax', 'Profit share of GDI, pre-tax', '% of gross domestic income', '#2563eb'),
-    ('after_corporate_tax', 'Profit share of GDI, after corporate tax', '% of gross domestic income',
-     '#0d9488'),
-    ('business', 'Business-sector profit share (non-housing)', '% of business value added', '#c026d3'),
+    ('Labor share of GDI', '% of gross domestic income',
+     [('labor_pre_tax', 'Pre-tax', BLUE), ('labor_post_tax', 'Post-tax', ORANGE)]),
+    ('Profit share of GDI (profits after depreciation)', '% of gross domestic income',
+     [('profit_pre_tax', 'Pre-tax', BLUE), ('profit_after_all_taxes', 'Post-tax', ORANGE)]),
+    ('Business-sector profit share (profits before depreciation)', '% of business value added',
+     [('business', 'Pre-tax', BLUE)]),
 ]
 
 
-def bea_shares(d):
-    last = max(d['A261RC'])
-    years = np.arange(START, last + 1)
-    gdi = np.array([d['A261RC'][y] for y in years])
-    prop3 = np.array([d['A041RC'][y] for y in years]) / 3
-    pre = 100 * (np.array([d['A053RC'][y] for y in years]) + prop3) / gdi
-    post = 100 * (np.array([d['A055RC'][y] for y in years]) + prop3) / gdi
-    return {'pre_tax': (years, pre), 'after_corporate_tax': (years, post)}
+def gdi_series(d):
+    rows = [r for r in build(d) if r['year'] >= START]
+    years = np.array([r['year'] for r in rows])
+    keys = ['labor_pre_tax', 'labor_post_tax', 'profit_pre_tax', 'profit_after_all_taxes']
+    return {k: (years, np.array([r[k] for r in rows])) for k in keys}
 
 
 def business_share():
@@ -89,7 +94,7 @@ def project(years, y):
     smooth = lowess(y, years, frac=SPAN, it=0, return_sorted=False)
     b, lo, hi = trend(years, y)
     T, level = years[-1], smooth[-1]
-    future = np.arange(T + 1, END_PROJ + 1)
+    future = np.arange(T + 1, TARGET + 1)
     return {
         'smooth': smooth, 'b': b, 'b_lo': lo, 'b_hi': hi, 'level': level, 'T': T,
         'b_since_1970': trend(years, y, START)[0], 'future': future,
@@ -101,7 +106,7 @@ def project(years, y):
 
 
 def main():
-    series = bea_shares(load())
+    series = gdi_series(load())
     series['business'] = business_share()
     res = {k: project(*v) for k, v in series.items()}
 
@@ -119,71 +124,61 @@ def main():
         r = res[k]
         T = r['T']
         print(f"\n{k}: actual {T} = {y[-1]:.2f}%, LOESS {T} = {r['level']:.2f}%")
-        print(f"  trend {TREND_START}-{T}: {r['b']:.3f} pp/yr (90% interval {r['b_lo']:.3f} to {r['b_hi']:.3f}); "
-              f"{START}-{T}: {r['b_since_1970']:.3f} pp/yr")
-        for yr in REPORT_YEARS:
-            j = yr - T - 1
-            print(f"  {yr}: trend since {TREND_START} {r['current'][j]:.1f}%, AI (2x trend) {r['ai'][j]:.1f}% "
-                  f"(90% interval {r['ai_lo'][j]:.1f} to {r['ai_hi'][j]:.1f})")
+        print(f"  trend {TREND_START}-{T}: {r['b']:+.3f} pp/yr (90% interval {r['b_lo']:+.3f} to {r['b_hi']:+.3f}); "
+              f"{START}-{T}: {r['b_since_1970']:+.3f} pp/yr")
+        print(f"  {TARGET}: trend since {TREND_START} {r['current'][-1]:.1f}%, AI (2x trend) {r['ai'][-1]:.1f}% "
+              f"(90% interval {min(r['ai_lo'][-1], r['ai_hi'][-1]):.1f} to {max(r['ai_lo'][-1], r['ai_hi'][-1]):.1f})")
 
     plot(series, res)
     print('\nWrote data/ai_trend_projection.csv and figures/ai_trend_capital_share.{png,pdf}')
 
 
 def y_limits(keys, series, res, step):
-    vals = np.concatenate([np.concatenate([series[k][1], res[k]['ai']]) for k in keys])
+    vals = np.concatenate([np.concatenate([series[k][1], res[k]['smooth'], res[k]['ai']]) for k in keys])
     return step * np.floor(vals.min() / step), step * (np.ceil(vals.max() / step) + 1)
 
 
 def plot(series, res):
     plt.style.use('seaborn-v0_8-whitegrid')
-    fig, axes = plt.subplots(1, 3, figsize=(28, 9.5))
-    # The two GDI panels share one scale; the business-sector panel has its own
-    gdi_keys = ['pre_tax', 'after_corporate_tax']
-    limits = {k: (y_limits(gdi_keys, series, res, 2), 2) for k in gdi_keys}
-    limits['business'] = (y_limits(['business'], series, res, 4), 4)
-    for ax, (k, title, ylabel, color) in zip(axes, PANELS):
-        years, y = series[k]
-        r = res[k]
-        T, future = r['T'], r['future']
-        ax.plot(years, y, '-', linewidth=2, color=color, alpha=0.35, label='Actual')
-        ax.plot(years, r['smooth'], '-', linewidth=5, color=color, alpha=0.9, label='LOESS trend',
-                solid_capstyle='round')
-        fx = np.concatenate([[T], future])
-        ax.plot(fx, np.concatenate([[r['level']], r['current']]), ':', linewidth=4, color=color,
-                label=f"Trend since {TREND_START} ({r['b']:+.2f} pp a year)")
-        ax.plot(fx, np.concatenate([[r['level']], r['ai']]), '--', linewidth=4, color=color,
-                label=f"AI: that trend doubled ({AI_MULTIPLIER * r['b']:+.2f} pp a year)")
-        ax.axvline(T, color='#999', linewidth=1.5, linestyle='-', alpha=0.6)
-        ax.text(T + 0.5, 0.02, 'projection', fontsize=13, color='#555', transform=ax.get_xaxis_transform())
-        for yr in REPORT_YEARS:
-            j = yr - T - 1
-            # AI label above-left of its point, trend label below-right, clear of both lines
-            for vals, offset, ha, va in [(r['ai'], (-8, 8), 'right', 'bottom'),
-                                         (r['current'], (8, -8), 'left', 'top')]:
-                ax.plot(yr, vals[j], 'o', markersize=9, color=color, markeredgecolor='white',
-                        markeredgewidth=2)
-                ax.annotate(f"{vals[j]:.1f}%", xy=(yr, vals[j]), xytext=offset,
-                            textcoords='offset points', ha=ha, va=va, fontsize=14, color='#222')
-        (lo, hi), step = limits[k]
-        ax.set_title(title, fontsize=20, fontweight='bold', loc='left')
-        ax.set_xlim(START, END_PROJ + 6)
-        ax.set_xticks(range(START, END_PROJ + 1, 10))
+    fig, axes = plt.subplots(3, 1, figsize=(14, 22))
+    for ax, (title, ylabel, members), step in zip(axes, PANELS, (4, 2, 4)):
+        for k, label, color in members:
+            years, y = series[k]
+            r = res[k]
+            T = r['T']
+            ax.plot(years, y, '-', linewidth=2, color=color, alpha=0.35)
+            ax.plot(years, r['smooth'], '-', linewidth=5, color=color, alpha=0.9, solid_capstyle='round')
+            ax.plot(np.concatenate([[T], r['future']]), np.concatenate([[r['level']], r['ai']]), '--',
+                    linewidth=4, color=color)
+            ax.plot(TARGET, r['ai'][-1], 'o', markersize=10, color=color, markeredgecolor='white', markeredgewidth=2)
+            ax.annotate(f"{label}: {r['ai'][-1]:.1f}%", xy=(TARGET, r['ai'][-1]), xytext=(12, 0),
+                        textcoords='offset points', va='center', fontsize=17, color='#222')
+        T = res[members[0][0]]['T']
+        ax.axvline(T, color='#999', linewidth=1.5, alpha=0.6)
+        ax.text(T + 0.5, 0.03, 'AI scenario', fontsize=14, color='#555', transform=ax.get_xaxis_transform())
+        lo, hi = y_limits([k for k, _, _ in members], series, res, step)
         ax.set_ylim(lo, hi)
         ax.set_yticks(np.arange(lo, hi + step / 2, step))
+        ax.set_xlim(START, TARGET + 9)
+        ax.set_xticks(range(START, TARGET + 1, 5))
+        ax.set_title(title, fontsize=22, fontweight='bold', loc='left')
+        ax.set_ylabel(ylabel, fontsize=17)
         ax.yaxis.set_major_formatter(mtick.PercentFormatter(decimals=0))
-        ax.tick_params(labelsize=15)
-        ax.set_ylabel(ylabel, fontsize=16)
-        ax.legend(loc='upper left', fontsize=14, framealpha=0.95)
-    fig.text(0.5, 0.01,
+        ax.tick_params(labelsize=16)
+        ax.tick_params(axis='x', pad=10)
+    key = [Patch(color=BLUE, label='Pre-tax'), Patch(color=ORANGE, label='Post-tax'),
+           Line2D([0], [0], color=GRAY, linewidth=2, alpha=0.35, label='Annual data'),
+           Line2D([0], [0], color=GRAY, linewidth=5, label='Smoothed (LOESS)'),
+           Line2D([0], [0], color=GRAY, linewidth=4, linestyle='--', label=f'AI: trend since {TREND_START} doubled')]
+    axes[0].legend(handles=key, loc='lower left', fontsize=15, framealpha=0.95)
+    fig.text(0.5, 0.005,
              "Sources: BEA NIPA bulk data; business-sector share from github.com/IlanStrauss/business-profit-share "
-             "(Gutiérrez–Piton method; business value added excludes agriculture, real estate, public administration, education, "
-             "and health, and depreciation counts as profit).\n"
-             "GDI profit share uses Figure 3's definition: corporate profits without IVA/CCAdj plus 1/3 of proprietors' "
-             f"income. Trend = OLS slope of the annual share from {TREND_START} to the last data year. Projections start "
-             "from the smoothed last-year level (LOESS span 0.3). A mechanical scenario, not a forecast.",
-             ha='center', fontsize=12, color='#555')
-    plt.tight_layout(rect=(0, 0.06, 1, 1))
+             "(Gutiérrez–Piton method).\nPost-tax: labor after payroll and income tax; profits after corporate and "
+             "personal tax. GDI profits are corporate profits after depreciation\nplus 1/3 of proprietors' income. "
+             f"Trend = OLS slope of the annual share from {TREND_START} to the last data year; the scenario doubles it "
+             "from the\nsmoothed last-year level (LOESS span 0.3). A mechanical scenario, not a forecast.",
+             ha='center', fontsize=13, color='#555')
+    plt.tight_layout(rect=(0, 0.045, 1, 1), h_pad=3)
     for ext in ('png', 'pdf'):
         kw = {'dpi': 150} if ext == 'png' else {}
         plt.savefig(os.path.join(ROOT, 'figures', f'ai_trend_capital_share.{ext}'), bbox_inches='tight',

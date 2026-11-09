@@ -139,11 +139,11 @@ def plot(rows, png, pdf):
         ('Labor share of GDI', [
             ('labor_pre_tax', 'Pre-tax (compensation)', BLUE),
             ('labor_post_tax', 'Post-tax (after payroll and income tax)', ORANGE)], (34, 62)),
-        ('Profit share of GDI', [
+        ('Profit share of GDI (profits after depreciation)', [
             ('profit_pre_tax', 'Pre-tax (Figure 3 definition)', BLUE),
             ('profit_after_all_taxes', 'Post-tax (after corporate and personal tax)', ORANGE)], (4, 18)),
     ]
-    fig, axes = plt.subplots(1, 2, figsize=(20, 9.5))
+    fig, axes = plt.subplots(2, 1, figsize=(14, 16))
     for ax, (title, series, ylim), legend_loc in zip(axes, panels, ['lower left', 'upper left']):
         for key, label, color in series:
             vals = [r[key] for r in rows]
@@ -151,21 +151,22 @@ def plot(rows, png, pdf):
                     solid_capstyle='round')
             ax.annotate(f"{vals[-1]:.1f}%", xy=(last, vals[-1]), xytext=(8, 0),
                         textcoords='offset points', va='center', fontsize=15, color='#222')
-        ax.set_title(title, fontsize=20, fontweight='bold', loc='left')
+        ax.set_title(title, fontsize=22, fontweight='bold', loc='left')
         ax.set_xlim(PLOT_START, last + 4)
         ax.set_xticks(range(1970, last + 1, 10))
         ax.set_ylim(*ylim)
         ax.yaxis.set_major_formatter(mtick.PercentFormatter(decimals=0))
         ax.tick_params(labelsize=15)
+        ax.tick_params(axis='x', pad=10)
         ax.set_ylabel('% of gross domestic income', fontsize=16)
         ax.legend(loc=legend_loc, fontsize=14, framealpha=0.95)
     fig.text(0.5, 0.01,
-             "Source: BEA NIPA bulk data (Tables 1.10, 1.12, 2.1, 3.4, 3.6). Income tax on wages and on dividends and "
-             "proprietors' income uses the average household income tax rate (Mendoza, Razin and Tesar 1994).\n"
-             "Payroll taxes are employer and employee social insurance contributions. Profits are corporate "
-             "profits without IVA/CCAdj plus 1/3 of proprietors' income (Gollin 2002).",
+             "Source: BEA NIPA bulk data (Tables 1.10, 1.12, 2.1, 3.4, 3.6). Payroll taxes are employer and employee social insurance "
+             "contributions.\nIncome tax on wages, dividends, and proprietors' income uses the average household income tax rate "
+             "(Mendoza, Razin and Tesar 1994).\nProfits are corporate profits without IVA/CCAdj, after depreciation as firms "
+             "report it for tax, plus 1/3 of proprietors' income (Gollin 2002).",
              ha='center', fontsize=12, color='#555')
-    plt.tight_layout(rect=(0, 0.06, 1, 1))
+    plt.tight_layout(rect=(0, 0.07, 1, 1), h_pad=3)
     plt.savefig(png, dpi=150, bbox_inches='tight', facecolor='white', edgecolor='none')
     plt.savefig(pdf, bbox_inches='tight', facecolor='white', edgecolor='none')
     plt.close()
