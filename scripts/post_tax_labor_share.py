@@ -51,6 +51,11 @@ FIRST_YEAR = 1948
 PLOT_START = 1970
 
 
+def household_income(d, y):
+    # Denominator of tau_h
+    return d['A034RC'][y] + d['A041RC'][y] + d['A048RC'][y] + d['A064RC'][y] + d['B703RC'][y]
+
+
 def build(d):
     last = max(d['A261RC'])
     rows = []
@@ -58,12 +63,11 @@ def build(d):
         gdi = d['A261RC'][y]
         comp = d['A4002C'][y]
         wages = d['A034RC'][y]
-        prop = d['A041RC'][y]
         divs = d['B703RC'][y]
         payroll = (d['B039RC'][y] + d['A1587C'][y] + d['CON544'].get(y, 0)
                    + d['CON550'].get(y, 0) + d['B738RC'].get(y, 0))
         income_tax = d['B231RC'][y] + d['B245RC'][y]
-        hh_income = wages + prop + d['A048RC'][y] + d['A064RC'][y] + divs
+        hh_income = household_income(d, y)
         tau_h = income_tax / hh_income
         tax_wages = tau_h * wages
         kp = capital_part(d, y)

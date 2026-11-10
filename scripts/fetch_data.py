@@ -58,6 +58,10 @@ SERIES = [
     'B703RC',  # Personal dividend income
     'B231RC', 'B245RC',  # Federal, and state and local, personal income taxes
     'A1587C', 'CON544', 'CON550', 'B738RC',  # Employee contributions for government social insurance
+    'CON530',  # Medicare supplementary medical insurance premiums
+    'A063RC', 'W823RC', 'W824RC', 'W729RC',  # Social benefits to persons; Social Security, Medicare, Medicaid
+    'G17007', 'G17008', 'G17009', 'G17010',  # Government consumption: health, recreation, education, income security
+    'W950RC', 'W951RC',  # Federal capital transfers to business: financial stabilization, other
     'A445RC',  # Corporate profits with IVA and CCAdj, domestic industries
     'A191RC',  # Gross domestic product
     'A765RC', 'A194RC', 'A265RC',  # General government: value added, compensation, depreciation

@@ -10,6 +10,7 @@ Saved copies of every dataset the scripts use, so that the published numbers rep
 | `proprietors_income_split.csv` | Output of `scripts/proprietors_split.py`: labor's fraction of proprietors' income on Kravis's (1959) economy-wide basis, and the labor and capital parts of proprietors' income as % of GDI, 1929–2025 | | Figures 1 and 3, POST_TAX.md, AI_TRENDS.md, METHODOLOGY.md |
 | `labor_share_measures.csv` | Output of `scripts/generate_chart.py`: the U.S. labor share measures and depreciation plotted in Figures 1 and 2, % of GDI (compensation also as % of net domestic income), 1970–2024 | | Figures 1 and 2 |
 | `post_tax_labor_share.csv` | Output of `scripts/post_tax_labor_share.py` | | POST_TAX.md |
+| `post_spending_shares.csv` | Output of `scripts/post_spending_shares.py`: labor and profit shares after taxes and government spending, with social benefits, public services, and grants, % of GDI, 1959–2025 | | POST_TAX.md |
 | `ai_trend_projection.csv` | Output of `scripts/ai_trend_projection.py` | | AI_TRENDS.md |
 
 `bea_raw/`, which git ignores, holds BEA's full bulk file after `fetch_data.py` downloads it.
