@@ -2,8 +2,9 @@
 """
 Generate labor share comparison charts showing different measurement approaches.
 Focus: 1970-2024 period (post-war peak to present)
-Data sources: BEA NIPA (data/bea_nipa_extract.csv); Penn World Table 11.0 via FRED (data/pwt_labor_share.csv),
-both saved by fetch_data.py
+Data sources: BEA NIPA (data/bea_nipa_extract.csv); Penn World Table 11.0 from DataverseNL
+(data/pwt_labor_share.csv), both saved by fetch_data.py. Writes the plotted BEA series to
+data/labor_share_measures.csv.
 
 Charts produced:
 1. Gross labor share comparison (main chart)
@@ -19,6 +20,7 @@ import matplotlib.ticker as mtick
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from bea_nipa import ROOT, load  # noqa: E402
+from proprietors_split import labor_part  # noqa: E402
 
 # === DATA: 1970-2024 (Annual), % of GDI ===
 # BEA series come from the NIPA bulk file (bea_nipa.py); BEA series codes in brackets
@@ -39,10 +41,7 @@ bea_comp = gdi_share('A4002C')
 # Depreciation (Consumption of Fixed Capital) [A262RC]
 bea_dep = gdi_share('A262RC')
 
-# Proprietors' income with IVA and CCAdj [A041RC]
-bea_prop = gdi_share('A041RC')
-
-# Wages and salaries to persons [W270RC]
+# Wages and salaries [W270RC]
 # This excludes supplements (benefits, employer social insurance)
 bea_wages = gdi_share('W270RC')
 
@@ -50,7 +49,7 @@ bea_wages = gdi_share('W270RC')
 # Social Security and Medicare (FICA) plus smaller programs such as unemployment insurance
 employer_social_insurance = gdi_share('B039RC')
 
-# Penn World Table labor share (FRED: LABSHPUSA156NRUG)
+# Penn World Table 11.0 labor share (labsh), from DataverseNL
 # Note: PWT uses different methodology (imputes self-employment labor income)
 with open(os.path.join(ROOT, 'data', 'pwt_labor_share.csv'), newline='') as f:
     pwt = {int(row['year']): float(row['labor_share_pct']) for row in csv.DictReader(f) if row['iso3c'] == 'USA'}
@@ -63,10 +62,10 @@ pwt_labsh = [pwt[y] for y in pwt_years]
 # This is labor's share of Net Domestic Income (NDI = GDI - Depreciation)
 net_labor_share = [comp / (100 - dep) * 100 for comp, dep in zip(bea_comp, bea_dep)]
 
-# Adjusted Labor Share (with 2/3 of proprietors' income allocated to labor)
-# A common split since Johnson (1954); see Krueger (1999)
-alpha = 2/3
-adj_labor_share = [comp + (alpha * prop) for comp, prop in zip(bea_comp, bea_prop)]
+# Adjusted Labor Share = compensation + the labor part of proprietors' income, which is split between
+# labor and capital in the same ratio as the rest of the economy's income (Kravis's economy-wide basis;
+# see proprietors_split.py)
+adj_labor_share = [comp + 100 * labor_part(d, y) / d['A261RC'][y] for y, comp in zip(years, bea_comp)]
 
 # Supplements (benefits + employer social insurance) = Compensation - Wages
 supplements = [comp - wage for comp, wage in zip(bea_comp, bea_wages)]
@@ -123,7 +122,7 @@ def create_main_chart():
             markevery=5, alpha=LINE_ALPHA)
 
     ax.plot(years, adj_labor_share, '-', linewidth=LINE_WIDTH, color=COLORS['adjusted'],
-            label='Adjusted: + ⅔ Proprietors\' Income', marker='d', markersize=MARKER_SIZE,
+            label='Adjusted: + Labor Part of Proprietors\' Income', marker='d', markersize=MARKER_SIZE,
             markevery=5, alpha=LINE_ALPHA)
 
     ax.plot(years, comp_ex_fica, '-', linewidth=LINE_WIDTH, color=COLORS['ex_fica'],
@@ -169,8 +168,8 @@ def create_main_chart():
 
     # Source note
     fig.text(0.5, 0.02,
-             'Sources: BEA NIPA bulk data (series A4002C, W270RC, B039RC, A041RC, A261RC); '
-             'Penn World Table 11.0 (FRED: LABSHPUSA156NRUG)',
+             'Sources: BEA NIPA bulk data (series A4002C, W270RC, B039RC, A041RC, A261RC, W056RC, A107RC, A262RC); '
+             'Penn World Table 11.0 (DataverseNL)',
              ha='center', fontsize=SOURCE_SIZE, color='#555')
 
     plt.tight_layout()
@@ -282,7 +281,7 @@ def create_combined_chart():
             markevery=5, alpha=LINE_ALPHA)
 
     ax.plot(years, adj_labor_share, '-', linewidth=LINE_WIDTH, color=COLORS['adjusted'],
-            label='Adjusted: + ⅔ Proprietors\' Income', marker='d', markersize=MARKER_SIZE,
+            label='Adjusted: + Labor Part of Proprietors\' Income', marker='d', markersize=MARKER_SIZE,
             markevery=5, alpha=LINE_ALPHA)
 
     # Reference lines
@@ -315,12 +314,12 @@ def create_combined_chart():
 
     # Source note
     fig.text(0.5, 0.02,
-             'Sources: BEA NIPA bulk data; Penn World Table 11.0 via FRED',
+             'Sources: BEA NIPA bulk data; Penn World Table 11.0 (DataverseNL)',
              ha='center', fontsize=SOURCE_SIZE, color='#555')
 
     # Methodology note
     note_text = ("Gross = Comp/GDI  |  Net = Comp/(GDI−Depreciation)  |  "
-                 "Adjusted = Comp + ⅔×Proprietors' Income")
+                 "Adjusted = Comp + labor part of Proprietors' Income")
     fig.text(0.5, 0.05, note_text, ha='center', fontsize=SOURCE_SIZE, color='#444', style='italic')
 
     plt.tight_layout()
@@ -333,6 +332,19 @@ def create_combined_chart():
     plt.close()
 
     print("Saved: labor_share_comparison.png/pdf")
+
+
+def write_csv():
+    """Save the plotted BEA series, % of GDI except the NDI share (% of NDI)"""
+    cols = [('compensation', bea_comp), ('wages_and_benefits_excl_employer_social_insurance', comp_ex_fica),
+            ('wages', bea_wages), ('adjusted_with_labor_part_of_proprietors_income', adj_labor_share),
+            ('compensation_pct_of_ndi', net_labor_share), ('depreciation', bea_dep)]
+    with open(os.path.join(ROOT, 'data', 'labor_share_measures.csv'), 'w', newline='') as f:
+        w = csv.writer(f)
+        w.writerow(['year'] + [name for name, _ in cols])
+        for i, y in enumerate(years):
+            w.writerow([y] + [round(vals[i], 3) for _, vals in cols])
+    print("Saved: data/labor_share_measures.csv")
 
 
 def print_summary_stats():
@@ -395,6 +407,7 @@ if __name__ == "__main__":
     create_main_chart()
     create_depreciation_chart()
     create_combined_chart()
+    write_csv()
 
     print_summary_stats()
 

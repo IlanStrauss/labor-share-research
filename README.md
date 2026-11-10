@@ -4,7 +4,7 @@
 
 **U.S. labor share declines while profit share grows** Yes! Across the standard BEA whole-economy measures in Table 1.11, the labor share is well below its late-1960s/1970 peak. The decline is consistent across all measures examined here, though magnitude varies with methodological choices. Concurrent to this has been a dramatic rise in the profit share of the income (which excludes interest income and rental income). 
 
-**The rise of profits and depreciation.** It should be noted that the profit share of income (profits after depreciation) remains only 13.9% post-tax (or 16.2% pre-tax) and is roughly equal now to the depreciation share of income. Depreciation is income set aside by the firm to replace the value of its fixed capital as it declines in productivity. 
+**The rise of profits and depreciation.** It should be noted that the profit share of income (profits after depreciation) remains only 13.5% post-tax (or 15.8% pre-tax) and is now close to the depreciation share of income (16.4%). Depreciation is income set aside by the firm to replace the value of its fixed capital as it declines in productivity. 
 
 **So who is benefiting from the decline in the labor share?** Depreciation income does not really represent income available to the firm as profits. As such the profit share measure deducts depreciation. It also means as the economy's production becomes more machine-intensive, the depreciation share of income will continue to rise, especially as the life of its assets decline. Depreciation, therefore, arguably represents a share of income that does not benefit anyone per se. However, if the price of capital goods falls sharply (as with computing hardware) then depreciation may not grow in value terms even as machinery become more important to production.
 
@@ -13,20 +13,20 @@
 | Measure | 1970 | 2024 | Change (pp) | Change (%) |
 |---------|------|------|-------------|------------|
 | **Labor Share** (Compensation/GDI) | 58.4% | 51.4% | **−6.9 pp** | **−12%** |
-| **Corporate Profit Share, Pre-Tax** (after depreciation) | 10.5% | 16.2% | **+5.6 pp** | **+54%** |
-| **Corporate Profit Share, Post-Tax** (after depreciation) | 7.6% | 13.9% | **+6.3 pp** | **+83%** |
+| **Corporate Profit Share, Pre-Tax** (after depreciation) | 9.4% | 15.8% | **+6.3 pp** | **+67%** |
+| **Corporate Profit Share, Post-Tax** (after depreciation) | 6.5% | 13.5% | **+7.0 pp** | **+107%** |
 | **Depreciation** | 12.8% | 16.4% | **+3.6 pp** | **+28%** |
 
 **Definitions:**
 - **Labor Share** = Compensation of Employees / Gross Domestic Income. Compensation includes wages, salaries, and employer-paid benefits (health insurance, pensions, payroll taxes).
-- **Corporate Profit Share** = (Corporate Profits + ⅓ × Proprietors' Income) / GDI. Corporate profits as reported by BEA are **already net of depreciation** — depreciation is deducted as a cost at the firm level before profits are reported. We add ⅓ of proprietors' income to account for the capital return portion of self-employment income, a common split since Johnson (1954) ([Krueger 1999](https://doi.org/10.1257/aer.89.2.45)). Pre-tax uses profits before corporate income tax; post-tax subtracts corporate taxes. Both **exclude** rental income (3.6% of GDI) and net interest (1.9%), which go to property owners and lenders respectively.
+- **Corporate Profit Share** = (Corporate Profits + Capital Part of Proprietors' Income) / GDI. Corporate profits as reported by BEA are **already net of depreciation** — depreciation is deducted as a cost at the firm level before profits are reported. We add the capital part of proprietors' income, the return on the self-employed's business assets. Each year, proprietors' income is split between labor and capital in the same ratio as the rest of the economy's income (compensation against net operating surplus other than proprietors' income), the "economy-wide basis" of Kravis (1959) ([Elsby, Hobijn and Şahin 2013](https://www.brookings.edu/articles/the-decline-of-the-u-s-labor-share/)). The capital part was 18.7% of proprietors' income in 1970 and 27.2% in 2024. Pre-tax uses profits before corporate income tax; post-tax subtracts corporate taxes. Both **exclude** rental income (3.6% of GDI) and net interest (1.9%), which go to property owners and lenders respectively.
 - **Depreciation** = Consumption of Fixed Capital / GDI. This is an accounting allowance for capital wearing out — not income to anyone. As the economy shifted toward short-lived assets ([BEA depreciates](https://apps.bea.gov/national/pdf/BEA_depreciation_rates.pdf) software at 33–55% a year, against 2–3% for office and commercial buildings), depreciation's share rose.
 
 *Source: BEA NIPA Tables 1.10 and 1.12, from BEA's bulk data file of 4 November 2026 (saved in [`data/`](data/)), computed by the scripts in [`scripts/`](scripts/). Changes are computed from unrounded data, so they can differ by 0.1 from the gap between the rounded values.*
 
-*Numbers updated November 2026. The March 2026 version differed for two reasons. BEA's 2026 annual update revised recent years, mainly 2023 and 2024, lowering the 2024 labor share from 51.9% to 51.4% of GDI and depreciation from 16.5% to 16.4%; earlier years did not change. And Figure 3's profit and proprietors' income values had been typed in by hand and did not match BEA's data: for example, 7.2% of GDI for 1980 pre-tax profits, against 10.0% in BEA's data, and 7.8% for 1970 proprietors' income, against 7.3%. All numbers now come from BEA.*
+*Numbers updated November 2026. The March 2026 version differed for three reasons. First, BEA's 2026 annual update revised recent years, mainly 2023 and 2024, lowering the 2024 labor share from 51.9% to 51.4% of GDI and depreciation from 16.5% to 16.4%; earlier years did not change. Second, Figure 3's profit and proprietors' income values had been typed in by hand and did not match BEA's data: for example, 7.2% of GDI for 1980 pre-tax profits, against 10.0% in BEA's data, and 7.8% for 1970 proprietors' income, against 7.3%; all numbers now come from BEA. Third, proprietors' income is now split each year in the same ratio as the rest of the economy's income, where earlier versions gave two-thirds to labor, a common split since Johnson (1954) ([Krueger 1999](https://doi.org/10.1257/aer.89.2.45)). Because labor's fraction fell from 81% in 1970 to 73% in 2024, this raises the 1970–2024 rise in the profit share from 5.6 pp to 6.3 pp before tax and from 6.3 pp to 7.0 pp after corporate tax, and the fall in the adjusted labor share (Figure 1) from 7.4 pp to 8.1 pp (`data/proprietors_income_split.csv` has the split for every year).*
 
-**Key takeaway:** Labor's share of GDI fell by 6.9 pp. GDI is the sum of compensation, depreciation, net operating surplus, and production taxes less subsidies, so the other three shares rose by 6.9 pp in total: depreciation by 3.6 pp and net operating surplus (profits, proprietors' income, rent, and net interest) by 5.1 pp, while production taxes less subsidies fell by 1.7 pp (components rounded). Depreciation, which represents capital maintenance costs that are not income to anyone, thus matches just over half of labor's fall. The 6.3 pp rise in post-tax corporate profits (after depreciation) is measured differently and is not one of these components, so it cannot be added to the rise in depreciation (see Figure 3).
+**Key takeaway:** Labor's share of GDI fell by 6.9 pp. GDI is the sum of compensation, depreciation, net operating surplus, and production taxes less subsidies, so the other three shares rose by 6.9 pp in total: depreciation by 3.6 pp and net operating surplus (profits, proprietors' income, rent, and net interest) by 5.1 pp, while production taxes less subsidies fell by 1.7 pp (components rounded). Depreciation, which represents capital maintenance costs that are not income to anyone, thus matches just over half of labor's fall. The 7.0 pp rise in post-tax corporate profits (after depreciation) is measured differently and is not one of these components, so it cannot be added to the rise in depreciation (see Figure 3).
 
 **Sector scope:** This analysis uses **whole-economy GDI shares**. The [BLS nonfarm business sector](https://fred.stlouisfed.org/series/PRS85006173) — which excludes government, nonprofits, and owner-occupied housing — shows an even steeper labor share decline (about 15% from its 1970 peak to 2024).
 
@@ -75,8 +75,9 @@ Where **Net Operating Surplus** is itself composed of:
 - Proprietors' Income
 - Rental Income of Persons
 - Net Interest and Miscellaneous Payments
+- two small items: business current transfer payments and the current surplus of government enterprises
 
-This structure matters: the four NOS subcomponents are not independent. In particular, "Net Interest" is largely an offset item — it reflects interest paid by businesses minus interest received, making it smaller than gross interest flows in the economy.
+"Net Interest" is interest paid by businesses minus the interest they receive, making it smaller than gross interest flows in the economy.
 
 We use GDI rather than GDP because the labor share numerator (compensation) comes from the income side of the accounts. Using GDP would mix income-side numerators with expenditure-side denominators, introducing measurement noise from the statistical discrepancy.
 
@@ -118,7 +119,7 @@ Figure 1 shows five different ways of measuring labor's share of national income
 
 - **Penn World Table (1970–2023 only)**: Green line. Uses a different methodology that imputes a labor share for self-employed workers, rather than treating proprietors' income as mixed. *Note: PWT data ends in 2023; the line does not extend to 2024.*
 
-- **Adjusted: Includes ⅔ Proprietors' Income**: Purple line. Adds two-thirds of proprietors' income to the numerator, a common split since Johnson (1954) ([Krueger 1999](https://doi.org/10.1257/aer.89.2.45)), to account for the labor component of self-employment income.
+- **Adjusted: Includes the Labor Part of Proprietors' Income**: Purple line. Adds the labor part of proprietors' income to the numerator, to account for the pay of the self-employed for their own work. Each year proprietors' income is split in the same ratio as the rest of the economy's income, so the labor part was 81.3% of proprietors' income in 1970 and 72.8% in 2024. This line fell from 64.3% to 56.2%, 8.1 pp.
 
 - **Wages Only**: Amber line. The numerator is just wages and salaries — no benefits, no employer payroll taxes. This shows the steepest decline.
 
@@ -147,28 +148,28 @@ Next, Figure 3 shows the corporate profit share of GDI — the share going to sh
 
 [![Corporate profit share, after depreciation](figures/capital_share.png)](figures/capital_share.png?raw=true)
 
-Both lines show **corporate profits after depreciation** (excluding rent and interest) plus **⅓ of proprietors' income** (the capital portion under the same split), making them consistent with the adjusted labor share in Figure 1.
+Both lines show **corporate profits after depreciation** (excluding rent and interest) plus **the capital part of proprietors' income** (the rest after the labor part in Figure 1's adjusted line), making them consistent with that labor share.
 
 **The equation:**
 ```
-Corporate Profit Share = [Corporate Profits (after depreciation) + ⅓ × Proprietors' Income] / GDI
+Corporate Profit Share = [Corporate Profits (after depreciation) + Capital Part of Proprietors' Income] / GDI
 ```
 
 *Note: Both measures exclude rental income (3.6% of GDI in 2024) and net interest (1.9%), which are separate components of national income going to property owners and lenders respectively.*
 
-- **Pre-Tax Corporate Profit Share (Blue)**: Corporate profits before tax, after depreciation, plus ⅓ of proprietors' income. This rose from 10.5% (1970) to 16.2% (2024), a **+5.6 pp** increase.
+- **Pre-Tax Corporate Profit Share (Blue)**: Corporate profits before tax, after depreciation, plus the capital part of proprietors' income. This rose from 9.4% (1970) to 15.8% (2024), a **+6.3 pp** increase.
 
-- **Post-Tax Corporate Profit Share (Orange)**: As above, but subtracting taxes on corporate income. This rose from 7.6% (1970) to 13.9% (2024), a **+6.3 pp** increase.
+- **Post-Tax Corporate Profit Share (Orange)**: As above, but subtracting taxes on corporate income. This rose from 6.5% (1970) to 13.5% (2024), a **+7.0 pp** increase.
 
-**Key Point:** As labor's share of GDI fell by 6.9 percentage points, the post-tax corporate profit share rose by 6.3 pp. The two changes are not an accounting decomposition, because this profit measure is not a component of GDI. It includes profits that US companies earn abroad, which are not part of GDI; it deducts depreciation as firms report it for tax, which in 2024 was smaller than BEA's economic depreciation (Figure 4); and it leaves out corporate income tax, which fell as a share of GDI. In the GDI accounts, labor's fall is matched by higher depreciation (+3.6 pp) and net operating surplus (+5.1 pp), less lower production taxes (−1.7 pp).
+**Key Point:** As labor's share of GDI fell by 6.9 percentage points, the post-tax corporate profit share rose by 7.0 pp. The two changes are not an accounting decomposition, because this profit measure is not a component of GDI. It includes profits that US companies earn abroad, which are not part of GDI; it deducts depreciation as firms report it for tax, which in 2024 was smaller than BEA's economic depreciation (Figure 4); and it leaves out corporate income tax, which fell as a share of GDI. In the GDI accounts, labor's fall is matched by higher depreciation (+3.6 pp) and net operating surplus (+5.1 pp), less lower production taxes (−1.7 pp).
 
-**Perspective on size:** While corporate profits rose substantially in percentage point terms, the post-tax corporate profit share (excluding rent and interest) remains modest at 13.9% of GDI. Labor compensation (51.4%) still dominates. Measured against *Net* Domestic Income (GDI less depreciation), the same profits are a larger share: 16.6% post-tax and 19.3% pre-tax in 2024, because depreciation (16.4% of GDI) comes out of the denominator while the numerator is unchanged. Corporate profits are already measured after depreciation, so depreciation should not be deducted from them a second time. On this net basis the post-tax share's rise since 1970 is also larger, about 8 pp.
+**Perspective on size:** While corporate profits rose substantially in percentage point terms, the post-tax corporate profit share (excluding rent and interest) remains modest at 13.5% of GDI. Labor compensation (51.4%) still dominates. Measured against *Net* Domestic Income (GDI less depreciation), the same profits are a larger share: 16.1% post-tax and 18.8% pre-tax in 2024, because depreciation (16.4% of GDI) comes out of the denominator while the numerator is unchanged. Corporate profits are already measured after depreciation, so depreciation should not be deducted from them a second time. On this net basis the post-tax share's rise since 1970 is also larger, about 9 pp.
 
 ### Figure 4. Depreciation Rose Mainly Because of Software and R&D
 
 [![Depreciation by type of asset, and tax vs economic depreciation of corporate capital](figures/depreciation.png)](figures/depreciation.png?raw=true)
 
-The top panel splits depreciation by type of asset. Depreciation rose from 12.8% of GDI in 1970 to 16.4% in 2024, and software, research and development, and other intellectual property account for 3.1 pp of that 3.6 pp rise. These assets wear out or go out of date within a few years, so the more of them firms own, the more income goes each year to replacing them. [Koh, Santaeulàlia-Llopis and Zheng (2020)](https://www.bse.eu/sites/default/files/working_paper_pdfs/927_1.pdf) argue that intellectual property capital accounts for the long-run fall in the US gross labor share.
+The top panel splits depreciation by type of asset. Depreciation rose from 12.8% of GDI in 1970 to 16.4% in 2024, and software, research and development, and other intellectual property account for 3.1 pp of that 3.6 pp rise. These assets wear out or go out of date within a few years, so the more of them firms own, the more income goes each year to replacing them. [Koh, Santaeulàlia-Llopis and Zheng (2020)](https://doi.org/10.3982/ECTA17477) argue that intellectual property capital accounts for the long-run fall in the US gross labor share.
 
 The bottom panel shows which depreciation Figure 3's profits are after. Firms deduct depreciation as the tax rules allow (dashed line), and this can differ from BEA's estimate of how fast their capital actually wears out (solid line). Figure 3's corporate profits are after the tax-rule depreciation. In 2024 that was 7.7% of GDI against 8.8% on BEA's measure, so on BEA's measure corporate profits would be about 1.2 pp of GDI lower. In 1970 it was the other way round (6.4% against 5.8%), so on BEA's measure the rise in corporate profits since 1970 would be about 1.8 pp smaller.
 
@@ -203,7 +204,7 @@ Net income identity (distribution-relevant):
 
 On a net basis, depreciation has already been netted out of capital's claim; labor's higher share is the corollary of measuring the split over net income. Corporate profits are part of that net claim. They are already measured after depreciation, so depreciation should not be deducted from them again, and their share of NDI is higher than their share of GDI, just as labor's is.
 
-Following [Bridgman (2018)](https://bea.gov/papers/pdf/laborshare1410.pdf) and [Rognlie (2015)](https://www.brookings.edu/wp-content/uploads/2016/07/2015a_rognlie.pdf), we compute labor's share of **Net Domestic Income (NDI)**:
+Following [Bridgman (2018)](https://doi.org/10.1017/S1365100516001000) and [Rognlie (2015)](https://www.brookings.edu/wp-content/uploads/2016/07/2015a_rognlie.pdf), we compute labor's share of **Net Domestic Income (NDI)**:
 
 ```
                                    Compensation of Employees

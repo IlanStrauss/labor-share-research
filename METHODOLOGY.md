@@ -38,13 +38,14 @@ The main note's shares are before income taxes. [POST_TAX.md](POST_TAX.md) build
 
 ## Assumption: Proprietors' Income
 
-**Proprietors' income** (6.5% of GDI in 2024) we view as "mixed income" — it contains both labor and capital returns for self-employed individuals (e.g., a sole-proprietor lawyer's earnings include both compensation for their work and returns on the firm's assets; a farmer's income reflects both their labor and the productivity of their land and equipment). This document allocates **⅔ of proprietors' income to labor** and **⅓ to capital**, a common convention since Johnson (1954) ([Krueger 1999](https://doi.org/10.1257/aer.89.2.45)), when computing the "Adjusted" labor share measure (purple line in Figure 1). 
+**Proprietors' income** (6.5% of GDI in 2024) we view as "mixed income" — it contains both labor and capital returns for self-employed individuals (e.g., a sole-proprietor lawyer's earnings include both compensation for their work and returns on the firm's assets; a farmer's income reflects both their labor and the productivity of their land and equipment). This document splits proprietors' income between labor and capital **in the same ratio as the rest of the economy's income**, year by year, for the "Adjusted" labor share measure (purple line in Figure 1) and the profit share (Figure 3). Labor's fraction is compensation divided by compensation plus net operating surplus other than proprietors' income: 81.3% in 1970 and 72.8% in 2024 ([`data/proprietors_income_split.csv`](data/proprietors_income_split.csv)). This is the "economy-wide basis" of Kravis (1959). [Elsby, Hobijn and Şahin (2013)](https://www.brookings.edu/articles/the-decline-of-the-u-s-labor-share/) show that the main alternative, the BLS method of paying the self-employed what employees earn, implied a negative capital share among the self-employed in the 1980s. Earlier versions of this note gave a fixed two-thirds to labor, a common convention since Johnson (1954) ([Krueger 1999](https://doi.org/10.1257/aer.89.2.45)). 
 
 **Sensitivity to this assumption** (2024 values, proprietors' income = 6.5% of GDI):
-- Relative to the **adjusted** series (Comp + ⅔·Prop = 55.8%): allocating **0%** of proprietors' income to labor gives 4.4 pp lower; allocating **100%** gives 2.2 pp higher.
+- Relative to the **adjusted** series (Comp + labor part = 56.2%): allocating **0%** of proprietors' income to labor gives 51.4%, 4.8 pp lower; allocating **100%** gives 58.0%, 1.8 pp higher.
+- The earlier two-thirds rule gave 55.8% in 2024 and a 1970–2024 fall of 7.4 pp, against 8.1 pp now, because labor's fraction fell from 81% to 73%.
 - Relative to the **unadjusted** series (Comp/GDI = 51.4%): allocating **100%** of proprietors' income to labor adds 6.5 pp.
 
-The **standard gross labor share** (blue line) does *not* include any proprietors' income in the numerator — it is simply Compensation of Employees / GDI. The adjustment only applies to the purple "Adjusted" line in Figure 1, which adds ⅔ of proprietors' income to compensation in the numerator to account for the labor component of self-employment earnings.
+The **standard gross labor share** (blue line) does *not* include any proprietors' income in the numerator — it is simply Compensation of Employees / GDI. The adjustment only applies to the purple "Adjusted" line in Figure 1, which adds the labor part of proprietors' income to compensation in the numerator to account for the labor component of self-employment earnings.
 
 ---
 
@@ -139,14 +140,14 @@ The NOS subcomponents (corporate profits, proprietors' income, rental income, ne
 For capital's share, the **residual method** is cleanest:
 
 ```
-Capital Share = (GDI − Compensation − Taxes on Production − labor portion of Proprietors') / GDI
+Capital Share = (GDI − Compensation − Taxes on Production − labor part of Proprietors' income) / GDI
 ```
 
 This avoids the "net interest" interpretation problem entirely.
 
 For **depreciation-adjusted** capital share (using NDI):
 ```
-Depreciation-Adjusted Capital Share = (NDI − Compensation − Taxes − labor portion of Proprietors') / NDI
+Depreciation-Adjusted Capital Share = (NDI − Compensation − Taxes − labor part of Proprietors' income) / NDI
 ```
 
 **Recommendation:** If you're focused on "capital vs labor," use **Net Operating Surplus** as your capital aggregate (which BEA publishes), rather than manually summing profits + interest + rent. This sidesteps the net-interest accounting complexity.
@@ -301,8 +302,8 @@ NDI = GDI × (1 - Depreciation_Share)
 Labor_Share_of_NDI = Compensation_Share / (1 - Depreciation_Share)
 
 Example (2024):
-NDI = 100% × (1 - 0.164) = 83.6%
-Labor_Share_of_NDI = 51.4% / 83.6% = 61.5%
+NDI = 100% × (1 - 0.1640) = 83.60%
+Labor_Share_of_NDI = 51.42% / 83.60% = 61.51%
 ```
 
 *For completeness, the net capital share counterpart:*
@@ -310,7 +311,7 @@ Labor_Share_of_NDI = 51.4% / 83.6% = 61.5%
 Net_Capital_Share (NDI basis) = NOS_Share / (1 - Depreciation_Share)
 
 Example (2024):
-Net_Capital_Share = 25.8% / 83.6% = 30.8%
+Net_Capital_Share = 25.77% / 83.60% = 30.83%
 ```
 
 Note: "Net" in labor share literature means net-of-depreciation, NOT net-of-taxes.
@@ -318,10 +319,11 @@ Note: "Net" in labor share literature means net-of-depreciation, NOT net-of-taxe
 **Adjusted Labor Share (with proprietors' income):**
 ```
 Adjusted = Compensation_Share + (α × Proprietors_Share)
-where α = ⅔ (a common convention since Johnson 1954)
+where α = Compensation / (Compensation + Net_Operating_Surplus − Proprietors_Income), recomputed each year
 
 Example (2024):
-Adjusted = 51.4% + (⅔ × 6.5%) = 55.8%
+α = 51.42% / (51.42% + 25.77% − 6.54%) = 0.728
+Adjusted = 51.42% + (0.728 × 6.54%) = 56.18%
 ```
 
 ---
@@ -396,7 +398,7 @@ Several methodological choices materially affect the reported decline, and studi
 
 *Gross versus net income.* Depreciation rose from 12.8 percent of GDI in 1970 to 16.4 percent in 2024, almost all of it from intellectual property products, which wear out fast: BEA depreciates software at 33 to 55 percent a year, against 2 to 3 percent for office and commercial buildings. The gap between gross and net labor-share measures has therefore widened. Bridgman and Rognlie prefer net; Karabarbounis-Neiman and Autor et al. use gross.
 
-*Proprietors' income.* Proprietors' income, 6.5 percent of GDI in 2024, mixes the self-employed's pay for their work with returns on their business assets. A common convention since Johnson (1954) gives two-thirds of it to labor ([Krueger 1999](https://doi.org/10.1257/aer.89.2.45)); the BLS instead credits the self-employed with employees' average hourly pay. Elsby, Hobijn and Şahin (2013) find that the BLS imputation implied a negative capital share among the self-employed in the 1980s and accounts for about a third of the decline in the BLS headline measure; two alternatives from Kravis (1959), which split self-employment income in the same proportion as the rest of the economy or give the self-employed's capital the same return as other capital, show smaller declines. [Gollin (2002)](https://web.williams.edu/Economics/wp/Gollin_Getting_Income_Shares_Right_working_paper_with_figures.pdf) shows that the treatment of self-employment income matters greatly for comparing labor shares across countries. Here, giving none or all of it to labor moves the 2024 share by up to 6.5 pp.
+*Proprietors' income.* Proprietors' income, 6.5 percent of GDI in 2024, mixes the self-employed's pay for their work with returns on their business assets. A common convention since Johnson (1954) gives two-thirds of it to labor ([Krueger 1999](https://doi.org/10.1257/aer.89.2.45)); the BLS instead credits the self-employed with employees' average hourly pay. Elsby, Hobijn and Şahin (2013) find that the BLS imputation implied a negative capital share among the self-employed in the 1980s and accounts for about a third of the decline in the BLS headline measure; two alternatives from Kravis (1959), which split self-employment income in the same proportion as the rest of the economy or give the self-employed's capital the same return as other capital, show smaller declines. This note uses the first of these, the economy-wide basis. [Gollin (2002)](https://web.williams.edu/Economics/wp/Gollin_Getting_Income_Shares_Right_working_paper_with_figures.pdf) shows that the treatment of self-employment income matters greatly for comparing labor shares across countries. Here, giving none or all of it to labor moves the 2024 share by up to 6.5 pp.
 
 *IPP capitalization.* The BEA's 1999 and 2013 comprehensive revisions reclassified software, then R&D and entertainment, literary, and artistic originals, as investment rather than expense. Koh et al. (2020) argue that this accounting change alone drives the observed decline; Barkai, Nallareddy and Ogneva (2025) find that the decline does not depend on it.
 

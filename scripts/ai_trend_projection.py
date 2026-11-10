@@ -8,7 +8,7 @@ Writes data/ai_trend_projection.csv and figures/ai_trend_capital_share.{png,pdf}
 Method
 - Shares, annual from 1970:
   - Labor's share of GDI before tax and after payroll and income tax, and the profit share of
-    GDI (corporate profits after depreciation + 1/3 of proprietors' income) before tax and after
+    GDI (corporate profits after depreciation + the capital part of proprietors' income) before tax and after
     corporate and personal tax, all as defined in post_tax_labor_share.py (BEA data).
 - Smoother: LOESS (local linear regression, Cleveland 1979) with a 30% span, about 16 years.
   It sets the starting level in the last data year, free of that year's cyclical swing.
@@ -103,7 +103,7 @@ def main():
         T = r['T']
         print(f"\n{k}: actual {T} = {y[-1]:.2f}%, LOESS {T} = {r['level']:.2f}%")
         print(f"  trend {TREND_START}-{T}: {r['b']:+.3f} pp/yr (90% interval {r['b_lo']:+.3f} to {r['b_hi']:+.3f}); "
-              f"{START}-{T}: {r['b_since_1970']:+.3f} pp/yr")
+              f"{START}-{T}: {r['b_since_1970']:+.3f} pp/yr (ratio {r['b'] / r['b_since_1970']:.2f})")
         print(f"  {TARGET}: trend since {TREND_START} {r['current'][-1]:.1f}%, AI (2x trend) {r['ai'][-1]:.1f}% "
               f"(90% interval {min(r['ai_lo'][-1], r['ai_hi'][-1]):.1f} to {max(r['ai_lo'][-1], r['ai_hi'][-1]):.1f})")
 
@@ -151,7 +151,7 @@ def plot(series, res):
     axes[0].legend(handles=key, loc='lower left', fontsize=15, framealpha=0.95)
     fig.text(0.5, 0.005,
              "Source: BEA NIPA. Post-tax: labor after payroll and income tax; profits after corporate and "
-             "personal tax. Profits are corporate profits after depreciation\nplus 1/3 of proprietors' income. "
+             "personal tax. Profits are corporate profits after depreciation\nplus the capital part of proprietors' income. "
              f"Trend = OLS slope of the annual share from {TREND_START} to the last data year; the scenario doubles it "
              "from the\nsmoothed last-year level (LOESS span 0.3). A mechanical scenario, not a forecast.",
              ha='center', fontsize=13, color='#555')

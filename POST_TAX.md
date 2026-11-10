@@ -2,7 +2,7 @@
 
 *Companion to the [main note](README.md), November 2026. Code: [`scripts/post_tax_labor_share.py`](scripts/post_tax_labor_share.py). Data: [`data/post_tax_labor_share.csv`](data/post_tax_labor_share.csv).*
 
-After payroll and income taxes, labor's share of gross domestic income (GDI) fell from 47.6% in 1970 to 39.4% in 2024, a fall of 8.2 percentage points (pp), against 6.9 pp before tax. Taxes add 1.3 pp to the fall: payroll taxes rose from 4.0% to 5.7% of GDI, while income tax on wages fell slightly. Over the same years the profit share of GDI (profits after depreciation) rose 5.6 pp before tax and 5.5 pp after tax.
+After payroll and income taxes, labor's share of gross domestic income (GDI) fell from 47.6% in 1970 to 39.4% in 2024, a fall of 8.2 percentage points (pp), against 6.9 pp before tax. Taxes add 1.3 pp to the fall: payroll taxes rose from 4.0% to 5.7% of GDI, while income tax on wages fell slightly. Over the same years the profit share of GDI (profits after depreciation) rose 6.3 pp before tax and 6.1 pp after tax.
 
 [![Labor and profit shares before and after tax](figures/labor_share_post_tax.png)](figures/labor_share_post_tax.png?raw=true)
 
@@ -16,10 +16,10 @@ After payroll and income taxes, labor's share of gross domestic income (GDI) fel
 |---|---|---|---|
 | Labor, pre-tax | 58.4 | 51.4 | −6.9 |
 | Labor, post-tax (after payroll and income tax) | 47.6 | 39.4 | −8.2 |
-| Profits after depreciation, pre-tax | 10.5 | 16.2 | +5.6 |
-| Profits after depreciation, post-tax (after corporate and personal tax) | 7.0 | 12.5 | +5.5 |
+| Profits after depreciation, pre-tax | 9.4 | 15.8 | +6.3 |
+| Profits after depreciation, post-tax (after corporate and personal tax) | 6.0 | 12.1 | +6.1 |
 
-Changes are computed from unrounded data. As a share of labor and profit income together, profits rose from 15.3% to 23.9% before tax and from 12.8% to 24.1% after tax. Post-tax profits rose slightly less than pre-tax profits because personal income tax on dividends rose by more than corporate income tax fell.
+Changes are computed from unrounded data. As a share of labor and profit income together, profits rose from 13.9% to 23.5% before tax and from 11.3% to 23.6% after tax. Post-tax profits rose slightly less than pre-tax profits because personal income tax on dividends and on the capital part of proprietors' income rose by more than corporate income tax fell.
 
 ---
 
@@ -38,7 +38,7 @@ Income tax on wages  = τ × Wages and salaries
 - **Payroll taxes**: employer and employee contributions for government social insurance, mainly Social Security and Medicare, plus unemployment insurance and railroad retirement (BEA Table 3.6). Employer contributions also include small insurance-type items such as workers' compensation and pension-guaranty premiums, about 0.1% of GDI. We exclude contributions by the self-employed, whose income is not in compensation, and Medicare supplementary medical insurance premiums, which enrollees (mostly people aged 65 and over) pay.
 - **τ**: the average income tax rate on household income, following [Mendoza, Razin and Tesar (1994)](https://doi.org/10.1016/0304-3932(94)90021-3), a widely used method for splitting personal income tax between labor and capital income in national accounts. Personal income taxes are federal plus state and local income taxes paid by persons (BEA Table 3.4); the denominator is household income from BEA Table 2.1. τ was 13.0% in 1970 and 14.9% in 2024.
 
-For profits we use Figure 3's definition: corporate profits after depreciation (without IVA/CCAdj, BEA Table 1.12) plus one third of proprietors' income (a common split since Johnson 1954), over GDI. Post-tax profits subtract corporate income tax and τ times dividends received by persons and one third of proprietors' income, so profits carry the same average household income tax rate that wages carry. Figure 3 of the main note subtracts corporate income tax only.
+For profits we use Figure 3's definition: corporate profits after depreciation (without IVA/CCAdj, BEA Table 1.12) plus the capital part of proprietors' income, over GDI. Each year proprietors' income is split between labor and capital in the same ratio as the rest of the economy's income, the "economy-wide basis" of Kravis (1959); the capital part was 18.7% of proprietors' income in 1970 and 27.2% in 2024. Post-tax profits subtract corporate income tax and τ times dividends received by persons and the capital part of proprietors' income, so profits carry the same average household income tax rate that wages carry. Figure 3 of the main note subtracts corporate income tax only.
 
 ---
 
@@ -67,7 +67,7 @@ The script reads BEA's data from [`data/bea_nipa_extract.csv`](data/bea_nipa_ext
 
 ## References
 
-- Johnson, D. G. (1954). The functional distribution of income in the United States, 1850–1952. *Review of Economics and Statistics*, 36(2), 175–182.
+- Kravis, I. B. (1959). Relative income shares in fact and theory. *American Economic Review*, 49(5), 917–949.
 - Mendoza, E. G., Razin, A., and Tesar, L. L. (1994). Effective tax rates in macroeconomics: Cross-country estimates of tax rates on factor incomes and consumption. *Journal of Monetary Economics*, 34(3), 297–323.
 - Piketty, T., Saez, E., and Zucman, G. (2018). Distributional national accounts: Methods and estimates for the United States. *Quarterly Journal of Economics*, 133(2), 553–609.
 - Summers, L. H. (1989). Some simple economics of mandated benefits. *American Economic Review*, 79(2), 177–183.

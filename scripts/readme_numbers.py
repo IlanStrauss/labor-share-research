@@ -13,6 +13,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from bea_nipa import ROOT, load  # noqa: E402
+from proprietors_split import capital_part, labor_fraction, labor_part  # noqa: E402
 
 A, B = 1970, 2024
 d = load()
@@ -26,17 +27,23 @@ def ndi(y):
     return d['A261RC'][y] - d['A262RC'][y]
 
 
+def kp(y):
+    # Capital part of proprietors' income, economy-wide split (proprietors_split.py)
+    return capital_part(d, y)
+
+
 MEASURES = {
     'Labor share (compensation / GDI)': lambda y: gdi('A4002C', y),
-    'Profit share, pre-tax (after depreciation)': lambda y: gdi('A053RC', y) + gdi('A041RC', y) / 3,
-    'Profit share, post-tax (after depreciation)': lambda y: gdi('A055RC', y) + gdi('A041RC', y) / 3,
+    'Profit share, pre-tax (after depreciation)': lambda y: 100 * (d['A053RC'][y] + kp(y)) / d['A261RC'][y],
+    'Profit share, post-tax (after depreciation)': lambda y: 100 * (d['A055RC'][y] + kp(y)) / d['A261RC'][y],
     'Depreciation': lambda y: gdi('A262RC', y),
     'Net operating surplus': lambda y: gdi('W271RC', y),
     'Taxes on production and imports less subsidies': lambda y: gdi('W056RC', y) - gdi('A107RC', y),
     'Labor share of NDI (compensation / NDI)': lambda y: 100 * d['A4002C'][y] / ndi(y),
     'Wages only (wages and salaries / GDI)': lambda y: gdi('W270RC', y),
-    'Profits / NDI, pre-tax': lambda y: 100 * (d['A053RC'][y] + d['A041RC'][y] / 3) / ndi(y),
-    'Profits / NDI, post-tax': lambda y: 100 * (d['A055RC'][y] + d['A041RC'][y] / 3) / ndi(y),
+    'Adjusted (compensation + labor part of proprietors)': lambda y: gdi('A4002C', y) + 100 * labor_part(d, y) / d['A261RC'][y],
+    'Profits / NDI, pre-tax': lambda y: 100 * (d['A053RC'][y] + kp(y)) / ndi(y),
+    'Profits / NDI, post-tax': lambda y: 100 * (d['A055RC'][y] + kp(y)) / ndi(y),
 }
 
 
@@ -46,12 +53,12 @@ def section(title):
 
 def main():
     section(f"Key Findings table, figures, and text ({A} and {B}; change computed from unrounded data)")
-    print(f"  {'':48s}{A:>8d}{B:>8d}{'pp':>8s}{'%':>7s}")
+    print(f"  {'':52s}{A:>8d}{B:>8d}{'pp':>8s}{'%':>7s}")
     v = {}
     for name, f in MEASURES.items():
         a, b = f(A), f(B)
         v[name] = (a, b)
-        print(f"  {name:48s}{a:8.1f}{b:8.1f}{b - a:+8.1f}{100 * (b / a - 1):+6.0f}%")
+        print(f"  {name:52s}{a:8.1f}{b:8.1f}{b - a:+8.1f}{100 * (b / a - 1):+6.0f}%")
 
     dl = v['Labor share (compensation / GDI)'][1] - v['Labor share (compensation / GDI)'][0]
     dcfc = v['Depreciation'][1] - v['Depreciation'][0]
@@ -64,6 +71,18 @@ def main():
     print(f"  depreciation's rise = {100 * dcfc / -dl:.0f}% of labor's fall")
     post = v['Profits / NDI, post-tax']
     print(f"  post-tax profits / NDI rose {post[1] - post[0]:+.1f} pp")
+
+    section("Proprietors' income split: economy-wide basis, against the earlier two-thirds rule")
+    print(f"  labor fraction of proprietors' income: {100 * labor_fraction(d, A):.1f}% ({A}), "
+          f"{100 * labor_fraction(d, B):.1f}% ({B})")
+    old = {
+        'Adjusted (compensation + labor part of proprietors)': lambda y: gdi('A4002C', y) + 2 * gdi('A041RC', y) / 3,
+        'Profit share, pre-tax (after depreciation)': lambda y: gdi('A053RC', y) + gdi('A041RC', y) / 3,
+        'Profit share, post-tax (after depreciation)': lambda y: gdi('A055RC', y) + gdi('A041RC', y) / 3,
+    }
+    for name, f in old.items():
+        print(f"  {name}: two-thirds rule {f(A):.1f} -> {f(B):.1f} ({f(B) - f(A):+.1f} pp); "
+              f"economy-wide {v[name][0]:.1f} -> {v[name][1]:.1f} ({v[name][1] - v[name][0]:+.1f} pp)")
 
     section(f"Definitions and compensation, {B}")
     print(f"  rental income of persons {gdi('A048RC', B):.1f}%; net interest and miscellaneous payments "
@@ -106,10 +125,11 @@ def main():
     lab = v['Labor share (compensation / GDI)']
     print(f"  whole economy, compensation / GDI: {100 * (lab[1] / lab[0] - 1):.1f}%")
 
-    comp, prop = gdi('A4002C', B), gdi('A041RC', B)
+    comp, prop, th = gdi('A4002C', B), gdi('A041RC', B), labor_fraction(d, B)
     section(f"METHODOLOGY.md: proprietors' income, {B}")
-    print(f"  proprietors' income {prop:.1f}%; compensation {comp:.1f}%; adjusted (compensation + 2/3 of it) {comp + 2 * prop / 3:.1f}%")
-    print(f"  against the adjusted share: none to labor {-2 * prop / 3:+.1f} pp, all to labor {prop / 3:+.1f} pp; "
+    print(f"  proprietors' income {prop:.1f}%; labor fraction {100 * th:.1f}%; labor part {th * prop:.1f}%; "
+          f"compensation {comp:.1f}%; adjusted (compensation + labor part) {comp + th * prop:.1f}%")
+    print(f"  against the adjusted share: none to labor {-th * prop:+.1f} pp, all to labor {(1 - th) * prop:+.1f} pp; "
           f"against compensation alone: all to labor {prop:+.1f} pp")
 
     section(f"METHODOLOGY.md: GDI by component ({A} and {B})")

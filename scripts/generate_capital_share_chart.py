@@ -2,11 +2,12 @@
 """
 Generate Figure 3: Corporate Profit Share chart.
 Shows pre-tax and post-tax corporate profit share (profits after depreciation,
-excluding rent and interest), plus 1/3 of proprietors' income (a common split since Johnson 1954).
+excluding rent and interest), plus the capital part of proprietors' income (economy-wide split,
+see proprietors_split.py).
 
 Data: BEA NIPA bulk file, annual, read by bea_nipa.py (BEA series codes in brackets)
-- Pre-tax  = (corporate profits before tax without IVA/CCAdj [A053RC] + 1/3 x proprietors' income [A041RC]) / GDI [A261RC]
-- Post-tax = (corporate profits after tax without IVA/CCAdj [A055RC] + 1/3 x proprietors' income) / GDI
+- Pre-tax  = (corporate profits before tax without IVA/CCAdj [A053RC] + capital part of proprietors' income [A041RC]) / GDI [A261RC]
+- Post-tax = (corporate profits after tax without IVA/CCAdj [A055RC] + capital part of proprietors' income) / GDI
 Corporate profits are measured after depreciation as firms report it for tax.
 
 Run: python3 scripts/generate_capital_share_chart.py
@@ -20,17 +21,16 @@ import matplotlib.ticker as mtick
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from bea_nipa import ROOT, load  # noqa: E402
+from proprietors_split import capital_part  # noqa: E402
 
 # === DATA ===
 START, END = 1970, 2024
 years = list(range(START, END + 1))
 d = load()
 
-# Capital's share of proprietors' income (a common split since Johnson 1954)
-alpha = 1/3
-
-pretax_adjusted = [100 * (d['A053RC'][y] + alpha * d['A041RC'][y]) / d['A261RC'][y] for y in years]
-posttax_adjusted = [100 * (d['A055RC'][y] + alpha * d['A041RC'][y]) / d['A261RC'][y] for y in years]
+# Proprietors' income is split between labor and capital in the same ratio as the rest of the economy's income
+pretax_adjusted = [100 * (d['A053RC'][y] + capital_part(d, y)) / d['A261RC'][y] for y in years]
+posttax_adjusted = [100 * (d['A055RC'][y] + capital_part(d, y)) / d['A261RC'][y] for y in years]
 
 # === CREATE FIGURE (same sizes as Figures 1 and 2) ===
 # Blue = pre-tax, orange = post-tax, as in the post-tax figure
@@ -74,12 +74,12 @@ ax.legend(loc='upper left', fontsize=LEGEND_SIZE, framealpha=0.95)
 
 fig.text(0.5, 0.01,
          'Source: BEA NIPA bulk data (Tables 1.10 and 1.12). Corporate profits without IVA/CCAdj, which are after depreciation '
-         'as firms report it for tax,\nplus ⅓ of proprietors\' income (Johnson 1954). Excludes rental income and net interest, '
-         'which go to property owners and lenders.',
+         'as firms report it for tax,\nplus the capital part of proprietors\' income, split in the same ratio as the rest of the '
+         'economy\'s income.\nExcludes rental income and net interest, which go to property owners and lenders.',
          ha='center', fontsize=SOURCE_SIZE, color='#555')
 
 plt.tight_layout()
-plt.subplots_adjust(bottom=0.12)
+plt.subplots_adjust(bottom=0.14)
 
 for ext in ('png', 'pdf'):
     kw = {'dpi': 150} if ext == 'png' else {}

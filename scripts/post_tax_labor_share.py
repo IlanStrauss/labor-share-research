@@ -22,10 +22,11 @@ Labor
 - After-income-tax labor share = (compensation - income tax on wages) / GDI
 - Post-tax labor share = (compensation - payroll taxes - income tax on wages) / GDI
 
-Profits (Figure 3's concept: corporate profits without IVA/CCAdj + 1/3 of proprietors' income)
-- Pre-tax = (profits before tax [A053RC] + prop/3) / GDI
-- After corporate tax = (profits after tax [A055RC] + prop/3) / GDI
-- After all taxes = after corporate tax - tau_h x (personal dividends + prop/3) / GDI
+Profits (Figure 3's concept: corporate profits without IVA/CCAdj + the capital part of
+proprietors' income, kp, split on the economy-wide basis in proprietors_split.py)
+- Pre-tax = (profits before tax [A053RC] + kp) / GDI
+- After corporate tax = (profits after tax [A055RC] + kp) / GDI
+- After all taxes = after corporate tax - tau_h x (personal dividends + kp) / GDI
 
 Robustness (1954-2014): tau_h recomputed without Treasury's taxes on capital gains
 (Office of Tax Analysis, December 2016 table), so no capital gains tax falls on wages.
@@ -40,6 +41,7 @@ import matplotlib.ticker as mtick
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from bea_nipa import ROOT, load  # noqa: E402
+from proprietors_split import capital_part  # noqa: E402
 
 # Treasury OTA, "Taxes Paid on Capital Gains for Returns with Positive Net Capital Gains,
 # 1954-2014" ($ millions), selected years used in the robustness check
@@ -64,7 +66,8 @@ def build(d):
         hh_income = wages + prop + d['A048RC'][y] + d['A064RC'][y] + divs
         tau_h = income_tax / hh_income
         tax_wages = tau_h * wages
-        tax_capital = tau_h * (divs + prop / 3)
+        kp = capital_part(d, y)
+        tax_capital = tau_h * (divs + kp)
         r = {
             'year': y,
             'labor_pre_tax': 100 * comp / gdi,
@@ -73,9 +76,9 @@ def build(d):
             'payroll_taxes': 100 * payroll / gdi,
             'income_tax_on_wages': 100 * tax_wages / gdi,
             'avg_household_income_tax_rate': 100 * tau_h,
-            'profit_pre_tax': 100 * (d['A053RC'][y] + prop / 3) / gdi,
-            'profit_after_corporate_tax': 100 * (d['A055RC'][y] + prop / 3) / gdi,
-            'profit_after_all_taxes': 100 * (d['A055RC'][y] + prop / 3 - tax_capital) / gdi,
+            'profit_pre_tax': 100 * (d['A053RC'][y] + kp) / gdi,
+            'profit_after_corporate_tax': 100 * (d['A055RC'][y] + kp) / gdi,
+            'profit_after_all_taxes': 100 * (d['A055RC'][y] + kp - tax_capital) / gdi,
             'corporate_income_tax': 100 * d['A054RC'][y] / gdi,
             'personal_tax_on_profits': 100 * tax_capital / gdi,
         }
@@ -164,9 +167,10 @@ def plot(rows, png, pdf):
              "Source: BEA NIPA bulk data (Tables 1.10, 1.12, 2.1, 3.4, 3.6). Payroll taxes are employer and employee social insurance "
              "contributions.\nIncome tax on wages, dividends, and proprietors' income uses the average household income tax rate "
              "(Mendoza, Razin and Tesar 1994).\nProfits are corporate profits without IVA/CCAdj, after depreciation as firms "
-             "report it for tax, plus 1/3 of proprietors' income (Johnson 1954).",
+             "report it for tax, plus the capital part of proprietors' income\n(proprietors' income split between labor and capital "
+             "in the same ratio as the rest of the economy's income).",
              ha='center', fontsize=12, color='#555')
-    plt.tight_layout(rect=(0, 0.07, 1, 1), h_pad=3)
+    plt.tight_layout(rect=(0, 0.085, 1, 1), h_pad=3)
     plt.savefig(png, dpi=150, bbox_inches='tight', facecolor='white', edgecolor='none')
     plt.savefig(pdf, bbox_inches='tight', facecolor='white', edgecolor='none')
     plt.close()
