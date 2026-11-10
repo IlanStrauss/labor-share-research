@@ -7,8 +7,9 @@ Data sources: BEA NIPA (data/bea_nipa_extract.csv); Penn World Table 11.0 from D
 data/labor_share_measures.csv.
 
 Charts produced:
-1. Gross labor share comparison (main chart)
-2. Net vs Gross labor share (depreciation effect)
+1. Gross labor share comparison (main chart, Figure 1)
+2. Net vs Gross labor share (depreciation effect, Figure 2)
+3. Combined overview (labor_share_comparison; listed in METHODOLOGY.md, not shown in the README)
 """
 
 import csv
@@ -41,9 +42,9 @@ bea_comp = gdi_share('A4002C')
 # Depreciation (Consumption of Fixed Capital) [A262RC]
 bea_dep = gdi_share('A262RC')
 
-# Wages and salaries [W270RC]
+# Wages and salaries [A4102C], including wages paid to workers abroad
 # This excludes supplements (benefits, employer social insurance)
-bea_wages = gdi_share('W270RC')
+bea_wages = gdi_share('A4102C')
 
 # Employer contributions for government social insurance [B039RC]
 # Social Security and Medicare (FICA) plus smaller programs such as unemployment insurance
@@ -149,7 +150,7 @@ def create_main_chart():
 
     # Formatting
     ax.set_xlabel('Year', fontsize=AXIS_LABEL_SIZE, fontweight='bold')
-    ax.set_ylabel('Labor Share of GDI (%)', fontsize=AXIS_LABEL_SIZE, fontweight='bold')
+    ax.set_ylabel('Labor Share (%)', fontsize=AXIS_LABEL_SIZE, fontweight='bold')
     # Title removed - heading is in README above the figure
 
     # X-axis: every 5 years
@@ -168,8 +169,8 @@ def create_main_chart():
 
     # Source note
     fig.text(0.5, 0.02,
-             'Sources: BEA NIPA bulk data (series A4002C, W270RC, B039RC, A041RC, A261RC, W056RC, A107RC, A262RC); '
-             'Penn World Table 11.0 (DataverseNL)',
+             'Sources: BEA NIPA bulk data (series A4002C, A4102C, B039RC, A041RC, A261RC, W056RC, A107RC, A262RC), '
+             'shares of GDI; Penn World Table 11.0 (DataverseNL), share of GDP',
              ha='center', fontsize=SOURCE_SIZE, color='#555')
 
     plt.tight_layout()
@@ -263,7 +264,7 @@ def create_depreciation_chart():
 
 def create_combined_chart():
     """
-    Figure 4: Combined overview (for backward compatibility with original README)
+    Combined overview (listed in METHODOLOGY.md, not shown in the README)
     """
     fig, ax = plt.subplots(figsize=(16, 10))
 
@@ -296,7 +297,7 @@ def create_combined_chart():
     # Formatting
     ax.set_xlabel('Year', fontsize=AXIS_LABEL_SIZE, fontweight='bold')
     ax.set_ylabel('Labor Share (%)', fontsize=AXIS_LABEL_SIZE, fontweight='bold')
-    ax.set_title('U.S. Labor Share of GDI: Multiple Measures (1970-2024)',
+    ax.set_title('U.S. Labor Share: Multiple Measures (1970-2024)',
                  fontsize=TITLE_SIZE, fontweight='bold', pad=20)
 
     # X-axis: every 5 years
@@ -314,11 +315,11 @@ def create_combined_chart():
 
     # Source note
     fig.text(0.5, 0.02,
-             'Sources: BEA NIPA bulk data; Penn World Table 11.0 (DataverseNL)',
+             'Sources: BEA NIPA bulk data (shares of GDI); Penn World Table 11.0 (DataverseNL, share of GDP)',
              ha='center', fontsize=SOURCE_SIZE, color='#555')
 
     # Methodology note
-    note_text = ("Gross = Comp/GDI  |  Net = Comp/(GDI−Depreciation)  |  "
+    note_text = ("Gross = Comp/GDI  |  Depreciation-adjusted = Comp/(GDI−Depreciation)  |  "
                  "Adjusted = Comp + labor part of Proprietors' Income")
     fig.text(0.5, 0.05, note_text, ha='center', fontsize=SOURCE_SIZE, color='#444', style='italic')
 

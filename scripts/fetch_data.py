@@ -36,7 +36,7 @@ REGISTER_URL = 'https://apps.bea.gov/national/Release/TXT/SeriesRegister.txt'
 SERIES = [
     'A261RC',  # Gross domestic income
     'A4002C',  # Compensation of employees, paid
-    'W270RC',  # Wages and salaries (GDI)
+    'A4102C',  # Wages and salaries (Table 1.10; W270RC is only its 'to persons' part)
     'B039RC',  # Employer contributions for government social insurance
     'B040RC',  # Employer contributions for employee pension and insurance funds
     'A262RC',  # Consumption of fixed capital (depreciation)

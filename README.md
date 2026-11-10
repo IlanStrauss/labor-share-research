@@ -2,11 +2,11 @@
 
 ## Executive Summary
 
-**U.S. labor share declines while profit share grows** Yes! Across the standard BEA whole-economy measures in Table 1.11, the labor share is well below its late-1960s/1970 peak. The decline is consistent across all measures examined here, though magnitude varies with methodological choices. Concurrent to this has been a dramatic rise in the profit share of the income (which excludes interest income and rental income). 
+**U.S. labor share declines while profit share grows** Yes! Across the standard BEA whole-economy measures in Table 1.11, the labor share is well below its late-1960s/1970 peak. The decline is consistent across all measures examined here, though magnitude varies with methodological choices. Concurrent with this has been a dramatic rise in the profit share of the income (which excludes interest income and rental income). 
 
 **The rise of profits and depreciation.** It should be noted that the profit share of income (profits after depreciation) remains only 13.5% post-tax (or 15.8% pre-tax) and is now close to the depreciation share of income (16.4%). Depreciation is income set aside by the firm to replace the value of its fixed capital as it declines in productivity. 
 
-**So who is benefiting from the decline in the labor share?** Depreciation income does not really represent income available to the firm as profits. As such the profit share measure deducts depreciation. It also means as the economy's production becomes more machine-intensive, the depreciation share of income will continue to rise, especially as the life of its assets decline. Depreciation, therefore, arguably represents a share of income that does not benefit anyone per se. However, if the price of capital goods falls sharply (as with computing hardware) then depreciation may not grow in value terms even as machinery become more important to production.
+**So who is benefiting from the decline in the labor share?** Depreciation income does not really represent income available to the firm as profits. As such the profit share measure deducts depreciation. It also means as the economy's production becomes more machine-intensive, the depreciation share of income will continue to rise, especially as the life of its assets declines. Depreciation, therefore, arguably represents a share of income that does not benefit anyone per se. However, if the price of capital goods falls sharply (as with computing hardware) then depreciation may not grow in value terms even as machinery becomes more important to production.
 
 ### Key Findings (1970-2024)
 
@@ -46,7 +46,7 @@ Gross Labor Share = ────────────────────
                     Gross Domestic Income (GDI)
 ```
 
-This is the standard measure used in the literature ([Karabarbounis & Neiman 2014](https://www.nber.org/papers/w19136), [Autor et al. 2020](https://www.nber.org/papers/w23396), [Elsby et al. 2013](https://www.brookings.edu/articles/the-decline-of-the-u-s-labor-share/)).
+This is the standard measure used in the literature ([Karabarbounis & Neiman 2014](https://doi.org/10.1093/qje/qjt032), [Autor et al. 2020](https://doi.org/10.1093/qje/qjaa004), [Elsby et al. 2013](https://www.brookings.edu/articles/the-decline-of-the-u-s-labor-share/)).
 
 ### What Goes Into the Numerator?
 
@@ -111,23 +111,23 @@ The choice of numerator matters: wages alone have fallen more steeply than total
 
 [![U.S. Gross Labor Share](figures/labor_share_gross.png)](figures/labor_share_gross.png?raw=true)
 
-Figure 1 shows five different ways of measuring labor's share of national income, all using GDI as the denominator but varying the labor income numerator (the top of the equation). Each line represents a different definition of "labor income."
+Figure 1 shows five different ways of measuring labor's share of income. The four BEA lines all use GDI as the denominator but vary the labor income numerator (the top of the equation); the Penn World Table line divides by GDP. Each line represents a different definition of "labor income."
 
 - **BEA Total Compensation**: Blue line. The standard gross labor share. The numerator is total compensation of employees (wages + supplements). This is the benchmark measure used in most academic literature.
 
 - **Wages + Benefits (excl. employer social insurance)**: Pink line. The numerator excludes employer contributions for government social insurance (~3% of GDI, dominated by FICA) while keeping private benefits.
 
-- **Penn World Table (1970–2023 only)**: Green line. Uses a different methodology that imputes a labor share for self-employed workers, rather than treating proprietors' income as mixed. *Note: PWT data ends in 2023; the line does not extend to 2024.*
+- **Penn World Table (1970–2023 only)**: Green line. Uses the Penn World Table's own adjustment for the labor income of the self-employed, and divides by GDP rather than GDI. *Note: PWT data ends in 2023; the line does not extend to 2024.*
 
 - **Adjusted: Includes the Labor Part of Proprietors' Income**: Purple line. Adds the labor part of proprietors' income to the numerator, to account for the pay of the self-employed for their own work. Each year proprietors' income is split in the same ratio as the rest of the economy's income, so the labor part was 81.3% of proprietors' income in 1970 and 72.8% in 2024. This line fell from 64.3% to 56.2%, 8.1 pp.
 
 - **Wages Only**: Amber line. The numerator is just wages and salaries — no benefits, no employer payroll taxes. This shows the steepest decline.
 
-**Interpretation:** All measures show a decline from 1970 to the latest available year (BEA series through 2024; Penn World Table through 2023). The magnitude varies: the decline is −6.9 pp for the standard measure, but −9.3 pp for wages only. This means that rising employer contributions to benefits and payroll taxes have partially masked wage stagnation. If you care about workers' cash wages, the decline is steeper than the headline labor share suggests.
+**Interpretation:** All measures show a decline from 1970 to the latest available year (BEA series through 2024; Penn World Table through 2023). The magnitude varies: the decline is −6.9 pp for the standard measure, but −9.2 pp for wages only. This means that rising employer contributions to benefits and payroll taxes have partially masked wage stagnation. If you care about workers' cash wages, the decline is steeper than the headline labor share suggests.
 
 Next, we move on to the importance of adjusting total income for depreciation. 
 
-**Terminology note:** In the labor share literature, "net" means *net of depreciation* (using NDI as denominator), **not** net of taxes. All measures in this document are pre-income-tax.
+**Terminology note:** In the labor share literature, "net" means *net of depreciation* (using NDI as denominator), **not** net of taxes. All labor share measures in this document are before income tax; [POST_TAX.md](POST_TAX.md) has after-tax versions.
 
 ### Figure 2. Labor Share of Net Income (NDI) Also Declined, But Less Steeply
 
@@ -196,10 +196,10 @@ The accounting identities make this explicit:
 
 ```
 Gross income identity (Table 1.11):
-  GDI = Compensation + Net Operating Surplus + Taxes on Production + Depreciation
+  GDI = Compensation + Net Operating Surplus + Taxes on Production less Subsidies + Depreciation
 
 Net income identity (distribution-relevant):
-  NDI = GDI − Depreciation = Compensation + Net Operating Surplus + Taxes on Production
+  NDI = GDI − Depreciation = Compensation + Net Operating Surplus + Taxes on Production less Subsidies
 ```
 
 On a net basis, depreciation has already been netted out of capital's claim; labor's higher share is the corollary of measuring the split over net income. Corporate profits are part of that net claim. They are already measured after depreciation, so depreciation should not be deducted from them again, and their share of NDI is higher than their share of GDI, just as labor's is.
@@ -212,9 +212,9 @@ Labor Share of Net Income (NDI) = ───────────────�
                                    GDI − Depreciation (= NDI)
 ```
 
-**Terminology note:** In the labor share literature, "net" typically means *net of depreciation*, **not** net of taxes. All measures in this document are pre-income-tax.
+**Terminology note:** In the labor share literature, "net" typically means *net of depreciation*, **not** net of taxes. All labor share measures in this document are before income tax; [POST_TAX.md](POST_TAX.md) has after-tax versions.
 
-Equivalently, if we measure labor's share over net income (NDI), the labor-share ratio rises mechanically because the denominator excludes depreciation. The NDI-basis measure shows a smaller decline than the gross measure because depreciation has risen substantially (from 12.8% to 16.4% of GDI). We are measuring labor's share of *sustainable, consumable income* rather than gross output.
+Equivalently, if we measure labor's share over net income (NDI), the labor-share ratio rises mechanically because the denominator excludes depreciation. The NDI-basis measure shows a smaller decline than the gross measure because depreciation has risen substantially (from 12.8% to 16.4% of GDI). We are measuring labor's share of *sustainable, consumable income* rather than gross income.
 
 ---
 
@@ -235,7 +235,7 @@ How does the U.S. labor share compare to other major economies? Using the [Penn 
 
 *Source: Penn World Table 11.0 ([Feenstra, Inklaar and Timmer 2015](https://doi.org/10.1257/aer.20130954)), from its publisher's archive on [DataverseNL](https://doi.org/10.34894/FABVLR). Variable: share of labour compensation in GDP at current national prices (labsh).*
 
-The flipside of a low labor share is a high capital share. The U.S. economy directs a larger fraction of national income to capital owners — through corporate profits, depreciation allowances, and property income — than most other advanced economies. This pattern is consistent with research showing that the U.S. has experienced one of the steepest labor share declines among OECD countries since the 1980s, driven by factors including technological change, globalization, and declining worker bargaining power ([Autor et al. 2020](https://www.nber.org/papers/w23396); [Karabarbounis & Neiman 2014](https://www.nber.org/papers/w19136)).
+The flipside of a low labor share is a larger share for everything else in GDP, such as profits, depreciation, and property income. Labor shares have fallen in most countries since the early 1980s, so the U.S. decline is part of a wider pattern ([Karabarbounis & Neiman 2014](https://doi.org/10.1093/qje/qjt032); [Autor et al. 2020](https://doi.org/10.1093/qje/qjaa004)).
 
 ---
 

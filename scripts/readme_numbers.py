@@ -40,7 +40,7 @@ MEASURES = {
     'Net operating surplus': lambda y: gdi('W271RC', y),
     'Taxes on production and imports less subsidies': lambda y: gdi('W056RC', y) - gdi('A107RC', y),
     'Labor share of NDI (compensation / NDI)': lambda y: 100 * d['A4002C'][y] / ndi(y),
-    'Wages only (wages and salaries / GDI)': lambda y: gdi('W270RC', y),
+    'Wages only (wages and salaries / GDI)': lambda y: gdi('A4102C', y),
     'Adjusted (compensation + labor part of proprietors)': lambda y: gdi('A4002C', y) + 100 * labor_part(d, y) / d['A261RC'][y],
     'Profits / NDI, pre-tax': lambda y: 100 * (d['A053RC'][y] + kp(y)) / ndi(y),
     'Profits / NDI, post-tax': lambda y: 100 * (d['A055RC'][y] + kp(y)) / ndi(y),
@@ -136,9 +136,9 @@ def main():
     nos_parts = ('A041RC', 'A445RC', 'A048RC', 'W272RC')
     rows = [
         ('Compensation of employees', lambda y: gdi('A4002C', y)),
-        ('  Wages and salaries', lambda y: gdi('W270RC', y)),
+        ('  Wages and salaries', lambda y: gdi('A4102C', y)),
         ('  Wages and benefits (less employer social insurance)', lambda y: gdi('A4002C', y) - gdi('B039RC', y)),
-        ('  Supplements', lambda y: gdi('A4002C', y) - gdi('W270RC', y)),
+        ('  Supplements', lambda y: gdi('A4002C', y) - gdi('A4102C', y)),
         ('    Employer contributions, pension and insurance funds', lambda y: gdi('B040RC', y)),
         ('    Employer contributions, government social insurance', lambda y: gdi('B039RC', y)),
         ("Proprietors' income", lambda y: gdi('A041RC', y)),
@@ -154,7 +154,7 @@ def main():
     top = [0, 6, 7, 8, 9, 10, 11, 12]
     for y in (A, B):
         print(f"  {y}: top-level rows sum to {sum(rows[i][1](y) for i in top):.2f}; supplements less the two "
-              f"employer contributions {rows[3][1](y) - rows[4][1](y) - rows[5][1](y):+.2f}")
+              f"employer contributions {round(rows[3][1](y) - rows[4][1](y) - rows[5][1](y), 2) + 0.0:+.2f}")
 
     section(f"METHODOLOGY.md: net domestic income (NDI), {B} worked example")
     net = 100 - gdi('A262RC', B)

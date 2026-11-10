@@ -10,7 +10,7 @@ The labor share is a ratio. The **denominator** is the measure of total national
 
 1. **The numerator comes from the income side.** Compensation of employees is a component of GDI (the income-side measure). Using GDI as the denominator means both numerator and denominator come from the same accounting framework.
 
-2. **Using GDP as denominator introduces noise.** GDP (expenditure-side) and GDI (income-side) differ by a "statistical discrepancy" (typically ~1% of GDP). Dividing an income-side numerator by an expenditure-side denominator mixes measurement error into the ratio.
+2. **Using GDP as denominator introduces noise.** GDP (expenditure-side) and GDI (income-side) differ by a "statistical discrepancy" (0.8% of GDP on average since 1970, in absolute value). Dividing an income-side numerator by an expenditure-side denominator mixes measurement error into the ratio.
 
 3. **The shares sum correctly with GDI.** When we use GDI as the denominator, the component shares (compensation, profits, depreciation, etc.) sum to exactly 100%. This would not hold if we used GDP.
 
@@ -18,7 +18,7 @@ The labor share is a ratio. The **denominator** is the measure of total national
 
 ## Tax Boundary Declaration
 
-All factor shares in this note are measured **before income taxes**:
+The factor shares in this note are measured **before income taxes**, except Figure 3's post-tax profit share, which is after corporate income tax:
 
 | Component | Tax Treatment | Reference |
 |-----------|---------------|-----------|
@@ -32,7 +32,7 @@ All factor shares in this note are measured **before income taxes**:
 - **Pre-corporate income tax**: Profits are measured before firms pay corporate taxes
 - **Employer FICA**: Included in compensation (standard practice); can be separated out
 
-The main note's shares are before income taxes. [POST_TAX.md](POST_TAX.md) builds after-tax labor and profit shares, assuming each tax is borne by the income it is levied on.
+[POST_TAX.md](POST_TAX.md) builds after-tax labor and profit shares, assuming each tax is borne by the income it is levied on.
 
 ---
 
@@ -55,12 +55,10 @@ BEA's compensation of employees (series A4002C) includes:
 
 | Component | 2024 Share | Description |
 |-----------|------------|-------------|
-| **Wages and Salaries** | 42.3% | Cash payments to workers (pre-income tax) |
-| **Supplements** | 9.1% | Benefits + employer social insurance contributions |
+| **Wages and Salaries** | 42.4% | Cash payments to workers (pre-income tax) |
+| **Supplements** | 9.0% | Benefits + employer social insurance contributions |
 | └ Employer pension/insurance | 6.1% | Health insurance, 401(k) contributions |
-| └ Employer social insurance (FICA) | 2.9% | Employer portion of Social Security + Medicare |
-
-*The two employer contributions come from BEA's national income table (Table 1.12), so they sum to 0.1 pp less than supplements paid by domestic employers.*
+| └ Employer social insurance | 2.9% | Mostly the employer share of Social Security and Medicare (FICA) |
 
 **Tax treatment in labor share measures:**
 
@@ -70,7 +68,7 @@ BEA's compensation of employees (series A4002C) includes:
 | **Employee FICA** (~7.65%) | Pre-tax | Workers pay this out of wages received |
 | **Employer FICA** (~7.65%) | Included in supplements | Standard practice (total labor cost) |
 
-**Why include employer social insurance?** This is standard in the literature ([Karabarbounis & Neiman 2014](https://www.nber.org/papers/w19136), [Autor et al. 2020](https://www.nber.org/papers/w23396)) because:
+**Why include employer social insurance?** This is standard in the literature ([Karabarbounis & Neiman 2014](https://doi.org/10.1093/qje/qjt032), [Autor et al. 2020](https://doi.org/10.1093/qje/qjaa004)) because:
 1. It represents the **total cost of employing labor**
 2. It funds benefits workers receive (Social Security, Medicare)
 3. Excluding it would understate the true labor share
@@ -81,7 +79,7 @@ BEA's compensation of employees (series A4002C) includes:
 |----------------|------------------|-----------|
 | Total labor cost to firms | Total Compensation | −6.9 pp |
 | Labor share ex-payroll taxes | Wages + Benefits (excl. employer social insurance) | −7.6 pp |
-| Cash wages only | Wages Only | −9.3 pp |
+| Cash wages only | Wages Only | −9.2 pp |
 
 The **"Wages + Benefits (excl. employer social insurance)"** line (pink in Figure 1) excludes employer payroll taxes while keeping private benefits. This shows that excluding payroll taxes, the labor share decline is *steeper* (−7.6 pp), not smaller, because employer social insurance rose from 2.2% to 2.9% of GDI.
 
@@ -121,7 +119,7 @@ The "Net Interest and Miscellaneous Payments" line in GDI is the interest that b
 |-----------|------------------|----------------------------|
 | **Corporate Profits** (with IVA+CCAdj) | Profits from current production, *pre-corporate income tax* | Net of interest paid, rent paid, wages, depreciation |
 | **Net Interest** | Interest paid by businesses less interest they receive | **Not** = financial sector income |
-| **Rental Income** | Income of persons from property ownership | Direct measure of landlord income |
+| **Rental Income** | Income of persons from property ownership | Includes homeowners' imputed rent and royalties, not just landlords' income |
 | **Compensation** | Wages + supplements paid to employees | — |
 | **Proprietors' Income** | Mixed labor/capital income of self-employed | — |
 | **Depreciation (CFC)** | Consumption of fixed capital | Not "income" to anyone |
@@ -140,14 +138,14 @@ The NOS subcomponents (corporate profits, proprietors' income, rental income, ne
 For capital's share, the **residual method** is cleanest:
 
 ```
-Capital Share = (GDI − Compensation − Taxes on Production − labor part of Proprietors' income) / GDI
+Capital Share = (GDI − Compensation − Taxes on Production less Subsidies − labor part of Proprietors' income) / GDI
 ```
 
 This avoids the "net interest" interpretation problem entirely.
 
 For **depreciation-adjusted** capital share (using NDI):
 ```
-Depreciation-Adjusted Capital Share = (NDI − Compensation − Taxes − labor part of Proprietors' income) / NDI
+Depreciation-Adjusted Capital Share = (NDI − Compensation − Taxes less Subsidies − labor part of Proprietors' income) / NDI
 ```
 
 **Recommendation:** If you're focused on "capital vs labor," use **Net Operating Surplus** as your capital aggregate (which BEA publishes), rather than manually summing profits + interest + rent. This sidesteps the net-interest accounting complexity.
@@ -181,17 +179,17 @@ On an NDI basis, where depreciation is treated as a capital cost subtracted befo
 
 ### 3. Decomposing the labor share decline
 
-The three-way decomposition reveals where the "missing" labor share went:
+Three numerator definitions separate cash wages from supplements:
 
 | Measure (Numerator / GDI) | 1970 | 2024 | Change |
 |---------------------------|------|------|--------|
 | Total Compensation (wages + all supplements) | 58.4% | 51.4% | −6.9 pp |
 | Wages + Benefits (excl. employer social insurance) | 56.1% | 48.5% | −7.6 pp |
-| Wages Only (cash wages, no supplements) | 51.6% | 42.3% | −9.3 pp |
+| Wages Only (cash wages, no supplements) | 51.6% | 42.4% | −9.2 pp |
 
 **Key insight:** The rise in supplements (+2.3 pp) consists of:
 - **Private benefits** (pension, health insurance): +1.6 pp
-- **Employer FICA** (Social Security, Medicare): +0.7 pp
+- **Employer social insurance** (mostly Social Security and Medicare): +0.7 pp
 
 If you view employer social insurance as a "tax on labor" rather than compensation *to* labor, the labor share decline is steeper (−7.6 pp).
 
@@ -206,11 +204,11 @@ If you view employer social insurance as a "tax on labor" rather than compensati
 | Component | 1970 | 2024 | Δ |
 |-----------|------|------|---|
 | **Compensation of Employees** | **58.4%** | **51.4%** | **−6.9 pp** |
-| └ Wages & Salaries | 51.6% | 42.3% | −9.3 pp |
+| └ Wages & Salaries | 51.6% | 42.4% | −9.2 pp |
 | └ Wages + Benefits (excl. employer social insurance)† | 56.1% | 48.5% | −7.6 pp |
-| └ Supplements (total) | 6.7% | 9.1% | +2.3 pp |
+| └ Supplements (total) | 6.7% | 9.0% | +2.3 pp |
 |   └ Employer pension/insurance | 4.5% | 6.1% | +1.6 pp |
-|   └ Employer FICA (Social Security, Medicare) | 2.2% | 2.9% | +0.7 pp |
+|   └ Employer social insurance (mostly Social Security and Medicare) | 2.2% | 2.9% | +0.7 pp |
 | Proprietors' Income | 7.3% | 6.5% | −0.7 pp |
 | Corporate Profits (with IVA+CCAdj), domestic industries‡ | 7.4% | 11.3% | +3.9 pp |
 | Rental Income | 1.9% | 3.6% | +1.7 pp |
@@ -219,7 +217,7 @@ If you view employer social insurance as a "tax on labor" rather than compensati
 | **Depreciation (CFC)** | **12.8%** | **16.4%** | **+3.6 pp** |
 | Taxes on Production and Imports less Subsidies§ | 8.1% | 6.4% | −1.7 pp |
 
-*Source: BEA NIPA Tables 1.10 and 1.12, from BEA's bulk data file of 4 November 2026, saved in [`data/`](data/); `python3 scripts/readme_numbers.py` prints this table. Compensation and the rows below it from Proprietors' Income down sum to 100% of GDI. Changes are computed from unrounded data. The two employer contributions come from Table 1.12, so they sum to 0.1 pp less than supplements in 2024.*
+*Source: BEA NIPA Tables 1.10 and 1.12, from BEA's bulk data file of 4 November 2026, saved in [`data/`](data/); `python3 scripts/readme_numbers.py` prints this table. Compensation and the rows below it from Proprietors' Income down sum to 100% of GDI. Changes are computed from unrounded data.*
 
 **Table notes:**
 - † **Wages + Benefits (excl. employer social insurance)**: Compensation minus employer contributions for government social insurance (dominated by FICA). Shows a steeper decline (−7.6 pp) than total compensation (−6.9 pp).
@@ -235,7 +233,7 @@ If you view employer social insurance as a "tax on labor" rather than compensati
 
 | Your Question | Recommended Measure | Why |
 |---------------|---------------------|-----|
-| **Are corporations squeezing workers?** | Gross (corporate sector) | Shows actual firm-level revenue split |
+| **Are corporations squeezing workers?** | Gross (corporate sector) | Shows how corporations' value added is split |
 | **What income is sustainable?** | Labor share of NDI (Comp/NDI) | Depreciation isn't available for consumption |
 | **How do wages compare to total labor costs?** | Wages vs Total Compensation | Reveals role of benefits/payroll taxes |
 | **Labor share excl. govt social insurance?** | Wages + Benefits (excl. employer social insurance) | Excludes employer social insurance (dominated by FICA) from numerator |
@@ -252,8 +250,8 @@ If you view employer social insurance as a "tax on labor" rather than compensati
 |-------|--------------|
 | [**Bridgman (2018)**](https://doi.org/10.1017/S1365100516001000) | Net labor share is more relevant; shows less decline than gross |
 | [**Rognlie (2015)**](https://www.brookings.edu/wp-content/uploads/2016/07/2015a_rognlie.pdf) | The long-run rise in the net capital share comes from housing |
-| [**Karabarbounis & Neiman (2014)**](https://www.nber.org/papers/w19136) | Global labor share declined; driven by falling investment prices |
-| [**Autor et al. (2020)**](https://www.nber.org/papers/w23396) | "Superstar firms" with low labor shares capture market share |
+| [**Karabarbounis & Neiman (2014)**](https://doi.org/10.1093/qje/qjt032) | Global labor share declined; falling investment prices explain about half |
+| [**Autor et al. (2020)**](https://doi.org/10.1093/qje/qjaa004) | "Superstar firms" with low labor shares capture market share |
 | [**Koh et al. (2020)**](https://doi.org/10.3982/ECTA17477) | IPP capitalization explains entire decline |
 | [**Barkai, Nallareddy and Ogneva (2025)**](https://doi.org/10.1016/j.red.2024.101268) | The decline does not depend on IPP capitalization |
 
@@ -265,7 +263,7 @@ If you view employer social insurance as a "tax on labor" rather than compensati
 |--------|-----------|-------------|
 | BEA NIPA | A261RC | Gross domestic income |
 | BEA NIPA | A4002C | Compensation of employees, paid |
-| BEA NIPA | W270RC | Wages and salaries |
+| BEA NIPA | A4102C | Wages and salaries |
 | BEA NIPA | A262RC | Consumption of fixed capital (depreciation) |
 | BEA NIPA | A041RC | Proprietors' income with IVA and CCAdj |
 | BEA NIPA | A445RC | Corporate profits with IVA and CCAdj, domestic industries |
@@ -372,19 +370,19 @@ The BLS nonfarm business labor share shows a **15% decline** from 1970, its earl
 
 ### What Studies Find Quantitatively
 
-Reported magnitudes of the labor share decline vary across studies, sectors, and periods. [Karabarbounis and Neiman (2014)](https://www.nber.org/papers/w19136) document a decline of about 5 pp in the global corporate labor share, from roughly 64 percent in 1975 to about 59 percent in 2012. [Elsby, Hobijn and Şahin (2013)](https://www.brookings.edu/articles/the-decline-of-the-u-s-labor-share/) find that the BLS headline labor share for U.S. nonfarm business averaged 64.6 percent over 1948 to 1987 and 58.3 percent over 2010 to 2012, a fall of 6.4 pp, while the payroll share (employee compensation alone) fell 3.9 pp. [Autor et al. (2020)](https://www.nber.org/papers/w23396) show that the U.S. decline is driven mainly by a reallocation of sales toward firms with low labor shares rather than by falling labor shares within most firms.
+Reported magnitudes of the labor share decline vary across studies, sectors, and periods. [Karabarbounis and Neiman (2014)](https://doi.org/10.1093/qje/qjt032) document a decline of about 5 pp in the global corporate labor share, from roughly 64 percent in 1975 to about 59 percent in 2012. [Elsby, Hobijn and Şahin (2013)](https://www.brookings.edu/articles/the-decline-of-the-u-s-labor-share/) find that the BLS headline labor share for U.S. nonfarm business averaged 64.6 percent over 1948 to 1987 and 58.3 percent over 2010 to 2012, a fall of 6.4 pp, while the payroll share (employee compensation alone) fell 3.9 pp. [Autor et al. (2020)](https://doi.org/10.1093/qje/qjaa004) show that the U.S. decline is driven mainly by a reallocation of sales toward firms with low labor shares rather than by falling labor shares within most firms.
 
 Alternative measures yield different pictures. [Bridgman (2018)](https://doi.org/10.1017/S1365100516001000) finds that the net labor share, after depreciation and production taxes, is within its historical range, while the gross share is at its lowest level. [Rognlie (2015)](https://www.brookings.edu/wp-content/uploads/2016/07/2015a_rognlie.pdf) shows that the long-run rise in the net capital share comes from housing; elsewhere the net capital share has only recovered from a fall that lasted from 1948 through the 1970s. Barkai (2020, *Journal of Finance*) finds that in the U.S. nonfinancial corporate sector from 1984 to 2014 both the labor share and the capital share fell, offset by a large rise in the share of pure profits. [Koh, Santaeulàlia-Llopis and Zheng (2020)](https://doi.org/10.3982/ECTA17477) argue that the capitalization of intellectual-property products (IPP) in the national accounts fully accounts for the decline over the past 90 years.
 
-Our estimates for the whole economy from the 1970 peak are 6.9 pp for compensation over GDI, 5.4 pp over NDI, and 9.3 pp for wages only, so the measured decline varies by about 70 percent across these choices alone. The studies above cover different sectors and years, so their magnitudes are not directly comparable with ours.
+Our estimates for the whole economy from the 1970 peak are 6.9 pp for compensation over GDI, 5.4 pp over NDI, and 9.2 pp for wages only, so the measured decline varies by about 70 percent across these choices alone. The studies above cover different sectors and years, so their magnitudes are not directly comparable with ours.
 
 ### Causal Mechanisms
 
 The literature proposes four broad, non-mutually-exclusive mechanisms.
 
-**Falling capital-goods prices** ([Karabarbounis and Neiman 2014](https://www.nber.org/papers/w19136)). If capital and labor are gross substitutes, a fall in the relative price of investment goods raises the capital-labor ratio and lowers labor's share. They estimate that the lower price of investment goods explains roughly half of the global decline.
+**Falling capital-goods prices** ([Karabarbounis and Neiman 2014](https://doi.org/10.1093/qje/qjt032)). If capital and labor are gross substitutes, a fall in the relative price of investment goods raises the capital-labor ratio and lowers labor's share. They estimate that the lower price of investment goods explains roughly half of the global decline.
 
-**Market power and superstar firms** ([Autor et al. 2020](https://www.nber.org/papers/w23396); De Loecker, Eeckhout, and Unger 2020, *QJE*; Barkai 2020, *Journal of Finance*). Rising product-market concentration reallocates output toward low-labor-share firms, and rising markups redistribute income from both labor and capital toward pure profits. De Loecker et al. estimate that aggregate U.S. markups rose from 21 percent above marginal cost in 1980 to 61 percent in 2016.
+**Market power and superstar firms** ([Autor et al. 2020](https://doi.org/10.1093/qje/qjaa004); De Loecker, Eeckhout, and Unger 2020, *QJE*; Barkai 2020, *Journal of Finance*). Rising product-market concentration reallocates output toward low-labor-share firms, and rising markups redistribute income from both labor and capital toward pure profits. De Loecker et al. estimate that aggregate U.S. markups rose from 21 percent above marginal cost in 1980 to 61 percent in 2016.
 
 **Automation and task displacement** ([Acemoglu and Restrepo 2019](https://www.aeaweb.org/articles?id=10.1257/jep.33.2.3), *JEP*). Automation shifts tasks from labor to capital, which lowers labor's share of value added, while new tasks for labor raise it. They find that over the last three decades displacement has been stronger, and the creation of new tasks weaker, than in earlier decades. See also Acemoglu and Restrepo (2020, *JPE*) on robots and local labor markets, and (2022, *Econometrica*) on automation and wage inequality.
 
@@ -404,6 +402,6 @@ Several methodological choices materially affect the reported decline, and studi
 
 *Housing.* Owner-occupied housing contributes imputed rental income to GDI with no offsetting labor compensation. [Rognlie (2015)](https://www.brookings.edu/wp-content/uploads/2016/07/2015a_rognlie.pdf) shows that housing accounts for the long-run rise in the net capital share, so part of the "capital versus labor" story is a story about housing.
 
-*Wages versus total compensation.* Rising employer benefits (health insurance, pensions) and payroll taxes have partly offset falling cash wages. Wages-only measures show a decline about a third larger than total compensation (9.3 pp versus 6.9 pp). Whether employer contributions count as compensation to labor or as a tax on labor is a definitional choice with material consequences for the reported magnitude.
+*Wages versus total compensation.* Rising employer benefits (health insurance, pensions) and payroll taxes have partly offset falling cash wages. Wages-only measures show a decline about a third larger than total compensation (9.2 pp versus 6.9 pp). Whether employer contributions count as compensation to labor or as a tax on labor is a definitional choice with material consequences for the reported magnitude.
 
 This note maps these measurement choices to the research questions they best answer, rather than defending a single specification.
